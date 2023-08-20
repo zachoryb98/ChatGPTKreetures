@@ -1,0 +1,300 @@
+Using pre-set license
+Built from '2021.3/staging' branch; Version is '2021.3.7f1 (24e8595d6d43) revision 2418777'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 11  (10.0.22621) 64bit Core' Language: 'en' Physical Memory: 16084 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2021.3.7f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker8
+-projectPath
+C:/Users/zbehr/Repos/Kreetures3DSample
+-logFile
+Logs/AssetImportWorker8.log
+-srvPort
+49730
+Successfully changed project path to: C:/Users/zbehr/Repos/Kreetures3DSample
+C:/Users/zbehr/Repos/Kreetures3DSample
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Refreshing native plugins compatible for Editor in 101.88 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.3.7f1 (24e8595d6d43)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/zbehr/Repos/Kreetures3DSample/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3060 Laptop GPU (ID=0x2520)
+    Vendor:   NVIDIA
+    VRAM:     6009 MB
+    Driver:   31.0.15.3699
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56924
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
+Registered in 0.004279 seconds.
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 67.02 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.570 seconds
+Domain Reload Profiling:
+	ReloadAssembly (571ms)
+		BeginReloadAssembly (78ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (401ms)
+			LoadAssemblies (78ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (95ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (22ms)
+			SetupLoadedEditorAssemblies (238ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (8ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (67ms)
+				BeforeProcessingInitializeOnLoad (1ms)
+				ProcessInitializeOnLoadAttributes (124ms)
+				ProcessInitializeOnLoadMethodAttributes (38ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.007352 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 73.43 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.986 seconds
+Domain Reload Profiling:
+	ReloadAssembly (987ms)
+		BeginReloadAssembly (92ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (18ms)
+		EndReloadAssembly (810ms)
+			LoadAssemblies (69ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (196ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (48ms)
+			SetupLoadedEditorAssemblies (463ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (6ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (74ms)
+				BeforeProcessingInitializeOnLoad (79ms)
+				ProcessInitializeOnLoadAttributes (280ms)
+				ProcessInitializeOnLoadMethodAttributes (19ms)
+				AfterProcessingInitializeOnLoad (5ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.19 seconds
+Refreshing native plugins compatible for Editor in 0.60 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3878 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 43 unused Assets / (182.3 KB). Loaded Objects now: 4336.
+Memory consumption went from 137.2 MB to 137.0 MB.
+Total: 3.488500 ms (FindLiveObjects: 0.231500 ms CreateObjectMapping: 0.143100 ms MarkObjects: 2.977700 ms  DeleteObjects: 0.134800 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004476 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.76 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.973 seconds
+Domain Reload Profiling:
+	ReloadAssembly (974ms)
+		BeginReloadAssembly (114ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (33ms)
+		EndReloadAssembly (785ms)
+			LoadAssemblies (67ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (218ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (42ms)
+			SetupLoadedEditorAssemblies (398ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (15ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (55ms)
+				ProcessInitializeOnLoadAttributes (293ms)
+				ProcessInitializeOnLoadMethodAttributes (25ms)
+				AfterProcessingInitializeOnLoad (9ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (9ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.55 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3873 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 22 unused Assets / (149.6 KB). Loaded Objects now: 4351.
+Memory consumption went from 137.0 MB to 136.8 MB.
+Total: 2.433400 ms (FindLiveObjects: 0.213900 ms CreateObjectMapping: 0.097100 ms MarkObjects: 2.062700 ms  DeleteObjects: 0.059000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 118329.665137 seconds.
+  path: Assets/Monsters Ultimate Pack 02 Cute Series/Hermit King Cute Series/FBX/Hermit King.FBX
+  artifactKey: Guid(a7ded61e45b07fe44be58a121928a9d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Monsters Ultimate Pack 02 Cute Series/Hermit King Cute Series/FBX/Hermit King.FBX using Guid(a7ded61e45b07fe44be58a121928a9d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '68be74cf0f6192d2cae8beea08522dab') in 0.177044 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.043048 seconds.
+  path: Assets/Monsters Ultimate Pack 02 Cute Series/Hermit King Cute Series/FBX/Hermit King@Hide.FBX
+  artifactKey: Guid(712988563fb104346be2ba0891c6d794) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Monsters Ultimate Pack 02 Cute Series/Hermit King Cute Series/FBX/Hermit King@Hide.FBX using Guid(712988563fb104346be2ba0891c6d794) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '43f3895dd37426da53703cb16d47dcf7') in 0.051535 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.180601 seconds.
+  path: Assets/Monsters Ultimate Pack 02 Cute Series/Hermit King Cute Series/FBX/Hermit King@Hide And Spin Attack W Root.FBX
+  artifactKey: Guid(e6f9ee9bdee510d4a98c800c3e46cadb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Monsters Ultimate Pack 02 Cute Series/Hermit King Cute Series/FBX/Hermit King@Hide And Spin Attack W Root.FBX using Guid(e6f9ee9bdee510d4a98c800c3e46cadb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'da7b4fa9492591539f35654813b202bc') in 0.056836 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.167116 seconds.
+  path: Assets/Monsters Ultimate Pack 02 Cute Series/Hermit King Cute Series/FBX/Hermit King@Stab Attack.FBX
+  artifactKey: Guid(eea9d13a7cf5022469f246a0bb688909) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Monsters Ultimate Pack 02 Cute Series/Hermit King Cute Series/FBX/Hermit King@Stab Attack.FBX using Guid(eea9d13a7cf5022469f246a0bb688909) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0b3379a16a54af46e80c71af0e26ba2a') in 0.057850 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Monsters Ultimate Pack 02 Cute Series/Hermit King Cute Series/FBX/Hermit King@Turn Right.FBX
+  artifactKey: Guid(5d4ad1ac8b166684d97825bca5eea31f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Monsters Ultimate Pack 02 Cute Series/Hermit King Cute Series/FBX/Hermit King@Turn Right.FBX using Guid(5d4ad1ac8b166684d97825bca5eea31f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '85db54719206ea9c3e292c1fad504958') in 0.058198 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Monsters Ultimate Pack 02 Cute Series/Hermit King Cute Series/FBX/Hermit King@Walk Forward In Place.FBX
+  artifactKey: Guid(0692deed5287bee4cbbaa01a3be80539) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Monsters Ultimate Pack 02 Cute Series/Hermit King Cute Series/FBX/Hermit King@Walk Forward In Place.FBX using Guid(0692deed5287bee4cbbaa01a3be80539) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '661e473166a53ad1a5a844de7b6aa000') in 0.062173 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Monsters Ultimate Pack 02 Cute Series/Hermit King Cute Series/FBX/Hermit King@Walk Forward W Root.FBX
+  artifactKey: Guid(459400880e794ad4ea7f8b100131c981) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Monsters Ultimate Pack 02 Cute Series/Hermit King Cute Series/FBX/Hermit King@Walk Forward W Root.FBX using Guid(459400880e794ad4ea7f8b100131c981) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7d586935eb0a7679687497a339b74ab5') in 0.054775 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Monsters Ultimate Pack 02 Cute Series/Hermit King Cute Series/FBX/Hermit King@Hide to Idle.FBX
+  artifactKey: Guid(09ecfacc8fa255d4c8474292ac1a089d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Monsters Ultimate Pack 02 Cute Series/Hermit King Cute Series/FBX/Hermit King@Hide to Idle.FBX using Guid(09ecfacc8fa255d4c8474292ac1a089d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '464af787f425fc436715dd82e3e7b554') in 0.057148 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Monsters Ultimate Pack 02 Cute Series/Hermit King Cute Series/FBX/Hermit King@Summon Attack.FBX
+  artifactKey: Guid(5f1af05b9c012cc4fac3f5a4a7d7c666) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Monsters Ultimate Pack 02 Cute Series/Hermit King Cute Series/FBX/Hermit King@Summon Attack.FBX using Guid(5f1af05b9c012cc4fac3f5a4a7d7c666) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff8793409ea20b02dc5e4fb3d640eff7') in 0.052212 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Monsters Ultimate Pack 02 Cute Series/Hermit King Cute Series/FBX/Hermit King@Slash Attack.FBX
+  artifactKey: Guid(d87d0f126c88a7d429dbdd206dc6bf09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Monsters Ultimate Pack 02 Cute Series/Hermit King Cute Series/FBX/Hermit King@Slash Attack.FBX using Guid(d87d0f126c88a7d429dbdd206dc6bf09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'db751fa50dc90d1c0298437914d7f8f8') in 0.054976 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Monsters Ultimate Pack 02 Cute Series/Hermit King Cute Series/FBX/Hermit King@Die.FBX
+  artifactKey: Guid(472173a6e26b1f146b95166ff171cb34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Monsters Ultimate Pack 02 Cute Series/Hermit King Cute Series/FBX/Hermit King@Die.FBX using Guid(472173a6e26b1f146b95166ff171cb34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9bd27dcb82de82d09134e0ca6f62d36e') in 0.059980 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Monsters Ultimate Pack 02 Cute Series/Hermit King Cute Series/FBX/Hermit King@Turn Left.FBX
+  artifactKey: Guid(a78b3079de573724d89f7b28b755a4c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Monsters Ultimate Pack 02 Cute Series/Hermit King Cute Series/FBX/Hermit King@Turn Left.FBX using Guid(a78b3079de573724d89f7b28b755a4c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd3dcad050af68290ae834fa353b97231') in 0.051284 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
