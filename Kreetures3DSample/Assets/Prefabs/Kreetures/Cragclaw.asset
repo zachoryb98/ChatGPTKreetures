@@ -24,3 +24,9 @@ MonoBehaviour:
   kreetureType: 2
   kreetureType2: 0
   modelPrefab: {fileID: 545682315351394890, guid: 59a51997eb082e449b7eff675857e1ff, type: 3}
+  knownAttacks:
+  - {fileID: 11400000, guid: 86fb0c20138f41744b7780eecfd6b1ad, type: 2}
+  - {fileID: 11400000, guid: 6d42cc87a6ac78b4797c4e20c693a2a3, type: 2}
+  - {fileID: 11400000, guid: 587bdbdced4342c4c9138b1807061d72, type: 2}
+  - {fileID: 11400000, guid: 18fed93a0fd698c4295348b572ee0b4d, type: 2}
+  learnableMovesDatabase: {fileID: 11400000, guid: 46719db43bc677d4e985b94805bc571b, type: 2}

@@ -31,4 +31,36 @@ public class BattleManager : MonoBehaviour
 			Debug.LogError("Enemy Kreeture for battle is null.");
 		}
 	}
+
+	private float CalculateTypeMultiplier(KreetureType attackerType, KreetureType defenderType)
+	{
+		if (attackerType == KreetureType.Aqua)
+		{
+			if (defenderType == KreetureType.Flame || defenderType == KreetureType.Earth || defenderType == KreetureType.Stone)
+			{
+				return 1.5f; // Strong against Flame, Earth, Stone
+			}
+			else if (defenderType == KreetureType.Volt || defenderType == KreetureType.Terra)
+			{
+				return 0.75f; // Weak against Volt, Terra
+			}
+		}
+		// Add similar checks for other types and interactions
+		// ...
+
+		return 1.0f; // Default case: no type advantage/disadvantage
+	}
+
+	public void UseAttack(Attack attackerMove, Kreeture attacker, Kreeture defender)
+	{
+		// Calculate type multiplier
+		float typeMultiplier = CalculateTypeMultiplier((KreetureType)attackerMove.attackType, defender.kreetureType);
+
+		// Calculate damage
+		int damage = Mathf.FloorToInt(attackerMove.power * typeMultiplier);
+
+
+		// Deal damage to defender and update UI
+		// ...
+	}
 }

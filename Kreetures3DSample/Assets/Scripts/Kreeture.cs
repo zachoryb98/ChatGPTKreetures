@@ -1,6 +1,7 @@
+using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Kreeture", menuName = "Kreeture")]
+[CreateAssetMenu(fileName = "New Kreeture", menuName = "Kreeture/New Kreeture")]
 public class Kreeture : ScriptableObject
 {
     public string kreetureName;
@@ -15,6 +16,8 @@ public class Kreeture : ScriptableObject
     public KreetureType kreetureType;
     public KreetureType kreetureType2 = KreetureType.None;
     public GameObject modelPrefab; // Reference to the 3D model Prefab
+    public List<Attack> knownAttacks = new List<Attack>();
+    [SerializeField] private LearnableMovesDatabase learnableMovesDatabase;
     // Add more fields as needed for abilities, type advantages, etc.
 }
 
@@ -26,6 +29,7 @@ public enum KreetureType
     Earth,
     Wind,
     Terra,
+    Volt,
     Umbral,
     Neutral,
     Physical,
