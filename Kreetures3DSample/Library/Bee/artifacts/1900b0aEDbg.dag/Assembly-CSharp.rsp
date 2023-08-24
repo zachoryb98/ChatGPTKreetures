@@ -363,6 +363,8 @@
 "Assets/Scripts/LearnableMovesDatabase.cs"
 "Assets/Scripts/NewBehaviourScript.cs"
 "Assets/Scripts/PlayerController.cs"
+"Assets/Scripts/PlayerSpawnChecker.cs"
+"Assets/Scripts/PlayerSpawner.cs"
 -langversion:9.0
 
 /deterministic

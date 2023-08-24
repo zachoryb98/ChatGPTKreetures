@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class BattleUIManager : MonoBehaviour
 {
@@ -121,9 +122,33 @@ public class BattleUIManager : MonoBehaviour
 
 			SetupAttackButtons();
 		}
+		else if (button.name == "Run")
+		{
+			RunAction();
+		}
 		else
 		{
 			// Handle other action button clicks here
+		}
+	}
+
+	public void RunAction()
+	{
+		string previousSceneName = GameManager.Instance.GetPreviousScene();
+
+		SceneManager.LoadScene(previousSceneName);
+
+		// Respawn the player at the encounter position
+		Vector3 encounterPosition = GameManager.Instance.GetPlayerPosition();
+		Quaternion encounterRotation = GameManager.Instance.GetPlayerRotation();
+		PlayerSpawner playerSpawner = FindObjectOfType<PlayerSpawner>();
+		if (playerSpawner != null)
+		{
+			navigateUpAction.Disable();
+			navigateDownAction.Disable();
+			navigateLeftAction.Disable();
+			navigateRightAction.Disable();
+			playerSpawner.SpawnPlayerAtPosition(encounterPosition, encounterRotation);
 		}
 	}
 

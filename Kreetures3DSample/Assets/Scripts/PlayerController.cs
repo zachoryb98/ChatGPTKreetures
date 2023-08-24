@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5.0f;
-    private Animator animator;    
+    private Animator animator;
+    public GameObject camLookAt;
 
     private void Start()
     {
@@ -34,5 +35,11 @@ public class PlayerController : MonoBehaviour
 
         // Move the character based on input
         transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
+    }
+
+    public void SetPosition(Vector3 position)
+    {
+        // Update the player's position
+        transform.position = position;
     }
 }
