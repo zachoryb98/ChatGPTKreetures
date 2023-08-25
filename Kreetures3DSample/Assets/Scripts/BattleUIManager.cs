@@ -12,6 +12,11 @@ public class BattleUIManager : MonoBehaviour
 	public Button[] attackButtons; // Added array for attack buttons
 	public Color highlightedColor;
 
+	public TextMeshProUGUI enemyName;
+
+	public TextMeshProUGUI kreetureName;
+	public TextMeshProUGUI hpText;
+
 	private int currentButtonIndex = 0;
 	private InputAction navigateUpAction;
 	private InputAction navigateDownAction;
@@ -36,8 +41,12 @@ public class BattleUIManager : MonoBehaviour
 	private void Start()
 	{
 		kreetures = GameManager.Instance.GetKreetureNames();
+		enemyName.text = kreetures[0].name;
 		SetMessageToDisplay("A wild " + kreetures[0].name + " appeared!");
 		currentCharIndex = 0; // Reset the typing effect index
+
+		kreetureName.text = kreetures[1].name;
+		hpText.text = kreetures[1].currentHP + "/" + kreetures[1].baseHP;
 
 		SetupButtons();
 		SetupNavigationActions();
@@ -239,8 +248,6 @@ public class BattleUIManager : MonoBehaviour
 			HighlightAttackButton(currentButtonIndex); // Highlight the new attack button
 		}
 	}
-
-
 
 	private void HighlightButton(int index)
 	{
