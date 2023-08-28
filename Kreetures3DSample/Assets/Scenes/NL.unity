@@ -496,7 +496,6 @@ MonoBehaviour:
     position: {x: 0, y: 0, z: 0}
   playerTeam:
   - {fileID: 11400000, guid: c1cfe2f5894234d41b219792dce22f35, type: 2}
-  - {fileID: 0}
 --- !u!4 &371447482
 Transform:
   m_ObjectHideFlags: 0

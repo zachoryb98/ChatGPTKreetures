@@ -15,12 +15,19 @@ MonoBehaviour:
   kreetureName: Nighthowl
   level: 1
   baseHP: 45
-  currentHP: 45
-  attack: 0
-  defense: 0
+  currentHP: 12
+  attack: 50
+  defense: 45
   agility: 60
   elementalStrike: 65
   elementalWard: 50
-  kreetureType: 5
+  kreetureType: 7
   kreetureType2: 0
+  Types: 0700000000000000
   modelPrefab: {fileID: 8530477259693051037, guid: 1d2465e625f23fd4594038dc128f9bc9, type: 3}
+  knownAttacks:
+  - {fileID: 11400000, guid: 587bdbdced4342c4c9138b1807061d72, type: 2}
+  - {fileID: 11400000, guid: 18fed93a0fd698c4295348b572ee0b4d, type: 2}
+  - {fileID: 11400000, guid: 6d42cc87a6ac78b4797c4e20c693a2a3, type: 2}
+  - {fileID: 11400000, guid: 86fb0c20138f41744b7780eecfd6b1ad, type: 2}
+  learnableMovesDatabase: {fileID: 11400000, guid: 4f8cc79fd4d8e3e4e9e7ab8450b006c1, type: 2}

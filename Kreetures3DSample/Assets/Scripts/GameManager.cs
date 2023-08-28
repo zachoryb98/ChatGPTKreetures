@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour{    
-    public static GameManager Instance { get; private set; }// Singleton instance
+    public static GameManager Instance { get; private set; }// Singleton instance    
 
     public PlayerData playerData; // Store player data
 
@@ -29,6 +29,11 @@ public class GameManager : MonoBehaviour{
             Destroy(gameObject); // Destroy any duplicate GameManager instances
         }
     }
+
+    public List<Kreeture> GetPlayerTeam()
+	{
+        return playerTeam;
+	}
 
     public List<Kreeture> GetKreetureNames()
     {

@@ -15,11 +15,21 @@ public class Kreeture : ScriptableObject
     public int elementalWard = 50;
     public KreetureType kreetureType;
     public KreetureType kreetureType2 = KreetureType.None;
+    public List<KreetureType> Types = new List<KreetureType>();
     public GameObject modelPrefab; // Reference to the 3D model Prefab
     public List<Attack> knownAttacks = new List<Attack>();
     [SerializeField] private LearnableMovesDatabase learnableMovesDatabase;
     // Add more fields as needed for abilities, type advantages, etc.
+
+    public void TakeDamage(int damageAmount, AttackType attackType, List<KreetureType> defenderTypes)
+    {
+        // Reduce the current HP by the adjusted damage
+        currentHP -= Mathf.FloorToInt(damageAmount);
+        currentHP = Mathf.Max(currentHP, 0);
+    }
 }
+
+
 
 public enum KreetureType
 {
@@ -38,7 +48,7 @@ public enum KreetureType
     Verdant,
     Stone,
     Ethereal,
-    IronClad,
+    Ironclad,
     Arcane,
     Beast,
     Frost

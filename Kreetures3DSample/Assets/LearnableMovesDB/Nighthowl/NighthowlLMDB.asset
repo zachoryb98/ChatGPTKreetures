@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26e0e89fa9c0ed44f9d0f4fe0b04712d, type: 3}
+  m_Name: NighthowlLMDB
+  m_EditorClassIdentifier: 
+  learnableMoves:
+  - move: {fileID: 11400000, guid: 587bdbdced4342c4c9138b1807061d72, type: 2}
+    requiredLevel: 0
+    compatibleTypes: 
+  - move: {fileID: 11400000, guid: 18fed93a0fd698c4295348b572ee0b4d, type: 2}
+    requiredLevel: 0
+    compatibleTypes: 
+  - move: {fileID: 11400000, guid: 6d42cc87a6ac78b4797c4e20c693a2a3, type: 2}
+    requiredLevel: 0
+    compatibleTypes: 
+  - move: {fileID: 11400000, guid: 86fb0c20138f41744b7780eecfd6b1ad, type: 2}
+    requiredLevel: 0
+    compatibleTypes: 
