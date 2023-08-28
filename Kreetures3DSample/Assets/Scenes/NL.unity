@@ -236,6 +236,7 @@ MonoBehaviour:
   encounterProbability: 0.2
   possibleKreetures:
   - {fileID: 11400000, guid: 7faecbb03e966d34989ce94751841ab0, type: 2}
+  possibleLevels: 020000000300000004000000030000000400000002000000
   sceneToLoad: BattleTestScene
 --- !u!1 &259623253
 GameObject:
@@ -383,6 +384,7 @@ MonoBehaviour:
   encounterProbability: 0.2
   possibleKreetures:
   - {fileID: 11400000, guid: 7faecbb03e966d34989ce94751841ab0, type: 2}
+  possibleLevels: 020000000300000004000000030000000400000002000000
   sceneToLoad: BattleSceneTest
 --- !u!65 &368976411
 BoxCollider:
@@ -559,6 +561,7 @@ MonoBehaviour:
   encounterProbability: 0.2
   possibleKreetures:
   - {fileID: 11400000, guid: 7faecbb03e966d34989ce94751841ab0, type: 2}
+  possibleLevels: 020000000300000004000000030000000400000002000000
   sceneToLoad: BattleSceneTest
 --- !u!65 &614618224
 BoxCollider:
@@ -864,6 +867,7 @@ MonoBehaviour:
   encounterProbability: 0.2
   possibleKreetures:
   - {fileID: 11400000, guid: 7faecbb03e966d34989ce94751841ab0, type: 2}
+  possibleLevels: 020000000300000004000000030000000400000002000000
   sceneToLoad: BattleSceneTest
 --- !u!65 &1701796531
 BoxCollider:
