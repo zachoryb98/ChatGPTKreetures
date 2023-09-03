@@ -32,6 +32,8 @@ public class BattleUIManager : MonoBehaviour
 	public Slider playerXPBar;
 
 	private Attack enemyAttack = null;
+	private int enemyDamageDealtToPlayer;
+	private int playerDamageDealtToEnemy;
 	private Attack playerSelectedAttack = null;
 
 	private bool hasPlayerGone = false;
@@ -423,7 +425,7 @@ public class BattleUIManager : MonoBehaviour
 				break;
 			case BattleState.PlayerTurn:
 				yield return new WaitForSeconds(.5f);
-				StartCoroutine(PerformPlayerAttack());
+				StartCoroutine(PerformPlayerAttack());				
 				break;
 			case BattleState.DisplayEffectiveness:
 				CheckIfRoundOver();
@@ -538,7 +540,7 @@ public class BattleUIManager : MonoBehaviour
 			Debug.LogWarning("Bite Attack animation clip not found!");
 		}
 
-		Debug.Log("player hit enemy for " + damage + " Damage");
+		Debug.Log("player hit enemy for " + damage + " Damage");		
 
 		StartCoroutine(UpdateHealthBarOverTime(enemyHPBar, enemyKreeture, damage, playerSelectedAttack));
 	}
@@ -555,6 +557,8 @@ public class BattleUIManager : MonoBehaviour
 		int enemyDamage = CalculateDamage(enemyKreeture, playerKreeture, enemyAttack);
 
 		Debug.Log("Enemy hit player for " + enemyDamage + "Damage");
+
+		enemyDamageDealtToPlayer = enemyDamage;
 
 		enemyAnimator.Play("Bite Attack");
 
@@ -784,6 +788,13 @@ public class BattleUIManager : MonoBehaviour
 		else if (currentBattleState == BattleState.EnemyTurn)
 		{
 			hasEnemyGone = true;
+		}
+
+		//If both have gone update battle stats
+		if(hasPlayerGone && hasEnemyGone)
+		{
+			//IMPLEMENT CRITICAL HITS, and STATUS EFFECT AFTER GET SUPER EFFECTIVE METHOD
+			battleManager.RecordBattleData(playerDamageDealtToEnemy, enemyDamageDealtToPlayer, battleManager.GetSuperEffectiveHit(), false, false, battleManager.activeKreeture.currentHP);
 		}
 
 		typingCoroutineRunning = false;

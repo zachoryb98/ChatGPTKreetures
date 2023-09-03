@@ -17,6 +17,14 @@ public class BattleManager : MonoBehaviour
 	public GameObject KreetureGameObject = null;
 	public GameObject EnemyKreetureGameObject = null;
 
+	private int turnsTaken;
+	private int totalDamageDealt;
+	private int totalDamageReceived;
+	private int effectiveMoveCount;
+	private int criticalHits;
+	private int statusEffectsApplied;
+	private int remainingHealth;
+
 	private void Awake()
 	{
 		playerTeam = GetPlayerTeam();
@@ -61,5 +69,46 @@ public class BattleManager : MonoBehaviour
 	public List<Kreeture> GetPlayerTeam()
 	{
 		return GameManager.Instance.GetPlayerTeam();
+	}
+
+	public int CalculateBattlePerformance()
+	{
+		int performance = 0;
+
+		// Calculate performance based on various factors
+		performance += turnsTaken * 5; // Reward fewer turns
+		performance += totalDamageDealt / 10; // Reward more damage dealt
+		performance -= totalDamageReceived / 15; // Penalize more damage received
+		performance += effectiveMoveCount * 20; // Reward effective moves
+		performance += criticalHits * 15; // Reward critical hits
+		performance += statusEffectsApplied * 10; // Reward status effects
+		performance += remainingHealth / 5; // Reward more remaining health
+
+		return performance;
+	}
+
+	// Method to record battle data during the battle
+	public void RecordBattleData(int damageDealt, int damageReceived, bool isEffectiveMove, bool isCriticalHit, bool hasAppliedStatusEffect, int remainingPlayerHealth)
+	{
+		turnsTaken++;
+		totalDamageDealt += damageDealt;
+		totalDamageReceived += damageReceived;
+
+		if (isEffectiveMove)
+		{
+			effectiveMoveCount++;
+		}
+
+		if (isCriticalHit)
+		{
+			criticalHits++;
+		}
+
+		if (hasAppliedStatusEffect)
+		{
+			statusEffectsApplied++;
+		}
+
+		remainingHealth = remainingPlayerHealth;
 	}
 }

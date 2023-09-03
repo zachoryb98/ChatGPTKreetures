@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Cragclaw
   m_EditorClassIdentifier: 
   kreetureName: Cragclaw
-  currentXP: 190
+  currentXP: 1990
   currentLevel: 13
   xpRequiredForNextLevel: 16900
   leveledUp: 0
   xpTransfer: 40
   baseHP: 70
-  currentHP: 64
+  currentHP: 70
   attack: 10
   defense: 10
   agility: 10
