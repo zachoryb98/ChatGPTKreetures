@@ -70,3 +70,10 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+##Problem files
+Kreetures3DSample/Library/PackageCache/com.unity.burst@1.6.6/.Runtime/hostmac/lld
+Kreetures3DSample/Library/PackageCache/com.unity.burst@1.6.6/.Runtime/libburst-llvm-11.dylib
+Kreetures3DSample/Library/PackageCache/com.unity.burst@1.6.6/.Runtime/libburst-llvm-10.dylib
+Kreetures3DSample/Library/PackageCache/com.unity.burst@1.6.6/.Runtime/hostmac/dsymutil
+Kreetures3DSample/Library/PackageCache/com.unity.burst@1.6.6/.Runtime/hostlin/lld
