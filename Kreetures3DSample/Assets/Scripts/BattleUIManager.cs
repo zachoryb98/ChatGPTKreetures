@@ -20,11 +20,16 @@ public class BattleUIManager : MonoBehaviour
 	public BattleManager battleManager;
 
 	public TextMeshProUGUI enemyName;
+	public TextMeshProUGUI enemyLvlText;
 	public Slider enemyHPBar;
 
 	public TextMeshProUGUI kreetureName;
 	public TextMeshProUGUI hpText;
+	public TextMeshProUGUI xpText;
+	public TextMeshProUGUI lvlText;
+
 	public Slider playerHPBar;
+	public Slider playerXPBar;
 
 	private Attack enemyAttack = null;
 	private Attack playerSelectedAttack = null;
@@ -47,7 +52,9 @@ public class BattleUIManager : MonoBehaviour
 		PlayerTurn,
 		EnemyTurn,
 		EnemyKreetureDefeated,
-		DisplayEffectiveness
+		DisplayEffectiveness,
+		IncreaseXP,
+		LevelUp
 	}
 
 	private BattleState currentBattleState = BattleState.EnteringBattle;
@@ -64,24 +71,34 @@ public class BattleUIManager : MonoBehaviour
 
 		enemyName.text = enemyKreetureName;
 		SetMessageToDisplay("A wild " + enemyKreetureName + " appeared!");
-		SetSliderValues(enemyHPBar, enemyKreeture);
+		SetHPSliderValues(enemyHPBar, enemyKreeture);
 		currentCharIndex = 0;
+		enemyLvlText.text = "Lvl " + enemyKreeture.currentLevel;
 
 		Kreeture playerKreeture = battleManager.activeKreeture;
 
 		kreetureName.text = playerKreeture.name;
 		hpText.text = playerKreeture.currentHP + "/" + playerKreeture.baseHP;
-		SetSliderValues(playerHPBar, playerKreeture);
+		SetHPSliderValues(playerHPBar, playerKreeture);
+		SetXPSlider(playerXPBar, playerKreeture);
+		lvlText.text = "Lvl " + playerKreeture.currentLevel;
+		xpText.text = playerKreeture.currentXP + "/" + playerKreeture.xpRequiredForNextLevel;
 
 		SetBattleState(BattleState.EnteringBattle);
 		SetupButtons();
 		SetupNavigationActions();
 	}
 
-	public void SetSliderValues(Slider slider, Kreeture kreeture)
+	public void SetHPSliderValues(Slider slider, Kreeture kreeture)
 	{
 		slider.maxValue = kreeture.baseHP;
 		slider.value = kreeture.currentHP;
+	}
+
+	public void SetXPSlider(Slider slider, Kreeture kreeture)
+	{
+		slider.maxValue = kreeture.xpRequiredForNextLevel;
+		slider.value = kreeture.currentXP;
 	}
 
 	private void Update()
@@ -104,6 +121,16 @@ public class BattleUIManager : MonoBehaviour
 				StartCoroutine(TypeWriterCoroutine());
 			}
 		}
+	}
+
+	private void UpdateDisplayHealth(int currentHealth, int baseHealth)
+	{
+		hpText.text = currentHealth + "/" + baseHealth;
+	}
+
+	private void UpdateDisplayXP(int currentXP, int xpToLevelUp)
+	{
+		xpText.text = currentXP + "/" + xpToLevelUp;
 	}
 
 	private void HandleInput()
@@ -210,11 +237,11 @@ public class BattleUIManager : MonoBehaviour
 		}
 		else if (button.name == "Run")
 		{
-			RunAction();
+			ExitBattle();
 		}
 	}
 
-	public void RunAction()
+	public void ExitBattle()
 	{
 		string previousSceneName = GameManager.Instance.GetPreviousScene();
 
@@ -403,6 +430,37 @@ public class BattleUIManager : MonoBehaviour
 				typingCoroutineRunning = false;
 				break;
 			case BattleState.EnemyKreetureDefeated:
+				//Play feint animation
+				int xp = CalculateXPForDefeatedKreeture(battleManager.activeKreeture, battleManager.activeKreeture);
+				SetMessageToDisplay(battleManager.activeKreeture.kreetureName + " gained " + xp + "XP!");
+				typingCoroutineRunning = false;
+				SetBattleState(BattleState.IncreaseXP);
+				break;
+			case BattleState.IncreaseXP:
+				int xpGained = CalculateXPForDefeatedKreeture(battleManager.activeKreeture, battleManager.activeKreeture);
+				StartCoroutine(UpdateXPBarOverTime(playerXPBar, battleManager.activeKreeture, xpGained));
+				battleManager.activeKreeture.GainXP(xpGained);
+				if (battleManager.activeKreeture.leveledUp)
+				{
+					SetMessageToDisplay(battleManager.activeKreeture.kreetureName + " Level up to level " + (battleManager.activeKreeture.currentLevel) + "!");
+					Debug.Log("XP remaining: " + battleManager.activeEnemyKreeture.currentXP);
+					typingCoroutineRunning = false;
+					battleManager.activeKreeture.leveledUp = false;
+				}
+				battleManager.activeKreeture.GainXP(xpGained);
+				break;
+			case BattleState.LevelUp:
+				//Play level up effect
+
+				//Set to 0 since we leveled up
+				playerXPBar.value = 0;
+				//Update to proper xp number after level up
+				StartCoroutine(UpdateXPBarOverTime(playerXPBar, battleManager.activeKreeture, battleManager.activeKreeture.xpTransfer));
+
+
+				//Show Updated Stats
+
+				//Determine if battle is done and exit scene.
 				
 				break;
 			default:
@@ -643,6 +701,39 @@ public class BattleUIManager : MonoBehaviour
 	}
 
 
+	private IEnumerator UpdateXPBarOverTime(Slider xpBar, Kreeture kreeture, int xp)
+	{
+		isAttackTurn = true;
+		float elapsedTime = 0f;
+		float duration = 1.0f; // Adjust this duration to control the animation speed
+
+		int initialXP = kreeture.currentXP;
+
+		Debug.Log(kreeture.kreetureName + " Initial XP " + initialXP);
+
+		int targetXP = Mathf.Max(kreeture.currentXP + xp, 0);
+
+		Debug.Log("target xp" + targetXP);
+
+		while (elapsedTime < duration)
+		{
+			float normalizedTime = elapsedTime / duration;
+			float newXP = Mathf.Lerp(initialXP, targetXP, normalizedTime);
+
+			// Update the slider value
+			xpBar.value = newXP;
+
+			UpdateDisplayXP(Mathf.FloorToInt(newXP), kreeture.xpRequiredForNextLevel);
+
+			elapsedTime += Time.deltaTime;
+
+			yield return null;
+		}
+
+		yield return new WaitForSeconds(2.0f);
+		ExitBattle();
+	}
+
 	private IEnumerator UpdateHealthBarOverTime(Slider healthBar, Kreeture kreeture, int damage, Attack selectedAttack)
 	{
 		isAttackTurn = true;
@@ -670,6 +761,12 @@ public class BattleUIManager : MonoBehaviour
 
 			// Update the slider value
 			healthBar.value = newHealth;
+
+			if (currentBattleState == BattleState.EnemyTurn)
+			{
+				UpdateDisplayHealth(Mathf.FloorToInt(newHealth), kreeture.baseHP);
+			}
+
 
 			elapsedTime += Time.deltaTime;
 			yield return null;
@@ -774,5 +871,19 @@ public class BattleUIManager : MonoBehaviour
 		int damage = Mathf.RoundToInt((attackPower / defensePower) * attack.power * effectiveness);
 
 		return damage;
+	}
+
+	public int CalculateXPForDefeatedKreeture(Kreeture playerKreeture, Kreeture defeatedKreeture)
+	{
+		int baseXP = 50; // Base XP value
+
+		int levelDifference = defeatedKreeture.currentLevel - playerKreeture.currentLevel;
+		float levelScalingFactor = 1.0f + (levelDifference * 0.1f); // Adjust the scaling factor as needed
+
+		int xp = Mathf.RoundToInt(baseXP * levelScalingFactor);
+
+		// Apply additional modifiers (type effectiveness, battle performance, etc.)
+
+		return xp;
 	}
 }

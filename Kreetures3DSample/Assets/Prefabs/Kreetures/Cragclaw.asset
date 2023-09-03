@@ -13,14 +13,20 @@ MonoBehaviour:
   m_Name: Cragclaw
   m_EditorClassIdentifier: 
   kreetureName: Cragclaw
-  level: 1
-  baseHP: 60
-  currentHP: 60
-  attack: 50
-  defense: 80
-  agility: 45
-  elementalStrike: 75
-  elementalWard: 70
+  currentXP: 190
+  currentLevel: 13
+  xpRequiredForNextLevel: 16900
+  leveledUp: 0
+  xpTransfer: 40
+  baseHP: 70
+  currentHP: 64
+  attack: 10
+  defense: 10
+  agility: 10
+  elementalStrike: 10
+  elementalWard: 10
+  focus: 10
+  mobility: 10
   kreetureType: 2
   kreetureType2: 0
   Types: 0200000000000000
@@ -31,3 +37,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 587bdbdced4342c4c9138b1807061d72, type: 2}
   - {fileID: 11400000, guid: 10dbb3f96fb0af34caa15139b22323be, type: 2}
   learnableMovesDatabase: {fileID: 11400000, guid: 46719db43bc677d4e985b94805bc571b, type: 2}
+  minCoreAttribute: 1
+  maxCoreAttribute: 10

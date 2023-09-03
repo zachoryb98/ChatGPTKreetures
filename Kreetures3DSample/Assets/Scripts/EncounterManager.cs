@@ -38,7 +38,7 @@ public class EncounterManager : MonoBehaviour
 
                 GameManager.Instance.SetPreviousScene(SceneManager.GetActiveScene().name);
 
-                //SceneManager.LoadScene(sceneToLoad);
+                SceneManager.LoadScene(sceneToLoad);
             }
         }
     }

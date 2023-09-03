@@ -5,7 +5,11 @@ using UnityEngine;
 public class Kreeture : ScriptableObject
 {
     public string kreetureName;
-    public int level = 1;
+    public int currentXP = 0;
+    public int currentLevel = 1;
+    public int xpRequiredForNextLevel = 100; // Adjust this value as needed
+    public bool leveledUp;
+    public int xpTransfer;
     public int baseHP = 45;
     public int currentHP = 45;
     public int attack = 50;
@@ -14,7 +18,7 @@ public class Kreeture : ScriptableObject
     public int elementalStrike = 65;
     public int elementalWard = 50;
     public int focus = 50;
-    public int mobility = 40;
+    public int mobility = 40;    
     public KreetureType kreetureType;
     public KreetureType kreetureType2 = KreetureType.None;
     public List<KreetureType> Types = new List<KreetureType>();
@@ -35,17 +39,16 @@ public class Kreeture : ScriptableObject
 
     public void AdjustStatsBasedOnLevel(int _level)
     {
-        this.level = _level;
-        float levelMultiplier = (float)level / 100.0f;
-        int hpCoreAttribute = Random.Range(minCoreAttribute, maxCoreAttribute + 1);
-        int attackCoreAttribute = Random.Range(minCoreAttribute, maxCoreAttribute + 1);
-        int defenseCoreAttribute = Random.Range(minCoreAttribute, maxCoreAttribute + 1);
-        int agilityCoreAttribute = Random.Range(minCoreAttribute, maxCoreAttribute + 1);
-        int elementalStrikeCoreAttribute = Random.Range(minCoreAttribute, maxCoreAttribute + 1);
-        int elementalWardCoreAttribute = Random.Range(minCoreAttribute, maxCoreAttribute + 1);
-        int focusCoreAttribute = Random.Range(minCoreAttribute, maxCoreAttribute + 1);
-        int mobilityCoreAttribute = Random.Range(minCoreAttribute, maxCoreAttribute + 1);
-
+        this.currentLevel = _level;
+        float levelMultiplier = (float)currentLevel / 100.0f;
+        int hpCoreAttribute = Random.Range(minCoreAttribute, maxCoreAttribute + 11); // Adjust the range
+        int attackCoreAttribute = Random.Range(minCoreAttribute, maxCoreAttribute + 6);
+        int defenseCoreAttribute = Random.Range(minCoreAttribute, maxCoreAttribute + 6);
+        int agilityCoreAttribute = Random.Range(minCoreAttribute, maxCoreAttribute + 6);
+        int elementalStrikeCoreAttribute = Random.Range(minCoreAttribute, maxCoreAttribute + 6);
+        int elementalWardCoreAttribute = Random.Range(minCoreAttribute, maxCoreAttribute + 6);
+        int focusCoreAttribute = Random.Range(minCoreAttribute, maxCoreAttribute + 6);
+        int mobilityCoreAttribute = Random.Range(minCoreAttribute, maxCoreAttribute + 6);
 
         //ADD LAYERS OF CODE
         //SAY 3 PERFECT CORE ATTRIBUTES ARE SCORED MAYBE REROLL THE ONES THAT ARE NOT THE BEST SCORE FOR THE LEVEL
@@ -60,9 +63,31 @@ public class Kreeture : ScriptableObject
         focus = Mathf.Max(Mathf.RoundToInt(focus * levelMultiplier) + focusCoreAttribute, minValue);
         mobility = Mathf.Max(Mathf.RoundToInt(mobility * levelMultiplier) + mobilityCoreAttribute, minValue);
     }
+
+    public void GainXP(int xpAmount)
+    {
+        currentXP += xpAmount;
+
+		while (currentXP >= xpRequiredForNextLevel)
+		{
+			currentLevel++;
+			currentXP -= xpRequiredForNextLevel;
+			xpRequiredForNextLevel = CalculateRequiredXPForNextLevel(currentLevel);
+            leveledUp = true;
+            // Implement attribute adjustments, evolution, or other logic when leveling up
+
+            //YOU NEED TO SET THE XP SO WE CAN CHECK IF THERE WAS XP LEFT ON THE LEVEL UP
+            xpTransfer = currentXP;
+
+			// You can also send a message to the UI to display level up information            
+		}        
+    }
+    private int CalculateRequiredXPForNextLevel(int level)
+    {
+        // Example formula: xpRequired = level * level * 100
+        return level * level * 100; // Adjust the formula as needed
+    }
 }
-
-
 
 public enum KreetureType
 {
