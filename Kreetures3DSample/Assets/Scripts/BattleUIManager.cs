@@ -38,6 +38,7 @@ public class BattleUIManager : MonoBehaviour
 
 	private bool hasPlayerGone = false;
 	private bool hasEnemyGone = false;
+	private bool hasPlayerLost = false;
 
 	private int currentButtonIndex = 0;
 	private InputAction navigateUpAction;
@@ -56,7 +57,8 @@ public class BattleUIManager : MonoBehaviour
 		EnemyKreetureDefeated,
 		DisplayEffectiveness,
 		IncreaseXP,
-		LevelUp
+		LevelUp,
+		PlayerDefeated
 	}
 
 	private BattleState currentBattleState = BattleState.EnteringBattle;
@@ -240,6 +242,28 @@ public class BattleUIManager : MonoBehaviour
 		else if (button.name == "Run")
 		{
 			ExitBattle();
+		}
+	}
+
+	public void HandlePlayerLoss()
+	{
+		string lastHealScene = GameManager.Instance.GetLastHealScene();
+
+		SceneManager.LoadScene(lastHealScene);
+
+		GameManager.Instance.playerDefeated = true;
+
+		// Respawn the player at the encounter position
+		Vector3 spawnPosition = GameManager.Instance.GetPlayerLastHealPosition();
+		Quaternion spawnRotation = new Quaternion(0,0,0,0);
+		PlayerSpawner playerSpawner = FindObjectOfType<PlayerSpawner>();
+		if (playerSpawner != null)
+		{
+			navigateUpAction.Disable();
+			navigateDownAction.Disable();
+			navigateLeftAction.Disable();
+			navigateRightAction.Disable();
+			playerSpawner.SpawnPlayerAtPosition(spawnPosition, spawnRotation);
 		}
 	}
 
@@ -465,6 +489,14 @@ public class BattleUIManager : MonoBehaviour
 				//Determine if battle is done and exit scene.
 				
 				break;
+			case BattleState.PlayerDefeated:
+
+				yield return new WaitForSeconds(1.5f);
+
+				Debug.Log("Player Lost!");
+
+				HandlePlayerLoss();
+				break;
 			default:
 				break;
 		}
@@ -485,13 +517,20 @@ public class BattleUIManager : MonoBehaviour
 				typingCoroutineRunning = false;
 				isAttackTurn = false;
 			}
+
+			if (hasPlayerLost)
+			{
+				SetMessageToDisplay("You let your Kreetures faint");
+				typingCoroutineRunning = false;
+				SetBattleState(BattleState.PlayerDefeated);				
+			}
 		}
 
-		if (hasPlayerGone && !hasEnemyGone)
+		if (hasPlayerGone && !hasEnemyGone && !battleOver)
 		{
 			HandleEnemyTurn();
 		}
-		else if (hasEnemyGone && !hasPlayerGone)
+		else if (hasEnemyGone && !hasPlayerGone && !battleOver)
 		{
 			HandlePlayerTurn();
 		}
@@ -787,7 +826,12 @@ public class BattleUIManager : MonoBehaviour
 		}
 		else if (currentBattleState == BattleState.EnemyTurn)
 		{
-			hasEnemyGone = true;
+			hasEnemyGone = true;			
+		}
+
+		if(battleManager.activeKreeture.currentHP == 0)
+		{
+			IsBattleOver(battleManager.playerTeam, battleManager.activeEnemyKreeture);
 		}
 
 		//If both have gone update battle stats
@@ -831,6 +875,11 @@ public class BattleUIManager : MonoBehaviour
 		{
 			typingCoroutineRunning = false;
 			SetBattleState(BattleState.EnemyKreetureDefeated);
+		}
+
+		if (playerTeamDefeated)
+		{
+			hasPlayerLost = true;
 		}
 
 		return playerTeamDefeated || enemyDefeated;

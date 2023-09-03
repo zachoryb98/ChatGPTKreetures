@@ -32,27 +32,55 @@ public class PlayerSpawner : MonoBehaviour
         {
             if (playerPrefab != null)
             {
-                GameObject player = Instantiate(playerPrefab, position, rotation);
+				if (GameManager.Instance.playerDefeated)
+				{
+                    GameObject player = Instantiate(playerPrefab, GameManager.Instance.GetPlayerLastHealPosition(), new Quaternion(0,0,0,0));
 
-                // Check if the player has the required component
-                PlayerController playerController = player.GetComponent<PlayerController>();
-                if (playerController != null)
-                {
-                    Transform camLookAt = playerController.camLookAt.transform;
-
-                    GameObject camera = GameObject.FindGameObjectWithTag("MainCamera");
-                    CameraController cameraController = camera.GetComponent<CameraController>();
-
-                    if (cameraController != null)
+                    // Check if the player has the required component
+                    PlayerController playerController = player.GetComponent<PlayerController>();
+                    if (playerController != null)
                     {
-                        cameraController.SetCameraTarget(camLookAt);
-                    }
+                        Transform camLookAt = playerController.camLookAt.transform;
 
-                    Debug.Log("Player spawned at " + position + " and connected to camera " + camera.gameObject.name);
+                        GameObject camera = GameObject.FindGameObjectWithTag("MainCamera");
+                        CameraController cameraController = camera.GetComponent<CameraController>();
+
+                        if (cameraController != null)
+                        {
+                            cameraController.SetCameraTarget(camLookAt);
+                        }
+
+                        Debug.Log("Player spawned at " + position + " and connected to camera " + camera.gameObject.name);
+                    }
+                    else
+                    {
+                        Debug.LogWarning("Player prefab is missing PlayerController component.");
+                    }
                 }
-                else
-                {
-                    Debug.LogWarning("Player prefab is missing PlayerController component.");
+				else
+				{
+                    GameObject player = Instantiate(playerPrefab, position, rotation);
+
+                    // Check if the player has the required component
+                    PlayerController playerController = player.GetComponent<PlayerController>();
+                    if (playerController != null)
+                    {
+                        Transform camLookAt = playerController.camLookAt.transform;
+
+                        GameObject camera = GameObject.FindGameObjectWithTag("MainCamera");
+                        CameraController cameraController = camera.GetComponent<CameraController>();
+
+                        if (cameraController != null)
+                        {
+                            cameraController.SetCameraTarget(camLookAt);
+                        }
+
+                        Debug.Log("Player spawned at " + position + " and connected to camera " + camera.gameObject.name);
+                    }
+                    else
+                    {
+                        Debug.LogWarning("Player prefab is missing PlayerController component.");
+                    }
                 }
             }
             else
@@ -60,5 +88,19 @@ public class PlayerSpawner : MonoBehaviour
                 Debug.LogWarning("Player prefab is not assigned.");
             }
         }
+    }
+
+    //Easier to just heal team and carry on after loss.
+    private void HealKreetures()
+	{
+        foreach (Kreeture kreeture in GameManager.Instance.playerTeam)
+        {
+            // Set each Kreeture's currentHP to its baseHP or maximum health.
+            kreeture.currentHP = kreeture.baseHP;
+        }
+
+        // You can also play a healing animation or sound effect here if desired.
+
+        Debug.Log("Your party has been fully healed!");
     }
 }

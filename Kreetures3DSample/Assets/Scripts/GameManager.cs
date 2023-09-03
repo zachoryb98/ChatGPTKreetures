@@ -13,9 +13,11 @@ public class GameManager : MonoBehaviour{
     // Player-related data
     public List<Kreeture> playerTeam = new List<Kreeture>();
     private string previousSceneName;
-    private Vector3 playerPosition = new Vector3();
-    private Quaternion playerRotation = new Quaternion();
 
+    public bool playerDefeated = false;
+
+    private Vector3 playerPosition = new Vector3();
+    private Quaternion playerRotation = new Quaternion();    
 
     private void Awake()
     {
@@ -74,6 +76,33 @@ public class GameManager : MonoBehaviour{
     public Quaternion GetPlayerRotation()
     {
         return playerRotation;
+    }
+
+    public string GetLastHealScene()
+	{
+        return PlayerPrefs.GetString("playerSpawnScene");
+	}
+
+    public void SetLastHealScene(string healScene)
+	{
+        PlayerPrefs.SetString("playerSpawnScene", healScene);
+	}
+
+    public Vector3 GetPlayerLastHealPosition()
+	{
+        Vector3 lastHealLocation = new Vector3();
+        lastHealLocation.x = PlayerPrefs.GetFloat("playerHealPositionX");
+        lastHealLocation.y = PlayerPrefs.GetFloat("playerHealPositionY");
+        lastHealLocation.z = PlayerPrefs.GetFloat("playerHealPositionZ");
+
+        return lastHealLocation;
+	}
+
+    public void SetPlayerLastHealLocation(Vector3 currentPosition)
+	{
+        PlayerPrefs.SetFloat("playerHealPositionX", currentPosition.x);
+        PlayerPrefs.SetFloat("playerHealPositionY", currentPosition.y);
+        PlayerPrefs.SetFloat("playerHealPositionZ", currentPosition.z);
     }
 
     public GameObject GetPlayerController()

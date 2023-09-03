@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using UnityEngine.SceneManagement;
 public class Healer : MonoBehaviour
 {
     private PlayerInput playerControls;
@@ -57,5 +57,19 @@ public class Healer : MonoBehaviour
         // You can also play a healing animation or sound effect here if desired.
 
         Debug.Log("Your party has been fully healed!");
+        UpdateRespawnPoint();
+    }
+
+    public void UpdateRespawnPoint()
+	{
+        Scene scene = SceneManager.GetActiveScene();
+        GameManager.Instance.SetLastHealScene(scene.name);
+
+        Vector3 spawnlocation = this.gameObject.transform.position;
+
+        spawnlocation.z = spawnlocation.z - 1;
+
+        GameManager.Instance.SetPlayerLastHealLocation(spawnlocation);
+
     }
 }
