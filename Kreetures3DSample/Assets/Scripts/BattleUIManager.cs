@@ -45,6 +45,13 @@ public class BattleUIManager : MonoBehaviour
 	private InputAction navigateDownAction;
 	private InputAction navigateLeftAction;
 	private InputAction navigateRightAction;
+	
+	private bool isWaitingForInput = false;
+
+	public GameObject StatsDisplay;
+	public GameObject PlayerInfo;
+	public List<TextMeshProUGUI> currentStatsTextBoxes;
+	public List<TextMeshProUGUI> newStatsTextBoxes;
 
 	private enum BattleState
 	{
@@ -58,7 +65,8 @@ public class BattleUIManager : MonoBehaviour
 		DisplayEffectiveness,
 		IncreaseXP,
 		LevelUp,
-		PlayerDefeated
+		PlayerDefeated,
+		DisplayStats
 	}
 
 	private BattleState currentBattleState = BattleState.EnteringBattle;
@@ -66,10 +74,10 @@ public class BattleUIManager : MonoBehaviour
 	private string messageToDisplay = "";
 	private int currentCharIndex = 0;
 	private float typingSpeed = 0.05f;
-	private float lastTypingTime;
+	private float lastTypingTime;	
 
 	private void Start()
-	{
+	{		
 		Kreeture enemyKreeture = battleManager.activeEnemyKreeture;
 		string enemyKreetureName = enemyKreeture.kreetureName;
 
@@ -113,7 +121,6 @@ public class BattleUIManager : MonoBehaviour
 			{
 				HandleEnterKeyPress();
 			}
-
 		}
 
 		// Start the coroutine if the typing effect is not done
@@ -125,6 +132,46 @@ public class BattleUIManager : MonoBehaviour
 				StartCoroutine(TypeWriterCoroutine());
 			}
 		}
+		else if (currentBattleState == BattleState.DisplayStats)
+		{
+			PlayerInfo.SetActive(false);
+
+			UpdateStatsUI();
+			StatsDisplay.SetActive(true);
+
+			battleManager.activeKreeture.UpdateStats();
+			StartCoroutine(WaitThenGo());			
+		}
+	}
+
+	private IEnumerator WaitThenGo()
+	{
+		yield return new WaitForSeconds(3.0f);
+		StatsDisplay.SetActive(false);
+		PlayerInfo.SetActive(true);
+
+		SetBattleState(BattleState.IncreaseXP);
+		StartCoroutine(UpdateXPBarOverTime(playerXPBar, battleManager.activeKreeture, battleManager.activeKreeture.xpTransfer));
+	}
+
+	private void UpdateStatsUI()
+	{
+		//Get current stats before level up
+		List<int> currentStats = battleManager.activeKreeture.GetCurrentStats();
+		List<int> newStats = battleManager.activeKreeture.GetNewStats();
+
+		//Set current stats
+		for (int i = 0; i < currentStatsTextBoxes.Count; i++)
+		{
+			currentStatsTextBoxes[i].text = currentStats[i].ToString();
+		}
+
+		//Set new stats
+		for (int i = 0; i < newStatsTextBoxes.Count; i++)
+		{
+			newStatsTextBoxes[i].text = newStats[i].ToString();
+		}
+
 	}
 
 	private void UpdateDisplayHealth(int currentHealth, int baseHealth)
@@ -180,7 +227,7 @@ public class BattleUIManager : MonoBehaviour
 		navigateUpAction = new InputAction("NavigateUp", InputActionType.Button, "<Keyboard>/w", null);
 		navigateDownAction = new InputAction("NavigateDown", InputActionType.Button, "<Keyboard>/s", null);
 		navigateLeftAction = new InputAction("NavigateLeft", InputActionType.Button, "<Keyboard>/a", null);
-		navigateRightAction = new InputAction("NavigateRight", InputActionType.Button, "<Keyboard>/d", null);
+		navigateRightAction = new InputAction("NavigateRight", InputActionType.Button, "<Keyboard>/d", null);		
 
 		navigateUpAction.AddBinding("<Keyboard>/w");
 		navigateUpAction.AddBinding("<Keyboard>/upArrow");
@@ -192,12 +239,12 @@ public class BattleUIManager : MonoBehaviour
 		navigateLeftAction.AddBinding("<Keyboard>/leftArrow");
 
 		navigateRightAction.AddBinding("<Keyboard>/d");
-		navigateRightAction.AddBinding("<Keyboard>/rightArrow");
+		navigateRightAction.AddBinding("<Keyboard>/rightArrow");		
 
 		navigateUpAction.performed += ctx => Navigate(-2); // Move up
 		navigateDownAction.performed += ctx => Navigate(2); // Move down
 		navigateLeftAction.performed += ctx => Navigate(-1); // Move left
-		navigateRightAction.performed += ctx => Navigate(1); // Move right
+		navigateRightAction.performed += ctx => Navigate(1); // Move right		
 
 		EnableNavigation();
 	}
@@ -271,20 +318,7 @@ public class BattleUIManager : MonoBehaviour
 	{
 		string previousSceneName = GameManager.Instance.GetPreviousScene();
 
-		SceneManager.LoadScene(previousSceneName);
-
-		// Respawn the player at the encounter position
-		Vector3 encounterPosition = GameManager.Instance.GetPlayerPosition();
-		Quaternion encounterRotation = GameManager.Instance.GetPlayerRotation();
-		PlayerSpawner playerSpawner = FindObjectOfType<PlayerSpawner>();
-		if (playerSpawner != null)
-		{
-			navigateUpAction.Disable();
-			navigateDownAction.Disable();
-			navigateLeftAction.Disable();
-			navigateRightAction.Disable();
-			playerSpawner.SpawnPlayerAtPosition(encounterPosition, encounterRotation);
-		}
+		SceneManager.LoadScene(previousSceneName);		
 	}
 
 	private void Navigate(int direction)
@@ -435,12 +469,14 @@ public class BattleUIManager : MonoBehaviour
 			case BattleState.EnteringBattle:
 				SetBattleState(BattleState.SendOutKreeture);
 				SetMessageToDisplay("Go " + battleManager.activeKreeture.kreetureName + "!");
+				yield return new WaitForSeconds(.5f);
 				typingCoroutineRunning = false;
 				break;
 			case BattleState.SendOutKreeture:
 				SetBattleState(BattleState.WaitingForInput);
 				SetMessageToDisplay("What would you like to do?");
 				typingCoroutineRunning = false;
+				yield return new WaitForSeconds(.5f);
 				break;
 			case BattleState.EnemyTurn:
 				yield return new WaitForSeconds(.5f);
@@ -468,24 +504,22 @@ public class BattleUIManager : MonoBehaviour
 				battleManager.activeKreeture.GainXP(xpGained);
 				if (battleManager.activeKreeture.leveledUp)
 				{
-					SetMessageToDisplay(battleManager.activeKreeture.kreetureName + " Level up to level " + (battleManager.activeKreeture.currentLevel) + "!");
+					SetBattleState(BattleState.LevelUp);
+					SetMessageToDisplay(battleManager.activeKreeture.kreetureName + " Leveled up to level " + (battleManager.activeKreeture.currentLevel) + "!");
 					Debug.Log("XP remaining: " + battleManager.activeEnemyKreeture.currentXP);
 					typingCoroutineRunning = false;
 					battleManager.activeKreeture.leveledUp = false;
-				}
-				battleManager.activeKreeture.GainXP(xpGained);
+				}				
 				break;
 			case BattleState.LevelUp:
 				//Play level up effect
 
 				//Set to 0 since we leveled up
 				playerXPBar.value = 0;
-				//Update to proper xp number after level up
-				StartCoroutine(UpdateXPBarOverTime(playerXPBar, battleManager.activeKreeture, battleManager.activeKreeture.xpTransfer));
+				//Update to proper xp number after level up				
 
-
-				//Show Updated Stats
-
+				//Update stats after level up
+				SetBattleState(BattleState.DisplayStats);
 				//Determine if battle is done and exit scene.
 				
 				break;
@@ -756,6 +790,14 @@ public class BattleUIManager : MonoBehaviour
 
 		int targetXP = Mathf.Max(kreeture.currentXP + xp, 0);
 
+		if(targetXP > kreeture.xpRequiredForNextLevel)
+		{
+			kreeture.xpTransfer = targetXP - kreeture.xpRequiredForNextLevel;
+			targetXP = kreeture.xpRequiredForNextLevel;			
+		}
+
+		
+
 		Debug.Log("target xp" + targetXP);
 
 		while (elapsedTime < duration)
@@ -774,7 +816,12 @@ public class BattleUIManager : MonoBehaviour
 		}
 
 		yield return new WaitForSeconds(2.0f);
-		ExitBattle();
+
+		//Determine if more to battle in the future
+		if(currentBattleState != BattleState.LevelUp && currentBattleState != BattleState.DisplayStats)
+		{
+			ExitBattle();
+		}		
 	}
 
 	private IEnumerator UpdateHealthBarOverTime(Slider healthBar, Kreeture kreeture, int damage, Attack selectedAttack)
@@ -945,5 +992,10 @@ public class BattleUIManager : MonoBehaviour
 		// Apply additional modifiers (type effectiveness, battle performance, etc.)
 
 		return xp;
+	}
+
+	public void DisplayStatsTable()
+	{
+
 	}
 }

@@ -145,7 +145,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 21
+  controlID: 19
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -429,7 +429,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 7c6d0000
       m_LastClickedID: 0
-      m_ExpandedIDs: 2c8effff4892ffff16fbfffff4ffffff
+      m_ExpandedIDs: 7e3dfeff583ffeff7460feffa261feff3e68feff6e6bfeff767dfeffd283feffbc84feffc28bfeffa68cfeff3a91feff1a98feff1a9bfefff09bfeff909cfeff309dfeffcca0fefffca3fefff22dffff6aa9ffffd2bdffff2ec0ffff16fbffffbc760000f67700009ec60000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -509,7 +509,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 14730000
     m_LastClickedID: 29460
-    m_ExpandedIDs: 00000000487100000473000000ca9a3b
+    m_ExpandedIDs: 0000000048710000047300000673000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -568,18 +568,18 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: c62300002c650000464fffff925f0000188c0000dea10000d48400008e5f0000025f000006730000586b0000d6720000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Crunchclaw
-      m_OriginalName: Crunchclaw
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 29462
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 8}
     m_CreateAssetUtility:
@@ -818,9 +818,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 7.609112, y: 4.1144323, z: 8.368107}
+    m_Target: {x: 742.1106, y: 251.58954, z: -11.681763}
     speed: 2
-    m_Value: {x: 7.609112, y: 4.1144323, z: 8.368107}
+    m_Value: {x: 742.1106, y: 251.58954, z: -11.681763}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -867,13 +867,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.16350469, y: 0.1716067, z: -0.028893119, w: -0.9710813}
+    m_Target: {x: -0.12150313, y: 0.009837583, z: -0.0012033698, w: -0.9925497}
     speed: 2
-    m_Value: {x: -0.16350335, y: 0.17160529, z: -0.02889288, w: -0.9710733}
+    m_Value: {x: -0.121502146, y: 0.009837503, z: -0.00120336, w: -0.9925417}
   m_Size:
-    m_Target: 5.9198117
+    m_Target: 242.2252
     speed: 2
-    m_Value: 5.9198117
+    m_Value: 242.2252
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -918,7 +918,7 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 369
+    x: 368
     y: 73
     width: 1072
     height: 605
@@ -1033,9 +1033,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 369
+    x: 368
     y: 73
-    width: 1070
+    width: 1072
     height: 605
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
