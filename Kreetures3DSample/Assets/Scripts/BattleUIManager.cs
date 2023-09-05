@@ -8,6 +8,8 @@ using System.Collections;
 
 public class BattleUIManager : MonoBehaviour
 {
+	public static BattleUIManager Instance;
+
 	public TextMeshProUGUI mainText;
 	public Button[] actionButtons;
 	public Button[] attackButtons; // Added array for attack buttons
@@ -31,14 +33,11 @@ public class BattleUIManager : MonoBehaviour
 	public Slider playerHPBar;
 	public Slider playerXPBar;
 
-	private Attack enemyAttack = null;
-	private int enemyDamageDealtToPlayer;
 	private int playerDamageDealtToEnemy;
 	private Attack playerSelectedAttack = null;
 
 	private bool hasPlayerGone = false;
 	private bool hasEnemyGone = false;
-	private bool hasPlayerLost = false;
 
 	private int currentButtonIndex = 0;
 	private InputAction navigateUpAction;
@@ -53,42 +52,40 @@ public class BattleUIManager : MonoBehaviour
 	public List<TextMeshProUGUI> currentStatsTextBoxes;
 	public List<TextMeshProUGUI> newStatsTextBoxes;
 
-	private enum BattleState
-	{
-		EnteringBattle,
-		SendOutKreeture,
-		WaitingForInput,
-		SelectingAttack,
-		PlayerTurn,
-		EnemyTurn,
-		EnemyKreetureDefeated,
-		DisplayEffectiveness,
-		IncreaseXP,
-		LevelUp,
-		PlayerDefeated,
-		DisplayStats
-	}
-
-	private BattleState currentBattleState = BattleState.EnteringBattle;
-
 	private string messageToDisplay = "";
 	private int currentCharIndex = 0;
 	private float typingSpeed = 0.05f;
-	private float lastTypingTime;	
+	private float lastTypingTime;
+
+	private void Awake()
+	{
+		if (Instance == null)
+		{
+			Instance = this;
+		}
+		else
+		{
+			Destroy(gameObject); // Destroy any duplicate GameManager instances
+		}
+	}
 
 	private void Start()
 	{		
+		//Get enemy Kreeture
 		Kreeture enemyKreeture = battleManager.activeEnemyKreeture;
 		string enemyKreetureName = enemyKreeture.kreetureName;
 
+		//Set enemy Kreeture UI Info
 		enemyName.text = enemyKreetureName;
 		SetMessageToDisplay("A wild " + enemyKreetureName + " appeared!");
 		SetHPSliderValues(enemyHPBar, enemyKreeture);
 		currentCharIndex = 0;
 		enemyLvlText.text = "Lvl " + enemyKreeture.currentLevel;
 
+		//Get Player Kreeture
 		Kreeture playerKreeture = battleManager.activeKreeture;
 
+		//Set Player Kreeture Info
 		kreetureName.text = playerKreeture.name;
 		hpText.text = playerKreeture.currentHP + "/" + playerKreeture.baseHP;
 		SetHPSliderValues(playerHPBar, playerKreeture);
@@ -96,7 +93,7 @@ public class BattleUIManager : MonoBehaviour
 		lvlText.text = "Lvl " + playerKreeture.currentLevel;
 		xpText.text = playerKreeture.currentXP + "/" + playerKreeture.xpRequiredForNextLevel;
 
-		SetBattleState(BattleState.EnteringBattle);
+		//Set up controls for UI. LIKELY NEEDS REDONE
 		SetupButtons();
 		SetupNavigationActions();
 	}
@@ -123,7 +120,7 @@ public class BattleUIManager : MonoBehaviour
 			}
 		}
 
-		// Start the coroutine if the typing effect is not done
+		//Start the coroutine if the typing effect is not done
 		if (currentCharIndex < messageToDisplay.Length)
 		{
 			if (!typingCoroutineRunning)
@@ -132,25 +129,27 @@ public class BattleUIManager : MonoBehaviour
 				StartCoroutine(TypeWriterCoroutine());
 			}
 		}
-		else if (currentBattleState == BattleState.DisplayStats)
-		{
-			PlayerInfo.SetActive(false);
+		//else if (currentBattleState == BattleState.DisplayStats)
+		//{
+		//	PlayerInfo.SetActive(false);
 
-			UpdateStatsUI();
-			StatsDisplay.SetActive(true);
+		//	UpdateStatsUI();
+		//	StatsDisplay.SetActive(true);
 
-			battleManager.activeKreeture.UpdateStats();
-			StartCoroutine(WaitThenGo());			
-		}
+		//	battleManager.activeKreeture.UpdateStats();
+		//	StartCoroutine(WaitThenGo());			
+		//}
 	}
 
+
+	//METHOD NEEDS FIXED
 	private IEnumerator WaitThenGo()
 	{
 		yield return new WaitForSeconds(3.0f);
 		StatsDisplay.SetActive(false);
 		PlayerInfo.SetActive(true);
 
-		SetBattleState(BattleState.IncreaseXP);
+		//SetBattleState(BattleState.IncreaseXP);
 		StartCoroutine(UpdateXPBarOverTime(playerXPBar, battleManager.activeKreeture, battleManager.activeKreeture.xpTransfer));
 	}
 
@@ -267,11 +266,11 @@ public class BattleUIManager : MonoBehaviour
 
 	private void HandleEnterKeyPress()
 	{
-		if (currentBattleState == BattleState.WaitingForInput)
+		if (battleManager.GetBattleState() == BattleManager.BattleState.WaitingForInput)
 		{
 			actionButtons[currentButtonIndex].onClick.Invoke();
 		}
-		else if (currentBattleState == BattleState.SelectingAttack)
+		else if (battleManager.GetBattleState() == BattleManager.BattleState.SelectingAttack)
 		{
 			attackButtons[currentButtonIndex].onClick.Invoke();
 		}
@@ -282,7 +281,7 @@ public class BattleUIManager : MonoBehaviour
 		if (button.name == "Fight")
 		{
 			mainText.text = "Select an attack!";
-			currentBattleState = BattleState.SelectingAttack;
+			battleManager.SetBattleState(BattleManager.BattleState.SelectingAttack);
 
 			SetupAttackButtons();
 		}
@@ -323,7 +322,7 @@ public class BattleUIManager : MonoBehaviour
 
 	private void Navigate(int direction)
 	{
-		if (currentBattleState == BattleState.WaitingForInput)
+		if (battleManager.GetBattleState() == BattleManager.BattleState.WaitingForInput)
 		{
 			int maxIndex = actionButtons.Length - 1;
 
@@ -382,7 +381,7 @@ public class BattleUIManager : MonoBehaviour
 
 			HighlightButton(currentButtonIndex);
 		}
-		else if (currentBattleState == BattleState.SelectingAttack)
+		else if (battleManager.GetBattleState() == BattleManager.BattleState.SelectingAttack)
 		{
 			int totalAttackButtons = attackButtons.Length;
 
@@ -461,57 +460,57 @@ public class BattleUIManager : MonoBehaviour
 		//Pause for a moment so player can read message
 		yield return new WaitForSeconds(0.4f); // Adjust the time as needed
 
-		switch (currentBattleState)
+		switch (battleManager.GetBattleState())
 		{
-			case BattleState.WaitingForInput:
+			case BattleManager.BattleState.WaitingForInput:
 				isAttackTurn = false;
 				break;
-			case BattleState.EnteringBattle:
-				SetBattleState(BattleState.SendOutKreeture);
+			case BattleManager.BattleState.EnteringBattle:
+				battleManager.SetBattleState(BattleManager.BattleState.SendOutKreeture);
 				SetMessageToDisplay("Go " + battleManager.activeKreeture.kreetureName + "!");
 				yield return new WaitForSeconds(.5f);
 				typingCoroutineRunning = false;
 				break;
-			case BattleState.SendOutKreeture:
-				SetBattleState(BattleState.WaitingForInput);
+			case BattleManager.BattleState.SendOutKreeture:
+				battleManager.SetBattleState(BattleManager.BattleState.WaitingForInput);
 				SetMessageToDisplay("What would you like to do?");
 				typingCoroutineRunning = false;
 				yield return new WaitForSeconds(.5f);
 				break;
-			case BattleState.EnemyTurn:
+			case BattleManager.BattleState.EnemyTurn:
 				yield return new WaitForSeconds(.5f);
-				StartCoroutine(PerformEnemyAttack());
+				StartCoroutine(BattleManager.Instance.PerformEnemyAttack());
 				typingCoroutineRunning = false;
 				break;
-			case BattleState.PlayerTurn:
+			case BattleManager.BattleState.PlayerTurn:
 				yield return new WaitForSeconds(.5f);
 				StartCoroutine(PerformPlayerAttack());				
 				break;
-			case BattleState.DisplayEffectiveness:
+			case BattleManager.BattleState.DisplayEffectiveness:
 				CheckIfRoundOver();
 				typingCoroutineRunning = false;
 				break;
-			case BattleState.EnemyKreetureDefeated:
+			case BattleManager.BattleState.EnemyKreetureDefeated:
 				//Play feint animation
-				int xp = CalculateXPForDefeatedKreeture(battleManager.activeKreeture, battleManager.activeKreeture);
+				int xp = battleManager.CalculateXPForDefeatedKreeture(battleManager.activeKreeture, battleManager.activeKreeture);
 				SetMessageToDisplay(battleManager.activeKreeture.kreetureName + " gained " + xp + "XP!");
 				typingCoroutineRunning = false;
-				SetBattleState(BattleState.IncreaseXP);
+				battleManager.SetBattleState(BattleManager.BattleState.IncreaseXP);
 				break;
-			case BattleState.IncreaseXP:
-				int xpGained = CalculateXPForDefeatedKreeture(battleManager.activeKreeture, battleManager.activeKreeture);
+			case BattleManager.BattleState.IncreaseXP:
+				int xpGained = battleManager.CalculateXPForDefeatedKreeture(battleManager.activeKreeture, battleManager.activeKreeture);
 				StartCoroutine(UpdateXPBarOverTime(playerXPBar, battleManager.activeKreeture, xpGained));
 				battleManager.activeKreeture.GainXP(xpGained);
 				if (battleManager.activeKreeture.leveledUp)
 				{
-					SetBattleState(BattleState.LevelUp);
+					battleManager.SetBattleState(BattleManager.BattleState.LevelUp);
 					SetMessageToDisplay(battleManager.activeKreeture.kreetureName + " Leveled up to level " + (battleManager.activeKreeture.currentLevel) + "!");
 					Debug.Log("XP remaining: " + battleManager.activeEnemyKreeture.currentXP);
 					typingCoroutineRunning = false;
 					battleManager.activeKreeture.leveledUp = false;
 				}				
 				break;
-			case BattleState.LevelUp:
+			case BattleManager.BattleState.LevelUp:
 				//Play level up effect
 
 				//Set to 0 since we leveled up
@@ -519,11 +518,11 @@ public class BattleUIManager : MonoBehaviour
 				//Update to proper xp number after level up				
 
 				//Update stats after level up
-				SetBattleState(BattleState.DisplayStats);
+				battleManager.SetBattleState(BattleManager.BattleState.DisplayStats);
 				//Determine if battle is done and exit scene.
 				
 				break;
-			case BattleState.PlayerDefeated:
+			case BattleManager.BattleState.PlayerDefeated:
 
 				yield return new WaitForSeconds(1.5f);
 
@@ -542,27 +541,27 @@ public class BattleUIManager : MonoBehaviour
 	private void CheckIfRoundOver()
 	{
 
-		bool battleOver = IsBattleOver(battleManager.playerTeam, battleManager.activeEnemyKreeture);
+		bool battleOver = battleManager.IsBattleOver(battleManager.playerTeam, battleManager.activeEnemyKreeture);
 		if (battleOver)
 		{
-			if (currentBattleState == BattleState.EnemyKreetureDefeated)
+			if (battleManager.GetBattleState() == BattleManager.BattleState.EnemyKreetureDefeated)
 			{
 				SetMessageToDisplay(battleManager.activeEnemyKreeture.kreetureName + " was defeated!");
 				typingCoroutineRunning = false;
 				isAttackTurn = false;
 			}
 
-			if (hasPlayerLost)
+			if (BattleManager.Instance.DetermineHasPlayerLost())
 			{
 				SetMessageToDisplay("You let your Kreetures faint");
 				typingCoroutineRunning = false;
-				SetBattleState(BattleState.PlayerDefeated);				
+				battleManager.SetBattleState(BattleManager.BattleState.PlayerDefeated);				
 			}
 		}
 
 		if (hasPlayerGone && !hasEnemyGone && !battleOver)
 		{
-			HandleEnemyTurn();
+			BattleManager.Instance.HandleEnemyTurn();
 		}
 		else if (hasEnemyGone && !hasPlayerGone && !battleOver)
 		{
@@ -573,7 +572,7 @@ public class BattleUIManager : MonoBehaviour
 			hasEnemyGone = false;
 			hasPlayerGone = false;
 			Debug.Log("New round");
-			SetBattleState(BattleState.WaitingForInput);
+			battleManager.SetBattleState(BattleManager.BattleState.WaitingForInput);
 			SetMessageToDisplay("What would you like to do?");
 			EnableActionButtons();
 			EnableNavigation();
@@ -588,7 +587,7 @@ public class BattleUIManager : MonoBehaviour
 		var enemyKreeture = GameManager.Instance.kreetureForBattle;
 
 		// Wait for the animation to finish (optional)		
-		int damage = CalculateDamage(GameManager.Instance.playerTeam[0], enemyKreeture, playerSelectedAttack);
+		int damage = battleManager.CalculateDamage(GameManager.Instance.playerTeam[0], enemyKreeture, playerSelectedAttack);
 
 		playerKreetureAnimator.Play("Bite Attack");
 
@@ -617,50 +616,8 @@ public class BattleUIManager : MonoBehaviour
 
 		StartCoroutine(UpdateHealthBarOverTime(enemyHPBar, enemyKreeture, damage, playerSelectedAttack));
 	}
-	private IEnumerator PerformEnemyAttack()
-	{
-		Kreeture enemyKreeture = battleManager.activeEnemyKreeture;
 
-		GameObject enemyKreetureGameObject = battleManager.EnemyKreetureGameObject;
-
-		Animator enemyAnimator = enemyKreetureGameObject.GetComponent<Animator>();
-
-		Kreeture playerKreeture = battleManager.playerTeam[0];
-
-		int enemyDamage = CalculateDamage(enemyKreeture, playerKreeture, enemyAttack);
-
-		Debug.Log("Enemy hit player for " + enemyDamage + "Damage");
-
-		enemyDamageDealtToPlayer = enemyDamage;
-
-		enemyAnimator.Play("Bite Attack");
-
-		AnimationClip biteAttackClip = null; // Assign the actual animation clip here
-		AnimationClip[] clips = enemyAnimator.runtimeAnimatorController.animationClips;
-		foreach (AnimationClip clip in clips)
-		{
-			if (clip.name == "Bite Attack")
-			{
-				biteAttackClip = clip;
-				break;
-			}
-		}
-
-		// Wait for the animation to finish
-		if (biteAttackClip != null)
-		{
-			yield return new WaitForSeconds(biteAttackClip.length);
-		}
-		else
-		{
-			Debug.LogWarning("Bite Attack animation clip not found!");
-		}
-
-		//Update Healthbar, deal damage, and switch turn
-		StartCoroutine(UpdateHealthBarOverTime(playerHPBar, playerKreeture, enemyDamage, enemyAttack));
-	}
-
-	private void SetMessageToDisplay(string message)
+	public void SetMessageToDisplay(string message)
 	{
 		mainText.text = "";
 		messageToDisplay = message;
@@ -695,11 +652,6 @@ public class BattleUIManager : MonoBehaviour
 		}
 	}
 
-	private void SetBattleState(BattleState battleState)
-	{
-		currentBattleState = battleState;
-	}
-
 	private void HighlightAttackButton(int index)
 	{
 		if (index >= 0 && index < attackButtons.Length)
@@ -713,14 +665,14 @@ public class BattleUIManager : MonoBehaviour
 	private void OnAttackButtonClick(Button button)
 	{
 		//If attack button is clicked and the gamestate is correct
-		if (currentBattleState == BattleState.SelectingAttack)
+		if (battleManager.GetBattleState() == BattleManager.BattleState.SelectingAttack)
 		{
 			int selectedAttackIndex = currentButtonIndex;
 			playerSelectedAttack = GameManager.Instance.playerTeam[0].knownAttacks[selectedAttackIndex];
 
 			Kreeture targetKreeture = GameManager.Instance.kreetureForBattle;
 
-			bool isPlayerTurn = DetermineTurnOrder(battleManager.playerTeam[0], targetKreeture);
+			bool isPlayerTurn = battleManager.DetermineTurnOrder(battleManager.playerTeam[0], targetKreeture);
 
 			DisableAttackButtons();
 			DisableNavigation();
@@ -733,16 +685,16 @@ public class BattleUIManager : MonoBehaviour
 				Debug.Log("Players turn");
 				HandlePlayerTurn();
 
-				if (!IsBattleOver(battleManager.playerTeam, battleManager.activeEnemyKreeture))
+				if (!battleManager.IsBattleOver(battleManager.playerTeam, battleManager.activeEnemyKreeture))
 				{
 					// Enemy's turn logic
-					HandleEnemyTurn();
+					BattleManager.Instance.HandleEnemyTurn();
 				}
 			}
 			else
 			{
 				// Enemy's turn logic first, then player's turn
-				HandleEnemyTurn();
+				BattleManager.Instance.HandleEnemyTurn();
 			}
 		}
 	}
@@ -752,7 +704,7 @@ public class BattleUIManager : MonoBehaviour
 		// Trigger the "AttackTrigger" animation
 		//For now grab first one
 
-		SetBattleState(BattleState.PlayerTurn);
+		battleManager.SetBattleState(BattleManager.BattleState.PlayerTurn);
 
 		List<Kreeture> playerTeam = battleManager.GetPlayerTeam();
 		var activeKreeture = playerTeam[0];
@@ -761,22 +713,6 @@ public class BattleUIManager : MonoBehaviour
 		SetMessageToDisplay(activeKreeture.kreetureName + " Used " + playerSelectedAttack.name);
 		typingCoroutineRunning = false;
 	}
-
-	private void HandleEnemyTurn()
-	{
-		SetBattleState(BattleState.EnemyTurn);
-		// Play enemy attack animation
-
-		var enemyKreeture = battleManager.activeEnemyKreeture;
-
-		Attack enemySelectedAttack = DetermineEnemyAttack(enemyKreeture);
-
-		enemyAttack = enemySelectedAttack;
-
-		SetMessageToDisplay(enemyKreeture.kreetureName + " used " + enemySelectedAttack.name);
-		typingCoroutineRunning = false;
-	}
-
 
 	private IEnumerator UpdateXPBarOverTime(Slider xpBar, Kreeture kreeture, int xp)
 	{
@@ -817,14 +753,16 @@ public class BattleUIManager : MonoBehaviour
 
 		yield return new WaitForSeconds(2.0f);
 
+		var battleState = battleManager.GetBattleState();
+;
 		//Determine if more to battle in the future
-		if(currentBattleState != BattleState.LevelUp && currentBattleState != BattleState.DisplayStats)
+		if (battleState != BattleManager.BattleState.LevelUp && battleState != BattleManager.BattleState.DisplayStats)
 		{
 			ExitBattle();
 		}		
 	}
 
-	private IEnumerator UpdateHealthBarOverTime(Slider healthBar, Kreeture kreeture, int damage, Attack selectedAttack)
+	public IEnumerator UpdateHealthBarOverTime(Slider healthBar, Kreeture kreeture, int damage, Attack selectedAttack)
 	{
 		isAttackTurn = true;
 		float elapsedTime = 0f;
@@ -852,7 +790,7 @@ public class BattleUIManager : MonoBehaviour
 			// Update the slider value
 			healthBar.value = newHealth;
 
-			if (currentBattleState == BattleState.EnemyTurn)
+			if (battleManager.GetBattleState() == BattleManager.BattleState.EnemyTurn)
 			{
 				UpdateDisplayHealth(Mathf.FloorToInt(newHealth), kreeture.baseHP);
 			}
@@ -867,25 +805,27 @@ public class BattleUIManager : MonoBehaviour
 
 		kreeture.TakeDamage(damage, selectedAttack.attackType, kreeture.Types);
 
-		if (currentBattleState == BattleState.PlayerTurn)
+		var battleState = battleManager.GetBattleState();
+
+		if (battleState == BattleManager.BattleState.PlayerTurn)
 		{
 			hasPlayerGone = true;
 		}
-		else if (currentBattleState == BattleState.EnemyTurn)
+		else if (battleState == BattleManager.BattleState.EnemyTurn)
 		{
 			hasEnemyGone = true;			
 		}
 
 		if(battleManager.activeKreeture.currentHP == 0)
 		{
-			IsBattleOver(battleManager.playerTeam, battleManager.activeEnemyKreeture);
+			battleManager.IsBattleOver(battleManager.playerTeam, battleManager.activeEnemyKreeture);
 		}
 
 		//If both have gone update battle stats
 		if(hasPlayerGone && hasEnemyGone)
 		{
 			//IMPLEMENT CRITICAL HITS, and STATUS EFFECT AFTER GET SUPER EFFECTIVE METHOD
-			battleManager.RecordBattleData(playerDamageDealtToEnemy, enemyDamageDealtToPlayer, battleManager.GetSuperEffectiveHit(), false, false, battleManager.activeKreeture.currentHP);
+			battleManager.RecordBattleData(playerDamageDealtToEnemy, BattleManager.Instance.GetDamageDealtToPlayer(), battleManager.GetSuperEffectiveHit(), false, false, battleManager.activeKreeture.currentHP);
 		}
 
 		typingCoroutineRunning = false;
@@ -893,7 +833,7 @@ public class BattleUIManager : MonoBehaviour
 		if (battleManager.GetSuperEffectiveHit())
 		{
 			//if super effective set new state and store this state as the last state
-			SetBattleState(BattleState.DisplayEffectiveness);
+			battleManager.SetBattleState(BattleManager.BattleState.DisplayEffectiveness);
 			SetMessageToDisplay("It was super effective!");
 			battleManager.SetSuperEffectiveHit(false);
 		}
@@ -903,99 +843,8 @@ public class BattleUIManager : MonoBehaviour
 		}
 	}
 
-	private bool IsBattleOver(List<Kreeture> playerTeam, Kreeture enemyKreeture)
+	public void SetTypeCoroutineValue(bool value)
 	{
-		bool playerTeamDefeated = true;
-
-		foreach (Kreeture kreeture in playerTeam)
-		{
-			if (kreeture.currentHP > 0)
-			{
-				playerTeamDefeated = false;
-				break;
-			}
-		}
-
-		bool enemyDefeated = enemyKreeture.currentHP <= 0;
-
-		if (enemyDefeated)
-		{
-			typingCoroutineRunning = false;
-			SetBattleState(BattleState.EnemyKreetureDefeated);
-		}
-
-		if (playerTeamDefeated)
-		{
-			hasPlayerLost = true;
-		}
-
-		return playerTeamDefeated || enemyDefeated;
-	}
-
-	private bool DetermineTurnOrder(Kreeture playerKreeture, Kreeture enemyKreeture)
-	{
-		// Calculate the speed of the player's Kreeture and the enemy's Kreeture
-		int playerSpeed = playerKreeture.agility;
-		int enemySpeed = enemyKreeture.agility;
-
-		// Compare the speeds to determine the turn order
-		if (playerSpeed > enemySpeed)
-		{
-			return true; // Player's Kreeture attacks first
-		}
-		else if (enemySpeed > playerSpeed)
-		{
-			return false; // Enemy's Kreeture attacks first
-		}
-		else
-		{
-			// If both speeds are equal, you can introduce randomness for variety
-			return Random.value < 0.5f; // 50% chance for player's Kreeture to attack first
-		}
-	}
-
-	private Attack DetermineEnemyAttack(Kreeture enemyKreeture)
-	{
-		// Choose a random attack from the enemy's known attacks
-		int randomAttackIndex = Random.Range(0, enemyKreeture.knownAttacks.Count);
-		Attack selectedAttack = enemyKreeture.knownAttacks[randomAttackIndex];
-
-		return selectedAttack;
-	}
-
-	private int CalculateDamage(Kreeture attacker, Kreeture defender, Attack attack)
-	{
-		// Calculate damage based on attacker's stats, defender's stats, attack power, and type effectiveness
-		float effectiveness = TypeEffectivenessCalculator.CalculateEffectiveness(attack.attackType, defender.Types);
-		float attackPower = attacker.attack;
-		float defensePower = defender.defense;
-
-		if (effectiveness > 1)
-		{
-			battleManager.SetSuperEffectiveHit(true);
-		}
-		// Calculate the damage using a formula (you can adjust this formula based on your game mechanics)
-		int damage = Mathf.RoundToInt((attackPower / defensePower) * attack.power * effectiveness);
-
-		return damage;
-	}
-
-	public int CalculateXPForDefeatedKreeture(Kreeture playerKreeture, Kreeture defeatedKreeture)
-	{
-		int baseXP = 50; // Base XP value
-
-		int levelDifference = defeatedKreeture.currentLevel - playerKreeture.currentLevel;
-		float levelScalingFactor = 1.0f + (levelDifference * 0.1f); // Adjust the scaling factor as needed
-
-		int xp = Mathf.RoundToInt(baseXP * levelScalingFactor);
-
-		// Apply additional modifiers (type effectiveness, battle performance, etc.)
-
-		return xp;
-	}
-
-	public void DisplayStatsTable()
-	{
-
+		typingCoroutineRunning = value;
 	}
 }

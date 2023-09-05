@@ -120,7 +120,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 96
+  controlID: 18
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -222,7 +222,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 97
+  controlID: 105
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -427,9 +427,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 7c6d0000
+      m_SelectedIDs: 501b0000
       m_LastClickedID: 0
-      m_ExpandedIDs: 7e3dfeff583ffeff7460feffa261feff3e68feff6e6bfeff767dfeffd283feffbc84feffc28bfeffa68cfeff3a91feff1a98feff1a9bfefff09bfeff909cfeff309dfeffcca0fefffca3fefff22dffff6aa9ffffd2bdffff2ec0ffff16fbffffbc760000f67700009ec60000
+      m_ExpandedIDs: 16fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -494,22 +494,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs/Kreetures
+    - Assets/Scripts
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Prefabs/Kreetures
+  - Assets/Scripts
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 14730000
-    m_LastClickedID: 29460
-    m_ExpandedIDs: 0000000048710000047300000673000000ca9a3b
+    m_SelectedIDs: 08730000
+    m_LastClickedID: 29448
+    m_ExpandedIDs: 00000000487100000473000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
