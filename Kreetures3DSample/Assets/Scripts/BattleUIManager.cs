@@ -15,8 +15,6 @@ public class BattleUIManager : MonoBehaviour
 	public Button[] attackButtons; // Added array for attack buttons
 	public Color highlightedColor;
 
-	private bool isAttackTurn = false;
-
 	private bool typingCoroutineRunning = false;
 
 	public BattleManager battleManager;
@@ -34,17 +32,13 @@ public class BattleUIManager : MonoBehaviour
 	public Slider playerXPBar;
 
 	private int playerDamageDealtToEnemy;
-	private Attack playerSelectedAttack = null;
-
-	private bool hasPlayerGone = false;
-	private bool hasEnemyGone = false;
 
 	private int currentButtonIndex = 0;
 	private InputAction navigateUpAction;
 	private InputAction navigateDownAction;
 	private InputAction navigateLeftAction;
 	private InputAction navigateRightAction;
-	
+
 	private bool isWaitingForInput = false;
 
 	public GameObject StatsDisplay;
@@ -70,7 +64,7 @@ public class BattleUIManager : MonoBehaviour
 	}
 
 	private void Start()
-	{		
+	{
 		//Get enemy Kreeture
 		Kreeture enemyKreeture = battleManager.activeEnemyKreeture;
 		string enemyKreetureName = enemyKreeture.kreetureName;
@@ -114,7 +108,7 @@ public class BattleUIManager : MonoBehaviour
 	{
 		if (Keyboard.current.enterKey.wasPressedThisFrame)
 		{
-			if (!isAttackTurn)
+			if (BattleManager.Instance.GetAttackTurn())
 			{
 				HandleEnterKeyPress();
 			}
@@ -212,7 +206,7 @@ public class BattleUIManager : MonoBehaviour
 		}
 	}
 
-	private void EnableActionButtons()
+	public void EnableActionButtons()
 	{
 		foreach (Button button in actionButtons)
 		{
@@ -220,13 +214,12 @@ public class BattleUIManager : MonoBehaviour
 		}
 	}
 
-
 	private void SetupNavigationActions()
 	{
 		navigateUpAction = new InputAction("NavigateUp", InputActionType.Button, "<Keyboard>/w", null);
 		navigateDownAction = new InputAction("NavigateDown", InputActionType.Button, "<Keyboard>/s", null);
 		navigateLeftAction = new InputAction("NavigateLeft", InputActionType.Button, "<Keyboard>/a", null);
-		navigateRightAction = new InputAction("NavigateRight", InputActionType.Button, "<Keyboard>/d", null);		
+		navigateRightAction = new InputAction("NavigateRight", InputActionType.Button, "<Keyboard>/d", null);
 
 		navigateUpAction.AddBinding("<Keyboard>/w");
 		navigateUpAction.AddBinding("<Keyboard>/upArrow");
@@ -238,7 +231,7 @@ public class BattleUIManager : MonoBehaviour
 		navigateLeftAction.AddBinding("<Keyboard>/leftArrow");
 
 		navigateRightAction.AddBinding("<Keyboard>/d");
-		navigateRightAction.AddBinding("<Keyboard>/rightArrow");		
+		navigateRightAction.AddBinding("<Keyboard>/rightArrow");
 
 		navigateUpAction.performed += ctx => Navigate(-2); // Move up
 		navigateDownAction.performed += ctx => Navigate(2); // Move down
@@ -301,7 +294,7 @@ public class BattleUIManager : MonoBehaviour
 
 		// Respawn the player at the encounter position
 		Vector3 spawnPosition = GameManager.Instance.GetPlayerLastHealPosition();
-		Quaternion spawnRotation = new Quaternion(0,0,0,0);
+		Quaternion spawnRotation = new Quaternion(0, 0, 0, 0);
 		PlayerSpawner playerSpawner = FindObjectOfType<PlayerSpawner>();
 		if (playerSpawner != null)
 		{
@@ -317,7 +310,7 @@ public class BattleUIManager : MonoBehaviour
 	{
 		string previousSceneName = GameManager.Instance.GetPreviousScene();
 
-		SceneManager.LoadScene(previousSceneName);		
+		SceneManager.LoadScene(previousSceneName);
 	}
 
 	private void Navigate(int direction)
@@ -463,7 +456,7 @@ public class BattleUIManager : MonoBehaviour
 		switch (battleManager.GetBattleState())
 		{
 			case BattleManager.BattleState.WaitingForInput:
-				isAttackTurn = false;
+				BattleManager.Instance.SetAttackTurn(false);
 				break;
 			case BattleManager.BattleState.EnteringBattle:
 				battleManager.SetBattleState(BattleManager.BattleState.SendOutKreeture);
@@ -484,10 +477,10 @@ public class BattleUIManager : MonoBehaviour
 				break;
 			case BattleManager.BattleState.PlayerTurn:
 				yield return new WaitForSeconds(.5f);
-				StartCoroutine(PerformPlayerAttack());				
+				StartCoroutine(BattleManager.Instance.PerformPlayerAttack());
 				break;
 			case BattleManager.BattleState.DisplayEffectiveness:
-				CheckIfRoundOver();
+				BattleManager.Instance.CheckIfRoundOver();
 				typingCoroutineRunning = false;
 				break;
 			case BattleManager.BattleState.EnemyKreetureDefeated:
@@ -508,7 +501,7 @@ public class BattleUIManager : MonoBehaviour
 					Debug.Log("XP remaining: " + battleManager.activeEnemyKreeture.currentXP);
 					typingCoroutineRunning = false;
 					battleManager.activeKreeture.leveledUp = false;
-				}				
+				}
 				break;
 			case BattleManager.BattleState.LevelUp:
 				//Play level up effect
@@ -520,7 +513,7 @@ public class BattleUIManager : MonoBehaviour
 				//Update stats after level up
 				battleManager.SetBattleState(BattleManager.BattleState.DisplayStats);
 				//Determine if battle is done and exit scene.
-				
+
 				break;
 			case BattleManager.BattleState.PlayerDefeated:
 
@@ -535,86 +528,6 @@ public class BattleUIManager : MonoBehaviour
 		}
 		// Typing effect is done, perform any actions you need here
 		// For example, transitioning to the next state, playing animations, etc.
-	}
-
-
-	private void CheckIfRoundOver()
-	{
-
-		bool battleOver = battleManager.IsBattleOver(battleManager.playerTeam, battleManager.activeEnemyKreeture);
-		if (battleOver)
-		{
-			if (battleManager.GetBattleState() == BattleManager.BattleState.EnemyKreetureDefeated)
-			{
-				SetMessageToDisplay(battleManager.activeEnemyKreeture.kreetureName + " was defeated!");
-				typingCoroutineRunning = false;
-				isAttackTurn = false;
-			}
-
-			if (BattleManager.Instance.DetermineHasPlayerLost())
-			{
-				SetMessageToDisplay("You let your Kreetures faint");
-				typingCoroutineRunning = false;
-				battleManager.SetBattleState(BattleManager.BattleState.PlayerDefeated);				
-			}
-		}
-
-		if (hasPlayerGone && !hasEnemyGone && !battleOver)
-		{
-			BattleManager.Instance.HandleEnemyTurn();
-		}
-		else if (hasEnemyGone && !hasPlayerGone && !battleOver)
-		{
-			HandlePlayerTurn();
-		}
-		else if (hasEnemyGone && hasPlayerGone && !battleOver)
-		{
-			hasEnemyGone = false;
-			hasPlayerGone = false;
-			Debug.Log("New round");
-			battleManager.SetBattleState(BattleManager.BattleState.WaitingForInput);
-			SetMessageToDisplay("What would you like to do?");
-			EnableActionButtons();
-			EnableNavigation();
-		}
-	}
-
-	private IEnumerator PerformPlayerAttack()
-	{
-		GameObject kreetureGameObject = battleManager.KreetureGameObject;
-		Animator playerKreetureAnimator = kreetureGameObject.GetComponent<Animator>();
-
-		var enemyKreeture = GameManager.Instance.kreetureForBattle;
-
-		// Wait for the animation to finish (optional)		
-		int damage = battleManager.CalculateDamage(GameManager.Instance.playerTeam[0], enemyKreeture, playerSelectedAttack);
-
-		playerKreetureAnimator.Play("Bite Attack");
-
-		AnimationClip biteAttackClip = null; // Assign the actual animation clip here
-		AnimationClip[] clips = playerKreetureAnimator.runtimeAnimatorController.animationClips;
-		foreach (AnimationClip clip in clips)
-		{
-			if (clip.name == "Bite Attack")
-			{
-				biteAttackClip = clip;
-				break;
-			}
-		}
-
-		// Wait for the animation to finish
-		if (biteAttackClip != null)
-		{
-			yield return new WaitForSeconds(biteAttackClip.length);
-		}
-		else
-		{
-			Debug.LogWarning("Bite Attack animation clip not found!");
-		}
-
-		Debug.Log("player hit enemy for " + damage + " Damage");		
-
-		StartCoroutine(UpdateHealthBarOverTime(enemyHPBar, enemyKreeture, damage, playerSelectedAttack));
 	}
 
 	public void SetMessageToDisplay(string message)
@@ -668,7 +581,7 @@ public class BattleUIManager : MonoBehaviour
 		if (battleManager.GetBattleState() == BattleManager.BattleState.SelectingAttack)
 		{
 			int selectedAttackIndex = currentButtonIndex;
-			playerSelectedAttack = GameManager.Instance.playerTeam[0].knownAttacks[selectedAttackIndex];
+			BattleManager.Instance.SetPlayerAttack(BattleManager.Instance.activeKreeture.knownAttacks[selectedAttackIndex]);
 
 			Kreeture targetKreeture = GameManager.Instance.kreetureForBattle;
 
@@ -683,7 +596,7 @@ public class BattleUIManager : MonoBehaviour
 				//Set state based on text displayed								
 				// Player's turn logic
 				Debug.Log("Players turn");
-				HandlePlayerTurn();
+				BattleManager.Instance.HandlePlayerTurn();
 
 				if (!battleManager.IsBattleOver(battleManager.playerTeam, battleManager.activeEnemyKreeture))
 				{
@@ -699,24 +612,9 @@ public class BattleUIManager : MonoBehaviour
 		}
 	}
 
-	private void HandlePlayerTurn()
-	{
-		// Trigger the "AttackTrigger" animation
-		//For now grab first one
-
-		battleManager.SetBattleState(BattleManager.BattleState.PlayerTurn);
-
-		List<Kreeture> playerTeam = battleManager.GetPlayerTeam();
-		var activeKreeture = playerTeam[0];
-
-		// Play the attack sound effect		
-		SetMessageToDisplay(activeKreeture.kreetureName + " Used " + playerSelectedAttack.name);
-		typingCoroutineRunning = false;
-	}
-
 	private IEnumerator UpdateXPBarOverTime(Slider xpBar, Kreeture kreeture, int xp)
 	{
-		isAttackTurn = true;
+		BattleManager.Instance.SetAttackTurn(true);
 		float elapsedTime = 0f;
 		float duration = 1.0f; // Adjust this duration to control the animation speed
 
@@ -726,13 +624,13 @@ public class BattleUIManager : MonoBehaviour
 
 		int targetXP = Mathf.Max(kreeture.currentXP + xp, 0);
 
-		if(targetXP > kreeture.xpRequiredForNextLevel)
+		if (targetXP > kreeture.xpRequiredForNextLevel)
 		{
 			kreeture.xpTransfer = targetXP - kreeture.xpRequiredForNextLevel;
-			targetXP = kreeture.xpRequiredForNextLevel;			
+			targetXP = kreeture.xpRequiredForNextLevel;
 		}
 
-		
+
 
 		Debug.Log("target xp" + targetXP);
 
@@ -754,17 +652,17 @@ public class BattleUIManager : MonoBehaviour
 		yield return new WaitForSeconds(2.0f);
 
 		var battleState = battleManager.GetBattleState();
-;
+		;
 		//Determine if more to battle in the future
 		if (battleState != BattleManager.BattleState.LevelUp && battleState != BattleManager.BattleState.DisplayStats)
 		{
 			ExitBattle();
-		}		
+		}
 	}
 
 	public IEnumerator UpdateHealthBarOverTime(Slider healthBar, Kreeture kreeture, int damage, Attack selectedAttack)
 	{
-		isAttackTurn = true;
+		BattleManager.Instance.SetAttackTurn(true);
 		float elapsedTime = 0f;
 		float duration = 1.0f; // Adjust this duration to control the animation speed
 
@@ -786,7 +684,6 @@ public class BattleUIManager : MonoBehaviour
 				newHealth = 0f;
 			}
 
-
 			// Update the slider value
 			healthBar.value = newHealth;
 
@@ -794,7 +691,6 @@ public class BattleUIManager : MonoBehaviour
 			{
 				UpdateDisplayHealth(Mathf.FloorToInt(newHealth), kreeture.baseHP);
 			}
-
 
 			elapsedTime += Time.deltaTime;
 			yield return null;
@@ -809,20 +705,23 @@ public class BattleUIManager : MonoBehaviour
 
 		if (battleState == BattleManager.BattleState.PlayerTurn)
 		{
-			hasPlayerGone = true;
+			BattleManager.Instance.SetHasPlayerGone(true);
 		}
 		else if (battleState == BattleManager.BattleState.EnemyTurn)
 		{
-			hasEnemyGone = true;			
+			BattleManager.Instance.SetHasEnemyGone(true);
 		}
 
-		if(battleManager.activeKreeture.currentHP == 0)
+		if (battleManager.activeKreeture.currentHP == 0)
 		{
 			battleManager.IsBattleOver(battleManager.playerTeam, battleManager.activeEnemyKreeture);
 		}
 
+		var hasPlayerGone = BattleManager.Instance.GetHasPlayerGone();
+		var hasEnemyGone = BattleManager.Instance.GetHasEnemyGone();
+
 		//If both have gone update battle stats
-		if(hasPlayerGone && hasEnemyGone)
+		if (hasPlayerGone && hasEnemyGone)
 		{
 			//IMPLEMENT CRITICAL HITS, and STATUS EFFECT AFTER GET SUPER EFFECTIVE METHOD
 			battleManager.RecordBattleData(playerDamageDealtToEnemy, BattleManager.Instance.GetDamageDealtToPlayer(), battleManager.GetSuperEffectiveHit(), false, false, battleManager.activeKreeture.currentHP);
@@ -839,7 +738,7 @@ public class BattleUIManager : MonoBehaviour
 		}
 		else
 		{
-			CheckIfRoundOver();
+			BattleManager.Instance.CheckIfRoundOver();
 		}
 	}
 

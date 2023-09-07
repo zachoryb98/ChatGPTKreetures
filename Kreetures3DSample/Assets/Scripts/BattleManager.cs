@@ -27,10 +27,15 @@ public class BattleManager : MonoBehaviour
 	private bool hasPlayerLost = false;
 	private bool SuperEffectiveHit = false;
 	private BattleState currentBattleState = BattleState.EnteringBattle;
+	private bool hasPlayerGone = false;
+	private bool hasEnemyGone = false;
 
 	[Header("Random Things I need stored")]
+	private Attack playerSelectedAttack = null;
 	private Attack enemyAttack = null;
 	private int enemyDamageDealtToPlayer;
+	private bool isAttackTurn = false;
+
 
 	[Header("Variables To Calculate XP for battle conditions")]
 	private int turnsTaken;
@@ -173,6 +178,46 @@ public class BattleManager : MonoBehaviour
 		}
 	}
 
+	public void SetHasPlayerGone(bool result)
+	{
+		hasPlayerGone = result;
+	}
+
+	public bool GetHasPlayerGone()
+	{
+		return hasPlayerGone;
+	}
+
+	public void SetHasEnemyGone(bool result)
+	{
+		hasEnemyGone = result;
+	}
+
+	public bool GetHasEnemyGone()
+	{
+		return hasEnemyGone;
+	}
+
+	public void SetAttackTurn(bool result)
+	{
+		isAttackTurn = result;
+	}
+
+	public bool GetAttackTurn()
+	{
+		return isAttackTurn;
+	}
+
+	public void SetPlayerAttack(Attack attack)
+	{
+		playerSelectedAttack = attack;
+	}
+
+	public Attack GetPlayerAttack()
+	{
+		return playerSelectedAttack;
+	}
+
 	public Attack DetermineEnemyAttack(Kreeture enemyKreeture)
 	{
 		// Choose a random attack from the enemy's known attacks
@@ -180,6 +225,43 @@ public class BattleManager : MonoBehaviour
 		Attack selectedAttack = enemyKreeture.knownAttacks[randomAttackIndex];
 
 		return selectedAttack;
+	}
+
+	public IEnumerator PerformPlayerAttack()
+	{
+		Animator playerKreetureAnimator = KreetureGameObject.GetComponent<Animator>();
+
+		var enemyKreeture = GameManager.Instance.kreetureForBattle;
+
+		// Wait for the animation to finish (optional)		
+		int damage = CalculateDamage(GameManager.Instance.playerTeam[0], enemyKreeture, BattleManager.Instance.GetPlayerAttack());
+
+		playerKreetureAnimator.Play("Bite Attack");
+
+		AnimationClip biteAttackClip = null; // Assign the actual animation clip here
+		AnimationClip[] clips = playerKreetureAnimator.runtimeAnimatorController.animationClips;
+		foreach (AnimationClip clip in clips)
+		{
+			if (clip.name == "Bite Attack")
+			{
+				biteAttackClip = clip;
+				break;
+			}
+		}
+
+		// Wait for the animation to finish
+		if (biteAttackClip != null)
+		{
+			yield return new WaitForSeconds(biteAttackClip.length);
+		}
+		else
+		{
+			Debug.LogWarning("Bite Attack animation clip not found!");
+		}
+
+		Debug.Log("player hit enemy for " + damage + " Damage");
+
+		StartCoroutine(BattleUIManager.Instance.UpdateHealthBarOverTime(BattleUIManager.Instance.enemyHPBar, enemyKreeture, damage, BattleManager.Instance.GetPlayerAttack()));
 	}
 
 	public IEnumerator PerformEnemyAttack()
@@ -218,6 +300,16 @@ public class BattleManager : MonoBehaviour
 
 		//Update Healthbar, deal damage, and switch turn
 		StartCoroutine(BattleUIManager.Instance.UpdateHealthBarOverTime(BattleUIManager.Instance.playerHPBar, activeKreeture, enemyDamage, enemyAttack));
+	}
+
+	public void HandlePlayerTurn()
+	{
+		//Set BattleState
+		SetBattleState(BattleState.PlayerTurn);
+
+		// Play the attack sound effect		
+		BattleUIManager.Instance.SetMessageToDisplay(activeKreeture.kreetureName + " Used " + playerSelectedAttack.name);
+		BattleUIManager.Instance.SetTypeCoroutineValue(false); ;
 	}
 
 	public void HandleEnemyTurn()
@@ -274,6 +366,47 @@ public class BattleManager : MonoBehaviour
 	public bool DetermineHasPlayerLost()
 	{
 		return hasPlayerLost;
+	}
+
+	public void CheckIfRoundOver()
+	{
+
+		bool battleOver = IsBattleOver(playerTeam, activeEnemyKreeture);
+		if (battleOver)
+		{
+			if (GetBattleState() == BattleState.EnemyKreetureDefeated)
+			{
+				BattleUIManager.Instance.SetMessageToDisplay(activeEnemyKreeture.kreetureName + " was defeated!");
+				BattleUIManager.Instance.SetTypeCoroutineValue(false);
+				isAttackTurn = false;
+			}
+
+			if (BattleManager.Instance.DetermineHasPlayerLost())
+			{
+				BattleUIManager.Instance.SetMessageToDisplay("You let your Kreetures faint");
+				BattleUIManager.Instance.SetTypeCoroutineValue(false);
+				SetBattleState(BattleState.PlayerDefeated);
+			}
+		}
+
+		if (hasPlayerGone && !hasEnemyGone && !battleOver)
+		{
+			BattleManager.Instance.HandleEnemyTurn();
+		}
+		else if (hasEnemyGone && !hasPlayerGone && !battleOver)
+		{
+			BattleManager.Instance.HandlePlayerTurn();
+		}
+		else if (hasEnemyGone && hasPlayerGone && !battleOver)
+		{
+			hasEnemyGone = false;
+			hasPlayerGone = false;
+			Debug.Log("New round");
+			SetBattleState(BattleState.WaitingForInput);
+			BattleUIManager.Instance.SetMessageToDisplay("What would you like to do?");
+			BattleUIManager.Instance.EnableActionButtons();
+			BattleUIManager.Instance.EnableNavigation();
+		}
 	}
 
 	public bool IsBattleOver(List<Kreeture> playerTeam, Kreeture enemyKreeture)
