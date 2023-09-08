@@ -152,16 +152,15 @@ public class Kreeture : ScriptableObject
 
 	private int CalculateRequiredXPForNextLevel(int level)
 	{
-		// Example formula: xpRequired = level * level * 100
-		return level * level * 100; // Adjust the formula as needed
+		return level * 75; // Adjust this formula for faster leveling
 	}
 
 	private int CalculateStatIncrease(GrowthRate growthRate)
 	{
 		// Define growth rate multipliers (you can adjust these as needed)
 		float slowRateMultiplier = 0.5f;
-		float normalRateMultiplier = 1.0f;
-		float fastRateMultiplier = 2.0f;
+		float normalRateMultiplier = 2.0f;
+		float fastRateMultiplier = 4.0f;
 
 		// Calculate the stat increase based on the growth rate
 		switch (growthRate)

@@ -46,7 +46,7 @@ public class BattleUIManager : MonoBehaviour
 
 	private string messageToDisplay = "";
 	private int currentCharIndex = 0;
-	private float typingSpeed = 0.05f;
+	private float typingSpeed = 0.03f;
 	private float lastTypingTime;
 
 	private void Awake()
@@ -128,12 +128,21 @@ public class BattleUIManager : MonoBehaviour
 		}
 	}
 
+	public void DisplayStatsUI()
+	{
+		StatsDisplay.SetActive(true);
+		PlayerInfo.SetActive(false);
+		StartCoroutine(WaitThenContinueXPUpdate());
+	}
+
 	//METHOD NEEDS FIXED
-	private IEnumerator WaitThenGo()
+	private IEnumerator WaitThenContinueXPUpdate()
 	{
 		yield return new WaitForSeconds(3.0f);
 		StatsDisplay.SetActive(false);
 		PlayerInfo.SetActive(true);
+
+		BattleManager.Instance.SetBattleState(BattleManager.BattleState.IncreaseXPAfterLevelUp);
 
 		//SetBattleState(BattleState.IncreaseXP);
 		StartCoroutine(UpdateXPBarOverTime(playerXPBar, battleManager.activeKreeture, battleManager.activeKreeture.xpTransfer));
@@ -524,8 +533,6 @@ public class BattleUIManager : MonoBehaviour
 			targetXP = kreeture.xpRequiredForNextLevel;
 		}
 
-
-
 		Debug.Log("target xp" + targetXP);
 
 		while (elapsedTime < duration)
@@ -546,10 +553,11 @@ public class BattleUIManager : MonoBehaviour
 		yield return new WaitForSeconds(2.0f);
 
 		var battleState = battleManager.GetBattleState();
-		;
+		
 		//Determine if more to battle in the future
-		if (battleState != BattleManager.BattleState.LevelUp && battleState != BattleManager.BattleState.DisplayStats)
+		if (battleState == BattleManager.BattleState.IncreaseXPAfterLevelUp)
 		{
+			battleManager.activeKreeture.xpTransfer = 0;
 			BattleManager.Instance.ExitBattle();
 		}
 	}
@@ -631,8 +639,8 @@ public class BattleUIManager : MonoBehaviour
 			battleManager.SetSuperEffectiveHit(false);
 		}
 		else
-		{
-			BattleManager.Instance.CheckIfRoundOver();
+		{			
+			BattleManager.Instance.CheckIfRoundOver();			
 		}
 	}
 

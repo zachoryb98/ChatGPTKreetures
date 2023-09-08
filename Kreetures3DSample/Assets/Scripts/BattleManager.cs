@@ -142,8 +142,9 @@ public class BattleManager : MonoBehaviour
 					BattleUIManager.Instance.SetMessageToDisplay(activeKreeture.kreetureName + " Leveled up to level " + (activeKreeture.currentLevel) + "!");
 					Debug.Log("XP remaining: " + activeEnemyKreeture.currentXP);
 					BattleUIManager.Instance.SetTypeCoroutineValue(false);
-					activeKreeture.leveledUp = false;
+					activeKreeture.leveledUp = false;					
 				}
+				ExitBattle();
 				break;
 			case BattleState.LevelUp:
 				//Play level up effect
@@ -156,6 +157,7 @@ public class BattleManager : MonoBehaviour
 				SetBattleState(BattleState.DisplayStats);
 				//Determine if battle is done and exit scene.
 
+				BattleUIManager.Instance.DisplayStatsUI();
 				break;
 			case BattleState.PlayerDefeated:
 
@@ -466,11 +468,11 @@ public class BattleManager : MonoBehaviour
 
 		if (hasPlayerGone && !hasEnemyGone && !battleOver)
 		{
-			BattleManager.Instance.HandleEnemyTurn();
+			HandleEnemyTurn();
 		}
 		else if (hasEnemyGone && !hasPlayerGone && !battleOver)
 		{
-			BattleManager.Instance.HandlePlayerTurn();
+			HandlePlayerTurn();
 		}
 		else if (hasEnemyGone && hasPlayerGone && !battleOver)
 		{
@@ -502,7 +504,7 @@ public class BattleManager : MonoBehaviour
 		if (enemyDefeated)
 		{
 			BattleUIManager.Instance.SetTypeCoroutineValue(false);
-			SetBattleState(BattleManager.BattleState.EnemyKreetureDefeated);
+			SetBattleState(BattleState.EnemyKreetureDefeated);
 		}
 
 		if (playerTeamDefeated)
@@ -556,6 +558,7 @@ public class BattleManager : MonoBehaviour
 		DisplayEffectiveness,
 		IncreaseXP,
 		LevelUp,
+		IncreaseXPAfterLevelUp,
 		PlayerDefeated,
 		DisplayStats
 	}
