@@ -50,8 +50,7 @@ public class BattleManager : MonoBehaviour
 	{
 		if (Instance == null)
 		{
-			Instance = this;
-			DontDestroyOnLoad(gameObject); // Keep the GameManager object when changing scenes
+			Instance = this;			
 		}
 		else
 		{
@@ -92,6 +91,83 @@ public class BattleManager : MonoBehaviour
 	{
 		//First battle state should be entering battle
 		SetBattleState(BattleState.EnteringBattle);
+	}
+
+	public IEnumerator HandleTypingCompletionCoroutine()
+	{
+		switch (GetBattleState())
+		{
+			case BattleState.WaitingForInput:
+				Instance.SetAttackTurn(false);
+				break;
+			case BattleState.EnteringBattle:
+				SetBattleState(BattleState.SendOutKreeture);
+				BattleUIManager.Instance.SetMessageToDisplay("Go " + activeKreeture.kreetureName + "!");
+				yield return new WaitForSeconds(.5f);
+				BattleUIManager.Instance.SetTypeCoroutineValue(false);
+				break;
+			case BattleState.SendOutKreeture:
+				SetBattleState(BattleState.WaitingForInput);
+				BattleUIManager.Instance.SetMessageToDisplay("What would you like to do?");
+				BattleUIManager.Instance.SetTypeCoroutineValue(false);
+				yield return new WaitForSeconds(.5f);
+				break;
+			case BattleState.EnemyTurn:
+				yield return new WaitForSeconds(.5f);
+				StartCoroutine(PerformEnemyAttack());
+				BattleUIManager.Instance.SetTypeCoroutineValue(false);
+				break;
+			case BattleState.PlayerTurn:
+				yield return new WaitForSeconds(.5f);
+				StartCoroutine(PerformPlayerAttack());
+				break;
+			case BattleState.DisplayEffectiveness:
+				CheckIfRoundOver();
+				BattleUIManager.Instance.SetTypeCoroutineValue(false);
+				break;
+			case BattleState.EnemyKreetureDefeated:
+				//Play feint animation
+				int xp = CalculateXPForDefeatedKreeture(activeKreeture, activeKreeture);
+				BattleUIManager.Instance.SetMessageToDisplay(activeKreeture.kreetureName + " gained " + xp + "XP!");
+				BattleUIManager.Instance.SetTypeCoroutineValue(false);
+				SetBattleState(BattleState.IncreaseXP);
+				break;
+			case BattleState.IncreaseXP:
+				int xpGained = CalculateXPForDefeatedKreeture(activeKreeture, activeKreeture);
+				StartCoroutine(BattleUIManager.Instance.UpdateXPBarOverTime(BattleUIManager.Instance.playerXPBar, activeKreeture, xpGained));
+				activeKreeture.GainXP(xpGained);
+				if (activeKreeture.leveledUp)
+				{
+					SetBattleState(BattleState.LevelUp);
+					BattleUIManager.Instance.SetMessageToDisplay(activeKreeture.kreetureName + " Leveled up to level " + (activeKreeture.currentLevel) + "!");
+					Debug.Log("XP remaining: " + activeEnemyKreeture.currentXP);
+					BattleUIManager.Instance.SetTypeCoroutineValue(false);
+					activeKreeture.leveledUp = false;
+				}
+				break;
+			case BattleState.LevelUp:
+				//Play level up effect
+
+				//Set to 0 since we leveled up
+				BattleUIManager.Instance.playerXPBar.value = 0;
+				//Update to proper xp number after level up				
+
+				//Update stats after level up
+				SetBattleState(BattleState.DisplayStats);
+				//Determine if battle is done and exit scene.
+
+				break;
+			case BattleState.PlayerDefeated:
+
+				yield return new WaitForSeconds(1.5f);
+
+				Debug.Log("Player Lost!");
+
+				HandlePlayerLoss();
+				break;
+			default:
+				break;
+		}
 	}
 
 	public bool GetSuperEffectiveHit()

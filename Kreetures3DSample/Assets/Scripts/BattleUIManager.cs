@@ -63,6 +63,15 @@ public class BattleUIManager : MonoBehaviour
 
 	private void Start()
 	{
+		InitializeUI();
+
+		//Set up controls for UI. LIKELY NEEDS REDONE
+		SetupButtons();
+		SetupNavigationActions();
+	}
+
+	private void InitializeUI()
+	{
 		//Get enemy Kreeture
 		Kreeture enemyKreeture = battleManager.activeEnemyKreeture;
 		string enemyKreetureName = enemyKreeture.kreetureName;
@@ -84,10 +93,6 @@ public class BattleUIManager : MonoBehaviour
 		SetXPSlider(playerXPBar, playerKreeture);
 		lvlText.text = "Lvl " + playerKreeture.currentLevel;
 		xpText.text = playerKreeture.currentXP + "/" + playerKreeture.xpRequiredForNextLevel;
-
-		//Set up controls for UI. LIKELY NEEDS REDONE
-		SetupButtons();
-		SetupNavigationActions();
 	}
 
 	public void SetHPSliderValues(Slider slider, Kreeture kreeture)
@@ -121,16 +126,6 @@ public class BattleUIManager : MonoBehaviour
 				StartCoroutine(TypeWriterCoroutine());
 			}
 		}
-		//else if (currentBattleState == BattleState.DisplayStats)
-		//{
-		//	PlayerInfo.SetActive(false);
-
-		//	UpdateStatsUI();
-		//	StatsDisplay.SetActive(true);
-
-		//	battleManager.activeKreeture.UpdateStats();
-		//	StartCoroutine(WaitThenGo());			
-		//}
 	}
 
 	//METHOD NEEDS FIXED
@@ -421,81 +416,12 @@ public class BattleUIManager : MonoBehaviour
 		//Pause for a moment so player can read message
 		yield return new WaitForSeconds(0.4f); // Adjust the time as needed
 
-		switch (battleManager.GetBattleState())
-		{
-			case BattleManager.BattleState.WaitingForInput:
-				BattleManager.Instance.SetAttackTurn(false);
-				break;
-			case BattleManager.BattleState.EnteringBattle:
-				battleManager.SetBattleState(BattleManager.BattleState.SendOutKreeture);
-				SetMessageToDisplay("Go " + battleManager.activeKreeture.kreetureName + "!");
-				yield return new WaitForSeconds(.5f);
-				typingCoroutineRunning = false;
-				break;
-			case BattleManager.BattleState.SendOutKreeture:
-				battleManager.SetBattleState(BattleManager.BattleState.WaitingForInput);
-				SetMessageToDisplay("What would you like to do?");
-				typingCoroutineRunning = false;
-				yield return new WaitForSeconds(.5f);
-				break;
-			case BattleManager.BattleState.EnemyTurn:
-				yield return new WaitForSeconds(.5f);
-				StartCoroutine(BattleManager.Instance.PerformEnemyAttack());
-				typingCoroutineRunning = false;
-				break;
-			case BattleManager.BattleState.PlayerTurn:
-				yield return new WaitForSeconds(.5f);
-				StartCoroutine(BattleManager.Instance.PerformPlayerAttack());
-				break;
-			case BattleManager.BattleState.DisplayEffectiveness:
-				BattleManager.Instance.CheckIfRoundOver();
-				typingCoroutineRunning = false;
-				break;
-			case BattleManager.BattleState.EnemyKreetureDefeated:
-				//Play feint animation
-				int xp = battleManager.CalculateXPForDefeatedKreeture(battleManager.activeKreeture, battleManager.activeKreeture);
-				SetMessageToDisplay(battleManager.activeKreeture.kreetureName + " gained " + xp + "XP!");
-				typingCoroutineRunning = false;
-				battleManager.SetBattleState(BattleManager.BattleState.IncreaseXP);
-				break;
-			case BattleManager.BattleState.IncreaseXP:
-				int xpGained = battleManager.CalculateXPForDefeatedKreeture(battleManager.activeKreeture, battleManager.activeKreeture);
-				StartCoroutine(UpdateXPBarOverTime(playerXPBar, battleManager.activeKreeture, xpGained));
-				battleManager.activeKreeture.GainXP(xpGained);
-				if (battleManager.activeKreeture.leveledUp)
-				{
-					battleManager.SetBattleState(BattleManager.BattleState.LevelUp);
-					SetMessageToDisplay(battleManager.activeKreeture.kreetureName + " Leveled up to level " + (battleManager.activeKreeture.currentLevel) + "!");
-					Debug.Log("XP remaining: " + battleManager.activeEnemyKreeture.currentXP);
-					typingCoroutineRunning = false;
-					battleManager.activeKreeture.leveledUp = false;
-				}
-				break;
-			case BattleManager.BattleState.LevelUp:
-				//Play level up effect
+		HandleTypingCompletion();
+	}
 
-				//Set to 0 since we leveled up
-				playerXPBar.value = 0;
-				//Update to proper xp number after level up				
-
-				//Update stats after level up
-				battleManager.SetBattleState(BattleManager.BattleState.DisplayStats);
-				//Determine if battle is done and exit scene.
-
-				break;
-			case BattleManager.BattleState.PlayerDefeated:
-
-				yield return new WaitForSeconds(1.5f);
-
-				Debug.Log("Player Lost!");
-
-				BattleManager.Instance.HandlePlayerLoss();
-				break;
-			default:
-				break;
-		}
-		// Typing effect is done, perform any actions you need here
-		// For example, transitioning to the next state, playing animations, etc.
+	private void HandleTypingCompletion()
+	{
+		StartCoroutine(BattleManager.Instance.HandleTypingCompletionCoroutine());
 	}
 
 	public void SetMessageToDisplay(string message)
@@ -580,7 +506,7 @@ public class BattleUIManager : MonoBehaviour
 		}
 	}
 
-	private IEnumerator UpdateXPBarOverTime(Slider xpBar, Kreeture kreeture, int xp)
+	public IEnumerator UpdateXPBarOverTime(Slider xpBar, Kreeture kreeture, int xp)
 	{
 		BattleManager.Instance.SetAttackTurn(true);
 		float elapsedTime = 0f;
