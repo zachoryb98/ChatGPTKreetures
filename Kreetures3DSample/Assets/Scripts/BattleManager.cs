@@ -104,7 +104,6 @@ public class BattleManager : MonoBehaviour
 		SuperEffectiveHit = result;
 	}
 
-
 	public List<Kreeture> GetPlayerTeam()
 	{
 		return GameManager.Instance.GetPlayerTeam();
@@ -436,6 +435,32 @@ public class BattleManager : MonoBehaviour
 		}
 
 		return playerTeamDefeated || enemyDefeated;
+	}
+
+	public void HandlePlayerLoss()
+	{
+		string lastHealScene = GameManager.Instance.GetLastHealScene();
+
+		SceneManager.LoadScene(lastHealScene);
+
+		GameManager.Instance.playerDefeated = true;
+
+		// Respawn the player at the encounter position
+		Vector3 spawnPosition = GameManager.Instance.GetPlayerLastHealPosition();
+		Quaternion spawnRotation = new Quaternion(0, 0, 0, 0);
+		PlayerSpawner playerSpawner = FindObjectOfType<PlayerSpawner>();
+		if (playerSpawner != null)
+		{
+			BattleUIManager.Instance.DisableNavigation();
+			playerSpawner.SpawnPlayerAtPosition(spawnPosition, spawnRotation);
+		}
+	}
+
+	public void ExitBattle()
+	{
+		string previousSceneName = GameManager.Instance.GetPreviousScene();
+
+		SceneManager.LoadScene(previousSceneName);
 	}
 
 	public BattleState GetBattleState()

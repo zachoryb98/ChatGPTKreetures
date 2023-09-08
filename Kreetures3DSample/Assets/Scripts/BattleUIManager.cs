@@ -39,8 +39,6 @@ public class BattleUIManager : MonoBehaviour
 	private InputAction navigateLeftAction;
 	private InputAction navigateRightAction;
 
-	private bool isWaitingForInput = false;
-
 	public GameObject StatsDisplay;
 	public GameObject PlayerInfo;
 	public List<TextMeshProUGUI> currentStatsTextBoxes;
@@ -108,7 +106,7 @@ public class BattleUIManager : MonoBehaviour
 	{
 		if (Keyboard.current.enterKey.wasPressedThisFrame)
 		{
-			if (BattleManager.Instance.GetAttackTurn())
+			if (BattleManager.Instance.GetBattleState() == BattleManager.BattleState.WaitingForInput || BattleManager.Instance.GetBattleState() == BattleManager.BattleState.SelectingAttack)
 			{
 				HandleEnterKeyPress();
 			}
@@ -134,7 +132,6 @@ public class BattleUIManager : MonoBehaviour
 		//	StartCoroutine(WaitThenGo());			
 		//}
 	}
-
 
 	//METHOD NEEDS FIXED
 	private IEnumerator WaitThenGo()
@@ -249,7 +246,7 @@ public class BattleUIManager : MonoBehaviour
 		navigateRightAction.Enable();
 	}
 
-	private void DisableNavigation()
+	public void DisableNavigation()
 	{
 		navigateUpAction.Disable();
 		navigateDownAction.Disable();
@@ -280,37 +277,8 @@ public class BattleUIManager : MonoBehaviour
 		}
 		else if (button.name == "Run")
 		{
-			ExitBattle();
+			BattleManager.Instance.ExitBattle();
 		}
-	}
-
-	public void HandlePlayerLoss()
-	{
-		string lastHealScene = GameManager.Instance.GetLastHealScene();
-
-		SceneManager.LoadScene(lastHealScene);
-
-		GameManager.Instance.playerDefeated = true;
-
-		// Respawn the player at the encounter position
-		Vector3 spawnPosition = GameManager.Instance.GetPlayerLastHealPosition();
-		Quaternion spawnRotation = new Quaternion(0, 0, 0, 0);
-		PlayerSpawner playerSpawner = FindObjectOfType<PlayerSpawner>();
-		if (playerSpawner != null)
-		{
-			navigateUpAction.Disable();
-			navigateDownAction.Disable();
-			navigateLeftAction.Disable();
-			navigateRightAction.Disable();
-			playerSpawner.SpawnPlayerAtPosition(spawnPosition, spawnRotation);
-		}
-	}
-
-	public void ExitBattle()
-	{
-		string previousSceneName = GameManager.Instance.GetPreviousScene();
-
-		SceneManager.LoadScene(previousSceneName);
 	}
 
 	private void Navigate(int direction)
@@ -521,7 +489,7 @@ public class BattleUIManager : MonoBehaviour
 
 				Debug.Log("Player Lost!");
 
-				HandlePlayerLoss();
+				BattleManager.Instance.HandlePlayerLoss();
 				break;
 			default:
 				break;
@@ -656,7 +624,7 @@ public class BattleUIManager : MonoBehaviour
 		//Determine if more to battle in the future
 		if (battleState != BattleManager.BattleState.LevelUp && battleState != BattleManager.BattleState.DisplayStats)
 		{
-			ExitBattle();
+			BattleManager.Instance.ExitBattle();
 		}
 	}
 
