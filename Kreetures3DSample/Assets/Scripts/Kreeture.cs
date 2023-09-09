@@ -127,12 +127,12 @@ public class Kreeture : ScriptableObject
 	{
 		List<int> newStats = new List<int>();
 
-		newStats.Add(baseHP + healthIncrease);
-		newStats.Add(attack + attackIncrease);
-		newStats.Add(defense + defenseIncrease);
-		newStats.Add(agility + agilityIncrease);
-		newStats.Add(elementalStrike + elementalStrikeIncrease);
-		newStats.Add(elementalWard + elementalWardIncrease);
+		newStats.Add(healthIncrease);
+		newStats.Add(attackIncrease);
+		newStats.Add(defenseIncrease);
+		newStats.Add(agilityIncrease);
+		newStats.Add(elementalStrikeIncrease);
+		newStats.Add(elementalWardIncrease);
 
 		return newStats;
 	}
@@ -155,19 +155,31 @@ public class Kreeture : ScriptableObject
 	private int CalculateStatIncrease(GrowthRate growthRate)
 	{
 		// Define growth rate multipliers (you can adjust these as needed)
-		float slowRateMultiplier = 0.5f;
-		float normalRateMultiplier = 2.0f;
-		float fastRateMultiplier = 4.0f;
+		float slowestRateMultiplier = 0.75f;
+		float slowerRateMultiplier = 1.0f;
+		float slowRateMultiplier = 1.25f;
+		float normalRateMultiplier = 1.5f;
+		float fastRateMultiplier = 1.75f;
+		float fasterRateMultiplier = 2f;
+		float fastestRateMultiplier = 2.25f;
 
 		// Calculate the stat increase based on the growth rate
 		switch (growthRate)
 		{
+			case GrowthRate.Slowest:
+				return Mathf.FloorToInt(slowestRateMultiplier * currentLevel);
+			case GrowthRate.Slower:
+				return Mathf.FloorToInt(slowerRateMultiplier * currentLevel);
 			case GrowthRate.Slow:
 				return Mathf.FloorToInt(slowRateMultiplier * currentLevel);
 			case GrowthRate.Normal:
 				return Mathf.FloorToInt(normalRateMultiplier * currentLevel);
 			case GrowthRate.Fast:
 				return Mathf.FloorToInt(fastRateMultiplier * currentLevel);
+			case GrowthRate.Faster:
+				return Mathf.FloorToInt(fasterRateMultiplier * currentLevel);
+			case GrowthRate.Fastest:
+				return Mathf.FloorToInt(fastestRateMultiplier * currentLevel);
 			default:
 				return 0; // Handle any unknown growth rates here
 		}
@@ -199,7 +211,11 @@ public enum KreetureType
 
 public enum GrowthRate
 {
+	Slowest,
+	Slower,
 	Slow,
 	Normal,
-	Fast
+	Fast,
+	Faster,
+	Fastest
 }
