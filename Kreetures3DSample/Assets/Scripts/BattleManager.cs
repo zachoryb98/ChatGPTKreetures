@@ -133,18 +133,10 @@ public class BattleManager : MonoBehaviour
 				SetBattleState(BattleState.IncreaseXP);
 				break;
 			case BattleState.IncreaseXP:
+				activeKreeture.leveledUp = false;
 				int xpGained = CalculateXPForDefeatedKreeture(activeKreeture, activeKreeture);
 				StartCoroutine(BattleUIManager.Instance.UpdateXPBarOverTime(BattleUIManager.Instance.playerXPBar, activeKreeture, xpGained));
-				activeKreeture.GainXP(xpGained);
-				if (activeKreeture.leveledUp)
-				{
-					SetBattleState(BattleState.LevelUp);
-					BattleUIManager.Instance.SetMessageToDisplay(activeKreeture.kreetureName + " Leveled up to level " + (activeKreeture.currentLevel) + "!");
-					Debug.Log("XP remaining: " + activeEnemyKreeture.currentXP);
-					BattleUIManager.Instance.SetTypeCoroutineValue(false);
-					activeKreeture.leveledUp = false;					
-				}
-				ExitBattle();
+
 				break;
 			case BattleState.LevelUp:
 				//Play level up effect
@@ -169,6 +161,19 @@ public class BattleManager : MonoBehaviour
 				break;
 			default:
 				break;
+		}
+	}
+
+	public void GiveXP(int xpGained)
+	{
+		activeKreeture.GainXP(xpGained);
+		if (activeKreeture.leveledUp)
+		{
+			activeKreeture.leveledUp = false;
+			SetBattleState(BattleState.LevelUp);
+			BattleUIManager.Instance.SetMessageToDisplay(activeKreeture.kreetureName + " Leveled up to level " + (activeKreeture.currentLevel) + "!");
+			Debug.Log("XP remaining: " + activeEnemyKreeture.currentXP);
+			BattleUIManager.Instance.SetTypeCoroutineValue(false);
 		}
 	}
 
@@ -529,8 +534,7 @@ public class BattleManager : MonoBehaviour
 		PlayerSpawner playerSpawner = FindObjectOfType<PlayerSpawner>();
 		if (playerSpawner != null)
 		{
-			BattleUIManager.Instance.DisableNavigation();
-			playerSpawner.SpawnPlayerAtPosition(spawnPosition, spawnRotation);
+			BattleUIManager.Instance.DisableNavigation();			
 		}
 	}
 

@@ -50,6 +50,8 @@ public class PlayerSpawner : MonoBehaviour
                             cameraController.SetCameraTarget(camLookAt);
                         }
 
+
+                        GameManager.Instance.playerDefeated = false;
                         Debug.Log("Player spawned at " + position + " and connected to camera " + camera.gameObject.name);
                     }
                     else

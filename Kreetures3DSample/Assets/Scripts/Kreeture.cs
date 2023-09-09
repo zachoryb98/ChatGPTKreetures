@@ -95,10 +95,7 @@ public class Kreeture : ScriptableObject
 			currentXP -= xpRequiredForNextLevel;
 			xpRequiredForNextLevel = CalculateRequiredXPForNextLevel(currentLevel);
 			leveledUp = true;
-			// Implement attribute adjustments, evolution, or other logic when leveling up
-
-			//YOU NEED TO SET THE XP SO WE CAN CHECK IF THERE WAS XP LEFT ON THE LEVEL UP
-			xpTransfer = currentXP;
+			// Implement attribute adjustments, evolution, or other logic when leveling up						
 
 			healthIncrease = CalculateStatIncrease(healthGrowthRate);
 			attackIncrease = CalculateStatIncrease(attackGrowthRate);

@@ -142,10 +142,16 @@ public class BattleUIManager : MonoBehaviour
 		StatsDisplay.SetActive(false);
 		PlayerInfo.SetActive(true);
 
-		BattleManager.Instance.SetBattleState(BattleManager.BattleState.IncreaseXPAfterLevelUp);
+		if(battleManager.GetBattleState() == BattleManager.BattleState.IncreaseXPAfterLevelUp)
+		{
+			BattleManager.Instance.ExitBattle();
+		}
+		else
+		{
+			BattleManager.Instance.SetBattleState(BattleManager.BattleState.IncreaseXPAfterLevelUp);
 
-		//SetBattleState(BattleState.IncreaseXP);
-		StartCoroutine(UpdateXPBarOverTime(playerXPBar, battleManager.activeKreeture, battleManager.activeKreeture.xpTransfer));
+			StartCoroutine(UpdateXPBarOverTime(playerXPBar, battleManager.activeKreeture, battleManager.activeKreeture.xpTransfer));
+		}
 	}
 
 	private void UpdateStatsUI()
@@ -523,13 +529,17 @@ public class BattleUIManager : MonoBehaviour
 
 		int initialXP = kreeture.currentXP;
 
+		float newXP = 0;
+		int XPToApplyToKreeture = 0;
+
 		Debug.Log(kreeture.kreetureName + " Initial XP " + initialXP);
 
 		int targetXP = Mathf.Max(kreeture.currentXP + xp, 0);
 
 		if (targetXP > kreeture.xpRequiredForNextLevel)
 		{
-			kreeture.xpTransfer = targetXP - kreeture.xpRequiredForNextLevel;
+			battleManager.activeKreeture.xpTransfer = targetXP - kreeture.xpRequiredForNextLevel;
+			XPToApplyToKreeture = xp - kreeture.xpTransfer;
 			targetXP = kreeture.xpRequiredForNextLevel;
 		}
 
@@ -538,7 +548,7 @@ public class BattleUIManager : MonoBehaviour
 		while (elapsedTime < duration)
 		{
 			float normalizedTime = elapsedTime / duration;
-			float newXP = Mathf.Lerp(initialXP, targetXP, normalizedTime);
+			newXP = Mathf.Lerp(initialXP, targetXP, normalizedTime);
 
 			// Update the slider value
 			xpBar.value = newXP;
@@ -547,10 +557,25 @@ public class BattleUIManager : MonoBehaviour
 
 			elapsedTime += Time.deltaTime;
 
-			yield return null;
+			yield return null;			
 		}
 
+		xpBar.value = targetXP;
+		UpdateDisplayXP(Mathf.FloorToInt(newXP + 1), kreeture.xpRequiredForNextLevel);
+
 		yield return new WaitForSeconds(2.0f);
+
+		if (BattleManager.Instance.GetBattleState() == BattleManager.BattleState.IncreaseXP)
+		{
+			//Call Method to give Kreeture XP
+			BattleManager.Instance.GiveXP(XPToApplyToKreeture);
+		}
+		else
+		{
+			BattleManager.Instance.GiveXP(xp);
+		}
+
+		newXP = 0;
 
 		var battleState = battleManager.GetBattleState();
 		
@@ -558,6 +583,11 @@ public class BattleUIManager : MonoBehaviour
 		if (battleState == BattleManager.BattleState.IncreaseXPAfterLevelUp)
 		{
 			battleManager.activeKreeture.xpTransfer = 0;
+			BattleManager.Instance.ExitBattle();
+		}
+
+		if(battleState == BattleManager.BattleState.IncreaseXP && kreeture.leveledUp == false)
+		{
 			BattleManager.Instance.ExitBattle();
 		}
 	}
