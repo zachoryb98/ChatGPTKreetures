@@ -14,17 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   kreetureName: Cragclaw
   currentXP: 45
-  currentLevel: 30
-  xpRequiredForNextLevel: 2250
+  currentLevel: 32
+  xpRequiredForNextLevel: 2400
   leveledUp: 0
   xpTransfer: 0
-  baseHP: 100
-  currentHP: 20
-  attack: 22
-  defense: 44
-  agility: 11
-  elementalStrike: 44
-  elementalWard: 22
+  baseHP: 64
+  currentHP: 40
+  attack: 64
+  defense: 128
+  agility: 16
+  elementalStrike: 128
+  elementalWard: 64
   focus: 10
   mobility: 10
   kreetureType: 2

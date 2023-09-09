@@ -149,6 +149,8 @@ public class BattleManager : MonoBehaviour
 				SetBattleState(BattleState.DisplayStats);
 				//Determine if battle is done and exit scene.
 
+				activeKreeture.UpdateStats();
+				BattleUIManager.Instance.UpdateStatsUI();
 				BattleUIManager.Instance.DisplayStatsUI();
 				break;
 			case BattleState.PlayerDefeated:

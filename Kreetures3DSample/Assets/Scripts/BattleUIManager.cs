@@ -154,7 +154,7 @@ public class BattleUIManager : MonoBehaviour
 		}
 	}
 
-	private void UpdateStatsUI()
+	public void UpdateStatsUI()
 	{
 		//Get current stats before level up
 		List<int> currentStats = battleManager.activeKreeture.GetCurrentStats();
