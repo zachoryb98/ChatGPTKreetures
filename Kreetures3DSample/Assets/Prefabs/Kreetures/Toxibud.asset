@@ -15,8 +15,8 @@ MonoBehaviour:
   kreetureName: Toxibud
   description: 
   modelPrefab: {fileID: 8995718604172022285, guid: 740a91c480336b74387762edd492cb3d, type: 3}
-  type1: 3
-  type2: 10
+  type1: 5
+  type2: 8
   maxHp: 45
   attack: 49
   defense: 49

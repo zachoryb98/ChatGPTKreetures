@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Face Jab
   description: 
-  type: 9
+  type: 7
   power: 40
   accuracy: 100
   pp: 15

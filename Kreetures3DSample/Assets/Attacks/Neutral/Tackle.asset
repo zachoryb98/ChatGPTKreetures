@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Tackle
   description: 
-  type: 8
+  type: 1
   power: 40
   accuracy: 100
   pp: 20

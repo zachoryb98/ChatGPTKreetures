@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Leaf Smack
   description: 
-  type: 3
+  type: 5
   power: 45
   accuracy: 100
   pp: 20

@@ -74,20 +74,20 @@ public class BattleUIManager : MonoBehaviour
 	{
 		//Get enemy Kreeture
 		Kreeture enemyKreeture = battleManager.activeEnemyKreeture;
-		string enemyKreetureName = enemyKreeture.name;
+		//string enemyKreetureName = enemyKreeture.name;
 
 		//Set enemy Kreeture UI Info
-		enemyName.text = enemyKreetureName;
-		SetMessageToDisplay("A wild " + enemyKreetureName + " appeared!");
-		SetHPSliderValues(enemyHPBar, enemyKreeture);
-		currentCharIndex = 0;
+		//enemyName.text = enemyKreetureName;
+		//SetMessageToDisplay("A wild " + enemyKreetureName + " appeared!");
+		//SetHPSliderValues(enemyHPBar, enemyKreeture);
+		//currentCharIndex = 0;
 		//enemyLvlText.text = "Lvl " + enemyKreeture.currentLevel;
 
 		//Get Player Kreeture
 		Kreeture playerKreeture = battleManager.activeKreeture;
 
 		//Set Player Kreeture Info
-		kreetureName.text = playerKreeture.name;
+		//kreetureName.text = playerKreeture.name;
 		//hpText.text = playerKreeture.currentHP + "/" + playerKreeture.baseHP;
 		//SetHPSliderValues(playerHPBar, playerKreeture);
 		//SetXPSlider(playerXPBar, playerKreeture);

@@ -302,7 +302,7 @@ public class BattleManager : MonoBehaviour
 	{
 		Animator playerKreetureAnimator = KreetureGameObject.GetComponent<Animator>();
 
-		var enemyKreeture = GameManager.Instance.kreetureForBattle;
+		//var enemyKreeture = GameManager.Instance.wildKreeture;
 
 		// Wait for the animation to finish (optional)		
 		//nt damage = CalculateDamage(GameManager.Instance.playerTeam[0], enemyKreeture, BattleManager.Instance.GetPlayerAttack());
@@ -379,7 +379,7 @@ public class BattleManager : MonoBehaviour
 		SetBattleState(BattleState.PlayerTurn);
 
 		// Play the attack sound effect		
-		BattleUIManager.Instance.SetMessageToDisplay(activeKreeture.name + " Used " + playerSelectedAttack.name);
+		//BattleUIManager.Instance.SetMessageToDisplay(activeKreeture.name + " Used " + playerSelectedAttack.name);
 		BattleUIManager.Instance.SetTypeCoroutineValue(false); ;
 	}
 

@@ -15,7 +15,7 @@ MonoBehaviour:
   kreetureName: Cragclaw
   description: 
   modelPrefab: {fileID: 545682315351394890, guid: 59a51997eb082e449b7eff675857e1ff, type: 3}
-  type1: 2
+  type1: 3
   type2: 0
   maxHp: 39
   attack: 52

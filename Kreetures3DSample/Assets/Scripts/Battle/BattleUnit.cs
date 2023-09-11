@@ -4,9 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class BattleUnit : MonoBehaviour
-{
-	[SerializeField] KreetureBase _base;
-	[SerializeField] int level;
+{	
 	[SerializeField] bool isPlayerUnit;
 	[SerializeField] GameObject KreetureGameObject;
 
@@ -15,11 +13,13 @@ public class BattleUnit : MonoBehaviour
 	public Transform enemySpawnPosition;
 
 	public Kreeture Kreeture { get; set; }
+	GameObject kreetureModel;
 
-	public void Setup()
+	public void Setup(Kreeture kreeture)
 	{
-		Kreeture = new Kreeture(_base, level);
-		GameObject kreetureModel = Kreeture.Base.Model;
+		Kreeture = kreeture;
+
+		kreetureModel = Kreeture.Base.Model;
 
 		// Ensure the model is not null
 		if (kreetureModel != null)
@@ -62,5 +62,10 @@ public class BattleUnit : MonoBehaviour
 	{
 		Animator animator = KreetureGameObject.GetComponent<Animator>();
 		animator.SetTrigger("SetFaintTrigger");
+	}
+
+	public void DestroyFaintedModel()
+	{
+		DestroyImmediate(KreetureGameObject, true);
 	}
 }

@@ -26,21 +26,26 @@ public class BattleSystem : MonoBehaviour
 		inputActions.Enable();
 	}
 
+	KreetureParty playerParty;
+	Kreeture wildKreeture;
+
+	private void Start()
+	{
+		playerParty = GameManager.Instance.GetPlayerTeam();
+		wildKreeture = GameManager.Instance.GetWildKreeture();
+		StartCoroutine(SetupBattle());
+	}
+
 	private void OnDisable()
 	{
 		// Disable the Input Actions when the script is disabled
 		inputActions.Disable();
 	}
 
-	private void Start()
-	{
-		StartCoroutine(SetupBattle());
-	}
-
 	public IEnumerator SetupBattle()
 	{
-		playerUnit.Setup();
-		enemyUnit.Setup();
+		playerUnit.Setup(playerParty.GetHealthyKreeture());
+		enemyUnit.Setup(wildKreeture);
 		playerHud.SetData(playerUnit.Kreeture);
 		enemyHud.SetData(enemyUnit.Kreeture);
 
@@ -102,25 +107,42 @@ public class BattleSystem : MonoBehaviour
 		state = BattleState.EnemyMove;
 
 		var move = enemyUnit.Kreeture.GetRandomMove();
-		yield return dialogBox.TypeDialog($"{enemyUnit.Kreeture.Base.Name} used {move.Base.Name}");
 		move.PP--;
+		yield return dialogBox.TypeDialog($"{enemyUnit.Kreeture.Base.Name} used {move.Base.Name}");
 
 		enemyUnit.PlayAttackAnimation();
 		yield return new WaitForSeconds(1f);
 
 		playerUnit.PlayHitAnimation();
-		yield return new WaitForSeconds(1f);
-
 		var damageDetails = playerUnit.Kreeture.TakeDamage(move, playerUnit.Kreeture);
 		yield return playerHud.UpdateHP();
 		yield return ShowDamageDetails(damageDetails);
 
 		if (damageDetails.Fainted)
 		{
-			playerUnit.PlayFaintAnimation();
-			yield return new WaitForSeconds(1f);
 			yield return dialogBox.TypeDialog($"{playerUnit.Kreeture.Base.Name} Fainted");
-			ExitBattle();
+			playerUnit.PlayFaintAnimation();
+
+			yield return new WaitForSeconds(2f);
+
+			playerUnit.DestroyFaintedModel();
+
+			var nextKreeture = playerParty.GetHealthyKreeture();
+			if (nextKreeture != null)
+			{
+				playerUnit.Setup(nextKreeture);
+				playerHud.SetData(nextKreeture);
+
+				dialogBox.SetMoveNames(nextKreeture.Attacks);
+
+				yield return dialogBox.TypeDialog($"Go {nextKreeture.Base.Name}!");
+
+				PlayerAction();
+			}
+			else
+			{
+				ExitBattle();
+			}
 		}
 		else
 		{

@@ -234,9 +234,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   encounterProbability: 0.2
-  possibleKreetures:
-  - {fileID: 11400000, guid: 7faecbb03e966d34989ce94751841ab0, type: 2}
-  possibleLevels: 020000000300000004000000030000000400000002000000
+  wildKreetures:
+  - _base: {fileID: 11400000, guid: c1cfe2f5894234d41b219792dce22f35, type: 2}
+    level: 5
+  - _base: {fileID: 11400000, guid: c1cfe2f5894234d41b219792dce22f35, type: 2}
+    level: 7
+  - _base: {fileID: 11400000, guid: c1cfe2f5894234d41b219792dce22f35, type: 2}
+    level: 3
   sceneToLoad: BattleSceneTest
 --- !u!1 &259623253
 GameObject:
@@ -492,9 +496,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   encounterProbability: 0.2
-  possibleKreetures:
-  - {fileID: 11400000, guid: 7faecbb03e966d34989ce94751841ab0, type: 2}
-  possibleLevels: 020000000300000004000000030000000400000002000000
+  wildKreetures:
+  - _base: {fileID: 11400000, guid: c1cfe2f5894234d41b219792dce22f35, type: 2}
+    level: 5
+  - _base: {fileID: 11400000, guid: c1cfe2f5894234d41b219792dce22f35, type: 2}
+    level: 7
+  - _base: {fileID: 11400000, guid: c1cfe2f5894234d41b219792dce22f35, type: 2}
+    level: 3
   sceneToLoad: BattleSceneTest
 --- !u!65 &368976411
 BoxCollider:
@@ -604,11 +612,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f706dd813e2f3454cb2746e0aa077052, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerData:
-    position: {x: 0, y: 0, z: 0}
   playerController: {fileID: 0}
-  playerTeam:
-  - {fileID: 0}
+  playerTeam: {fileID: 0}
   playerDefeated: 0
 --- !u!4 &371447482
 Transform:
@@ -671,9 +676,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   encounterProbability: 0.2
-  possibleKreetures:
-  - {fileID: 11400000, guid: 7faecbb03e966d34989ce94751841ab0, type: 2}
-  possibleLevels: 020000000300000004000000030000000400000002000000
+  wildKreetures:
+  - _base: {fileID: 11400000, guid: c1cfe2f5894234d41b219792dce22f35, type: 2}
+    level: 5
+  - _base: {fileID: 11400000, guid: c1cfe2f5894234d41b219792dce22f35, type: 2}
+    level: 7
+  - _base: {fileID: 11400000, guid: c1cfe2f5894234d41b219792dce22f35, type: 2}
+    level: 3
   sceneToLoad: BattleSceneTest
 --- !u!65 &614618224
 BoxCollider:
@@ -1096,9 +1105,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   encounterProbability: 0.2
-  possibleKreetures:
-  - {fileID: 11400000, guid: 7faecbb03e966d34989ce94751841ab0, type: 2}
-  possibleLevels: 020000000300000004000000030000000400000002000000
+  wildKreetures:
+  - _base: {fileID: 11400000, guid: c1cfe2f5894234d41b219792dce22f35, type: 2}
+    level: 5
+  - _base: {fileID: 11400000, guid: c1cfe2f5894234d41b219792dce22f35, type: 2}
+    level: 7
+  - _base: {fileID: 11400000, guid: c1cfe2f5894234d41b219792dce22f35, type: 2}
+    level: 3
   sceneToLoad: BattleSceneTest
 --- !u!65 &1701796531
 BoxCollider:

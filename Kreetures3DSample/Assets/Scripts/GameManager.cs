@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,17 +7,15 @@ using UnityEngine.SceneManagement;
 public enum GameState { FreeRoam, Battle }
 
 public class GameManager : MonoBehaviour{    
-    public static GameManager Instance { get; private set; }// Singleton instance        
-
-    public PlayerData playerData;
+    public static GameManager Instance { get; private set; }// Singleton instance            
 
     //Wild creature
-    public KreetureBase kreetureForBattle { get; set; }
+    public Kreeture wildKreeture { get; set; }
 
     [SerializeField] public PlayerController playerController;
 
     // Player-related data
-    public List<KreetureBase> playerTeam = new List<KreetureBase>();
+    public KreetureParty playerTeam = new KreetureParty();
     private string previousSceneName;
 
     public bool playerDefeated = false;
@@ -37,25 +36,30 @@ public class GameManager : MonoBehaviour{
         }
     }
 
-    public List<KreetureBase> GetPlayerTeam()
+	public Kreeture GetWildKreeture()
+	{
+        return wildKreeture;
+	}
+
+	internal void SetWildKreeture(Kreeture _wildKreeture)
+	{
+        wildKreeture = _wildKreeture;
+	}
+
+	public KreetureParty GetPlayerTeam()
 	{
         return playerTeam;
 	}
 
-    public List<KreetureBase> GetKreetureNames()
-    {
-        // Replace this with your actual logic to fetch Kreeture names
-        // For example, you might have a list of Kreeture objects and you can extract names from them        
-        List <KreetureBase> kreetures = new List<KreetureBase>();
-
-        //Wild Kreeture is always going to be in the list first
-        kreetures.Add(kreetureForBattle);
-
-        //Player creature always should be second in the list
-        kreetures.Add(playerTeam[0]);
-
-        return kreetures;
+    public void SetPlayerTeam(KreetureParty party)
+	{
+        playerTeam = party;
     }
+
+    public void SetPlayer(PlayerController _playerController)
+	{
+        playerController = _playerController;
+	}
 
     public void SetPreviousScene(string sceneName)
     {
