@@ -1,17 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public enum GameState { FreeRoam, Battle }
 
 public class GameManager : MonoBehaviour{    
-    public static GameManager Instance { get; private set; }// Singleton instance    
+    public static GameManager Instance { get; private set; }// Singleton instance        
 
-    public PlayerData playerData; // Store player data
+    public PlayerData playerData;
 
     //Wild creature
-    public Kreeture kreetureForBattle { get; set; }
+    public KreetureBase kreetureForBattle { get; set; }
+
+    [SerializeField] public PlayerController playerController;
 
     // Player-related data
-    public List<Kreeture> playerTeam = new List<Kreeture>();
+    public List<KreetureBase> playerTeam = new List<KreetureBase>();
     private string previousSceneName;
 
     public bool playerDefeated = false;
@@ -32,16 +37,16 @@ public class GameManager : MonoBehaviour{
         }
     }
 
-    public List<Kreeture> GetPlayerTeam()
+    public List<KreetureBase> GetPlayerTeam()
 	{
         return playerTeam;
 	}
 
-    public List<Kreeture> GetKreetureNames()
+    public List<KreetureBase> GetKreetureNames()
     {
         // Replace this with your actual logic to fetch Kreeture names
         // For example, you might have a list of Kreeture objects and you can extract names from them        
-        List <Kreeture> kreetures = new List<Kreeture>();
+        List <KreetureBase> kreetures = new List<KreetureBase>();
 
         //Wild Kreeture is always going to be in the list first
         kreetures.Add(kreetureForBattle);
@@ -111,6 +116,13 @@ public class GameManager : MonoBehaviour{
 
         return playerController;
 	}
+
+    public void OpenBattleScene(string sceneToLoad)
+	{
+        Instance.SetPreviousScene(SceneManager.GetActiveScene().name);
+
+        SceneManager.LoadScene(sceneToLoad);
+    }
 }
 
 [System.Serializable]

@@ -1,47 +1,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Attack", menuName = "Kreeture/Attack")]
 public class Attack : ScriptableObject
 {
-	public new string name;
-	public int power;
-	public AttackCategory attackCategory;
-	public AttackType attackType; // Renamed enum
-}
+	public AttackBase Base { get; set; }
+	public int PP { get; set; }
 
-public enum AttackCategory
-{
-	Physical,
-	Special
-}
-
-public enum AttackType // Renamed enum
-{
-	Aqua,
-	Flame,
-	Wind,
-	Earth,
-	Umbral,
-	Volt,
-	Terra,
-	Neutral,
-	Toxic,
-	Enigma,
-	Physical,
-	Verdant,
-	Stone,
-	Ethereal,
-	Ironclad,
-	Arcane,
-	Beast,
-	Frost
+	public Attack(AttackBase kBase)
+	{
+		Base = kBase;
+		PP = kBase.PP;
+	}
 }
 
 #region TypeEffectiveness
 public static class TypeEffectivenessCalculator
 {
-	public static float CalculateEffectiveness(AttackType attackType, List<KreetureType> defenderTypes)
+	public static float CalculateEffectiveness(KreetureType attackType, List<KreetureType> defenderTypes)
 	{
 		float effectiveness = 1f;
 
@@ -52,7 +27,7 @@ public static class TypeEffectivenessCalculator
 		return effectiveness;
 	}
 
-	private static float GetEffectivenessMultiplier(AttackType attackType, List<KreetureType> defenderTypes)
+	private static float GetEffectivenessMultiplier(KreetureType attackType, List<KreetureType> defenderTypes)
 	{
 		float multiplier1 = GetSingleTypeEffectivenessMultiplier(attackType, defenderTypes[0]);
 		float multiplier2 = GetSingleTypeEffectivenessMultiplier(attackType, defenderTypes[1]);
@@ -61,12 +36,12 @@ public static class TypeEffectivenessCalculator
 		return multiplier1 * multiplier2;
 	}
 
-	private static float GetSingleTypeEffectivenessMultiplier(AttackType attackType, KreetureType defenderType)
+	private static float GetSingleTypeEffectivenessMultiplier(KreetureType attackType, KreetureType defenderType)
 	{
 		switch (attackType)
 		{
 			//Water replacement
-			case AttackType.Aqua:
+			case KreetureType.Aqua:
 				switch (defenderType)
 				{
 					case KreetureType.Flame:
@@ -80,7 +55,7 @@ public static class TypeEffectivenessCalculator
 						return 1f; // Default effectiveness (neutral)
 				}
 			//Fire Replacement
-			case AttackType.Flame:
+			case KreetureType.Flame:
 				switch (defenderType)
 				{
 					case KreetureType.Verdant:
@@ -96,7 +71,7 @@ public static class TypeEffectivenessCalculator
 						return 1f;
 				}
 			//Flying Replacement
-			case AttackType.Wind:
+			case KreetureType.Wind:
 				switch (defenderType)
 				{
 					case KreetureType.Earth:
@@ -111,7 +86,7 @@ public static class TypeEffectivenessCalculator
 						return 1f;
 				}
 			//Grass replacement
-			case AttackType.Earth:
+			case KreetureType.Earth:
 				switch (defenderType)
 				{
 					case KreetureType.Terra:
@@ -128,7 +103,7 @@ public static class TypeEffectivenessCalculator
 						return 1f;
 				}
 			//Dark Type Replacement
-			case AttackType.Umbral:
+			case KreetureType.Umbral:
 				switch (defenderType)
 				{
 					case KreetureType.Ethereal:
@@ -142,7 +117,7 @@ public static class TypeEffectivenessCalculator
 						return 1f;
 				}
 			//Electric Type Replacement
-			case AttackType.Volt:
+			case KreetureType.Volt:
 				switch (defenderType)
 				{
 					case KreetureType.Wind:
@@ -154,7 +129,7 @@ public static class TypeEffectivenessCalculator
 						return 1f;
 				}
 			//Ground Type Replacement
-			case AttackType.Terra:
+			case KreetureType.Terra:
 				switch (defenderType)
 				{
 					case KreetureType.Toxic:
@@ -171,7 +146,7 @@ public static class TypeEffectivenessCalculator
 						return 1f;
 				}
 			//Normal Type Replacement
-			case AttackType.Neutral:
+			case KreetureType.Neutral:
 				switch (defenderType)
 				{
 					case KreetureType.Physical: //Physical is super affective
@@ -182,7 +157,7 @@ public static class TypeEffectivenessCalculator
 						return 1f;
 				}
 			//Fighting Replacement
-			case AttackType.Physical:
+			case KreetureType.Physical:
 				switch (defenderType)
 				{
 					case KreetureType.Neutral:
@@ -198,7 +173,7 @@ public static class TypeEffectivenessCalculator
 						return 1f;
 				}
 			//Poison Replacement
-			case AttackType.Toxic:
+			case KreetureType.Toxic:
 				switch (defenderType)
 				{
 					case KreetureType.Earth:
@@ -211,7 +186,7 @@ public static class TypeEffectivenessCalculator
 						return 1f;
 				}
 			//Psychic Type
-			case AttackType.Enigma:
+			case KreetureType.Enigma:
 				switch (defenderType)
 				{
 					case KreetureType.Physical:
@@ -225,7 +200,7 @@ public static class TypeEffectivenessCalculator
 						return 1f;
 				}
 			//Bug Type replacement
-			case AttackType.Verdant:
+			case KreetureType.Verdant:
 				switch (defenderType)
 				{
 					case KreetureType.Earth:
@@ -241,7 +216,7 @@ public static class TypeEffectivenessCalculator
 						return 1f;
 				}
 			//Rock Type replacement
-			case AttackType.Stone:
+			case KreetureType.Stone:
 				switch (defenderType)
 				{
 					case KreetureType.Wind:
@@ -258,7 +233,7 @@ public static class TypeEffectivenessCalculator
 						return 1f;
 				}
 			//Ghost type replacemenet
-			case AttackType.Ethereal:
+			case KreetureType.Ethereal:
 				switch (defenderType)
 				{
 					case KreetureType.Ethereal:
@@ -271,7 +246,7 @@ public static class TypeEffectivenessCalculator
 						return 1f;
 				}
 			//Steel type replacement
-			case AttackType.Ironclad:
+			case KreetureType.Ironclad:
 				switch (defenderType)
 				{
 					case KreetureType.Stone:
@@ -286,7 +261,7 @@ public static class TypeEffectivenessCalculator
 						return 1f;
 				}
 			//Fairy replacement
-			case AttackType.Arcane:
+			case KreetureType.Arcane:
 				switch (defenderType)
 				{
 					case KreetureType.Physical:
@@ -300,7 +275,7 @@ public static class TypeEffectivenessCalculator
 						return 1f;
 				}
 			//Dragon replacement
-			case AttackType.Beast:
+			case KreetureType.Beast:
 				switch (defenderType)
 				{
 					case KreetureType.Beast:
@@ -313,7 +288,7 @@ public static class TypeEffectivenessCalculator
 						return 1f;
 				}
 			//Ice replacement
-			case AttackType.Frost:
+			case KreetureType.Frost:
 				switch (defenderType)
 				{
 					case KreetureType.Wind:

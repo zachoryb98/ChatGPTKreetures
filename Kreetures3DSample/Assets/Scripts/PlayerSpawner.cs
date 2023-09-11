@@ -95,11 +95,11 @@ public class PlayerSpawner : MonoBehaviour
     //Easier to just heal team and carry on after loss.
     private void HealKreetures()
 	{
-        foreach (Kreeture kreeture in GameManager.Instance.playerTeam)
-        {
-            // Set each Kreeture's currentHP to its baseHP or maximum health.
-            kreeture.currentHP = kreeture.baseHP;
-        }
+        //foreach (Kreeture kreeture in GameManager.Instance.playerTeam)
+        //{
+        //    // Set each Kreeture's currentHP to its baseHP or maximum health.
+        //    //kreeture.currentHP = kreeture.MaxHp;
+        //}
 
         // You can also play a healing animation or sound effect here if desired.
 

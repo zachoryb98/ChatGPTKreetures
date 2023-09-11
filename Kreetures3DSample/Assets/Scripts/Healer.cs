@@ -48,10 +48,10 @@ public class Healer : MonoBehaviour
 
     private void HealParty()
     {
-        foreach (Kreeture kreeture in GameManager.Instance.playerTeam)
+        foreach (KreetureBase kreeture in GameManager.Instance.playerTeam)
         {
             // Set each Kreeture's currentHP to its baseHP or maximum health.
-            kreeture.currentHP = kreeture.baseHP;
+            //kreeture. = kreeture.MaxHp;
         }
 
         // You can also play a healing animation or sound effect here if desired.

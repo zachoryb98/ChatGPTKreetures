@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5.0f;
     private Animator animator;
-    public GameObject camLookAt;
+    public GameObject camLookAt;    
 
     private void Start()
     {
@@ -41,5 +42,5 @@ public class PlayerController : MonoBehaviour
     {
         // Update the player's position
         transform.position = position;
-    }
+    }    
 }

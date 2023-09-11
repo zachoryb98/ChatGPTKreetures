@@ -9,39 +9,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9313107f5a534d04bab8ea32e27158b8, type: 3}
+  m_Script: {fileID: 11500000, guid: 122f197f81b745f4fb4d891ac81252a6, type: 3}
   m_Name: Cragclaw
   m_EditorClassIdentifier: 
   kreetureName: Cragclaw
-  currentXP: 45
-  currentLevel: 38
-  xpRequiredForNextLevel: 2850
-  leveledUp: 0
-  xpTransfer: 0
-  baseHP: 66
-  currentHP: 52
-  attack: 57
-  defense: 85
-  agility: 28
-  elementalStrike: 57
-  elementalWard: 76
-  focus: 10
-  mobility: 10
-  kreetureType: 2
-  kreetureType2: 0
-  Types: 0200000000000000
+  description: 
   modelPrefab: {fileID: 545682315351394890, guid: 59a51997eb082e449b7eff675857e1ff, type: 3}
-  healthGrowthRate: 4
-  attackGrowthRate: 3
-  defenseGrowthRate: 6
-  agilityGrowthRate: 0
-  elementalStrikeGrowthRate: 3
-  elementalWardGrowthRate: 5
-  knownAttacks:
-  - {fileID: 11400000, guid: 86fb0c20138f41744b7780eecfd6b1ad, type: 2}
-  - {fileID: 11400000, guid: 6d42cc87a6ac78b4797c4e20c693a2a3, type: 2}
-  - {fileID: 11400000, guid: 587bdbdced4342c4c9138b1807061d72, type: 2}
-  - {fileID: 11400000, guid: 10dbb3f96fb0af34caa15139b22323be, type: 2}
-  learnableMovesDatabase: {fileID: 11400000, guid: 46719db43bc677d4e985b94805bc571b, type: 2}
-  minCoreAttribute: 1
-  maxCoreAttribute: 10
+  type1: 2
+  type2: 0
+  maxHp: 39
+  attack: 52
+  defense: 43
+  elmtStrike: 60
+  elmtWard: 50
+  speed: 65
+  learnableMoves:
+  - moveBase: {fileID: 11400000, guid: 6d42cc87a6ac78b4797c4e20c693a2a3, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: 44e7c6bd66a9e3045a25a2ba51711d37, type: 2}
+    level: 4
+  - moveBase: {fileID: 11400000, guid: 10dbb3f96fb0af34caa15139b22323be, type: 2}
+    level: 7
