@@ -1058,7 +1058,7 @@ MonoBehaviour:
   - _base: {fileID: 11400000, guid: bc2df7e142370ee459e67c02a4608cfe, type: 2}
     level: 7
   - _base: {fileID: 11400000, guid: c1cfe2f5894234d41b219792dce22f35, type: 2}
-    level: 7
+    level: 3
   - _base: {fileID: 11400000, guid: c1cfe2f5894234d41b219792dce22f35, type: 2}
     level: 7
   - _base: {fileID: 11400000, guid: c1cfe2f5894234d41b219792dce22f35, type: 2}

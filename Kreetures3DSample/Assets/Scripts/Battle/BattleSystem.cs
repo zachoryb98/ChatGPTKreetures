@@ -57,9 +57,18 @@ public class BattleSystem : MonoBehaviour
 		ActionSelection();
 	}
 
+	void ChooseFirstTurn()
+	{
+		if (playerUnit.Kreeture.Speed >= enemyUnit.Kreeture.Speed)
+			ActionSelection();
+		else
+			StartCoroutine(EnemyMove());
+	}
+
 	void BattleOver()
 	{
 		state = BattleState.BattleOver;
+		playerParty.Kreetures.ForEach(k => k.OnBattleOver());
 		ExitBattle();
 	}
 
@@ -113,29 +122,22 @@ public class BattleSystem : MonoBehaviour
 		}
 	}
 
-	IEnumerator RunMove(BattleUnit sourceUnit, BattleUnit targetUnit, Attack move)
+	IEnumerator RunMove(BattleUnit sourceUnit, BattleUnit targetUnit, Attack attack)
 	{
-		move.PP--;
-		yield return dialogBox.TypeDialog($"{sourceUnit.Kreeture.Base.Name} used {move.Base.Name}");
+		attack.PP--;
+		yield return dialogBox.TypeDialog($"{sourceUnit.Kreeture.Base.Name} used {attack.Base.Name}");
 
 		sourceUnit.PlayAttackAnimation();
 		yield return new WaitForSeconds(1f);
 		targetUnit.PlayHitAnimation();
 
-		if (move.Base.Category == MoveCategory.Status)
+		if (attack.Base.Category == MoveCategory.Status)
 		{
-			var effects = move.Base.Effects;
-			if (effects.Boosts != null)
-			{
-				if (move.Base.Target == MoveTarget.Self)
-					sourceUnit.Kreeture.ApplyBoosts(effects.Boosts);
-				else
-					targetUnit.Kreeture.ApplyBoosts(effects.Boosts);
-			}
+			yield return RunMoveEffects(attack, sourceUnit.Kreeture, targetUnit.Kreeture);
 		}
 		else
 		{
-			var damageDetails = targetUnit.Kreeture.TakeDamage(move, sourceUnit.Kreeture);
+			var damageDetails = targetUnit.Kreeture.TakeDamage(attack, sourceUnit.Kreeture);
 			yield return targetUnit.Hud.UpdateHP();
 			yield return ShowDamageDetails(damageDetails);
 		}
@@ -147,6 +149,30 @@ public class BattleSystem : MonoBehaviour
 			yield return new WaitForSeconds(2f);
 
 			CheckForBattleOver(targetUnit);
+		}
+	}
+
+	IEnumerator RunMoveEffects(Attack attack, Kreeture source, Kreeture target)
+	{
+		var effects = attack.Base.Effects;
+		if (effects.Boosts != null)
+		{
+			if (attack.Base.Target == MoveTarget.Self)
+				source.ApplyBoosts(effects.Boosts);
+			else
+				target.ApplyBoosts(effects.Boosts);
+		}
+
+		yield return ShowStatusChanges(source);
+		yield return ShowStatusChanges(target);
+	}
+
+	IEnumerator ShowStatusChanges(Kreeture kreeture)
+	{
+		while (kreeture.StatusChanges.Count > 0)
+		{
+			var message = kreeture.StatusChanges.Dequeue();
+			yield return dialogBox.TypeDialog(message);
 		}
 	}
 
@@ -353,8 +379,10 @@ public class BattleSystem : MonoBehaviour
 
 	IEnumerator SwitchKreeture(Kreeture newKreeture)
 	{
+		bool currentKreetureFainted = true;
 		if (playerUnit.Kreeture.HP > 0)
 		{
+			currentKreetureFainted = false;
 			yield return dialogBox.TypeDialog($"Come back {playerUnit.Kreeture.Base.Name}");
 			playerUnit.PlayFaintAnimation();
 			yield return new WaitForSeconds(2f);
@@ -366,7 +394,10 @@ public class BattleSystem : MonoBehaviour
 		dialogBox.SetMoveNames(newKreeture.Attacks);
 		yield return dialogBox.TypeDialog($"Go {newKreeture.Base.Name}!");
 
-		StartCoroutine(EnemyMove());
+		if (currentKreetureFainted)
+			ChooseFirstTurn();
+		else
+			StartCoroutine(EnemyMove());
 	}
 
 	public void ExitBattle()
