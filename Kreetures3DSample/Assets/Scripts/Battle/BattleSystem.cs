@@ -15,6 +15,7 @@ public class BattleSystem : MonoBehaviour
 	[SerializeField] BattleHud playerHud;
 	[SerializeField] BattleHud enemyHud;
 	[SerializeField] BattleDialogBox dialogBox;
+	[SerializeField] PartyScreen partyScreen;
 
 	BattleState state;
 	int currentAction;
@@ -49,6 +50,8 @@ public class BattleSystem : MonoBehaviour
 		playerHud.SetData(playerUnit.Kreeture);
 		enemyHud.SetData(enemyUnit.Kreeture);
 
+		partyScreen.Init();
+
 		dialogBox.SetMoveNames(playerUnit.Kreeture.Attacks);
 
 		yield return dialogBox.TypeDialog($"A wild {enemyUnit.Kreeture.Base.Name} appeared.");
@@ -59,8 +62,14 @@ public class BattleSystem : MonoBehaviour
 	void PlayerAction()
 	{
 		state = BattleState.PlayerAction;
-		StartCoroutine(dialogBox.TypeDialog("Choose an action"));
+		dialogBox.SetDialog("Choose an action");
 		dialogBox.EnableActionSelector(true);
+	}
+
+	void OpenPartyScreen()
+	{
+		partyScreen.SetPartyData(playerParty.kreetures);
+		partyScreen.gameObject.SetActive(true);
 	}
 
 	void PlayerMove()
@@ -205,6 +214,9 @@ public class BattleSystem : MonoBehaviour
 
 		dialogBox.UpdateActionSelection(currentAction);
 
+
+		currentAction = Mathf.Clamp(currentAction, 0, 3);
+
 		if (confirmAction.triggered)
 		{
 			if (currentAction == 0)
@@ -214,12 +226,12 @@ public class BattleSystem : MonoBehaviour
 			}
 			else if (currentAction == 1)
 			{
-				// Bag
+				//Kreeture Party
+				OpenPartyScreen();
 			}
 			else if (currentAction == 2)
 			{
-				// Kreeture
-				//OpenPartyScreen();
+				//Inventory
 			}
 			else if (currentAction == 3)
 			{
@@ -235,6 +247,7 @@ public class BattleSystem : MonoBehaviour
 		var moveUpAction = inputActions["NavigateUp"];
 		var moveDownAction = inputActions["NavigateDown"];
 		var confirmAction = inputActions["Confirm"];
+		var backAction = inputActions["Back"];
 
 
 		if (moveRightAction.triggered)
@@ -261,6 +274,8 @@ public class BattleSystem : MonoBehaviour
 				currentAttack -= 2;
 		}
 
+		currentAttack = Mathf.Clamp(currentAttack, 0, playerUnit.Kreeture.Attacks.Count - 1);
+
 		dialogBox.UpdateMoveSelection(currentAttack, playerUnit.Kreeture.Attacks[currentAttack]);
 
 		if (confirmAction.triggered)
@@ -268,6 +283,12 @@ public class BattleSystem : MonoBehaviour
 			dialogBox.EnableMoveSelector(false);
 			dialogBox.EnableDialogText(true);
 			StartCoroutine(PerformPlayerMove());
+		}
+		else if (backAction.triggered)
+		{
+			dialogBox.EnableMoveSelector(false);
+			dialogBox.EnableDialogText(true);
+			PlayerAction();
 		}
 	}
 

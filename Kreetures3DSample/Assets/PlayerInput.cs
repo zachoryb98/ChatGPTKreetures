@@ -161,6 +161,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Back"",
+                    ""type"": ""Button"",
+                    ""id"": ""3e48987d-b972-420b-b925-4aeb41fd95be"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -273,6 +282,17 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""NavigateRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""679add91-c24f-4e11-b766-f5e02270293e"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Back"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -291,6 +311,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_BattleUI_Confirm = m_BattleUI.FindAction("Confirm", throwIfNotFound: true);
         m_BattleUI_NavigateLeft = m_BattleUI.FindAction("NavigateLeft", throwIfNotFound: true);
         m_BattleUI_NavigateRight = m_BattleUI.FindAction("NavigateRight", throwIfNotFound: true);
+        m_BattleUI_Back = m_BattleUI.FindAction("Back", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -404,6 +425,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_BattleUI_Confirm;
     private readonly InputAction m_BattleUI_NavigateLeft;
     private readonly InputAction m_BattleUI_NavigateRight;
+    private readonly InputAction m_BattleUI_Back;
     public struct BattleUIActions
     {
         private @PlayerInput m_Wrapper;
@@ -413,6 +435,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @Confirm => m_Wrapper.m_BattleUI_Confirm;
         public InputAction @NavigateLeft => m_Wrapper.m_BattleUI_NavigateLeft;
         public InputAction @NavigateRight => m_Wrapper.m_BattleUI_NavigateRight;
+        public InputAction @Back => m_Wrapper.m_BattleUI_Back;
         public InputActionMap Get() { return m_Wrapper.m_BattleUI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -437,6 +460,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @NavigateRight.started -= m_Wrapper.m_BattleUIActionsCallbackInterface.OnNavigateRight;
                 @NavigateRight.performed -= m_Wrapper.m_BattleUIActionsCallbackInterface.OnNavigateRight;
                 @NavigateRight.canceled -= m_Wrapper.m_BattleUIActionsCallbackInterface.OnNavigateRight;
+                @Back.started -= m_Wrapper.m_BattleUIActionsCallbackInterface.OnBack;
+                @Back.performed -= m_Wrapper.m_BattleUIActionsCallbackInterface.OnBack;
+                @Back.canceled -= m_Wrapper.m_BattleUIActionsCallbackInterface.OnBack;
             }
             m_Wrapper.m_BattleUIActionsCallbackInterface = instance;
             if (instance != null)
@@ -456,6 +482,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @NavigateRight.started += instance.OnNavigateRight;
                 @NavigateRight.performed += instance.OnNavigateRight;
                 @NavigateRight.canceled += instance.OnNavigateRight;
+                @Back.started += instance.OnBack;
+                @Back.performed += instance.OnBack;
+                @Back.canceled += instance.OnBack;
             }
         }
     }
@@ -473,5 +502,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnConfirm(InputAction.CallbackContext context);
         void OnNavigateLeft(InputAction.CallbackContext context);
         void OnNavigateRight(InputAction.CallbackContext context);
+        void OnBack(InputAction.CallbackContext context);
     }
 }

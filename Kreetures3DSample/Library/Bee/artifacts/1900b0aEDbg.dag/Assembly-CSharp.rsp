@@ -381,6 +381,8 @@
 "Assets/Scripts/Battle/BattleUIManager.cs"
 "Assets/Scripts/Battle/BattleUnit.cs"
 "Assets/Scripts/Battle/HPBar.cs"
+"Assets/Scripts/Battle/PartyMemberUI.cs"
+"Assets/Scripts/Battle/PartyScreen.cs"
 "Assets/Scripts/GameController.cs"
 "Assets/Scripts/GameManager.cs"
 "Assets/Scripts/GamePlay/EncounterManager.cs"
