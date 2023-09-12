@@ -127,6 +127,15 @@ public enum KreetureType
     Arcane
 }
 
+public enum Stat
+{
+    Attack,
+    Defense,
+    ElementalStrike,
+    ElementalWard,
+    Speed
+}
+
 public class TypeChart
 {
     static float[][] chart =

@@ -6,6 +6,18 @@ using UnityEngine.UI;
 public class BattleUnit : MonoBehaviour
 {	
 	[SerializeField] bool isPlayerUnit;
+	[SerializeField] BattleHud hud;
+
+	public bool IsPlayerUnit
+	{
+		get { return isPlayerUnit; }
+	}
+
+	public BattleHud Hud
+	{
+		get { return hud;  }
+	}
+
 	[SerializeField] GameObject KreetureGameObject;
 
 	[Header("Where to place the Kreetures")]
@@ -36,6 +48,8 @@ public class BattleUnit : MonoBehaviour
 
 				//BattleManager.Instance.SetEnemyKreetureGameObject(EnemyKreetureGameObject);
 			}
+
+			hud.SetData(kreeture);
 
 			PlayEnterAnimation();
 		}

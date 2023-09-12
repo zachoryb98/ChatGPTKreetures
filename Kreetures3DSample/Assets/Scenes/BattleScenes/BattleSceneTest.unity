@@ -3586,8 +3586,6 @@ MonoBehaviour:
   inputActions: {fileID: -944628639613478452, guid: 41c6dcdad7a70614a8fd13c83b75f840, type: 3}
   playerUnit: {fileID: 596032369}
   enemyUnit: {fileID: 1985971448}
-  playerHud: {fileID: 1722759768}
-  enemyHud: {fileID: 952983389}
   dialogBox: {fileID: 1375302075}
   partyScreen: {fileID: 1520711780}
 --- !u!1 &480495406
@@ -4750,6 +4748,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayerUnit: 1
+  hud: {fileID: 1722759768}
   KreetureGameObject: {fileID: 0}
   playerSpawnPosition: {fileID: 596032368}
   enemySpawnPosition: {fileID: 1985971447}
@@ -15035,6 +15034,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayerUnit: 0
+  hud: {fileID: 952983389}
   KreetureGameObject: {fileID: 0}
   playerSpawnPosition: {fileID: 596032368}
   enemySpawnPosition: {fileID: 1985971447}

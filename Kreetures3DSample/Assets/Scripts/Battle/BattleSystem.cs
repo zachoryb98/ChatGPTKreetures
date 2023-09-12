@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public enum BattleState { Start, PlayerAction, PlayerMove, EnemyMove, Busy, PartyScreen}
+public enum BattleState { Start, ActionSelection, MovelSelection, PerformMove, Busy, PartyScreen, BattleOver }
 
 public class BattleSystem : MonoBehaviour
 {
@@ -12,8 +12,7 @@ public class BattleSystem : MonoBehaviour
 
 	[SerializeField] BattleUnit playerUnit;
 	[SerializeField] BattleUnit enemyUnit;
-	[SerializeField] BattleHud playerHud;
-	[SerializeField] BattleHud enemyHud;
+	
 	[SerializeField] BattleDialogBox dialogBox;
 	[SerializeField] PartyScreen partyScreen;
 
@@ -47,9 +46,7 @@ public class BattleSystem : MonoBehaviour
 	public IEnumerator SetupBattle()
 	{
 		playerUnit.Setup(playerParty.GetHealthyKreeture());
-		enemyUnit.Setup(wildKreeture);
-		playerHud.SetData(playerUnit.Kreeture);
-		enemyHud.SetData(enemyUnit.Kreeture);
+		enemyUnit.Setup(wildKreeture);		
 
 		partyScreen.Init();
 
@@ -57,12 +54,18 @@ public class BattleSystem : MonoBehaviour
 
 		yield return dialogBox.TypeDialog($"A wild {enemyUnit.Kreeture.Base.Name} appeared.");
 
-		PlayerAction();
+		ActionSelection();
 	}
 
-	void PlayerAction()
+	void BattleOver()
 	{
-		state = BattleState.PlayerAction;
+		state = BattleState.BattleOver;
+		ExitBattle();
+	}
+
+	void ActionSelection()
+	{
+		state = BattleState.ActionSelection;
 		dialogBox.SetDialog("Choose an action");
 		dialogBox.EnableActionSelector(true);
 	}
@@ -74,40 +77,23 @@ public class BattleSystem : MonoBehaviour
 		partyScreen.gameObject.SetActive(true);
 	}
 
-	void PlayerMove()
+	void MoveSelection()
 	{
-		state = BattleState.PlayerMove;
+		state = BattleState.MovelSelection;
 		dialogBox.EnableActionSelector(false);
 		dialogBox.EnableDialogText(false);
 		dialogBox.EnableMoveSelector(true);
 	}
 
-	IEnumerator PerformPlayerMove()
+	IEnumerator PlayerMove()
 	{
-		state = BattleState.Busy;
+		state = BattleState.PerformMove;
 
 		var attack = playerUnit.Kreeture.Attacks[currentAttack];
-		attack.PP--;
-		yield return dialogBox.TypeDialog($"{playerUnit.Kreeture.Base.Name} used {attack.Base.Name}");
 
-		playerUnit.PlayAttackAnimation();
-		yield return new WaitForSeconds(1f);
+		yield return RunMove(playerUnit, enemyUnit, attack);
 
-		enemyUnit.PlayHitAnimation();
-		yield return new WaitForSeconds(1f);
-
-		var damageDetails = enemyUnit.Kreeture.TakeDamage(attack, playerUnit.Kreeture);
-		yield return enemyHud.UpdateHP();
-		yield return ShowDamageDetails(damageDetails);
-
-		if (damageDetails.Fainted)
-		{
-			enemyUnit.PlayFaintAnimation();
-			yield return new WaitForSeconds(1f);
-			yield return dialogBox.TypeDialog($"{enemyUnit.Kreeture.Base.Name} Fainted");
-			ExitBattle();
-		}
-		else
+		if(state == BattleState.PerformMove)
 		{
 			StartCoroutine(EnemyMove());
 		}
@@ -115,49 +101,68 @@ public class BattleSystem : MonoBehaviour
 
 	IEnumerator EnemyMove()
 	{
-		state = BattleState.EnemyMove;
+		state = BattleState.PerformMove;
 
 		var move = enemyUnit.Kreeture.GetRandomMove();
-		move.PP--;
-		yield return dialogBox.TypeDialog($"{enemyUnit.Kreeture.Base.Name} used {move.Base.Name}");
 
-		enemyUnit.PlayAttackAnimation();
-		yield return new WaitForSeconds(1f);
+		yield return RunMove(enemyUnit, playerUnit, move);
 
-		playerUnit.PlayHitAnimation();
-		var damageDetails = playerUnit.Kreeture.TakeDamage(move, playerUnit.Kreeture);
-		yield return playerHud.UpdateHP();
-		yield return ShowDamageDetails(damageDetails);
-
-		if (damageDetails.Fainted)
+		if(state == BattleState.PerformMove)
 		{
-			yield return dialogBox.TypeDialog($"{playerUnit.Kreeture.Base.Name} Fainted");
-			playerUnit.PlayFaintAnimation();
+			ActionSelection();
+		}
+	}
 
-			yield return new WaitForSeconds(2f);
+	IEnumerator RunMove(BattleUnit sourceUnit, BattleUnit targetUnit, Attack move)
+	{
+		move.PP--;
+		yield return dialogBox.TypeDialog($"{sourceUnit.Kreeture.Base.Name} used {move.Base.Name}");
 
-			playerUnit.DestroyFaintedModel();
+		sourceUnit.PlayAttackAnimation();
+		yield return new WaitForSeconds(1f);
+		targetUnit.PlayHitAnimation();
 
-			var nextKreeture = playerParty.GetHealthyKreeture();
-			if (nextKreeture != null)
+		if (move.Base.Category == MoveCategory.Status)
+		{
+			var effects = move.Base.Effects;
+			if (effects.Boosts != null)
 			{
-				playerUnit.Setup(nextKreeture);
-				playerHud.SetData(nextKreeture);
-
-				dialogBox.SetMoveNames(nextKreeture.Attacks);
-
-				yield return dialogBox.TypeDialog($"Go {nextKreeture.Base.Name}!");
-
-				PlayerAction();
-			}
-			else
-			{
-				ExitBattle();
+				if (move.Base.Target == MoveTarget.Self)
+					sourceUnit.Kreeture.ApplyBoosts(effects.Boosts);
+				else
+					targetUnit.Kreeture.ApplyBoosts(effects.Boosts);
 			}
 		}
 		else
 		{
-			PlayerAction();
+			var damageDetails = targetUnit.Kreeture.TakeDamage(move, sourceUnit.Kreeture);
+			yield return targetUnit.Hud.UpdateHP();
+			yield return ShowDamageDetails(damageDetails);
+		}
+
+		if (targetUnit.Kreeture.HP <= 0)
+		{
+			yield return dialogBox.TypeDialog($"{targetUnit.Kreeture.Base.Name} Fainted");
+			targetUnit.PlayFaintAnimation();
+			yield return new WaitForSeconds(2f);
+
+			CheckForBattleOver(targetUnit);
+		}
+	}
+
+	void CheckForBattleOver(BattleUnit faintedUnit)
+	{
+		if (faintedUnit.IsPlayerUnit)
+		{
+			var nextKreeture = playerParty.GetHealthyKreeture();
+			if(nextKreeture != null)
+			{
+				OpenPartyScreen();
+			}
+		}
+		else
+		{
+			BattleOver();
 		}
 	}
 
@@ -173,15 +178,15 @@ public class BattleSystem : MonoBehaviour
 
 	private void Update()
 	{
-		if (state == BattleState.PlayerAction)
+		if (state == BattleState.ActionSelection)
 		{
 			HandleActionSelection();
 		}
-		else if (state == BattleState.PlayerMove)
+		else if (state == BattleState.MovelSelection)
 		{
 			HandleMoveSelection();
 		}
-		else if(state == BattleState.PartyScreen)
+		else if (state == BattleState.PartyScreen)
 		{
 			HandlePartySelection();
 		}
@@ -228,7 +233,7 @@ public class BattleSystem : MonoBehaviour
 			if (currentAction == 0)
 			{
 				// Fight
-				PlayerMove();
+				MoveSelection();
 			}
 			else if (currentAction == 1)
 			{
@@ -288,13 +293,13 @@ public class BattleSystem : MonoBehaviour
 		{
 			dialogBox.EnableMoveSelector(false);
 			dialogBox.EnableDialogText(true);
-			StartCoroutine(PerformPlayerMove());
+			StartCoroutine(PlayerMove());
 		}
 		else if (backAction.triggered)
 		{
 			dialogBox.EnableMoveSelector(false);
 			dialogBox.EnableDialogText(true);
-			PlayerAction();
+			ActionSelection();
 		}
 	}
 
@@ -342,7 +347,7 @@ public class BattleSystem : MonoBehaviour
 		else if (backAction.triggered)
 		{
 			partyScreen.gameObject.SetActive(false);
-			PlayerAction();
+			ActionSelection();
 		}
 	}
 
@@ -357,8 +362,7 @@ public class BattleSystem : MonoBehaviour
 			playerUnit.DestroyFaintedModel();
 		}
 
-		playerUnit.Setup(newKreeture);
-		playerHud.SetData(newKreeture);
+		playerUnit.Setup(newKreeture);		
 		dialogBox.SetMoveNames(newKreeture.Attacks);
 		yield return dialogBox.TypeDialog($"Go {newKreeture.Base.Name}!");
 
