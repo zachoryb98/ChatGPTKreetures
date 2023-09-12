@@ -1768,6 +1768,7 @@ MonoBehaviour:
   nameText: {fileID: 657752248}
   levelText: {fileID: 795969791}
   hpBar: {fileID: 1664177122}
+  highlightedColor: {r: 0, g: 0.6845894, b: 1, a: 1}
 --- !u!114 &226956112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1861,6 +1862,7 @@ MonoBehaviour:
   nameText: {fileID: 149126049}
   levelText: {fileID: 921870581}
   hpBar: {fileID: 498889408}
+  highlightedColor: {r: 0, g: 0.6845894, b: 1, a: 1}
 --- !u!114 &250110406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2629,6 +2631,7 @@ MonoBehaviour:
   nameText: {fileID: 1417297790}
   levelText: {fileID: 1400667219}
   hpBar: {fileID: 1587803954}
+  highlightedColor: {r: 0, g: 0.6845894, b: 1, a: 1}
 --- !u!114 &335884835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8905,6 +8908,7 @@ MonoBehaviour:
   nameText: {fileID: 18338863}
   levelText: {fileID: 441393377}
   hpBar: {fileID: 533921051}
+  highlightedColor: {r: 0, g: 0.6845894, b: 1, a: 1}
 --- !u!114 &1178534473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10549,6 +10553,7 @@ MonoBehaviour:
   nameText: {fileID: 179773326}
   levelText: {fileID: 1825312301}
   hpBar: {fileID: 1485835006}
+  highlightedColor: {r: 0, g: 0.6845894, b: 1, a: 1}
 --- !u!114 &1345331027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10642,6 +10647,7 @@ MonoBehaviour:
   nameText: {fileID: 2010017438}
   levelText: {fileID: 505022871}
   hpBar: {fileID: 541480168}
+  highlightedColor: {r: 0, g: 0.6845894, b: 1, a: 1}
 --- !u!114 &1366525881
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public enum BattleState { Start, PlayerAction, PlayerMove, EnemyMove, Busy }
+public enum BattleState { Start, PlayerAction, PlayerMove, EnemyMove, Busy, PartyScreen}
 
 public class BattleSystem : MonoBehaviour
 {
@@ -20,6 +20,7 @@ public class BattleSystem : MonoBehaviour
 	BattleState state;
 	int currentAction;
 	int currentAttack;
+	int currentMember;
 
 	private void Awake()
 	{
@@ -68,6 +69,7 @@ public class BattleSystem : MonoBehaviour
 
 	void OpenPartyScreen()
 	{
+		state = BattleState.PartyScreen;
 		partyScreen.SetPartyData(playerParty.kreetures);
 		partyScreen.gameObject.SetActive(true);
 	}
@@ -178,6 +180,10 @@ public class BattleSystem : MonoBehaviour
 		else if (state == BattleState.PlayerMove)
 		{
 			HandleMoveSelection();
+		}
+		else if(state == BattleState.PartyScreen)
+		{
+			HandlePartySelection();
 		}
 	}
 
@@ -290,6 +296,73 @@ public class BattleSystem : MonoBehaviour
 			dialogBox.EnableDialogText(true);
 			PlayerAction();
 		}
+	}
+
+	void HandlePartySelection()
+	{
+		var moveLeftAction = inputActions["NavigateLeft"];
+		var moveRightAction = inputActions["NavigateRight"];
+		var moveUpAction = inputActions["NavigateUp"];
+		var moveDownAction = inputActions["NavigateDown"];
+		var confirmAction = inputActions["Confirm"];
+		var backAction = inputActions["Back"];
+
+
+		if (moveRightAction.triggered)
+			++currentMember;
+		else if (moveLeftAction.triggered)
+			--currentMember;
+		else if (moveDownAction.triggered)
+			currentMember += 2;
+		else if (moveUpAction.triggered)
+			currentMember -= 2;
+
+		currentMember = Mathf.Clamp(currentMember, 0, playerParty.Kreetures.Count - 1);
+
+		partyScreen.UpdateMemberSelection(currentMember);
+
+		if (confirmAction.triggered)
+		{
+			var selectedMember = playerParty.Kreetures[currentMember];
+			if (selectedMember.HP <= 0)
+			{
+				partyScreen.SetMessageText("You can't send out a fainted pokemon");
+				return;
+			}
+			if (selectedMember == playerUnit.Kreeture)
+			{
+				partyScreen.SetMessageText("You can't switch with the same pokemon");
+				return;
+			}
+
+			partyScreen.gameObject.SetActive(false);
+			state = BattleState.Busy;
+			StartCoroutine(SwitchKreeture(selectedMember));
+		}
+		else if (backAction.triggered)
+		{
+			partyScreen.gameObject.SetActive(false);
+			PlayerAction();
+		}
+	}
+
+	IEnumerator SwitchKreeture(Kreeture newKreeture)
+	{
+		if (playerUnit.Kreeture.HP > 0)
+		{
+			yield return dialogBox.TypeDialog($"Come back {playerUnit.Kreeture.Base.Name}");
+			playerUnit.PlayFaintAnimation();
+			yield return new WaitForSeconds(2f);
+
+			playerUnit.DestroyFaintedModel();
+		}
+
+		playerUnit.Setup(newKreeture);
+		playerHud.SetData(newKreeture);
+		dialogBox.SetMoveNames(newKreeture.Attacks);
+		yield return dialogBox.TypeDialog($"Go {newKreeture.Base.Name}!");
+
+		StartCoroutine(EnemyMove());
 	}
 
 	public void ExitBattle()
