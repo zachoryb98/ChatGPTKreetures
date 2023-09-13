@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 122f197f81b745f4fb4d891ac81252a6, type: 3}
+  m_Name: Sparkini
+  m_EditorClassIdentifier: 
+  kreetureName: Sparkini
+  description: 
+  modelPrefab: {fileID: 955717841895258307, guid: f8b62f332c9589e4e847b449066a2967, type: 3}
+  type1: 2
+  type2: 0
+  maxHp: 40
+  attack: 30
+  defense: 30
+  elmtStrike: 50
+  elmtWard: 50
+  speed: 40
+  learnableMoves:
+  - moveBase: {fileID: 11400000, guid: 6d42cc87a6ac78b4797c4e20c693a2a3, type: 2}
+    level: 0
+  - moveBase: {fileID: 11400000, guid: 44e7c6bd66a9e3045a25a2ba51711d37, type: 2}
+    level: 0
+  - moveBase: {fileID: 11400000, guid: 10dbb3f96fb0af34caa15139b22323be, type: 2}
+    level: 0
+  - moveBase: {fileID: 11400000, guid: 28801a895615e2d42be1c17113e9304d, type: 2}
+    level: 0

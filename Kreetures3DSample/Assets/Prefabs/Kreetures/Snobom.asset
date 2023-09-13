@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 122f197f81b745f4fb4d891ac81252a6, type: 3}
+  m_Name: Snobom
+  m_EditorClassIdentifier: 
+  kreetureName: Snobom
+  description: 
+  modelPrefab: {fileID: 8152143534247419584, guid: aec6508fa525fb64685457c2724bead3, type: 3}
+  type1: 6
+  type2: 18
+  maxHp: 40
+  attack: 25
+  defense: 30
+  elmtStrike: 50
+  elmtWard: 60
+  speed: 40
+  learnableMoves:
+  - moveBase: {fileID: 11400000, guid: 86fb0c20138f41744b7780eecfd6b1ad, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: 44e7c6bd66a9e3045a25a2ba51711d37, type: 2}
+    level: 3
+  - moveBase: {fileID: 11400000, guid: 2ae341f2e19981e4cbdbe34d5b3f26f1, type: 2}
+    level: 4

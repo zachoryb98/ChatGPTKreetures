@@ -5,23 +5,27 @@ using TMPro;
 
 public class BattleHud : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI nameText;
-    [SerializeField] TextMeshProUGUI levelText;
-    [SerializeField] HPBar hpBar;
+	[SerializeField] TextMeshProUGUI nameText;
+	[SerializeField] TextMeshProUGUI levelText;
+	[SerializeField] HPBar hpBar;
 
-    Kreeture _kreeture;
+	Kreeture _kreeture;
 
-    public void SetData(Kreeture kreeture)
-    {
-        _kreeture = kreeture;
+	public void SetData(Kreeture kreeture)
+	{
+		_kreeture = kreeture;
 
-        nameText.text = kreeture.Base.Name;
-        levelText.text = "Lvl " + kreeture.Level;
-        hpBar.SetHP((float)kreeture.HP / kreeture.MaxHp);
-    }
+		nameText.text = kreeture.Base.Name;
+		levelText.text = "Lvl " + kreeture.Level;
+		hpBar.SetHP((float)kreeture.HP / kreeture.MaxHp);
+	}
 
-    public IEnumerator UpdateHP()
-    {
-        yield return hpBar.SetHPSmooth((float)_kreeture.HP / _kreeture.MaxHp);
-    }
+	public IEnumerator UpdateHP()
+	{
+		if (_kreeture.HpChanged)
+		{
+			yield return hpBar.SetHPSmooth((float)_kreeture.HP / _kreeture.MaxHp);
+			_kreeture.HpChanged = false;
+		}
+	}
 }

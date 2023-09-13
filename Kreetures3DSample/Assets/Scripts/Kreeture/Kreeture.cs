@@ -27,8 +27,11 @@ public class Kreeture
 	public List<Attack> Attacks { get; set; }
 	public Dictionary<Stat, int> Stats { get; private set; }
 	public Dictionary<Stat, int> StatBoosts { get; private set; }
+	public Condition Status { get; private set; }
+	public int StatusTime { get; set; }
 
 	public Queue<string> StatusChanges { get; private set; } = new Queue<string>();
+	public bool HpChanged { get; set; }
 
 	public void Init()
 	{
@@ -160,20 +163,48 @@ public class Kreeture
 		float d = a * move.Base.Power * ((float)attack / defense) + 2;
 		int damage = Mathf.FloorToInt(d * modifiers);
 
-		HP -= damage;
-		if (HP <= 0)
-		{
-			HP = 0;
-			damageDetails.Fainted = true;
-		}
+		UpdateHP(damage);
 
 		return damageDetails;
+	}
+
+	public void UpdateHP(int damage)
+	{
+		HP = Mathf.Clamp(HP - damage, 0, MaxHp);
+		HpChanged = true;
+	}
+
+	public void SetStatus(ConditionID conditionId)
+	{
+		Status = ConditionsDB.Conditions[conditionId];
+		Status?.OnStart?.Invoke(this);
+		StatusChanges.Enqueue($"{Base.Name} {Status.StartMessage}");
+	}
+
+	public void CureStatus()
+	{
+		Status = null;
 	}
 
 	public Attack GetRandomMove()
 	{
 		int r = Random.Range(0, Attacks.Count);
 		return Attacks[r];
+	}
+
+	public bool OnBeforeMove()
+	{
+		if (Status?.OnBeforeMove != null)
+		{
+			return Status.OnBeforeMove(this);
+		}
+
+		return true;
+	}
+
+	public void OnAfterTurn()
+	{
+		Status?.OnAfterTurn?.Invoke(this);
 	}
 
 	public void OnBattleOver()
