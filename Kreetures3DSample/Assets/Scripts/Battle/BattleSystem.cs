@@ -112,9 +112,9 @@ public class BattleSystem : MonoBehaviour
 	{
 		state = BattleState.PerformMove;
 
-		var move = enemyUnit.Kreeture.GetRandomMove();
+		var attack = enemyUnit.Kreeture.GetRandomMove();
 
-		yield return RunMove(enemyUnit, playerUnit, move);
+		yield return RunMove(enemyUnit, playerUnit, attack);
 
 		if (state == BattleState.PerformMove)
 		{
@@ -128,6 +128,7 @@ public class BattleSystem : MonoBehaviour
 		if (!canRunMove)
 		{
 			yield return ShowStatusChanges(sourceUnit.Kreeture);
+			yield return sourceUnit.Hud.UpdateHP();
 			yield break;
 		}
 		yield return ShowStatusChanges(sourceUnit.Kreeture);
@@ -159,6 +160,7 @@ public class BattleSystem : MonoBehaviour
 			CheckForBattleOver(targetUnit);
 		}
 
+		// Statuses like burn or psn will hurt the pokemon after the turn
 		sourceUnit.Kreeture.OnAfterTurn();
 		yield return ShowStatusChanges(sourceUnit.Kreeture);
 		yield return sourceUnit.Hud.UpdateHP();
@@ -175,6 +177,8 @@ public class BattleSystem : MonoBehaviour
 	IEnumerator RunMoveEffects(Attack attack, Kreeture source, Kreeture target)
 	{
 		var effects = attack.Base.Effects;
+
+		// Stat Boosting
 		if (effects.Boosts != null)
 		{
 			if (attack.Base.Target == MoveTarget.Self)
@@ -187,6 +191,12 @@ public class BattleSystem : MonoBehaviour
 		if (effects.Status != ConditionID.none)
 		{
 			target.SetStatus(effects.Status);
+		}
+
+		// Volatile Status Condition
+		if (effects.VolatileStatus != ConditionID.none)
+		{
+			target.SetVolatileStatus(effects.VolatileStatus);
 		}
 
 		yield return ShowStatusChanges(source);

@@ -22,4 +22,5 @@ MonoBehaviour:
   effects:
     boosts: []
     status: 5
+    volatileStatus: 0
   target: 0

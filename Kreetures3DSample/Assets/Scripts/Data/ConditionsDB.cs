@@ -4,12 +4,24 @@ using UnityEngine;
 
 public class ConditionsDB
 {
+    public static void Init()
+    {
+        foreach (var kvp in Conditions)
+        {
+            var conditionId = kvp.Key;
+            var condition = kvp.Value;
+
+            condition.Id = conditionId;
+        }
+    }
+
     public static Dictionary<ConditionID, Condition> Conditions { get; set; } = new Dictionary<ConditionID, Condition>()
     {
         {
             ConditionID.psn,
             new Condition()
             {
+                Id = ConditionID.psn,
                 Name = "Poison",
                 StartMessage = "has been poisoned",
                 OnAfterTurn = (Kreeture kreeture) =>
@@ -23,6 +35,7 @@ public class ConditionsDB
             ConditionID.brn,
             new Condition()
             {
+                Id = ConditionID.brn,
                 Name = "Burn",
                 StartMessage = "has been burned",
                 OnAfterTurn = (Kreeture kreeture) =>
@@ -36,6 +49,7 @@ public class ConditionsDB
             ConditionID.par,
             new Condition()
             {
+                Id = ConditionID.par,
                 Name = "Paralyzed",
                 StartMessage = "has been paralyzed",
                 OnBeforeMove = (Kreeture kreeture) =>
@@ -54,11 +68,12 @@ public class ConditionsDB
             ConditionID.frz,
             new Condition()
             {
+                Id = ConditionID.frz,
                 Name = "Freeze",
                 StartMessage = "has been frozen",
                 OnBeforeMove = (Kreeture kreeture) =>
                 {
-                    if  (Random.Range(2, 5) == 2)
+                    if  (Random.Range(1, 5) == 1)
                     {
                         kreeture.CureStatus();
                         kreeture.StatusChanges.Enqueue($"{kreeture.Base.Name}'s is not frozen anymore");
@@ -73,6 +88,7 @@ public class ConditionsDB
             ConditionID.slp,
             new Condition()
             {
+                Id = ConditionID.slp,
                 Name = "Sleep",
                 StartMessage = "has fallen asleep",
                 OnStart = (Kreeture kreeture) =>
@@ -95,11 +111,49 @@ public class ConditionsDB
                     return false;
                 }
             }
+        },
+
+        // Volatile Status Conditions
+        {
+            ConditionID.confusion,
+            new Condition()
+            {
+                Id = ConditionID.confusion,
+                Name = "Confusion",
+                StartMessage = "has been confused",
+                OnStart = (Kreeture kreeture) =>
+                {
+                    // Confused for 1 - 4 turns
+                    kreeture.VolatileStatusTime = Random.Range(1, 5);
+                    Debug.Log($"Will be confused for {kreeture.VolatileStatusTime} moves");
+                },
+                OnBeforeMove = (Kreeture kreeture) =>
+                {
+                    if (kreeture.VolatileStatusTime <= 0)
+                    {
+                        kreeture.CureVolatileStatus();
+                        kreeture.StatusChanges.Enqueue($"{kreeture.Base.Name} kicked out of confusion!");
+                        return true;
+                    }
+                    kreeture.VolatileStatusTime--;
+
+                    // 50% chance to do a move
+                    if (Random.Range(1, 3) == 1)
+                        return true;
+
+                    // Hurt by confusion
+                    kreeture.StatusChanges.Enqueue($"{kreeture.Base.Name} is confused");
+                    kreeture.UpdateHP(kreeture.MaxHp / 8);
+                    kreeture.StatusChanges.Enqueue($"It hurt itself due to confusion");
+                    return false;
+                }
+            }
         }
     };
 }
 
 public enum ConditionID
 {
-    none, psn, brn, slp, par, frz
+    none, psn, brn, slp, par, frz,
+    confusion
 }

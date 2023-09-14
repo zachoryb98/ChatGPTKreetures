@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Attack", menuName = "Kreeture/Create New Attack")]
+[CreateAssetMenu(fileName = "Attack", menuName = "Kreeture/Create new attack")]
 public class AttackBase : ScriptableObject
 {
     [SerializeField] string name;
@@ -69,6 +69,7 @@ public class MoveEffects
 {
     [SerializeField] List<StatBoost> boosts;
     [SerializeField] ConditionID status;
+    [SerializeField] ConditionID volatileStatus;
 
     public List<StatBoost> Boosts
     {
@@ -78,6 +79,11 @@ public class MoveEffects
     public ConditionID Status
     {
         get { return status; }
+    }
+
+    public ConditionID VolatileStatus
+    {
+        get { return volatileStatus; }
     }
 }
 
