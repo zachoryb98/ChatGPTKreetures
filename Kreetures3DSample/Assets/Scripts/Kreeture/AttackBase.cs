@@ -13,6 +13,7 @@ public class AttackBase : ScriptableObject
     [SerializeField] KreetureType type;
     [SerializeField] int power;
     [SerializeField] int accuracy;
+    [SerializeField] bool alwaysHits;
     [SerializeField] int pp;
     [SerializeField] MoveCategory category;
     [SerializeField] MoveEffects effects;
@@ -41,6 +42,11 @@ public class AttackBase : ScriptableObject
     public int Accuracy
     {
         get { return accuracy; }
+    }
+
+    public bool AlwaysHits
+    {
+        get { return alwaysHits; }
     }
 
     public int PP

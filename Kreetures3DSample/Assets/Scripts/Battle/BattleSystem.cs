@@ -136,41 +136,49 @@ public class BattleSystem : MonoBehaviour
 		attack.PP--;
 		yield return dialogBox.TypeDialog($"{sourceUnit.Kreeture.Base.Name} used {attack.Base.Name}");
 
-		sourceUnit.PlayAttackAnimation();
-		yield return new WaitForSeconds(1f);
-		targetUnit.PlayHitAnimation();
-
-		if (attack.Base.Category == MoveCategory.Status)
+		if (CheckIfMoveHits(attack, sourceUnit.Kreeture, targetUnit.Kreeture))
 		{
-			yield return RunMoveEffects(attack, sourceUnit.Kreeture, targetUnit.Kreeture);
+
+			sourceUnit.PlayAttackAnimation();
+			yield return new WaitForSeconds(1f);
+			targetUnit.PlayHitAnimation();
+
+			if (attack.Base.Category == MoveCategory.Status)
+			{
+				yield return RunMoveEffects(attack, sourceUnit.Kreeture, targetUnit.Kreeture);
+			}
+			else
+			{
+				var damageDetails = targetUnit.Kreeture.TakeDamage(attack, sourceUnit.Kreeture);
+				yield return targetUnit.Hud.UpdateHP();
+				yield return ShowDamageDetails(damageDetails);
+			}
+
+			if (targetUnit.Kreeture.HP <= 0)
+			{
+				yield return dialogBox.TypeDialog($"{targetUnit.Kreeture.Base.Name} Fainted");
+				targetUnit.PlayFaintAnimation();
+				yield return new WaitForSeconds(2f);
+
+				CheckForBattleOver(targetUnit);
+			}
+
+			// Statuses like burn or psn will hurt the pokemon after the turn
+			sourceUnit.Kreeture.OnAfterTurn();
+			yield return ShowStatusChanges(sourceUnit.Kreeture);
+			yield return sourceUnit.Hud.UpdateHP();
+			if (sourceUnit.Kreeture.HP <= 0)
+			{
+				yield return dialogBox.TypeDialog($"{sourceUnit.Kreeture.Base.Name} Fainted");
+				sourceUnit.PlayFaintAnimation();
+				yield return new WaitForSeconds(2f);
+
+				CheckForBattleOver(sourceUnit);
+			}
 		}
 		else
 		{
-			var damageDetails = targetUnit.Kreeture.TakeDamage(attack, sourceUnit.Kreeture);
-			yield return targetUnit.Hud.UpdateHP();
-			yield return ShowDamageDetails(damageDetails);
-		}
-
-		if (targetUnit.Kreeture.HP <= 0)
-		{
-			yield return dialogBox.TypeDialog($"{targetUnit.Kreeture.Base.Name} Fainted");
-			targetUnit.PlayFaintAnimation();
-			yield return new WaitForSeconds(2f);
-
-			CheckForBattleOver(targetUnit);
-		}
-
-		// Statuses like burn or psn will hurt the pokemon after the turn
-		sourceUnit.Kreeture.OnAfterTurn();
-		yield return ShowStatusChanges(sourceUnit.Kreeture);
-		yield return sourceUnit.Hud.UpdateHP();
-		if (sourceUnit.Kreeture.HP <= 0)
-		{
-			yield return dialogBox.TypeDialog($"{sourceUnit.Kreeture.Base.Name} Fainted");
-			sourceUnit.PlayFaintAnimation();
-			yield return new WaitForSeconds(2f);
-
-			CheckForBattleOver(sourceUnit);
+			yield return dialogBox.TypeDialog($"{sourceUnit.Kreeture.Base.Name}'s attack missed");
 		}
 	}
 
@@ -201,6 +209,31 @@ public class BattleSystem : MonoBehaviour
 
 		yield return ShowStatusChanges(source);
 		yield return ShowStatusChanges(target);
+	}
+
+	bool CheckIfMoveHits(Attack attack, Kreeture source, Kreeture target)
+	{
+		if (attack.Base.AlwaysHits)
+			return true;
+
+		float moveAccuracy = attack.Base.Accuracy;
+
+		int accuracy = source.StatBoosts[Stat.Accuracy];
+		int evasion = target.StatBoosts[Stat.Evasion];
+
+		var boostValues = new float[] { 1f, 4f / 3f, 5f / 3f, 2f, 7f / 3f, 8f / 3f, 3f };
+
+		if (accuracy > 0)
+			moveAccuracy *= boostValues[accuracy];
+		else
+			moveAccuracy /= boostValues[-accuracy];
+
+		if (evasion > 0)
+			moveAccuracy /= boostValues[evasion];
+		else
+			moveAccuracy *= boostValues[-evasion];
+
+		return UnityEngine.Random.Range(1, 101) <= moveAccuracy;
 	}
 
 	IEnumerator ShowStatusChanges(Kreeture kreeture)

@@ -78,6 +78,8 @@ public class Kreeture
 			{Stat.ElementalStrike, 0},
 			{Stat.ElementalWard, 0},
 			{Stat.Speed, 0},
+			{Stat.Accuracy, 0},
+			{Stat.Evasion, 0},
 		};
 	}
 
