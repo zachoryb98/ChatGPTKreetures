@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
-  m_Title: Console
+  m_Title: Game
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 20
+  controlID: 97
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 21
+  controlID: 42
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -222,7 +222,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 106
+  controlID: 98
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -455,14 +455,14 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
-    - e00: 0.8135662
+    - e00: 1.2056706
       e01: 0
       e02: 0
-      e03: -6.1423264
+      e03: -272.16827
       e10: 0
-      e11: 0.8135662
+      e11: 1.2056706
       e12: 0
-      e13: 109.50282
+      e13: 130.21199
       e20: 0
       e21: 0
       e22: 1
@@ -472,9 +472,9 @@ MonoBehaviour:
       e32: 0
       e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: 4ab3741d9bb5a284bb1fea2f2a744f61, type: 2}
+  m_AnimatorController: {fileID: 9100000, guid: e47510c6130941c428141e3a1ec5e814, type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: -6061302603801915266, guid: 4ab3741d9bb5a284bb1fea2f2a744f61, type: 2}
+  - m_Target: {fileID: 1107035867164274420, guid: e47510c6130941c428141e3a1ec5e814, type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}
@@ -518,23 +518,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: d26d0000
+      m_SelectedIDs: 0a6e0000
       m_LastClickedID: 0
-      m_ExpandedIDs: 16fbffff
+      m_ExpandedIDs: 86b6ffffa0b6ffffa2bfffffbcbfffff16fbfffff4ffffffa4970000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: BattleSystem
+        m_OriginalName: BattleSystem
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: 38820
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 7}
       m_SearchString: 
@@ -585,22 +585,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Attacks/Terra
+    - Assets/Attacks/Enigma
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Attacks/Terra
+  - Assets/Attacks/Enigma
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: c4760000
-    m_LastClickedID: 30404
-    m_ExpandedIDs: 000000008e74000090740000927400009474000096740000987400009a7400009c7400004876000000ca9a3b
+    m_SelectedIDs: 76760000
+    m_LastClickedID: 30326
+    m_ExpandedIDs: 000000008e74000090740000927400009474000096740000987400009a7400009c740000487600005076000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -909,9 +909,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 560.5442, y: 375.44556, z: -4.5085754}
+    m_Target: {x: 0.07053715, y: 0.41401654, z: -3.1560845}
     speed: 2
-    m_Value: {x: 560.5442, y: 375.44556, z: -4.5085754}
+    m_Value: {x: 0.07053715, y: 0.41401654, z: -3.1560845}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -958,13 +958,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.016499193, y: -0.0044993698, z: 0.00007425354, w: 0.9998526}
+    m_Target: {x: 0.051828586, y: -0.6755534, z: 0.047705643, w: 0.7339367}
     speed: 2
-    m_Value: {x: 0.016499214, y: -0.0044993754, z: 0.00007425363, w: 0.9998538}
+    m_Value: {x: 0.05182865, y: -0.6755542, z: 0.047705702, w: 0.7339376}
   m_Size:
-    m_Target: 473.72403
+    m_Target: 0.39590216
     speed: 2
-    m_Value: 473.72403
+    m_Value: 0.39590216
   m_Ortho:
     m_Target: 0
     speed: 2

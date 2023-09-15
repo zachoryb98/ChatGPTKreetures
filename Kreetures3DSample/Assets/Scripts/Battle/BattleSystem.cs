@@ -145,13 +145,23 @@ public class BattleSystem : MonoBehaviour
 
 			if (attack.Base.Category == MoveCategory.Status)
 			{
-				yield return RunMoveEffects(attack, sourceUnit.Kreeture, targetUnit.Kreeture);
+				RunMoveEffects(attack.Base.Effects, sourceUnit.Kreeture, targetUnit.Kreeture, attack.Base.Target);
 			}
 			else
 			{
 				var damageDetails = targetUnit.Kreeture.TakeDamage(attack, sourceUnit.Kreeture);
 				yield return targetUnit.Hud.UpdateHP();
 				yield return ShowDamageDetails(damageDetails);
+			}
+
+			if (attack.Base.Secondaries != null && attack.Base.Secondaries.Count > 0 && targetUnit.Kreeture.HP > 0)
+			{
+				foreach (var secondary in attack.Base.Secondaries)
+				{
+					var rnd = UnityEngine.Random.Range(1, 101);
+					if (rnd <= secondary.Chance)
+						yield return RunMoveEffects(secondary, sourceUnit.Kreeture, targetUnit.Kreeture, secondary.Target);
+				}
 			}
 
 			if (targetUnit.Kreeture.HP <= 0)
@@ -182,14 +192,12 @@ public class BattleSystem : MonoBehaviour
 		}
 	}
 
-	IEnumerator RunMoveEffects(Attack attack, Kreeture source, Kreeture target)
+	IEnumerator RunMoveEffects(MoveEffects effects, Kreeture source, Kreeture target, AttackTarget moveTarget)
 	{
-		var effects = attack.Base.Effects;
-
 		// Stat Boosting
 		if (effects.Boosts != null)
 		{
-			if (attack.Base.Target == MoveTarget.Self)
+			if (moveTarget == AttackTarget.Self)
 				source.ApplyBoosts(effects.Boosts);
 			else
 				target.ApplyBoosts(effects.Boosts);

@@ -17,7 +17,8 @@ public class AttackBase : ScriptableObject
     [SerializeField] int pp;
     [SerializeField] MoveCategory category;
     [SerializeField] MoveEffects effects;
-    [SerializeField] MoveTarget target;
+    [SerializeField] List<SecondaryEffects> secondaries;
+    [SerializeField] AttackTarget target;
 
     public string Name
     {
@@ -64,7 +65,12 @@ public class AttackBase : ScriptableObject
         get { return effects; }
     }
 
-    public MoveTarget Target
+    public List<SecondaryEffects> Secondaries
+    {
+        get { return secondaries; }
+    }
+
+    public AttackTarget Target
     {
         get { return target; }
     }
@@ -94,6 +100,23 @@ public class MoveEffects
 }
 
 [System.Serializable]
+public class SecondaryEffects : MoveEffects
+{
+    [SerializeField] int chance;
+    [SerializeField] AttackTarget target;
+
+    public int Chance
+    {
+        get { return chance; }
+    }
+
+    public AttackTarget Target
+    {
+        get { return target; }
+    }
+}
+
+[System.Serializable]
 public class StatBoost
 {
     public Stat stat;
@@ -105,7 +128,7 @@ public enum MoveCategory
     Physical, Special, Status
 }
 
-public enum MoveTarget
+public enum AttackTarget
 {
     Foe, Self
 }
