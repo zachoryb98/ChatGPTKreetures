@@ -24,7 +24,7 @@ MonoBehaviour:
   elmtWard: 50
   speed: 40
   learnableMoves:
-  - moveBase: {fileID: 11400000, guid: 6bbedb9f3b91e88408addd03d1eed7b9, type: 2}
+  - moveBase: {fileID: 11400000, guid: 5d3d6f203ecc91b44a4123b6e84d37f0, type: 2}
     level: 0
   - moveBase: {fileID: 11400000, guid: f7d688da910d82d4f922f6d509e5b3fa, type: 2}
     level: 0

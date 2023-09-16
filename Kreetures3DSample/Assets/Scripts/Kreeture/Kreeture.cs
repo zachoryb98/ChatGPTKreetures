@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [System.Serializable]
@@ -67,7 +68,7 @@ public class Kreeture
 		Stats.Add(Stat.ElementalWard, Mathf.FloorToInt((Base.ElmtWard * Level) / 100f) + 5);
 		Stats.Add(Stat.Speed, Mathf.FloorToInt((Base.Speed * Level) / 100f) + 5);
 
-		MaxHp = Mathf.FloorToInt((Base.Speed * Level) / 100f) + 10 + Level;
+		MaxHp = Mathf.FloorToInt((Base.MaxHp * Level) / 100f) + 10 + Level;
 	}
 
 	void ResetStatBoost()
@@ -215,7 +216,9 @@ public class Kreeture
 
 	public Attack GetRandomMove()
 	{
-		int r = Random.Range(0, Attacks.Count);
+		var movesWithPP = Attacks.Where(x => x.PP > 0).ToList();
+
+		int r = Random.Range(0, movesWithPP.Count);
 		return Attacks[r];
 	}
 
