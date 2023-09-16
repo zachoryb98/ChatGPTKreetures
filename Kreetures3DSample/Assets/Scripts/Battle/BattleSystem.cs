@@ -4,7 +4,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public enum BattleState { Start, ActionSelection, MovelSelection, PerformMove, Busy, PartyScreen, BattleOver }
+public enum BattleState { Start, ActionSelection, MoveSelection, RunningTurn, Busy, PartyScreen, BattleOver }
+
+public enum BattleAction { Move, SwitchKreeture, UseItem, Run }
 
 public class BattleSystem : MonoBehaviour
 {
@@ -17,6 +19,7 @@ public class BattleSystem : MonoBehaviour
 	[SerializeField] PartyScreen partyScreen;
 
 	BattleState state;
+	BattleState? prevState;
 	int currentAction;
 	int currentAttack;
 	int currentMember;
@@ -57,14 +60,6 @@ public class BattleSystem : MonoBehaviour
 		ActionSelection();
 	}
 
-	void ChooseFirstTurn()
-	{
-		if (playerUnit.Kreeture.Speed >= enemyUnit.Kreeture.Speed)
-			ActionSelection();
-		else
-			StartCoroutine(EnemyMove());
-	}
-
 	void BattleOver()
 	{
 		state = BattleState.BattleOver;
@@ -88,38 +83,60 @@ public class BattleSystem : MonoBehaviour
 
 	void MoveSelection()
 	{
-		state = BattleState.MovelSelection;
+		state = BattleState.MoveSelection;
 		dialogBox.EnableActionSelector(false);
 		dialogBox.EnableDialogText(false);
 		dialogBox.EnableMoveSelector(true);
 	}
 
-	IEnumerator PlayerMove()
+	IEnumerator RunTurns(BattleAction playerAction)
 	{
-		state = BattleState.PerformMove;
+		state = BattleState.RunningTurn;
 
-		var attack = playerUnit.Kreeture.Attacks[currentAttack];
-
-		yield return RunMove(playerUnit, enemyUnit, attack);
-
-		if (state == BattleState.PerformMove)
+		if (playerAction == BattleAction.Move)
 		{
-			StartCoroutine(EnemyMove());
+			playerUnit.Kreeture.CurrentAttack = playerUnit.Kreeture.Attacks[currentAttack];
+			enemyUnit.Kreeture.CurrentAttack = enemyUnit.Kreeture.GetRandomMove();
+
+			// Check who goes first
+			bool playerGoesFirst = playerUnit.Kreeture.Speed >= enemyUnit.Kreeture.Speed;
+
+			var firstUnit = (playerGoesFirst) ? playerUnit : enemyUnit;
+			var secondUnit = (playerGoesFirst) ? enemyUnit : playerUnit;
+
+			var secondKreeture = secondUnit.Kreeture;
+
+			// First Turn
+			yield return RunMove(firstUnit, secondUnit, firstUnit.Kreeture.CurrentAttack);
+			yield return RunAfterTurn(firstUnit);
+			if (state == BattleState.BattleOver) yield break;
+
+			if (secondKreeture.HP > 0)
+			{
+				// Second Turn
+				yield return RunMove(secondUnit, firstUnit, secondUnit.Kreeture.CurrentAttack);
+				yield return RunAfterTurn(secondUnit);
+				if (state == BattleState.BattleOver) yield break;
+			}
 		}
-	}
-
-	IEnumerator EnemyMove()
-	{
-		state = BattleState.PerformMove;
-
-		var attack = enemyUnit.Kreeture.GetRandomMove();
-
-		yield return RunMove(enemyUnit, playerUnit, attack);
-
-		if (state == BattleState.PerformMove)
+		else
 		{
+			if (playerAction == BattleAction.SwitchKreeture)
+			{
+				var selectedKreeture = playerParty.Kreetures[currentMember];
+				state = BattleState.Busy;
+				yield return SwitchKreeture(selectedKreeture);
+			}
+
+			// Enemy Turn
+			var enemyMove = enemyUnit.Kreeture.GetRandomMove();
+			yield return RunMove(enemyUnit, playerUnit, enemyMove);
+			yield return RunAfterTurn(enemyUnit);
+			if (state == BattleState.BattleOver) yield break;
+		}
+
+		if (state != BattleState.BattleOver)
 			ActionSelection();
-		}
 	}
 
 	IEnumerator RunMove(BattleUnit sourceUnit, BattleUnit targetUnit, Attack attack)
@@ -173,7 +190,7 @@ public class BattleSystem : MonoBehaviour
 				CheckForBattleOver(targetUnit);
 			}
 
-			// Statuses like burn or psn will hurt the pokemon after the turn
+			// Statuses like burn or psn will hurt the Kreeture after the turn
 			sourceUnit.Kreeture.OnAfterTurn();
 			yield return ShowStatusChanges(sourceUnit.Kreeture);
 			yield return sourceUnit.Hud.UpdateHP();
@@ -217,6 +234,25 @@ public class BattleSystem : MonoBehaviour
 
 		yield return ShowStatusChanges(source);
 		yield return ShowStatusChanges(target);
+	}
+
+	IEnumerator RunAfterTurn(BattleUnit sourceUnit)
+	{
+		if (state == BattleState.BattleOver) yield break;
+		yield return new WaitUntil(() => state == BattleState.RunningTurn);
+
+		// Statuses like burn or psn will hurt the pokemon after the turn
+		sourceUnit.Kreeture.OnAfterTurn();
+		yield return ShowStatusChanges(sourceUnit.Kreeture);
+		yield return sourceUnit.Hud.UpdateHP();
+		if (sourceUnit.Kreeture.HP <= 0)
+		{
+			yield return dialogBox.TypeDialog($"{sourceUnit.Kreeture.Base.Name} Fainted");
+			sourceUnit.PlayFaintAnimation();
+			yield return new WaitForSeconds(2f);
+
+			CheckForBattleOver(sourceUnit);
+		}
 	}
 
 	bool CheckIfMoveHits(Attack attack, Kreeture source, Kreeture target)
@@ -285,7 +321,7 @@ public class BattleSystem : MonoBehaviour
 		{
 			HandleActionSelection();
 		}
-		else if (state == BattleState.MovelSelection)
+		else if (state == BattleState.MoveSelection)
 		{
 			HandleMoveSelection();
 		}
@@ -341,6 +377,7 @@ public class BattleSystem : MonoBehaviour
 			else if (currentAction == 1)
 			{
 				//Kreeture Party
+				prevState = state;
 				OpenPartyScreen();
 			}
 			else if (currentAction == 2)
@@ -396,7 +433,7 @@ public class BattleSystem : MonoBehaviour
 		{
 			dialogBox.EnableMoveSelector(false);
 			dialogBox.EnableDialogText(true);
-			StartCoroutine(PlayerMove());
+			StartCoroutine(RunTurns(BattleAction.Move));
 		}
 		else if (backAction.triggered)
 		{
@@ -434,18 +471,26 @@ public class BattleSystem : MonoBehaviour
 			var selectedMember = playerParty.Kreetures[currentMember];
 			if (selectedMember.HP <= 0)
 			{
-				partyScreen.SetMessageText("You can't send out a fainted pokemon");
+				partyScreen.SetMessageText("You can't send out a fainted Kreeture");
 				return;
 			}
 			if (selectedMember == playerUnit.Kreeture)
 			{
-				partyScreen.SetMessageText("You can't switch with the same pokemon");
+				partyScreen.SetMessageText("You can't switch with the same Kreeture");
 				return;
 			}
 
 			partyScreen.gameObject.SetActive(false);
-			state = BattleState.Busy;
-			StartCoroutine(SwitchKreeture(selectedMember));
+			if (prevState == BattleState.ActionSelection)
+			{
+				prevState = null;
+				StartCoroutine(RunTurns(BattleAction.SwitchKreeture));
+			}
+			else
+			{
+				state = BattleState.Busy;
+				StartCoroutine(SwitchKreeture(selectedMember));
+			}
 		}
 		else if (backAction.triggered)
 		{
@@ -456,12 +501,11 @@ public class BattleSystem : MonoBehaviour
 
 	IEnumerator SwitchKreeture(Kreeture newKreeture)
 	{
-		bool currentKreetureFainted = true;
 		if (playerUnit.Kreeture.HP > 0)
 		{
-			currentKreetureFainted = false;
 			yield return dialogBox.TypeDialog($"Come back {playerUnit.Kreeture.Base.Name}");
 			playerUnit.PlayFaintAnimation();
+			
 			yield return new WaitForSeconds(2f);
 
 			playerUnit.DestroyFaintedModel();
@@ -471,10 +515,7 @@ public class BattleSystem : MonoBehaviour
 		dialogBox.SetMoveNames(newKreeture.Attacks);
 		yield return dialogBox.TypeDialog($"Go {newKreeture.Base.Name}!");
 
-		if (currentKreetureFainted)
-			ChooseFirstTurn();
-		else
-			StartCoroutine(EnemyMove());
+		state = BattleState.RunningTurn;
 	}
 
 	public void ExitBattle()

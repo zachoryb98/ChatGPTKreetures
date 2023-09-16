@@ -25,6 +25,7 @@ public class Kreeture
 
 	public int HP { get; set; }
 	public List<Attack> Attacks { get; set; }
+	public Attack CurrentAttack { get; set; }
 	public Dictionary<Stat, int> Stats { get; private set; }
 	public Dictionary<Stat, int> StatBoosts { get; private set; }
 	public Condition Status { get; private set; }

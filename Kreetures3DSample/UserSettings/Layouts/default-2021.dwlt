@@ -120,7 +120,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 97
+  controlID: 142
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -297,8 +297,8 @@ MonoBehaviour:
     y: 0
     width: 478
     height: 939
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
@@ -518,23 +518,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 0a6e0000
+      m_SelectedIDs: 0a2e0000
       m_LastClickedID: 0
-      m_ExpandedIDs: 86b6ffffa0b6ffffa2bfffffbcbfffff16fbfffff4ffffffa4970000
+      m_ExpandedIDs: 16fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: BattleSystem
-        m_OriginalName: BattleSystem
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 38820
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 7}
       m_SearchString: 
@@ -585,22 +585,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Attacks/Enigma
+    - Assets/Scripts/Battle
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Attacks/Enigma
+  - Assets/Scripts/Battle
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 76760000
-    m_LastClickedID: 30326
-    m_ExpandedIDs: 000000008e74000090740000927400009474000096740000987400009a7400009c740000487600005076000000ca9a3b
+    m_SelectedIDs: 62760000
+    m_LastClickedID: 30306
+    m_ExpandedIDs: 00000000927400009474000096740000987400009a7400009c7400009e740000a07400004c76000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -628,7 +628,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000008e74000090740000927400009474000096740000987400009a7400009c740000
+    m_ExpandedIDs: 00000000927400009474000096740000987400009a7400009c7400009e740000a0740000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -909,9 +909,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.07053715, y: 0.41401654, z: -3.1560845}
+    m_Target: {x: 23.26394, y: 8.597015, z: -5.062019}
     speed: 2
-    m_Value: {x: 0.07053715, y: 0.41401654, z: -3.1560845}
+    m_Value: {x: 23.26394, y: 8.597015, z: -5.062019}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -958,9 +958,9 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.051828586, y: -0.6755534, z: 0.047705643, w: 0.7339367}
+    m_Target: {x: 0.12937266, y: -0.6677405, z: 0.1194399, w: 0.72326845}
     speed: 2
-    m_Value: {x: 0.05182865, y: -0.6755542, z: 0.047705702, w: 0.7339376}
+    m_Value: {x: 0.12937279, y: -0.66774124, z: 0.11944003, w: 0.7232692}
   m_Size:
     m_Target: 0.39590216
     speed: 2
