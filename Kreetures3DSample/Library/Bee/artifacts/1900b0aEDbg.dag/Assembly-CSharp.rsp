@@ -383,11 +383,17 @@
 "Assets/Scripts/Battle/HPBar.cs"
 "Assets/Scripts/Battle/PartyMemberUI.cs"
 "Assets/Scripts/Battle/PartyScreen.cs"
+"Assets/Scripts/Character/CameraController.cs"
+"Assets/Scripts/Character/NPCController.cs"
+"Assets/Scripts/Character/PlayerController.cs"
+"Assets/Scripts/Character/PlayerSpawnChecker.cs"
+"Assets/Scripts/Character/PlayerSpawner.cs"
 "Assets/Scripts/Data/ConditionsDB.cs"
 "Assets/Scripts/GameController.cs"
 "Assets/Scripts/GameManager.cs"
 "Assets/Scripts/GamePlay/EncounterManager.cs"
 "Assets/Scripts/GamePlay/Healer.cs"
+"Assets/Scripts/GamePlay/Interactable.cs"
 "Assets/Scripts/GamePlay/MapArea.cs"
 "Assets/Scripts/Kreeture/Attack.cs"
 "Assets/Scripts/Kreeture/AttackBase.cs"
@@ -395,10 +401,6 @@
 "Assets/Scripts/Kreeture/Kreeture.cs"
 "Assets/Scripts/Kreeture/KreetureBase.cs"
 "Assets/Scripts/Kreeture/KreetureParty.cs"
-"Assets/Scripts/Player/CameraController.cs"
-"Assets/Scripts/Player/PlayerController.cs"
-"Assets/Scripts/Player/PlayerSpawnChecker.cs"
-"Assets/Scripts/Player/PlayerSpawner.cs"
 -langversion:9.0
 
 /deterministic

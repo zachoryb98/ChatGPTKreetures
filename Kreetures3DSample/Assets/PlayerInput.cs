@@ -46,7 +46,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Heal"",
+                    ""name"": ""Interaction"",
                     ""type"": ""Button"",
                     ""id"": ""d85436f9-ac5f-4d28-b1fd-778d10d4b912"",
                     ""expectedControlType"": ""Button"",
@@ -107,7 +107,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Heal"",
+                    ""action"": ""Interaction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -303,7 +303,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_PlayerControls = asset.FindActionMap("PlayerControls", throwIfNotFound: true);
         m_PlayerControls_Vertical = m_PlayerControls.FindAction("Vertical", throwIfNotFound: true);
         m_PlayerControls_Horizontal = m_PlayerControls.FindAction("Horizontal", throwIfNotFound: true);
-        m_PlayerControls_Heal = m_PlayerControls.FindAction("Heal", throwIfNotFound: true);
+        m_PlayerControls_Interaction = m_PlayerControls.FindAction("Interaction", throwIfNotFound: true);
         // BattleUI
         m_BattleUI = asset.FindActionMap("BattleUI", throwIfNotFound: true);
         m_BattleUI_NavigateUp = m_BattleUI.FindAction("NavigateUp", throwIfNotFound: true);
@@ -373,14 +373,14 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private IPlayerControlsActions m_PlayerControlsActionsCallbackInterface;
     private readonly InputAction m_PlayerControls_Vertical;
     private readonly InputAction m_PlayerControls_Horizontal;
-    private readonly InputAction m_PlayerControls_Heal;
+    private readonly InputAction m_PlayerControls_Interaction;
     public struct PlayerControlsActions
     {
         private @PlayerInput m_Wrapper;
         public PlayerControlsActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Vertical => m_Wrapper.m_PlayerControls_Vertical;
         public InputAction @Horizontal => m_Wrapper.m_PlayerControls_Horizontal;
-        public InputAction @Heal => m_Wrapper.m_PlayerControls_Heal;
+        public InputAction @Interaction => m_Wrapper.m_PlayerControls_Interaction;
         public InputActionMap Get() { return m_Wrapper.m_PlayerControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -396,9 +396,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Horizontal.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnHorizontal;
                 @Horizontal.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnHorizontal;
                 @Horizontal.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnHorizontal;
-                @Heal.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnHeal;
-                @Heal.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnHeal;
-                @Heal.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnHeal;
+                @Interaction.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnInteraction;
+                @Interaction.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnInteraction;
+                @Interaction.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnInteraction;
             }
             m_Wrapper.m_PlayerControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -409,9 +409,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Horizontal.started += instance.OnHorizontal;
                 @Horizontal.performed += instance.OnHorizontal;
                 @Horizontal.canceled += instance.OnHorizontal;
-                @Heal.started += instance.OnHeal;
-                @Heal.performed += instance.OnHeal;
-                @Heal.canceled += instance.OnHeal;
+                @Interaction.started += instance.OnInteraction;
+                @Interaction.performed += instance.OnInteraction;
+                @Interaction.canceled += instance.OnInteraction;
             }
         }
     }
@@ -493,7 +493,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     {
         void OnVertical(InputAction.CallbackContext context);
         void OnHorizontal(InputAction.CallbackContext context);
-        void OnHeal(InputAction.CallbackContext context);
+        void OnInteraction(InputAction.CallbackContext context);
     }
     public interface IBattleUIActions
     {

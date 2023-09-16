@@ -1042,6 +1042,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   camLookAt: {fileID: 2888996794760418779}
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  interactDistance: 2
 --- !u!114 &4203638295268854131
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,50 +1,9 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-public class Healer : MonoBehaviour
+public class Healer : MonoBehaviour, Interactable
 {
     private PlayerInput playerControls;
-    private bool playerInRange = false;
-
-    private void Awake()
-    {
-        playerControls = new PlayerInput();        
-    }
-
-    private void OnEnable()
-    {
-        playerControls.PlayerControls.Enable();
-    }
-
-    private void OnDisable()
-    {
-        playerControls.PlayerControls.Disable();
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerInRange = true;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerInRange = false;
-        }
-    }
-
-    private void Update()
-    {
-        // Check for player input (the "Heal" action) and if the player is in range to heal.
-        if (playerInRange && playerControls.PlayerControls.Heal.triggered)
-        {
-            HealParty();
-        }
-    }
 
     private void HealParty()
     {
@@ -72,4 +31,9 @@ public class Healer : MonoBehaviour
         GameManager.Instance.SetPlayerLastHealLocation(spawnlocation);
 
     }
+
+	public void Interact()
+	{
+        HealParty();
+	}
 }
