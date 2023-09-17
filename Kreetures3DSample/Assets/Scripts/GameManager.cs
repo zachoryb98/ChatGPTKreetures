@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum GameState { FreeRoam, Battle }
+public enum GameState { FreeRoam, Battle, Dialog }
 
 public class GameManager : MonoBehaviour{    
     public static GameManager Instance { get; private set; }// Singleton instance            
@@ -21,7 +21,9 @@ public class GameManager : MonoBehaviour{
     public bool playerDefeated = false;
 
     private Vector3 playerPosition = new Vector3();
-    private Quaternion playerRotation = new Quaternion();    
+    private Quaternion playerRotation = new Quaternion();
+
+    public GameState state;
 
     private void Awake()
     {
@@ -35,6 +37,30 @@ public class GameManager : MonoBehaviour{
             Destroy(gameObject); // Destroy any duplicate GameManager instances
         }
     }
+
+	private void Start()
+	{
+        DialogManager.Instance.OnShowDialog += () =>
+        {
+            state = GameState.Dialog;
+            playerController.DisablePlayerControls();
+        };
+
+        DialogManager.Instance.OnCloseDialog += () =>
+        {
+            if (state == GameState.Dialog)
+                state = GameState.FreeRoam;
+            playerController.EnablePlayerControls();
+        };
+    }
+
+	private void Update()
+	{
+		if(state == GameState.Dialog)
+		{
+            DialogManager.Instance.HandleUpdate();
+		}
+	}
 
 	public Kreeture GetWildKreeture()
 	{

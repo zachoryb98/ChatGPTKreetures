@@ -273,6 +273,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "OverWorldUI",
+            "id": "417b591b-dafb-4b77-9fc6-04a4ac9a9c64",
+            "actions": [
+                {
+                    "name": "Continue",
+                    "type": "Button",
+                    "id": "553f41da-4b63-4962-8949-6f8c19336dc7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "12b745fd-b3be-4707-ab62-45d5cdb276c4",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Continue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

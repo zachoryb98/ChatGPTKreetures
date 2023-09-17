@@ -391,6 +391,8 @@
 "Assets/Scripts/Data/ConditionsDB.cs"
 "Assets/Scripts/GameController.cs"
 "Assets/Scripts/GameManager.cs"
+"Assets/Scripts/GamePlay/Dialog.cs"
+"Assets/Scripts/GamePlay/DialogManager.cs"
 "Assets/Scripts/GamePlay/EncounterManager.cs"
 "Assets/Scripts/GamePlay/Healer.cs"
 "Assets/Scripts/GamePlay/Interactable.cs"

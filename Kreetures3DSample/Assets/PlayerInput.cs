@@ -295,6 +295,34 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""OverWorldUI"",
+            ""id"": ""417b591b-dafb-4b77-9fc6-04a4ac9a9c64"",
+            ""actions"": [
+                {
+                    ""name"": ""Continue"",
+                    ""type"": ""Button"",
+                    ""id"": ""553f41da-4b63-4962-8949-6f8c19336dc7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""12b745fd-b3be-4707-ab62-45d5cdb276c4"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Continue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -312,6 +340,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_BattleUI_NavigateLeft = m_BattleUI.FindAction("NavigateLeft", throwIfNotFound: true);
         m_BattleUI_NavigateRight = m_BattleUI.FindAction("NavigateRight", throwIfNotFound: true);
         m_BattleUI_Back = m_BattleUI.FindAction("Back", throwIfNotFound: true);
+        // OverWorldUI
+        m_OverWorldUI = asset.FindActionMap("OverWorldUI", throwIfNotFound: true);
+        m_OverWorldUI_Continue = m_OverWorldUI.FindAction("Continue", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -489,6 +520,39 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         }
     }
     public BattleUIActions @BattleUI => new BattleUIActions(this);
+
+    // OverWorldUI
+    private readonly InputActionMap m_OverWorldUI;
+    private IOverWorldUIActions m_OverWorldUIActionsCallbackInterface;
+    private readonly InputAction m_OverWorldUI_Continue;
+    public struct OverWorldUIActions
+    {
+        private @PlayerInput m_Wrapper;
+        public OverWorldUIActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Continue => m_Wrapper.m_OverWorldUI_Continue;
+        public InputActionMap Get() { return m_Wrapper.m_OverWorldUI; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(OverWorldUIActions set) { return set.Get(); }
+        public void SetCallbacks(IOverWorldUIActions instance)
+        {
+            if (m_Wrapper.m_OverWorldUIActionsCallbackInterface != null)
+            {
+                @Continue.started -= m_Wrapper.m_OverWorldUIActionsCallbackInterface.OnContinue;
+                @Continue.performed -= m_Wrapper.m_OverWorldUIActionsCallbackInterface.OnContinue;
+                @Continue.canceled -= m_Wrapper.m_OverWorldUIActionsCallbackInterface.OnContinue;
+            }
+            m_Wrapper.m_OverWorldUIActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Continue.started += instance.OnContinue;
+                @Continue.performed += instance.OnContinue;
+                @Continue.canceled += instance.OnContinue;
+            }
+        }
+    }
+    public OverWorldUIActions @OverWorldUI => new OverWorldUIActions(this);
     public interface IPlayerControlsActions
     {
         void OnVertical(InputAction.CallbackContext context);
@@ -503,5 +567,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnNavigateLeft(InputAction.CallbackContext context);
         void OnNavigateRight(InputAction.CallbackContext context);
         void OnBack(InputAction.CallbackContext context);
+    }
+    public interface IOverWorldUIActions
+    {
+        void OnContinue(InputAction.CallbackContext context);
     }
 }

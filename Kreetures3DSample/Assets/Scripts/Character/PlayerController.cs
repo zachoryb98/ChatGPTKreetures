@@ -35,31 +35,38 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+        if(GameManager.Instance.state == GameState.FreeRoam)
+		{
+            float horizontalInput = Input.GetAxis("Horizontal");
+            float verticalInput = Input.GetAxis("Vertical");
 
-        Vector3 movement = new Vector3(horizontalInput, 0.0f, verticalInput);
-        if (movement != Vector3.zero)
-        {
-            Quaternion newRotation = Quaternion.LookRotation(movement);
-            transform.rotation = newRotation;
+            Vector3 movement = new Vector3(horizontalInput, 0.0f, verticalInput);
+            if (movement != Vector3.zero)
+            {
+                Quaternion newRotation = Quaternion.LookRotation(movement);
+                transform.rotation = newRotation;
 
-            // Set IsMoving parameter for the Animator
-            animator.SetBool("IsMoving", true);
-        }
-        else
-        {
-            // Set IsMoving parameter for the Animator
+                // Set IsMoving parameter for the Animator
+                animator.SetBool("IsMoving", true);
+            }
+            else
+            {
+                // Set IsMoving parameter for the Animator
+                animator.SetBool("IsMoving", false);
+            }
+
+            // Move the character based on input
+            transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
+
+            if (playerControls.PlayerControls.Interaction.triggered)
+            {
+                Interact();
+            }
+		}
+		else
+		{
             animator.SetBool("IsMoving", false);
         }
-
-        // Move the character based on input
-        transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
-
-		if (playerControls.PlayerControls.Interaction.triggered)
-		{
-            Interact();
-		}
     }
 
     void Interact()
@@ -82,6 +89,15 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void DisablePlayerControls()
+	{
+        playerControls.PlayerControls.Disable();
+	}
+
+    public void EnablePlayerControls()
+    {
+        playerControls.PlayerControls.Enable();
+    }
 
     public void SetPosition(Vector3 position)
     {
