@@ -10,7 +10,10 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
     public GameObject camLookAt;	
     public LayerMask interactableLayer;
+    public LayerMask fovLayer;
     public float interactDistance = 2.0f; // Set your desired default distance here
+    public event Action<Collider> OnEnterTrainersView;
+    public bool ContinueDialog = false;
 
     private void Awake()
     {
@@ -63,6 +66,14 @@ public class PlayerController : MonoBehaviour
                 Interact();
             }
 		}
+        else if(GameManager.Instance.state == GameState.Dialog)
+		{
+            animator.SetBool("IsMoving", false);
+			if (playerControls.OverWorldUI.Continue.triggered)
+			{
+                SetContinueDialog(true);
+			}
+        }
 		else
 		{
             animator.SetBool("IsMoving", false);
@@ -87,6 +98,26 @@ public class PlayerController : MonoBehaviour
                 interactable.Interact();
             }
         }
+    }
+
+    public bool GetContinueDialog()
+	{
+        return ContinueDialog;
+	}
+
+    public void SetContinueDialog(bool value)
+	{
+        ContinueDialog = value;
+	}
+
+    public void DisableUIControls()
+    {
+        playerControls.OverWorldUI.Disable();
+    }
+
+    public void EnableUIControls()
+    {
+        playerControls.OverWorldUI.Enable();
     }
 
     public void DisablePlayerControls()

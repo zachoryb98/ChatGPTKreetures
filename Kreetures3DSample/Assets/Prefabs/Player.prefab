@@ -1045,6 +1045,9 @@ MonoBehaviour:
   interactableLayer:
     serializedVersion: 2
     m_Bits: 64
+  fovLayer:
+    serializedVersion: 2
+    m_Bits: 128
   interactDistance: 2
 --- !u!114 &4203638295268854131
 MonoBehaviour:

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum GameState { FreeRoam, Battle, Dialog }
+public enum GameState { FreeRoam, Battle, Dialog, Wait }
 
 public class GameManager : MonoBehaviour{    
     public static GameManager Instance { get; private set; }// Singleton instance            
@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour{
         {
             state = GameState.Dialog;
             playerController.DisablePlayerControls();
+            playerController.EnableUIControls();
         };
 
         DialogManager.Instance.OnCloseDialog += () =>
@@ -51,16 +52,9 @@ public class GameManager : MonoBehaviour{
             if (state == GameState.Dialog)
                 state = GameState.FreeRoam;
             playerController.EnablePlayerControls();
+            playerController.DisableUIControls();
         };
     }
-
-	private void Update()
-	{
-		if(state == GameState.Dialog)
-		{
-            DialogManager.Instance.HandleUpdate();
-		}
-	}
 
 	public Kreeture GetWildKreeture()
 	{

@@ -5,6 +5,9 @@ using UnityEngine;
 public class NPCController : MonoBehaviour, Interactable
 {
     [SerializeField] Dialog dialog;
+    [SerializeField] List<Vector3> movementPattern;
+    [SerializeField] float timeBetweenPattern;
+    NPCState state;
 
     public void Interact()
     {
@@ -45,3 +48,5 @@ public class NPCController : MonoBehaviour, Interactable
         }
     }
 }
+
+public enum NPCState { Idle, Walking }
