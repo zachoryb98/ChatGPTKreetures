@@ -8,7 +8,7 @@ public class TrainerEncounterManager : MonoBehaviour
 	public KreetureParty kreetures;
 	public TrainerController trainer;
 
-	[SerializeField] private string sceneToLoad = "TestScene";
+	[SerializeField] public string sceneToLoad = "TestScene";
 
 	private bool hasReturnedFromBattle; // Flag to indicate if the player has returned from battle
 
@@ -19,7 +19,10 @@ public class TrainerEncounterManager : MonoBehaviour
 		{
 			GameManager.Instance.state = GameState.Wait;
 			GameManager.Instance.playerController.DisablePlayerControls();
-			StartCoroutine(trainer.TriggerTrainerBattle());
+			GameManager.Instance.trainerController = trainer;
+			GameManager.Instance.SetEnemyTeam(kreetures);
+			GameManager.Instance.SetIsTrainerBattle(true);
+			StartCoroutine(trainer.TriggerTrainerBattle(sceneToLoad));
 
 			// Store player position and rotation
 			//Vector3 playerPosition = other.transform.position;

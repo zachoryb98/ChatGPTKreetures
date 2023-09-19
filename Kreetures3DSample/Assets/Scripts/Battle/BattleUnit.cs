@@ -33,6 +33,8 @@ public class BattleUnit : MonoBehaviour
 
 		kreetureModel = Kreeture.Base.Model;
 
+		hud.gameObject.SetActive(true);
+
 		// Ensure the model is not null
 		if (kreetureModel != null)
 		{
@@ -53,6 +55,11 @@ public class BattleUnit : MonoBehaviour
 
 			PlayEnterAnimation();
 		}
+	}
+
+	public void Clear()
+	{
+		hud.gameObject.SetActive(false);
 	}
 
 	public void PlayEnterAnimation()

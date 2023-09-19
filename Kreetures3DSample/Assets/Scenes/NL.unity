@@ -532,9 +532,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kreetures:
-  - _base: {fileID: 11400000, guid: bc2df7e142370ee459e67c02a4608cfe, type: 2}
-    level: 2
   - _base: {fileID: 11400000, guid: c1cfe2f5894234d41b219792dce22f35, type: 2}
+    level: 2
+  - _base: {fileID: 11400000, guid: bc2df7e142370ee459e67c02a4608cfe, type: 2}
     level: 2
 --- !u!114 &162860511
 MonoBehaviour:
@@ -551,7 +551,7 @@ MonoBehaviour:
   encounterProbability: 0.2
   kreetures: {fileID: 162860510}
   trainer: {fileID: 1057726317}
-  sceneToLoad: TestScene
+  sceneToLoad: BattleSceneTest
 --- !u!1 &206735057
 GameObject:
   m_ObjectHideFlags: 0
@@ -1131,9 +1131,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   encounterProbability: 0.2
   wildKreetures:
-  - _base: {fileID: 11400000, guid: c1cfe2f5894234d41b219792dce22f35, type: 2}
+  - _base: {fileID: 11400000, guid: bc2df7e142370ee459e67c02a4608cfe, type: 2}
     level: 5
-  - _base: {fileID: 11400000, guid: c1cfe2f5894234d41b219792dce22f35, type: 2}
+  - _base: {fileID: 11400000, guid: bc2df7e142370ee459e67c02a4608cfe, type: 2}
     level: 7
   - _base: {fileID: 11400000, guid: c1cfe2f5894234d41b219792dce22f35, type: 2}
     level: 3
@@ -1279,7 +1279,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 0}
+  trainerController: {fileID: 0}
   playerTeam: {fileID: 0}
+  enemyTrainerParty: {fileID: 0}
   playerDefeated: 0
   state: 0
 --- !u!4 &371447482
@@ -1551,9 +1553,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   encounterProbability: 0.2
   wildKreetures:
-  - _base: {fileID: 11400000, guid: c1cfe2f5894234d41b219792dce22f35, type: 2}
+  - _base: {fileID: 11400000, guid: bc2df7e142370ee459e67c02a4608cfe, type: 2}
     level: 5
-  - _base: {fileID: 11400000, guid: c1cfe2f5894234d41b219792dce22f35, type: 2}
+  - _base: {fileID: 11400000, guid: bc2df7e142370ee459e67c02a4608cfe, type: 2}
     level: 7
   - _base: {fileID: 11400000, guid: c1cfe2f5894234d41b219792dce22f35, type: 2}
     level: 3
@@ -2409,6 +2411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87ed3ef94a2466c48a977470360587fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: Jeremy
   stoppingDistance: 2
   moveSpeed: 3
   dialog:
@@ -3283,9 +3286,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   encounterProbability: 0.2
   wildKreetures:
-  - _base: {fileID: 11400000, guid: c1cfe2f5894234d41b219792dce22f35, type: 2}
+  - _base: {fileID: 11400000, guid: bc2df7e142370ee459e67c02a4608cfe, type: 2}
     level: 5
-  - _base: {fileID: 11400000, guid: c1cfe2f5894234d41b219792dce22f35, type: 2}
+  - _base: {fileID: 11400000, guid: bc2df7e142370ee459e67c02a4608cfe, type: 2}
     level: 7
   - _base: {fileID: 11400000, guid: c1cfe2f5894234d41b219792dce22f35, type: 2}
     level: 3

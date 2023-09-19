@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public enum BattleState { Start, ActionSelection, MoveSelection, RunningTurn, Busy, PartyScreen, BattleOver }
+public enum BattleState { Start, ActionSelection, MoveSelection, RunningTurn, Busy, PartyScreen, BattleOver, AboutToUse }
 
 public enum BattleAction { Move, SwitchKreeture, UseItem, Run }
 
@@ -29,39 +29,105 @@ public class BattleSystem : MonoBehaviour
 		// Enable the Input Actions
 		inputActions.Enable();
 	}
-
+	
 	KreetureParty playerParty;
+	KreetureParty trainerParty;
 	Kreeture wildKreeture;
 
-	private void Start()
-	{
-		playerParty = GameManager.Instance.GetPlayerTeam();
-		wildKreeture = GameManager.Instance.GetWildKreeture();
-		StartCoroutine(SetupBattle());
-	}
+	bool isTrainerBattle = false;
+	PlayerController player;
+	TrainerController trainer;
 
 	private void OnDisable()
 	{
 		// Disable the Input Actions when the script is disabled
 		inputActions.Disable();
 	}
+	private void Start()
+	{
+		if (GameManager.Instance.GetIsTrainerBattle())
+		{
+			trainer = GameManager.Instance.GetTrainer();
+			StartTrainerBattle(GameManager.Instance.GetPlayerTeam(), GameManager.Instance.GetEnemyTeam());			
+		}
+		else
+		{
+			StartBattle(GameManager.Instance.GetPlayerTeam(), GameManager.Instance.GetWildKreeture());
+		}
+	}
+
+	public void StartBattle(KreetureParty playerParty, Kreeture wildKreeture)
+	{
+		this.playerParty = playerParty;
+		this.wildKreeture = wildKreeture;
+		StartCoroutine(SetupBattle());
+	}
 
 	public IEnumerator SetupBattle()
 	{
-		playerUnit.Setup(playerParty.GetHealthyKreeture());
-		enemyUnit.Setup(wildKreeture);
+		playerUnit.Clear();
+		enemyUnit.Clear();
+
+		if (!isTrainerBattle)
+		{
+			// Wild Kreeture Battle
+			playerUnit.Setup(playerParty.GetHealthyKreeture());
+			enemyUnit.Setup(wildKreeture);
+
+			dialogBox.SetMoveNames(playerUnit.Kreeture.Attacks);
+			yield return dialogBox.TypeDialog($"A wild {enemyUnit.Kreeture.Base.Name} appeared.");
+		}
+		else
+		{
+			// Trianer Battle
+
+			// Show trainer and player sprites
+			playerUnit.gameObject.SetActive(false);
+			enemyUnit.gameObject.SetActive(false);
+
+			//playerImage.gameObject.SetActive(true);
+			//trainerImage.gameObject.SetActive(true);
+			//playerImage.sprite = player.Sprite;
+			//trainerImage.sprite = trainer.Sprite;
+
+			yield return dialogBox.TypeDialog($"{trainer.Name} wants to battle");
+
+			// Send out first Kreeture of the trainer
+			//trainerImage.gameObject.SetActive(false);
+			enemyUnit.gameObject.SetActive(true);
+			var enemyKreeture = trainerParty.GetHealthyKreeture();
+			enemyUnit.Setup(enemyKreeture);
+			yield return dialogBox.TypeDialog($"{trainer.Name} send out {enemyKreeture.Base.Name}");
+
+			// Send out first Kreeture of the player
+			//playerImage.gameObject.SetActive(false);
+			playerUnit.gameObject.SetActive(true);
+			var playerKreeture = playerParty.GetHealthyKreeture();
+			playerUnit.Setup(playerKreeture);
+			yield return dialogBox.TypeDialog($"Go {playerKreeture.Base.Name}!");
+			dialogBox.SetMoveNames(playerUnit.Kreeture.Attacks);
+		}
 
 		partyScreen.Init();
-
-		dialogBox.SetMoveNames(playerUnit.Kreeture.Attacks);
-
-		yield return dialogBox.TypeDialog($"A wild {enemyUnit.Kreeture.Base.Name} appeared.");
-
 		ActionSelection();
 	}
 
-	void BattleOver()
+	public void StartTrainerBattle(KreetureParty playerParty, KreetureParty trainerParty)
 	{
+		this.playerParty = playerParty;
+		this.trainerParty = trainerParty;
+
+		isTrainerBattle = true;
+		player = playerParty.GetComponent<PlayerController>();		
+
+		StartCoroutine(SetupBattle());
+	}
+
+	void BattleOver(bool playerWon)
+	{
+
+		//use playerWon to spawn player at health center
+
 		state = BattleState.BattleOver;
 		playerParty.Kreetures.ForEach(k => k.OnBattleOver());
 		ExitBattle();
@@ -87,6 +153,17 @@ public class BattleSystem : MonoBehaviour
 		dialogBox.EnableActionSelector(false);
 		dialogBox.EnableDialogText(false);
 		dialogBox.EnableMoveSelector(true);
+	}
+
+	IEnumerator AboutToUse(Kreeture newKreeture)
+	{
+		state = BattleState.Busy;
+		yield return dialogBox.TypeDialog($"{trainer.Name} is about to use {newKreeture.Base.Name}. Do you want to change pokemon?");
+
+		state = BattleState.ActionSelection;
+
+		//state = BattleState.AboutToUse;
+		//dialogBox.EnableChoiceBox(true);
 	}
 
 	IEnumerator RunTurns(BattleAction playerAction)
@@ -248,7 +325,7 @@ public class BattleSystem : MonoBehaviour
 		if (state == BattleState.BattleOver) yield break;
 		yield return new WaitUntil(() => state == BattleState.RunningTurn);
 
-		// Statuses like burn or psn will hurt the pokemon after the turn
+		// Statuses like burn or psn will hurt the Kreeture after the turn
 		sourceUnit.Kreeture.OnAfterTurn();
 		yield return ShowStatusChanges(sourceUnit.Kreeture);
 		yield return sourceUnit.Hud.UpdateHP();
@@ -300,15 +377,30 @@ public class BattleSystem : MonoBehaviour
 	{
 		if (faintedUnit.IsPlayerUnit)
 		{
-			var nextKreeture = playerParty.GetHealthyKreeture();
-			if (nextKreeture != null)
-			{
+			var nextPokemon = playerParty.GetHealthyKreeture();
+			if (nextPokemon != null)
 				OpenPartyScreen();
-			}
+			else
+				BattleOver(false);
 		}
 		else
 		{
-			BattleOver();
+			if (!isTrainerBattle)
+			{
+				BattleOver(true);
+			}
+			else
+			{
+				var nextPokemon = trainerParty.GetHealthyKreeture();
+				if (nextPokemon != null)
+				{
+					//StartCoroutine(AboutToUse(nextPokemon));
+					faintedUnit.DestroyFaintedModel();
+					StartCoroutine(SendNextTrainerKreeture());
+				}
+				else
+					BattleOver(true);
+			}
 		}
 	}
 
@@ -524,6 +616,17 @@ public class BattleSystem : MonoBehaviour
 		playerUnit.Setup(newKreeture);
 		dialogBox.SetMoveNames(newKreeture.Attacks);
 		yield return dialogBox.TypeDialog($"Go {newKreeture.Base.Name}!");
+
+		state = BattleState.RunningTurn;
+	}
+
+	IEnumerator SendNextTrainerKreeture()
+	{
+		state = BattleState.Busy;
+
+		var nextKreeture = trainerParty.GetHealthyKreeture();
+		enemyUnit.Setup(nextKreeture);
+		yield return dialogBox.TypeDialog($"{trainer.Name} send out {nextKreeture.Base.Name}!");
 
 		state = BattleState.RunningTurn;
 	}

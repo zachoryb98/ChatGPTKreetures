@@ -30,20 +30,19 @@ public class EncounterManager : MonoBehaviour
                 // Store player position and rotation
                 Vector3 playerPosition = other.transform.position;
                 Quaternion playerRotation = other.transform.rotation;
+
                 GameManager.Instance.SetPlayerPosition(playerPosition, playerRotation);
 
-                GameManager.Instance.playerController.gameObject.SetActive(false);
-
-                GameManager.Instance.OpenBattleScene(sceneToLoad);                       
+                GameManager.Instance.TransitionToBattle(sceneToLoad);                                                
             }
         }
     }
 
     public Kreeture GetRandomWildKreeture()
     {
-        var wildPokemon = wildKreetures[Random.Range(0, wildKreetures.Count)];
-        wildPokemon.Init();
-        return wildPokemon;
+        var wildKreeture = wildKreetures[Random.Range(0, wildKreetures.Count)];
+        wildKreeture.Init();
+        return wildKreeture;
     }
 
     // Call this method when the player exits the battle scene

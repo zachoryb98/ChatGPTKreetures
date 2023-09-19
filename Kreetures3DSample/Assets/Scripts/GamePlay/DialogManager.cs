@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class DialogManager : MonoBehaviour
@@ -42,6 +43,7 @@ public class DialogManager : MonoBehaviour
 
 		dialogBox.SetActive(true);
 		StartCoroutine(TypeDialog(dialog.Lines[0]));
+
 	}
 
 
@@ -78,6 +80,6 @@ public class DialogManager : MonoBehaviour
 			yield return new WaitForSeconds(1f / lettersPerSecond);
 		}
 		isTyping = false;
-		GameManager.Instance.playerController.SetContinueDialog(false);
-	}
+		GameManager.Instance.playerController.SetContinueDialog(false);		
+	}	
 }

@@ -6,152 +6,201 @@ using UnityEngine.SceneManagement;
 
 public enum GameState { FreeRoam, Battle, Dialog, Wait }
 
-public class GameManager : MonoBehaviour{    
-    public static GameManager Instance { get; private set; }// Singleton instance            
+public class GameManager : MonoBehaviour
+{
+	public static GameManager Instance { get; private set; }// Singleton instance            
 
-    //Wild creature
-    public Kreeture wildKreeture { get; set; }
+	//Wild creature
+	private Kreeture wildKreeture { get; set; }
 
-    [SerializeField] public PlayerController playerController;
+	[SerializeField] public PlayerController playerController;
+	[SerializeField] public TrainerController trainerController;
 
-    // Player-related data
-    public KreetureParty playerTeam = new KreetureParty();
-    private string previousSceneName;
+	// Player-related data
+	public KreetureParty playerTeam = new KreetureParty();
+	public KreetureParty enemyTrainerParty = new KreetureParty();
+	private bool enterTrainerBattle = false;
 
-    public bool playerDefeated = false;
+	private string previousSceneName;
 
-    private Vector3 playerPosition = new Vector3();
-    private Quaternion playerRotation = new Quaternion();
+	public bool playerDefeated = false;
 
-    public GameState state;
+	private Vector3 playerPosition = new Vector3();
+	private Quaternion playerRotation = new Quaternion();
 
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject); // Keep the GameManager object when changing scenes
-        }
-        else
-        {
-            Destroy(gameObject); // Destroy any duplicate GameManager instances
-        }
-    }
+	public GameState state;
 
-	private void Start()
+	private void Awake()
 	{
-        DialogManager.Instance.OnShowDialog += () =>
-        {
-            state = GameState.Dialog;
-            playerController.DisablePlayerControls();
-            playerController.EnableUIControls();
-        };
-
-        DialogManager.Instance.OnCloseDialog += () =>
-        {
-            if (state == GameState.Dialog)
-                state = GameState.FreeRoam;
-            playerController.EnablePlayerControls();
-            playerController.DisableUIControls();
-        };
-    }
+		if (Instance == null)
+		{
+			Instance = this;
+			DontDestroyOnLoad(gameObject); // Keep the GameManager object when changing scenes
+		}
+		else
+		{
+			Destroy(gameObject); // Destroy any duplicate GameManager instances
+		}
+	}
 
 	public Kreeture GetWildKreeture()
 	{
-        return wildKreeture;
+		return wildKreeture;
+	}
+
+	private void Start()
+	{
+		DialogManager.Instance.OnShowDialog += () =>
+		{
+			state = GameState.Dialog;
+			playerController.DisablePlayerControls();
+			playerController.EnableUIControls();
+		};
+
+		DialogManager.Instance.OnCloseDialog += () =>
+		{
+			if (state == GameState.Dialog)
+				state = GameState.FreeRoam;
+			playerController.EnablePlayerControls();
+			playerController.DisableUIControls();
+			if (enterTrainerBattle)
+			{
+				TransitionToTrainerBattle(trainerController.getSceneToLoad());
+			}
+		};
+	}
+
+	public void TransitionToBattle(string sceneToLoad)
+	{
+		playerController.gameObject.SetActive(false);
+		enterTrainerBattle = false;
+
+		OpenBattleScene(sceneToLoad);
+	}
+
+	public void TransitionToTrainerBattle(string _sceneToLoad)
+	{
+		playerController.gameObject.SetActive(false);
+		DontDestroyOnLoad(trainerController.gameObject);
+		OpenBattleScene(_sceneToLoad);
+	}
+
+	public TrainerController GetTrainer()
+	{
+		return trainerController;
+	}
+
+	public bool GetIsTrainerBattle()
+	{
+		return enterTrainerBattle;
+	}
+
+	public void SetIsTrainerBattle(bool result)
+	{
+		enterTrainerBattle = result;
 	}
 
 	internal void SetWildKreeture(Kreeture _wildKreeture)
 	{
-        wildKreeture = _wildKreeture;
+		wildKreeture = _wildKreeture;
 	}
 
 	public KreetureParty GetPlayerTeam()
 	{
-        return playerTeam;
+		return playerTeam;
 	}
 
-    public void SetPlayerTeam(KreetureParty party)
+	public KreetureParty GetEnemyTeam()
 	{
-        playerTeam = party;
-    }
-
-    public void SetPlayer(PlayerController _playerController)
-	{
-        playerController = _playerController;
+		return enemyTrainerParty;
 	}
 
-    public void SetPreviousScene(string sceneName)
-    {
-        previousSceneName = sceneName;
-    }
-
-    public string GetPreviousScene()
-    {
-        return previousSceneName;
-    }
-
-    public void SetPlayerPosition(Vector3 position, Quaternion rotation)
-    {
-        playerPosition = position;
-        playerRotation = rotation;
-    }
-
-    public Vector3 GetPlayerPosition()
-    {
-        return playerPosition;
-    }
-
-    public Quaternion GetPlayerRotation()
-    {
-        return playerRotation;
-    }
-
-    public string GetLastHealScene()
+	public void SetEnemyTeam(KreetureParty party)
 	{
-        return PlayerPrefs.GetString("playerSpawnScene");
+		enemyTrainerParty = party;
 	}
 
-    public void SetLastHealScene(string healScene)
+	public void SetPlayerTeam(KreetureParty party)
 	{
-        PlayerPrefs.SetString("playerSpawnScene", healScene);
+		playerTeam = party;
 	}
 
-    public Vector3 GetPlayerLastHealPosition()
+	public void SetPlayer(PlayerController _playerController)
 	{
-        Vector3 lastHealLocation = new Vector3();
-        lastHealLocation.x = PlayerPrefs.GetFloat("playerHealPositionX");
-        lastHealLocation.y = PlayerPrefs.GetFloat("playerHealPositionY");
-        lastHealLocation.z = PlayerPrefs.GetFloat("playerHealPositionZ");
-
-        return lastHealLocation;
+		playerController = _playerController;
 	}
 
-    public void SetPlayerLastHealLocation(Vector3 currentPosition)
+	public void SetPreviousScene(string sceneName)
 	{
-        PlayerPrefs.SetFloat("playerHealPositionX", currentPosition.x);
-        PlayerPrefs.SetFloat("playerHealPositionY", currentPosition.y);
-        PlayerPrefs.SetFloat("playerHealPositionZ", currentPosition.z);
-    }
-
-    public GameObject GetPlayerController()
-	{
-        GameObject playerController = GameObject.Find("Player");
-
-        return playerController;
+		previousSceneName = sceneName;
 	}
 
-    public void OpenBattleScene(string sceneToLoad)
+	public string GetPreviousScene()
 	{
-        Instance.SetPreviousScene(SceneManager.GetActiveScene().name);
+		return previousSceneName;
+	}
 
-        SceneManager.LoadScene(sceneToLoad);
-    }
+	public void SetPlayerPosition(Vector3 position, Quaternion rotation)
+	{
+		playerPosition = position;
+		playerRotation = rotation;
+	}
+
+	public Vector3 GetPlayerPosition()
+	{
+		return playerPosition;
+	}
+
+	public Quaternion GetPlayerRotation()
+	{
+		return playerRotation;
+	}
+
+	public string GetLastHealScene()
+	{
+		return PlayerPrefs.GetString("playerSpawnScene");
+	}
+
+	public void SetLastHealScene(string healScene)
+	{
+		PlayerPrefs.SetString("playerSpawnScene", healScene);
+	}
+
+	public Vector3 GetPlayerLastHealPosition()
+	{
+		Vector3 lastHealLocation = new Vector3();
+		lastHealLocation.x = PlayerPrefs.GetFloat("playerHealPositionX");
+		lastHealLocation.y = PlayerPrefs.GetFloat("playerHealPositionY");
+		lastHealLocation.z = PlayerPrefs.GetFloat("playerHealPositionZ");
+
+		return lastHealLocation;
+	}
+
+	public void SetPlayerLastHealLocation(Vector3 currentPosition)
+	{
+		PlayerPrefs.SetFloat("playerHealPositionX", currentPosition.x);
+		PlayerPrefs.SetFloat("playerHealPositionY", currentPosition.y);
+		PlayerPrefs.SetFloat("playerHealPositionZ", currentPosition.z);
+	}
+
+	public GameObject GetPlayerController()
+	{
+		GameObject playerController = GameObject.Find("Player");
+
+		return playerController;
+	}
+
+	public void OpenBattleScene(string sceneToLoad)
+	{
+		Instance.SetPreviousScene(SceneManager.GetActiveScene().name);
+
+		SceneManager.LoadScene(sceneToLoad);
+	}
 }
 
 [System.Serializable]
 public class PlayerData
 {
-    public Vector3 position;
-    // Add more data you want to carry over
+	public Vector3 position;
+	// Add more data you want to carry over
 }

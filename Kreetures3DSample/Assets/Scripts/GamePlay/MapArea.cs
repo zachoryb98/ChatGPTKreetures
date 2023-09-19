@@ -6,10 +6,10 @@ public class MapArea : MonoBehaviour
 {
     [SerializeField] List<Kreeture> wildKreetures;
 
-    public Kreeture GetRandomWildPokemon()
+    public Kreeture GetRandomWildKreeture()
     {
-        var wildPokemon = wildKreetures[Random.Range(0, wildKreetures.Count)];
-        wildPokemon.Init();
-        return wildPokemon;
+        var wildKreeture = wildKreetures[Random.Range(0, wildKreetures.Count)];
+        wildKreeture.Init();
+        return wildKreeture;
     }
 }
