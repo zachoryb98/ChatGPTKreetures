@@ -23,13 +23,14 @@ public class BattleSystem : MonoBehaviour
 	int currentAction;
 	int currentAttack;
 	int currentMember;
+	bool aboutToUseChoice = true;
 
 	private void Awake()
 	{
 		// Enable the Input Actions
 		inputActions.Enable();
 	}
-	
+
 	KreetureParty playerParty;
 	KreetureParty trainerParty;
 	Kreeture wildKreeture;
@@ -48,7 +49,7 @@ public class BattleSystem : MonoBehaviour
 		if (GameManager.Instance.GetIsTrainerBattle())
 		{
 			trainer = GameManager.Instance.GetTrainer();
-			StartTrainerBattle(GameManager.Instance.GetPlayerTeam(), GameManager.Instance.GetEnemyTeam());			
+			StartTrainerBattle(GameManager.Instance.GetPlayerTeam(), GameManager.Instance.GetEnemyTeam());
 		}
 		else
 		{
@@ -118,7 +119,7 @@ public class BattleSystem : MonoBehaviour
 		this.trainerParty = trainerParty;
 
 		isTrainerBattle = true;
-		player = playerParty.GetComponent<PlayerController>();		
+		player = playerParty.GetComponent<PlayerController>();
 
 		StartCoroutine(SetupBattle());
 	}
@@ -130,6 +131,11 @@ public class BattleSystem : MonoBehaviour
 
 		state = BattleState.BattleOver;
 		playerParty.Kreetures.ForEach(k => k.OnBattleOver());
+
+		if (GameManager.Instance.GetIsTrainerBattle())
+		{
+			GameManager.Instance.SetTrainerLoss();
+		}
 		ExitBattle();
 	}
 
@@ -158,12 +164,10 @@ public class BattleSystem : MonoBehaviour
 	IEnumerator AboutToUse(Kreeture newKreeture)
 	{
 		state = BattleState.Busy;
-		yield return dialogBox.TypeDialog($"{trainer.Name} is about to use {newKreeture.Base.Name}. Do you want to change pokemon?");
+		yield return dialogBox.TypeDialog($"{trainer.Name} is about to use {newKreeture.Base.Name}. Do you want to change kreetues?");		
 
-		state = BattleState.ActionSelection;
-
-		//state = BattleState.AboutToUse;
-		//dialogBox.EnableChoiceBox(true);
+		state = BattleState.AboutToUse;
+		dialogBox.EnableChoiceBox(true);
 	}
 
 	IEnumerator RunTurns(BattleAction playerAction)
@@ -271,6 +275,8 @@ public class BattleSystem : MonoBehaviour
 				targetUnit.PlayFaintAnimation();
 				yield return new WaitForSeconds(2f);
 
+				targetUnit.DestroyFaintedModel();
+
 				CheckForBattleOver(targetUnit);
 			}
 
@@ -336,6 +342,7 @@ public class BattleSystem : MonoBehaviour
 			yield return new WaitForSeconds(2f);
 
 			CheckForBattleOver(sourceUnit);
+			yield return new WaitUntil(() => state == BattleState.RunningTurn);
 		}
 	}
 
@@ -377,8 +384,8 @@ public class BattleSystem : MonoBehaviour
 	{
 		if (faintedUnit.IsPlayerUnit)
 		{
-			var nextPokemon = playerParty.GetHealthyKreeture();
-			if (nextPokemon != null)
+			var nextKreeture = playerParty.GetHealthyKreeture();
+			if (nextKreeture != null)
 				OpenPartyScreen();
 			else
 				BattleOver(false);
@@ -391,13 +398,9 @@ public class BattleSystem : MonoBehaviour
 			}
 			else
 			{
-				var nextPokemon = trainerParty.GetHealthyKreeture();
-				if (nextPokemon != null)
-				{
-					//StartCoroutine(AboutToUse(nextPokemon));
-					faintedUnit.DestroyFaintedModel();
-					StartCoroutine(SendNextTrainerKreeture());
-				}
+				var nextKreeture = trainerParty.GetHealthyKreeture();
+				if (nextKreeture != null)
+					StartCoroutine(AboutToUse(nextKreeture));
 				else
 					BattleOver(true);
 			}
@@ -427,6 +430,10 @@ public class BattleSystem : MonoBehaviour
 		else if (state == BattleState.PartyScreen)
 		{
 			HandlePartySelection();
+		}
+		else if (state == BattleState.AboutToUse)
+		{
+			HandleAboutToUse();
 		}
 	}
 
@@ -585,6 +592,7 @@ public class BattleSystem : MonoBehaviour
 			partyScreen.gameObject.SetActive(false);
 			if (prevState == BattleState.ActionSelection)
 			{
+				
 				prevState = null;
 				StartCoroutine(RunTurns(BattleAction.SwitchKreeture));
 			}
@@ -601,13 +609,46 @@ public class BattleSystem : MonoBehaviour
 		}
 	}
 
+	void HandleAboutToUse()
+	{
+		var moveUpAction = inputActions["NavigateUp"];
+		var moveDownAction = inputActions["NavigateDown"];
+		var confirmAction = inputActions["Confirm"];
+		var backAction = inputActions["Back"];
+
+		if (moveUpAction.triggered || moveDownAction.triggered)
+			aboutToUseChoice = !aboutToUseChoice;
+
+		dialogBox.UpdateChoiceBox(aboutToUseChoice);
+
+		if (confirmAction.triggered)
+		{
+			dialogBox.EnableChoiceBox(false);
+			if (aboutToUseChoice == true)
+			{
+				// Yes Option
+				prevState = BattleState.AboutToUse;
+				OpenPartyScreen();
+			}
+			else
+			{
+				// No Option
+				StartCoroutine(SendNextTrainerKreeture());
+			}
+		}
+		else if (backAction.triggered)
+		{
+			dialogBox.EnableChoiceBox(false);
+			StartCoroutine(SendNextTrainerKreeture());
+		}
+	}
+
 	IEnumerator SwitchKreeture(Kreeture newKreeture)
 	{
 		if (playerUnit.Kreeture.HP > 0)
 		{
 			yield return dialogBox.TypeDialog($"Come back {playerUnit.Kreeture.Base.Name}");
 			playerUnit.PlayFaintAnimation();
-			
 			yield return new WaitForSeconds(2f);
 
 			playerUnit.DestroyFaintedModel();
@@ -617,13 +658,22 @@ public class BattleSystem : MonoBehaviour
 		dialogBox.SetMoveNames(newKreeture.Attacks);
 		yield return dialogBox.TypeDialog($"Go {newKreeture.Base.Name}!");
 
-		state = BattleState.RunningTurn;
+		if (prevState == null)
+		{
+			state = BattleState.RunningTurn;
+		}
+		else if (prevState == BattleState.AboutToUse)
+		{
+			prevState = null;
+			StartCoroutine(SendNextTrainerKreeture());
+		}
 	}
 
 	IEnumerator SendNextTrainerKreeture()
 	{
 		state = BattleState.Busy;
 
+		
 		var nextKreeture = trainerParty.GetHealthyKreeture();
 		enemyUnit.Setup(nextKreeture);
 		yield return dialogBox.TypeDialog($"{trainer.Name} send out {nextKreeture.Base.Name}!");

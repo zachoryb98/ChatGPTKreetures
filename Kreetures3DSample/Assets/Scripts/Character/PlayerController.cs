@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnEnable()
     {
-        playerControls.PlayerControls.Enable();
+        playerControls.PlayerControls.Enable();        
     }
 
     private void OnDisable()
@@ -40,6 +40,8 @@ public class PlayerController : MonoBehaviour
     {
         if(GameManager.Instance.state == GameState.FreeRoam)
 		{
+            EnablePlayerControls();
+
             float horizontalInput = Input.GetAxis("Horizontal");
             float verticalInput = Input.GetAxis("Vertical");
 
@@ -68,11 +70,13 @@ public class PlayerController : MonoBehaviour
 		}
         else if(GameManager.Instance.state == GameState.Dialog)
 		{
+            EnableUIControls();
             animator.SetBool("IsMoving", false);
 			if (playerControls.OverWorldUI.Continue.triggered)
 			{
-                SetContinueDialog(true);
-			}
+                SetContinueDialog(true);                
+                DisableUIControls();
+            }
         }
 		else
 		{

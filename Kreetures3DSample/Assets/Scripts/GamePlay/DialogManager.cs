@@ -18,8 +18,8 @@ public class DialogManager : MonoBehaviour
 
 	public static DialogManager Instance { get; private set; }
 	private void Awake()
-	{
-		Instance = this;
+	{		
+		Instance = this;		
 		UIControls = new PlayerInput();
 	}
 
@@ -34,7 +34,7 @@ public class DialogManager : MonoBehaviour
 	public IEnumerator ShowDialog(Dialog dialog, Action onFinished = null)
 	{
 		yield return new WaitForEndOfFrame();
-
+		
 		OnShowDialog?.Invoke();
 
 		IsShowing = true;
@@ -45,8 +45,6 @@ public class DialogManager : MonoBehaviour
 		StartCoroutine(TypeDialog(dialog.Lines[0]));
 
 	}
-
-
 	private void Update()
 	{
 		if (GameManager.Instance.state == GameState.Dialog)
@@ -65,6 +63,7 @@ public class DialogManager : MonoBehaviour
 					UIControls.OverWorldUI.Disable();
 					UIControls.PlayerControls.Enable();
 					OnCloseDialog?.Invoke();
+					GameManager.Instance.state = GameState.FreeRoam;
 				}
 			}
 		}

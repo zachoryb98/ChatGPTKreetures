@@ -22,7 +22,7 @@ public class TrainerEncounterManager : MonoBehaviour
 			GameManager.Instance.trainerController = trainer;
 			GameManager.Instance.SetEnemyTeam(kreetures);
 			GameManager.Instance.SetIsTrainerBattle(true);
-			StartCoroutine(trainer.TriggerTrainerBattle(sceneToLoad));
+			StartCoroutine(trainer.TriggerTrainerBattle());
 
 			// Store player position and rotation
 			//Vector3 playerPosition = other.transform.position;

@@ -12,6 +12,7 @@ public class NPCController : MonoBehaviour, Interactable
     public void Interact()
     {
         StartCoroutine(DialogManager.Instance.ShowDialog(dialog));
+        GameManager.Instance.state = GameState.Dialog;
     }
 
     private PlayerInput playerControls;

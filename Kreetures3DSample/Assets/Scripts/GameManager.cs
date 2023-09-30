@@ -43,6 +43,11 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
+	public void SetTrainerLoss()
+	{
+		trainerController.BattleLost();
+	}
+
 	public Kreeture GetWildKreeture()
 	{
 		return wildKreeture;
@@ -65,6 +70,7 @@ public class GameManager : MonoBehaviour
 			playerController.DisableUIControls();
 			if (enterTrainerBattle)
 			{
+				PersistentObjectManager.Instance.RegisterObject(trainerController.gameObject);
 				TransitionToTrainerBattle(trainerController.getSceneToLoad());
 			}
 		};
@@ -73,15 +79,13 @@ public class GameManager : MonoBehaviour
 	public void TransitionToBattle(string sceneToLoad)
 	{
 		playerController.gameObject.SetActive(false);
-		enterTrainerBattle = false;
-
+		enterTrainerBattle = false;		
 		OpenBattleScene(sceneToLoad);
 	}
 
 	public void TransitionToTrainerBattle(string _sceneToLoad)
 	{
-		playerController.gameObject.SetActive(false);
-		DontDestroyOnLoad(trainerController.gameObject);
+		playerController.gameObject.SetActive(false);		
 		OpenBattleScene(_sceneToLoad);
 	}
 
