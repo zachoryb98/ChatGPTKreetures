@@ -18,6 +18,8 @@ public class BattleSystem : MonoBehaviour
 	[SerializeField] BattleDialogBox dialogBox;
 	[SerializeField] PartyScreen partyScreen;
 
+	[SerializeField] GameObject captureDevice;
+
 	BattleState state;
 	BattleState? prevState;
 	int currentAction;
@@ -61,6 +63,8 @@ public class BattleSystem : MonoBehaviour
 	{
 		this.playerParty = playerParty;
 		this.wildKreeture = wildKreeture;
+		player = playerParty.GetComponent<PlayerController>();
+
 		StartCoroutine(SetupBattle());
 	}
 
@@ -214,6 +218,11 @@ public class BattleSystem : MonoBehaviour
 				var selectedKreeture = playerParty.Kreetures[currentMember];
 				state = BattleState.Busy;
 				yield return SwitchKreeture(selectedKreeture);
+			}
+			else if (playerAction == BattleAction.UseItem)
+			{
+				dialogBox.EnableActionSelector(false);
+				yield return ThrowCaptureDevice();
 			}
 
 			// Enemy Turn
@@ -489,6 +498,7 @@ public class BattleSystem : MonoBehaviour
 			else if (currentAction == 2)
 			{
 				//Inventory
+				StartCoroutine(RunTurns(BattleAction.UseItem));
 			}
 			else if (currentAction == 3)
 			{
@@ -679,6 +689,83 @@ public class BattleSystem : MonoBehaviour
 		yield return dialogBox.TypeDialog($"{trainer.Name} send out {nextKreeture.Base.Name}!");
 
 		state = BattleState.RunningTurn;
+	}
+
+	IEnumerator ThrowCaptureDevice()
+	{
+		state = BattleState.Busy;
+
+		if (isTrainerBattle)
+		{
+			yield return dialogBox.TypeDialog($"You can't steal the trainers kreeture!");
+			state = BattleState.RunningTurn;
+			yield break;
+		}
+
+		yield return dialogBox.TypeDialog($"{player.name} tried to catch {wildKreeture.Base.name}");
+
+		var captureDeviceObj = Instantiate(captureDevice.transform, playerUnit.transform.position, Quaternion.identity);
+
+		//Animations
+		enemyUnit.PlayCaptureAnimation();
+
+		int shakeCount = TryToCatchKreeture(enemyUnit.Kreeture);
+
+		//Jiggle Animation
+		for(int i = 0; i < Mathf.Min(shakeCount, 3); ++i)
+		{
+			yield return new WaitForSeconds(0.5f);
+		}
+
+		if(shakeCount == 4)
+		{
+			// Pokemon is caught
+			yield return dialogBox.TypeDialog($"{enemyUnit.Kreeture.Base.Name} was caught");
+			//yield return pokeball.DOFade(0, 1.5f).WaitForCompletion();
+
+			playerParty.AddKreeture(enemyUnit.Kreeture);
+			yield return dialogBox.TypeDialog($"{enemyUnit.Kreeture.Base.Name} has been added to your party");
+
+			//Destroy(pokeball);
+			BattleOver(true);
+		}
+		else
+		{
+			// Pokemon broke out
+			yield return new WaitForSeconds(1f);
+			//pokeball.DOFade(0, 0.2f);
+			//yield return enemyUnit.PlayBreakOutAnimation();
+
+			if (shakeCount < 2)
+				yield return dialogBox.TypeDialog($"{enemyUnit.Kreeture.Base.Name} broke free");
+			else
+				yield return dialogBox.TypeDialog($"Almost caught it");
+
+			//Destroy(pokeball);
+			state = BattleState.RunningTurn;
+		}
+	}
+
+	int TryToCatchKreeture(Kreeture kreeture)
+	{
+		float a = (3 * kreeture.MaxHp - 2 * kreeture.HP) * kreeture.Base.CatchRate * ConditionsDB.GetStatusBonus(kreeture.Status) / (3 * kreeture.MaxHp);
+
+		if(a > 255)
+		{
+			return 4;
+		}
+
+		float b = 1048560 / Mathf.Sqrt(Mathf.Sqrt(16711680 / a));
+
+		int shakeCount = 0;
+		while (shakeCount < 4)
+		{
+			if (UnityEngine.Random.Range(0, 65535) >= b)
+				break;
+
+			++shakeCount;
+		}
+		return shakeCount;
 	}
 
 	public void ExitBattle()

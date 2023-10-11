@@ -25,7 +25,9 @@ public class EncounterManager : MonoBehaviour
             if (Random.value < encounterProbability)
             {
                 Kreeture wildKreeture = GetRandomWildKreeture();
-                GameManager.Instance.SetWildKreeture(wildKreeture);                                
+                var wildKreetureCopy = new Kreeture(wildKreeture.Base, wildKreeture.Level);
+
+                GameManager.Instance.SetWildKreeture(wildKreetureCopy);                                
 
                 // Store player position and rotation
                 Vector3 playerPosition = other.transform.position;

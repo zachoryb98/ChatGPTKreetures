@@ -3740,6 +3740,7 @@ MonoBehaviour:
   enemyUnit: {fileID: 1985971448}
   dialogBox: {fileID: 1375302075}
   partyScreen: {fileID: 1520711780}
+  captureDevice: {fileID: 9199199436939860918, guid: 372cc552245591c459b5b3b4d124da13, type: 3}
 --- !u!1 &480495406
 GameObject:
   m_ObjectHideFlags: 0

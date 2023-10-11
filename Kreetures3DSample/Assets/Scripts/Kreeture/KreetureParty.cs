@@ -27,4 +27,16 @@ public class KreetureParty : MonoBehaviour
     {
         return kreetures.Where(x => x.HP > 0).FirstOrDefault();
     }
+
+    public void AddKreeture(Kreeture newKreeture)
+    {
+        if (kreetures.Count < 6)
+        {
+            kreetures.Add(newKreeture);
+        }
+        else
+        {
+            // TODO: Add to the PC once that's implemented
+        }
+    }
 }

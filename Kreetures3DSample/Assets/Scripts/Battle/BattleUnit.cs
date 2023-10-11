@@ -89,4 +89,14 @@ public class BattleUnit : MonoBehaviour
 	{
 		DestroyImmediate(KreetureGameObject, true);
 	}
+
+	public void PlayCaptureAnimation()
+	{
+		//For now do nothing, player throws ball
+	}
+
+	public void PlayBreakOutAnimation()
+	{
+		//For now do nothing, Kreeture Breaks out
+	}
 }

@@ -25,6 +25,8 @@ public class KreetureBase : ScriptableObject
     [SerializeField] int elmtWard;
     [SerializeField] int speed;
 
+    [SerializeField] int catchRate = 255;
+
     [SerializeField] List<LearnableMove> learnableMoves;
 
     public string Name
@@ -82,9 +84,11 @@ public class KreetureBase : ScriptableObject
         get { return speed; }
     }
 
-        public List<LearnableMove> LearnableAttacks {
+    public List<LearnableMove> LearnableAttacks {
         get { return learnableMoves; }
     }
+
+    public int CatchRate => catchRate;
 }
 
 [System.Serializable]

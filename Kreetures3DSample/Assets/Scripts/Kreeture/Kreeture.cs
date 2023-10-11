@@ -9,6 +9,14 @@ public class Kreeture
 	[SerializeField] KreetureBase _base;
 	[SerializeField] int level;
 
+	public Kreeture(KreetureBase kBase, int kLevel)
+	{
+		_base = kBase;
+		level = kLevel;
+
+		Init();
+	}
+
 	public KreetureBase Base
 	{
 		get
@@ -34,7 +42,7 @@ public class Kreeture
 	public Condition VolatileStatus { get; private set; }
 	public int VolatileStatusTime { get; set; }
 
-	public Queue<string> StatusChanges { get; private set; } = new Queue<string>();
+	public Queue<string> StatusChanges { get; private set; } 
 	public bool HpChanged { get; set; }
 	public event System.Action OnStatusChanged;
 
@@ -54,6 +62,7 @@ public class Kreeture
 		CalculateStats();
 		HP = MaxHp;
 
+		StatusChanges = new Queue<string>();
 		ResetStatBoost();
 		Status = null;
 		VolatileStatus = null;
