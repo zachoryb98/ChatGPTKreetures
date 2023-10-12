@@ -41,6 +41,8 @@ public class BattleSystem : MonoBehaviour
 	PlayerController player;
 	TrainerController trainer;
 
+	int escapeAttempts;
+
 	private void OnDisable()
 	{
 		// Disable the Input Actions when the script is disabled
@@ -223,6 +225,10 @@ public class BattleSystem : MonoBehaviour
 			{
 				dialogBox.EnableActionSelector(false);
 				yield return ThrowCaptureDevice();
+			}
+			else if (playerAction == BattleAction.Run)
+			{				
+				yield return TryToEscape();
 			}
 
 			// Enemy Turn
@@ -503,6 +509,7 @@ public class BattleSystem : MonoBehaviour
 			else if (currentAction == 3)
 			{
 				// Run
+				StartCoroutine(RunTurns(BattleAction.Run));
 			}
 		}
 	}
@@ -766,6 +773,42 @@ public class BattleSystem : MonoBehaviour
 			++shakeCount;
 		}
 		return shakeCount;
+	}
+
+	IEnumerator TryToEscape()
+	{
+		state = BattleState.Busy;
+		if (isTrainerBattle)
+		{
+			yield return dialogBox.TypeDialog($"You can't run from trainer battles!");
+			state = BattleState.RunningTurn;
+			yield break;
+		}
+
+		int playerSpeed = playerUnit.Kreeture.Speed;
+		int enemySpeed = enemyUnit.Kreeture.Speed;
+
+		if(enemySpeed < playerSpeed)
+		{
+			yield return dialogBox.TypeDialog($"Ran away safely!");
+			BattleOver(true);
+		}
+		else
+		{
+			float f = (playerSpeed * 128) / enemySpeed + 30 * escapeAttempts;
+			f = f % 256;
+
+			if (UnityEngine.Random.Range(0, 256) < f)
+			{
+				yield return dialogBox.TypeDialog($"Ran away safely!");
+				BattleOver(true);
+			}
+			else
+			{
+				yield return dialogBox.TypeDialog($"Can't Escape!");
+				state = BattleState.RunningTurn;
+			}
+		}
 	}
 
 	public void ExitBattle()

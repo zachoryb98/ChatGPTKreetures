@@ -13,7 +13,7 @@ public class PartyScreen : MonoBehaviour
 
     public void Init()
     {
-        memberSlots = GetComponentsInChildren<PartyMemberUI>();
+        memberSlots = GetComponentsInChildren<PartyMemberUI>(true);
     }
 
     public void SetPartyData(List<Kreeture> kreetures)
@@ -23,7 +23,10 @@ public class PartyScreen : MonoBehaviour
         for (int i = 0; i < memberSlots.Length; i++)
         {
             if (i < kreetures.Count)
+			{
+                memberSlots[i].gameObject.SetActive(true);
                 memberSlots[i].SetData(kreetures[i]);
+            }                
             else
                 memberSlots[i].gameObject.SetActive(false);
         }
