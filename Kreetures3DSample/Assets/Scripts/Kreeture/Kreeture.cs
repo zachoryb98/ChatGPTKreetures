@@ -32,6 +32,7 @@ public class Kreeture
 		}
 	}
 
+	public int Exp { get; set; }
 	public int HP { get; set; }
 	public List<Attack> Attacks { get; set; }
 	public Attack CurrentAttack { get; set; }
@@ -58,6 +59,8 @@ public class Kreeture
 			if (Attacks.Count >= 4)
 				break;
 		}
+
+		Exp = Base.GetExpForLevel(level);
 
 		CalculateStats();
 		HP = MaxHp;

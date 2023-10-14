@@ -23,6 +23,9 @@ MonoBehaviour:
   elmtStrike: 50
   elmtWard: 50
   speed: 40
+  expYield: 60
+  growthRate: 0
+  catchRate: 255
   learnableMoves:
   - moveBase: {fileID: 11400000, guid: 5d3d6f203ecc91b44a4123b6e84d37f0, type: 2}
     level: 0

@@ -265,7 +265,7 @@ public class BattleSystem : MonoBehaviour
 
 			if (attack.Base.Category == MoveCategory.Status)
 			{
-				RunMoveEffects(attack.Base.Effects, sourceUnit.Kreeture, targetUnit.Kreeture, attack.Base.Target);
+				yield return RunMoveEffects(attack.Base.Effects, sourceUnit.Kreeture, targetUnit.Kreeture, attack.Base.Target);
 			}
 			else
 			{
@@ -286,27 +286,9 @@ public class BattleSystem : MonoBehaviour
 
 			if (targetUnit.Kreeture.HP <= 0)
 			{
-				yield return dialogBox.TypeDialog($"{targetUnit.Kreeture.Base.Name} Fainted");
-				targetUnit.PlayFaintAnimation();
-				yield return new WaitForSeconds(2f);
-
-				targetUnit.DestroyFaintedModel();
-
-				CheckForBattleOver(targetUnit);
+				yield return HandleKreetureFainted(targetUnit);
 			}
 
-			// Statuses like burn or psn will hurt the Kreeture after the turn
-			sourceUnit.Kreeture.OnAfterTurn();
-			yield return ShowStatusChanges(sourceUnit.Kreeture);
-			yield return sourceUnit.Hud.UpdateHP();
-			if (sourceUnit.Kreeture.HP <= 0)
-			{
-				yield return dialogBox.TypeDialog($"{sourceUnit.Kreeture.Base.Name} Fainted");
-				sourceUnit.PlayFaintAnimation();
-				yield return new WaitForSeconds(2f);
-
-				CheckForBattleOver(sourceUnit);
-			}
 		}
 		else
 		{
@@ -352,11 +334,7 @@ public class BattleSystem : MonoBehaviour
 		yield return sourceUnit.Hud.UpdateHP();
 		if (sourceUnit.Kreeture.HP <= 0)
 		{
-			yield return dialogBox.TypeDialog($"{sourceUnit.Kreeture.Base.Name} Fainted");
-			sourceUnit.PlayFaintAnimation();
-			yield return new WaitForSeconds(2f);
-
-			CheckForBattleOver(sourceUnit);
+			yield return HandleKreetureFainted(sourceUnit);
 			yield return new WaitUntil(() => state == BattleState.RunningTurn);
 		}
 	}
@@ -393,6 +371,35 @@ public class BattleSystem : MonoBehaviour
 			var message = kreeture.StatusChanges.Dequeue();
 			yield return dialogBox.TypeDialog(message);
 		}
+	}
+
+	IEnumerator HandleKreetureFainted(BattleUnit faintedUnit)
+	{
+		yield return dialogBox.TypeDialog($"{faintedUnit.Kreeture.Base.Name} Fainted");
+		faintedUnit.PlayFaintAnimation();
+		yield return new WaitForSeconds(2f);
+
+		faintedUnit.DestroyFaintedModel();
+
+		if (!faintedUnit.IsPlayerUnit)
+		{
+			// Exp Gain
+			int expYield = faintedUnit.Kreeture.Base.ExpYield;
+			int enemyLevel = faintedUnit.Kreeture.Level;
+			float trainerBonus = (isTrainerBattle) ? 1.5f : 1f;
+
+			int expGain = Mathf.FloorToInt((expYield * enemyLevel * trainerBonus) / 7);
+			playerUnit.Kreeture.Exp += expGain;
+			yield return dialogBox.TypeDialog($"{playerUnit.Kreeture.Base.Name} gained {expGain} exp");
+			yield return playerUnit.Hud.SetExpSmooth();
+
+			// Check Level Up
+
+
+			yield return new WaitForSeconds(1f);
+		}
+
+		CheckForBattleOver(faintedUnit);
 	}
 
 	void CheckForBattleOver(BattleUnit faintedUnit)
@@ -726,7 +733,7 @@ public class BattleSystem : MonoBehaviour
 
 		if(shakeCount == 4)
 		{
-			// Pokemon is caught
+			// Kreeture is caught
 			yield return dialogBox.TypeDialog($"{enemyUnit.Kreeture.Base.Name} was caught");
 			//yield return pokeball.DOFade(0, 1.5f).WaitForCompletion();
 
@@ -738,7 +745,7 @@ public class BattleSystem : MonoBehaviour
 		}
 		else
 		{
-			// Pokemon broke out
+			// Kreeture broke out
 			yield return new WaitForSeconds(1f);
 			//pokeball.DOFade(0, 0.2f);
 			//yield return enemyUnit.PlayBreakOutAnimation();
