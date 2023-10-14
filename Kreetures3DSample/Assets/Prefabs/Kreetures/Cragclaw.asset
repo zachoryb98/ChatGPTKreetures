@@ -23,7 +23,7 @@ MonoBehaviour:
   elmtStrike: 60
   elmtWard: 50
   speed: 20
-  expYield: 64
+  expYield: 200
   growthRate: 1
   catchRate: 255
   learnableMoves:

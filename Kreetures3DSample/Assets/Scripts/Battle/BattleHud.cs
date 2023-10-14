@@ -26,7 +26,7 @@ public class BattleHud : MonoBehaviour
 		_kreeture = kreeture;
 
 		nameText.text = kreeture.Base.Name;
-		levelText.text = "Lvl " + kreeture.Level;
+		SetLevel();
 		hpBar.SetHP((float)kreeture.HP / kreeture.MaxHp);
 		SetExp();
 
@@ -56,6 +56,11 @@ public class BattleHud : MonoBehaviour
 		}
 	}
 
+	public void SetLevel()
+	{
+		levelText.text = "Lvl " + _kreeture.Level;
+	}
+
 	public void SetExp()
 	{
 		if (expBar == null) return;
@@ -64,9 +69,12 @@ public class BattleHud : MonoBehaviour
 		expBar.transform.localScale = new Vector3(normalizedExp, 1, 1);
 	}
 
-	public IEnumerator SetExpSmooth()
+	public IEnumerator SetExpSmooth(bool reset = false)
 	{
 		if (expBar == null) yield break;
+
+		if (reset)
+			expBar.transform.localScale = new Vector3(0, 1, 1);
 
 		float normalizedExp = GetNormalizedExp();
 		yield return expBar.transform.DOScaleX(normalizedExp, 1.5f).WaitForCompletion();

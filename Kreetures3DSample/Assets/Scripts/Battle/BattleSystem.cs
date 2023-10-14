@@ -379,8 +379,6 @@ public class BattleSystem : MonoBehaviour
 		faintedUnit.PlayFaintAnimation();
 		yield return new WaitForSeconds(2f);
 
-		faintedUnit.DestroyFaintedModel();
-
 		if (!faintedUnit.IsPlayerUnit)
 		{
 			// Exp Gain
@@ -394,6 +392,15 @@ public class BattleSystem : MonoBehaviour
 			yield return playerUnit.Hud.SetExpSmooth();
 
 			// Check Level Up
+			while (playerUnit.Kreeture.CheckForLevelUp())
+			{
+
+				playerUnit.Hud.SetLevel();				
+
+				yield return dialogBox.TypeDialog($"{playerUnit.Kreeture.Base.Name} grew to level {playerUnit.Kreeture.Level}");
+
+				yield return playerUnit.Hud.SetExpSmooth(true);
+			}
 
 
 			yield return new WaitForSeconds(1f);
