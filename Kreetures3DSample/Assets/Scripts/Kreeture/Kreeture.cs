@@ -142,6 +142,19 @@ public class Kreeture
 		return false;
 	}
 
+	public LearnableMove GetLearnableMoveAtCurrLevel()
+	{
+		return Base.LearnableAttacks.Where(x => x.Level == level).FirstOrDefault();
+	}
+
+	public void LearnMove(LearnableMove moveToLearn)
+	{
+		if (Attacks.Count > KreetureBase.MaxNumOfMoves)
+			return;
+
+		Attacks.Add(new Attack(moveToLearn.Base));
+	}
+
 	public int Attack
 	{
 		get { return GetStat(Stat.Attack); }

@@ -170,7 +170,7 @@ public class BattleSystem : MonoBehaviour
 	IEnumerator AboutToUse(Kreeture newKreeture)
 	{
 		state = BattleState.Busy;
-		yield return dialogBox.TypeDialog($"{trainer.Name} is about to use {newKreeture.Base.Name}. Do you want to change kreetues?");		
+		yield return dialogBox.TypeDialog($"{trainer.Name} is about to use {newKreeture.Base.Name}. Do you want to change kreetues?");
 
 		state = BattleState.AboutToUse;
 		dialogBox.EnableChoiceBox(true);
@@ -227,7 +227,7 @@ public class BattleSystem : MonoBehaviour
 				yield return ThrowCaptureDevice();
 			}
 			else if (playerAction == BattleAction.Run)
-			{				
+			{
 				yield return TryToEscape();
 			}
 
@@ -394,14 +394,27 @@ public class BattleSystem : MonoBehaviour
 			// Check Level Up
 			while (playerUnit.Kreeture.CheckForLevelUp())
 			{
-
-				playerUnit.Hud.SetLevel();				
-
+				playerUnit.Hud.SetLevel();
 				yield return dialogBox.TypeDialog($"{playerUnit.Kreeture.Base.Name} grew to level {playerUnit.Kreeture.Level}");
+
+				// Try to learn a new Move
+				var newMove = playerUnit.Kreeture.GetLearnableMoveAtCurrLevel();
+				if (newMove != null)
+				{
+					if (playerUnit.Kreeture.Attacks.Count < KreetureBase.MaxNumOfMoves)
+					{
+						playerUnit.Kreeture.LearnMove(newMove);
+						yield return dialogBox.TypeDialog($"{playerUnit.Kreeture.Base.Name} learned {newMove.Base.Name}");
+						dialogBox.SetMoveNames(playerUnit.Kreeture.Attacks);
+					}
+					else
+					{
+						// TODO: Option to forget a move
+					}
+				}
 
 				yield return playerUnit.Hud.SetExpSmooth(true);
 			}
-
 
 			yield return new WaitForSeconds(1f);
 		}
@@ -623,7 +636,7 @@ public class BattleSystem : MonoBehaviour
 			partyScreen.gameObject.SetActive(false);
 			if (prevState == BattleState.ActionSelection)
 			{
-				
+
 				prevState = null;
 				StartCoroutine(RunTurns(BattleAction.SwitchKreeture));
 			}
@@ -704,7 +717,7 @@ public class BattleSystem : MonoBehaviour
 	{
 		state = BattleState.Busy;
 
-		
+
 		var nextKreeture = trainerParty.GetHealthyKreeture();
 		enemyUnit.Setup(nextKreeture);
 		yield return dialogBox.TypeDialog($"{trainer.Name} send out {nextKreeture.Base.Name}!");
@@ -733,12 +746,12 @@ public class BattleSystem : MonoBehaviour
 		int shakeCount = TryToCatchKreeture(enemyUnit.Kreeture);
 
 		//Jiggle Animation
-		for(int i = 0; i < Mathf.Min(shakeCount, 3); ++i)
+		for (int i = 0; i < Mathf.Min(shakeCount, 3); ++i)
 		{
 			yield return new WaitForSeconds(0.5f);
 		}
 
-		if(shakeCount == 4)
+		if (shakeCount == 4)
 		{
 			// Kreeture is caught
 			yield return dialogBox.TypeDialog($"{enemyUnit.Kreeture.Base.Name} was caught");
@@ -771,7 +784,7 @@ public class BattleSystem : MonoBehaviour
 	{
 		float a = (3 * kreeture.MaxHp - 2 * kreeture.HP) * kreeture.Base.CatchRate * ConditionsDB.GetStatusBonus(kreeture.Status) / (3 * kreeture.MaxHp);
 
-		if(a > 255)
+		if (a > 255)
 		{
 			return 4;
 		}
@@ -802,7 +815,7 @@ public class BattleSystem : MonoBehaviour
 		int playerSpeed = playerUnit.Kreeture.Speed;
 		int enemySpeed = enemyUnit.Kreeture.Speed;
 
-		if(enemySpeed < playerSpeed)
+		if (enemySpeed < playerSpeed)
 		{
 			yield return dialogBox.TypeDialog($"Ran away safely!");
 			BattleOver(true);
