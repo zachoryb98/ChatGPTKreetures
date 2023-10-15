@@ -383,6 +383,7 @@
 "Assets/Scripts/Battle/BattleUIManager.cs"
 "Assets/Scripts/Battle/BattleUnit.cs"
 "Assets/Scripts/Battle/HPBar.cs"
+"Assets/Scripts/Battle/MoveSelectionUI.cs"
 "Assets/Scripts/Battle/PartyMemberUI.cs"
 "Assets/Scripts/Battle/PartyScreen.cs"
 "Assets/Scripts/Character/CameraController.cs"

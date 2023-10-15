@@ -1,10 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public enum BattleState { Start, ActionSelection, MoveSelection, RunningTurn, Busy, PartyScreen, BattleOver, AboutToUse }
+public enum BattleState { Start, ActionSelection, MoveSelection, RunningTurn, Busy, PartyScreen, BattleOver, MoveToForget, AboutToUse }
 
 public enum BattleAction { Move, SwitchKreeture, UseItem, Run }
 
@@ -19,6 +21,7 @@ public class BattleSystem : MonoBehaviour
 	[SerializeField] PartyScreen partyScreen;
 
 	[SerializeField] GameObject captureDevice;
+	[SerializeField] MoveSelectionUI moveSelectionUI;
 
 	BattleState state;
 	BattleState? prevState;
@@ -42,6 +45,7 @@ public class BattleSystem : MonoBehaviour
 	TrainerController trainer;
 
 	int escapeAttempts;
+	AttackBase moveToLearn;
 
 	private void OnDisable()
 	{
@@ -170,10 +174,21 @@ public class BattleSystem : MonoBehaviour
 	IEnumerator AboutToUse(Kreeture newKreeture)
 	{
 		state = BattleState.Busy;
-		yield return dialogBox.TypeDialog($"{trainer.Name} is about to use {newKreeture.Base.Name}. Do you want to change kreetues?");
+		yield return dialogBox.TypeDialog($"{trainer.Name} is about to use {newKreeture.Base.Name}. Do you want to change kreetures?");
 
 		state = BattleState.AboutToUse;
 		dialogBox.EnableChoiceBox(true);
+	}
+
+	IEnumerator ChooseMoveToForget(Kreeture kreeture, AttackBase newMove)
+	{
+		state = BattleState.Busy;
+		yield return dialogBox.TypeDialog($"Choose a move you want to forget");
+		moveSelectionUI.gameObject.SetActive(true);
+		moveSelectionUI.SetMoveData(kreeture.Attacks.Select(x => x.Base).ToList(), newMove);
+		moveToLearn = newMove;
+
+		state = BattleState.MoveToForget;
 	}
 
 	IEnumerator RunTurns(BattleAction playerAction)
@@ -409,7 +424,11 @@ public class BattleSystem : MonoBehaviour
 					}
 					else
 					{
-						// TODO: Option to forget a move
+						yield return dialogBox.TypeDialog($"{playerUnit.Kreeture.Base.Name} trying to learn {newMove.Base.Name}");
+						yield return dialogBox.TypeDialog($"But it cannot learn more than {KreetureBase.MaxNumOfMoves} moves");
+						yield return ChooseMoveToForget(playerUnit.Kreeture, newMove.Base);
+						yield return new WaitUntil(() => state != BattleState.MoveToForget);
+						yield return new WaitForSeconds(2f);
 					}
 				}
 
@@ -476,6 +495,31 @@ public class BattleSystem : MonoBehaviour
 		else if (state == BattleState.AboutToUse)
 		{
 			HandleAboutToUse();
+		}
+		else if (state == BattleState.MoveToForget)
+		{
+			Action<int> onMoveSelected = (moveIndex) =>
+			{
+				moveSelectionUI.gameObject.SetActive(false);
+				if (moveIndex == KreetureBase.MaxNumOfMoves)
+				{
+					// Don't learn the new move
+					StartCoroutine(dialogBox.TypeDialog($"{playerUnit.Kreeture.Base.Name} did not learn {moveToLearn.Name}"));
+				}
+				else
+				{
+					// Forget the selected move and learn new move
+					var selectedMove = playerUnit.Kreeture.Attacks[moveIndex].Base;
+					StartCoroutine(dialogBox.TypeDialog($"{playerUnit.Kreeture.Base.Name} forgot {selectedMove.Name} and learned {moveToLearn.Name}"));
+
+					playerUnit.Kreeture.Attacks[moveIndex] = new Attack(moveToLearn);
+				}
+
+				moveToLearn = null;
+				state = BattleState.RunningTurn;
+			};
+
+			moveSelectionUI.HandleMoveSelection(onMoveSelected);
 		}
 	}
 
