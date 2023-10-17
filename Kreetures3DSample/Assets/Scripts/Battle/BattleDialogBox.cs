@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class BattleDialogBox : MonoBehaviour
 {
+	Transform startPos;
 	[SerializeField] int lettersPerSecond;
 	[SerializeField] Color highlightedColor;
 
@@ -24,6 +26,12 @@ public class BattleDialogBox : MonoBehaviour
 	[SerializeField] TextMeshProUGUI yesText;
 	[SerializeField] TextMeshProUGUI noText;
 
+	private void Awake()
+	{
+		startPos = this.transform;
+		GetComponent<RectTransform>().DOAnchorPos(new Vector2(-130, 0), .25f);
+	}
+
 	public void SetDialog(string dialog)
 	{
 		dialogText.text = dialog;
@@ -31,6 +39,7 @@ public class BattleDialogBox : MonoBehaviour
 
 	public IEnumerator TypeDialog(string dialog)
 	{
+		StartCoroutine(ShowDialog());
 		dialogText.text = "";
 		foreach (var letter in dialog.ToCharArray())
 		{
@@ -39,6 +48,16 @@ public class BattleDialogBox : MonoBehaviour
 		}
 
 		yield return new WaitForSeconds(1f);
+		StartCoroutine(hideDialog());
+	}
+
+	public IEnumerator hideDialog()
+	{
+		yield return GetComponent<RectTransform>().DOAnchorPos(new Vector2(-150, 400), .25f);
+	}
+	private IEnumerator ShowDialog()
+	{
+		yield return this.GetComponent<RectTransform>().DOAnchorPos(new Vector2(-150, 300), .25f);
 	}
 
 	public void EnableDialogText(bool enabled)
@@ -48,7 +67,14 @@ public class BattleDialogBox : MonoBehaviour
 
 	public void EnableActionSelector(bool enabled)
 	{
-		actionSelector.SetActive(enabled);
+		if (!enabled)
+		{
+			StartCoroutine(HideActionButtons());
+		}
+		else
+		{
+			StartCoroutine(ShowActionButtons()); 
+		}
 	}
 
 	public void EnableChoiceBox(bool enabled)
@@ -58,8 +84,14 @@ public class BattleDialogBox : MonoBehaviour
 
 	public void EnableMoveSelector(bool enabled)
 	{
-		moveSelector.SetActive(enabled);
-		moveDetails.SetActive(enabled);
+		if (!enabled)
+		{
+			StartCoroutine(HideAttackButtons());
+		}
+		else
+		{
+			StartCoroutine(ShowAttackButtons());
+		}
 	}
 
 	public void UpdateActionSelection(int selectedAction)
@@ -103,7 +135,7 @@ public class BattleDialogBox : MonoBehaviour
 		if (move.PP == 0)
 			ppText.color = Color.red;
 		else
-			ppText.color = Color.black;
+			ppText.color = Color.white;
 	}
 
 	public void SetMoveNames(List<Attack> attack)
@@ -115,5 +147,33 @@ public class BattleDialogBox : MonoBehaviour
 			else
 				attackTexts[i].text = "-";
 		}
+	}
+
+	public IEnumerator ShowActionButtons()
+	{
+		yield return actionSelector.GetComponent<RectTransform>().DOAnchorPos(new Vector2(265, 5), .25f);
+		actionSelector.SetActive(true);
+	}
+
+	public IEnumerator HideActionButtons()
+	{
+		yield return actionSelector.GetComponent<RectTransform>().DOAnchorPos(new Vector2(265, -200), .25f);
+
+		actionSelector.SetActive(false);
+	}
+
+	public IEnumerator ShowAttackButtons()
+	{
+		yield return moveSelector.GetComponent<RectTransform>().DOAnchorPos(new Vector2(265, 5), .25f);
+		moveSelector.SetActive(true);
+		moveDetails.SetActive(true);
+	}
+
+	public IEnumerator HideAttackButtons()
+	{
+		yield return moveSelector.GetComponent<RectTransform>().DOAnchorPos(new Vector2(350, 5), .25f);
+
+		moveSelector.SetActive(false);
+		moveDetails.SetActive(false);
 	}
 }

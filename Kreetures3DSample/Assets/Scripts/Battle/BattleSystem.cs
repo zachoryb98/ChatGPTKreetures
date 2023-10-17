@@ -273,7 +273,6 @@ public class BattleSystem : MonoBehaviour
 
 		if (CheckIfMoveHits(attack, sourceUnit.Kreeture, targetUnit.Kreeture))
 		{
-
 			sourceUnit.PlayAttackAnimation();
 			yield return new WaitForSeconds(1f);
 			targetUnit.PlayHitAnimation();
@@ -525,6 +524,7 @@ public class BattleSystem : MonoBehaviour
 
 	void HandleActionSelection()
 	{
+		StartCoroutine(dialogBox.ShowActionButtons());
 		var moveLeftAction = inputActions["NavigateLeft"];
 		var moveRightAction = inputActions["NavigateRight"];
 		var moveUpAction = inputActions["NavigateUp"];
@@ -561,6 +561,7 @@ public class BattleSystem : MonoBehaviour
 
 		if (confirmAction.triggered)
 		{
+			StartCoroutine(dialogBox.HideActionButtons());
 			if (currentAction == 0)
 			{
 				// Fight
@@ -587,6 +588,7 @@ public class BattleSystem : MonoBehaviour
 
 	void HandleMoveSelection()
 	{
+		StartCoroutine(dialogBox.ShowAttackButtons());
 		var moveLeftAction = inputActions["NavigateLeft"];
 		var moveRightAction = inputActions["NavigateRight"];
 		var moveUpAction = inputActions["NavigateUp"];
@@ -628,6 +630,7 @@ public class BattleSystem : MonoBehaviour
 			var move = playerUnit.Kreeture.Attacks[currentAttack];
 			if (move.PP == 0) return;
 
+			dialogBox.HideAttackButtons();
 			dialogBox.EnableMoveSelector(false);
 			dialogBox.EnableDialogText(true);
 			StartCoroutine(RunTurns(BattleAction.Move));
@@ -635,6 +638,7 @@ public class BattleSystem : MonoBehaviour
 		else if (backAction.triggered)
 		{
 			dialogBox.EnableMoveSelector(false);
+			dialogBox.EnableActionSelector(true);
 			dialogBox.EnableDialogText(true);
 			ActionSelection();
 		}

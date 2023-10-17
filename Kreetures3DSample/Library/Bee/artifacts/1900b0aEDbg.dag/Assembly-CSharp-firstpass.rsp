@@ -332,6 +332,8 @@
 -r:"C:/Users/zbehr/Repos/ChatGPTKreetures/Kreetures3DSample/Library/PackageCache/com.unity.visualscripting@1.7.8/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/Cinemachine.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/com.unity.cinemachine.editor.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aEDbg.dag/ExternalAttributes.Core.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aEDbg.dag/ExternalAttributes.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/PPv2URPConverters.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/Unity.Burst.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/Unity.Burst.ref.dll"

@@ -3,9 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using DG.Tweening;
 
 public class BattleHud : MonoBehaviour
 {
+	[SerializeField] Transform OffScreen;
+
+	public bool PlayerHud = false;
+
 	[SerializeField] TextMeshProUGUI nameText;
 	[SerializeField] TextMeshProUGUI levelText;
 	[SerializeField] TextMeshProUGUI statusText;
