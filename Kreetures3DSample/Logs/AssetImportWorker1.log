@@ -15,7 +15,7 @@ C:/Users/zbehr/Repos/ChatGPTKreetures/Kreetures3DSample
 -logFile
 Logs/AssetImportWorker1.log
 -srvPort
-53978
+61807
 Successfully changed project path to: C:/Users/zbehr/Repos/ChatGPTKreetures/Kreetures3DSample
 C:/Users/zbehr/Repos/ChatGPTKreetures/Kreetures3DSample
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,7 +47,7 @@ C:/Users/zbehr/Repos/ChatGPTKreetures/Kreetures3DSample
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 98.98 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 96.94 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.7f1 (24e8595d6d43)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/Resources/UnitySubsystems
@@ -65,97 +65,97 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56172
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56220
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
-Registered in 0.005493 seconds.
+Registered in 0.005127 seconds.
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 97.69 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 112.79 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.649 seconds
+- Completed reload, in  0.599 seconds
 Domain Reload Profiling:
-	ReloadAssembly (649ms)
-		BeginReloadAssembly (131ms)
+	ReloadAssembly (599ms)
+		BeginReloadAssembly (64ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (415ms)
-			LoadAssemblies (130ms)
+		EndReloadAssembly (444ms)
+			LoadAssemblies (62ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (89ms)
+			SetupTypeCache (87ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (23ms)
-			SetupLoadedEditorAssemblies (260ms)
+			RebuildScriptCaches (27ms)
+			SetupLoadedEditorAssemblies (283ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (10ms)
+				InitializePlatformSupportModulesInManaged (12ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (98ms)
+				RefreshPlugins (113ms)
 				BeforeProcessingInitializeOnLoad (1ms)
-				ProcessInitializeOnLoadAttributes (110ms)
-				ProcessInitializeOnLoadMethodAttributes (41ms)
+				ProcessInitializeOnLoadAttributes (123ms)
+				ProcessInitializeOnLoadMethodAttributes (34ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.006236 seconds.
+Registered in 0.006084 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 102.65 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 98.60 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.511 seconds
+- Completed reload, in  1.345 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1512ms)
-		BeginReloadAssembly (83ms)
+	ReloadAssembly (1345ms)
+		BeginReloadAssembly (100ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (4ms)
+			DisableScriptedObjects (5ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (16ms)
-		EndReloadAssembly (1341ms)
-			LoadAssemblies (104ms)
+			CreateAndSetChildDomain (17ms)
+		EndReloadAssembly (1118ms)
+			LoadAssemblies (90ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (376ms)
+			SetupTypeCache (233ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (58ms)
-			SetupLoadedEditorAssemblies (756ms)
+			RebuildScriptCaches (53ms)
+			SetupLoadedEditorAssemblies (719ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (5ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (103ms)
-				BeforeProcessingInitializeOnLoad (96ms)
-				ProcessInitializeOnLoadAttributes (478ms)
-				ProcessInitializeOnLoadMethodAttributes (69ms)
-				AfterProcessingInitializeOnLoad (6ms)
+				RefreshPlugins (99ms)
+				BeforeProcessingInitializeOnLoad (88ms)
+				ProcessInitializeOnLoadAttributes (453ms)
+				ProcessInitializeOnLoadMethodAttributes (70ms)
+				AfterProcessingInitializeOnLoad (5ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (5ms)
+			AwakeInstancesAfterBackupRestoration (3ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Shader 'SyntyStudios/TriplanarBasic': fallback shader 'wiiu' not found
 Shader 'SyntyStudios/VegitationShader': fallback shader 'wiiu' not found
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
-Refreshing native plugins compatible for Editor in 0.94 ms, found 3 plugins.
+Shader 'SyntyStudios/TriplanarBasic': fallback shader 'wiiu' not found
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 0.88 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 5808 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 50 unused Assets / (421.9 KB). Loaded Objects now: 6272.
+Unloading 50 unused Assets / (421.7 KB). Loaded Objects now: 6273.
 Memory consumption went from 303.7 MB to 303.3 MB.
-Total: 3.774900 ms (FindLiveObjects: 0.331300 ms CreateObjectMapping: 0.211000 ms MarkObjects: 3.075600 ms  DeleteObjects: 0.155800 ms)
+Total: 3.174700 ms (FindLiveObjects: 0.298800 ms CreateObjectMapping: 0.195600 ms MarkObjects: 2.515900 ms  DeleteObjects: 0.163500 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -169,636 +169,1513 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 370818.776675 seconds.
-  path: Assets/Plugins/Demigiant
-  artifactKey: Guid(f0711f0b9d3b69f40a12d4e428808e2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Plugins/Demigiant using Guid(f0711f0b9d3b69f40a12d4e428808e2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '968571985ab99ad43faf861990964485') in 0.007819 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 27.788039 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/Preview/00_Popup_Rate.png
-  artifactKey: Guid(69ea36f0545e6457fa7427004cc2e916) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/Preview/00_Popup_Rate.png using Guid(69ea36f0545e6457fa7427004cc2e916) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be408b19ef5cad504a4c513926ccf2fe') in 0.292000 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000033 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Frame/BasicFrame_CircleOutline01_Demo_DarkGray.png
-  artifactKey: Guid(cd998adfc889f44979f60c83b80d0013) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Frame/BasicFrame_CircleOutline01_Demo_DarkGray.png using Guid(cd998adfc889f44979f60c83b80d0013) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c0851e4a75f587a06a56f6b79b5de429') in 0.026632 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000030 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/Preview/08_Battel_VS.png
-  artifactKey: Guid(a90a16980323b4c019b887093825bda3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/Preview/08_Battel_VS.png using Guid(a90a16980323b4c019b887093825bda3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f9c054e3223f6846327c7d6ee000659e') in 0.100833 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000028 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Frame/_BasicFrame_SquareOutline02_Demo02 1.png
-  artifactKey: Guid(cb8c5161a1b944f649d17525387b6df0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Frame/_BasicFrame_SquareOutline02_Demo02 1.png using Guid(cb8c5161a1b944f649d17525387b6df0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c28147a173386cabb356a85ab0ca70a5') in 0.023200 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000039 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Demo/Demo_Background/Background01.png
-  artifactKey: Guid(1fbffd8523def458fbd10e3bb57949c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Demo/Demo_Background/Background01.png using Guid(1fbffd8523def458fbd10e3bb57949c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '567cf37393b58e96ea73fd993c6d97e5') in 0.080010 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000024 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/UI_Etc/Alert_Text_Red.png
-  artifactKey: Guid(ff6d06c5a07434d9b8edaa92176cd86f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/UI_Etc/Alert_Text_Red.png using Guid(ff6d06c5a07434d9b8edaa92176cd86f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5e5be9cde0e610e054acb5196a03eb3e') in 0.011626 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000028 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/Preview/06_Misson.png
-  artifactKey: Guid(59f4adf4f405e4f58ad78e6a3936b6df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/Preview/06_Misson.png using Guid(59f4adf4f405e4f58ad78e6a3936b6df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '630764adaa814b3602bea84e723eef57') in 0.092201 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000030 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/UI_Etc/Alert_Dot_Red.Png
-  artifactKey: Guid(4dfe60e13721045b6982752c421e76ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/UI_Etc/Alert_Dot_Red.Png using Guid(4dfe60e13721045b6982752c421e76ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff44926024b770fa9e5a3f36b290752c') in 0.016309 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000028 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/Preview/01_Lobby_UserInfo.png
-  artifactKey: Guid(bc9aec366bed54571a217ef15bcc5343) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/Preview/01_Lobby_UserInfo.png using Guid(bc9aec366bed54571a217ef15bcc5343) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb6c5b2523b74d9decb1ef9c3016c614') in 0.091268 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000031 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/UI_Etc/Alert_Count_Red.Png
-  artifactKey: Guid(f50d5117f889a46ca8065d0265e01dc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/UI_Etc/Alert_Count_Red.Png using Guid(f50d5117f889a46ca8065d0265e01dc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c71c22b6fd454248a3989989197ae821') in 0.012000 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/UI_Etc/Alert_Count_Green.Png
-  artifactKey: Guid(f0bbee4261dff4cb7bcae5c218b4e05f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/UI_Etc/Alert_Count_Green.Png using Guid(f0bbee4261dff4cb7bcae5c218b4e05f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9713d4b0f930499dd737e4ffa6ccf1a8') in 0.011277 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000020 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/Preview/01_LobbyMain.png
-  artifactKey: Guid(948b2bd869c5e4e808606fc41275a6fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/Preview/01_LobbyMain.png using Guid(948b2bd869c5e4e808606fc41275a6fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2cf8a832b03bd1931ec1058e4b2c5968') in 0.092240 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000027 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Demo/Demo_Background/Background_CenterDeco.png
-  artifactKey: Guid(f58d44d9c55ea4abc993c726a9ecb2d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Demo/Demo_Background/Background_CenterDeco.png using Guid(f58d44d9c55ea4abc993c726a9ecb2d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '31905742c371bcca74d577b453889bbc') in 0.014909 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/UI_Etc/Alert_Text_White.png
-  artifactKey: Guid(34ce788d5750b4ed6b156eedda38ef99) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/UI_Etc/Alert_Text_White.png using Guid(34ce788d5750b4ed6b156eedda38ef99) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1aea90c59565a227a673dcc41d9470fb') in 0.018758 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/Preview/99_Setting.png
-  artifactKey: Guid(be02346e1a349456daafdad743e7a6ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/Preview/99_Setting.png using Guid(be02346e1a349456daafdad743e7a6ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'abc329a0880c34514319666c2646f982') in 0.079118 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000022 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/Preview/04_Equipment.png
-  artifactKey: Guid(3221d0b6272b9416aa1a128e17aa1b54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/Preview/04_Equipment.png using Guid(3221d0b6272b9416aa1a128e17aa1b54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b04faeb4de8c1af76a8c3f6dc3951a0a') in 0.089046 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 1.449748 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Frame/BasicFrame_CircleOutline02_Demo.png
-  artifactKey: Guid(90ad77f86d3f340988ade060dbf09fac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Frame/BasicFrame_CircleOutline02_Demo.png using Guid(90ad77f86d3f340988ade060dbf09fac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fdf8d274fa9144d7bffe5a29c868421b') in 0.018734 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000024 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Frame/BasicFrame_CircleSolid01_Demo.png
-  artifactKey: Guid(79642295658414aec87a5770f5dfadf5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Frame/BasicFrame_CircleSolid01_Demo.png using Guid(79642295658414aec87a5770f5dfadf5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fdaadc1000471a2ae55e6cc29a804e81') in 0.014988 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Frame/BasicFrame_CircleOutline02_White1.png
-  artifactKey: Guid(d60cb6394a5c44d858b455ce9bc47d30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Frame/BasicFrame_CircleOutline02_White1.png using Guid(d60cb6394a5c44d858b455ce9bc47d30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f498b930bf9f38c7715e9d8048101359') in 0.013493 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.499273 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Frame/BasicFrame_Octagon01_Demo_Mask.Png
-  artifactKey: Guid(5ae35cd21a5404dff974b3c3dcfe717b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Frame/BasicFrame_Octagon01_Demo_Mask.Png using Guid(5ae35cd21a5404dff974b3c3dcfe717b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2a318d07ec8aace0d09c26752d116c11') in 0.018544 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Frame/BasicFrame_Octagon01_White2.Png
-  artifactKey: Guid(38c4110a9626f4159afaf5cced460f08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Frame/BasicFrame_Octagon01_White2.Png using Guid(38c4110a9626f4159afaf5cced460f08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1de9f7540a8a8b38eb19a04c33ac389c') in 0.014139 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000028 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Frame/BasicFrame_Octagon02_Demo_Mask.png
-  artifactKey: Guid(c0df7b2a4b37b4f8ea7fc74079e500a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Frame/BasicFrame_Octagon02_Demo_Mask.png using Guid(c0df7b2a4b37b4f8ea7fc74079e500a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b27cc9bffcf6f02b0cc8eb827f04c5cc') in 0.015625 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.500878 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Frame/BasicFrame_Octagon02_White1.png
-  artifactKey: Guid(086687494062d4141994e7f20f91dbfa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Frame/BasicFrame_Octagon02_White1.png using Guid(086687494062d4141994e7f20f91dbfa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3c7988fbdba9e728067ebbe941272213') in 0.016284 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Frame/BasicFrame_SquareOutline02_Demo01.png
-  artifactKey: Guid(6e89665deabf841238f44ebf2fd1665d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Frame/BasicFrame_SquareOutline02_Demo01.png using Guid(6e89665deabf841238f44ebf2fd1665d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f1cd2475ebdce7f3bad39a16bd126249') in 0.012675 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000020 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Frame/BasicFrame_SquareOutline01_Demo.png
-  artifactKey: Guid(afc097284513740f7abdc9ad2ed56989) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Frame/BasicFrame_SquareOutline01_Demo.png using Guid(afc097284513740f7abdc9ad2ed56989) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6cdcd9fe613a1b29656fe5647cd8143c') in 0.016569 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.456568 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Frame/BasicFrame_SquareSolid01_Demo01.png
-  artifactKey: Guid(ad88fadd7bc384969bd45f53f0448093) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Frame/BasicFrame_SquareSolid01_Demo01.png using Guid(ad88fadd7bc384969bd45f53f0448093) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3ca781a8d1f361f6c652c05cf2b8a011') in 0.024743 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000030 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Button/Button01_Demo_Gray.png
-  artifactKey: Guid(a793324cd29d041e499596ae81bdbcfc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Button/Button01_Demo_Gray.png using Guid(a793324cd29d041e499596ae81bdbcfc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '38c54e5b5f3bda0204de53a8b6227b33') in 0.019480 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000030 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Frame/BasicFrame_SquareSolid01_White.png
-  artifactKey: Guid(202409d669be540ec9c941c30843e9c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Frame/BasicFrame_SquareSolid01_White.png using Guid(202409d669be540ec9c941c30843e9c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00cb653b2cf2e85df7da111d633e35f0') in 0.021248 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000030 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Button/Button01_Demo_LightGray.png
-  artifactKey: Guid(8a52ccf8a9edf48c09826a43e605642e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Button/Button01_Demo_LightGray.png using Guid(8a52ccf8a9edf48c09826a43e605642e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '51b34c0d72a812d9d7a124de15e7de71') in 0.016855 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.468156 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Button/Button01_Demo_Orange.png
-  artifactKey: Guid(47308b7d8e9db4c86b65cc80d5876c01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Button/Button01_Demo_Orange.png using Guid(47308b7d8e9db4c86b65cc80d5876c01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '95ed69b8ef2da94e3b8f4b6caec17b6f') in 0.016523 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 1.486292 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Button/Button01_Demo_Teal.png
-  artifactKey: Guid(949217e9c22e44fda92aff74ce0f24e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Button/Button01_Demo_Teal.png using Guid(949217e9c22e44fda92aff74ce0f24e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '259d4c2358023ff317ef52b40e3cfe4d') in 0.018135 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.390121 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Button/Button_Side01_Demo.png
-  artifactKey: Guid(50a77b18a26f24b29891dc0d7bcea91a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Button/Button_Side01_Demo.png using Guid(50a77b18a26f24b29891dc0d7bcea91a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3d270e6b38990f12d8de552008dbf742') in 0.024273 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.299501 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Button/Button_Square02_White2.Png
-  artifactKey: Guid(989b707d2a4124e18a07870466021499) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Button/Button_Square02_White2.Png using Guid(989b707d2a4124e18a07870466021499) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '69c6876334f54b9a5ea7294798eac839') in 0.018335 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.246186 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Button/Button_Square05_Demo_f.png
-  artifactKey: Guid(ec54ea78b696e4906b4c2fba7cd1b22f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Button/Button_Square05_Demo_f.png using Guid(ec54ea78b696e4906b4c2fba7cd1b22f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a14bfc1cf7fc48a05088e8afa37548ff') in 0.016722 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.394998 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Button/Button_SquareGradient106_White2.png
-  artifactKey: Guid(264edc2263a7244b6be6de2e218be978) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Button/Button_SquareGradient106_White2.png using Guid(264edc2263a7244b6be6de2e218be978) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '436c7126039b7781bbb85f770c0636a6') in 0.020768 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 1.853747 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Button/Button_SquareGradient188_Demo_Yellow.png
-  artifactKey: Guid(69d2b287b3e79497b8b83c8b4bee3522) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Button/Button_SquareGradient188_Demo_Yellow.png using Guid(69d2b287b3e79497b8b83c8b4bee3522) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f0b175c5bf63d9b5ba4a91495ff4e882') in 0.020492 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.134756 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Button/Button_SquareSolid02_Demo.Png
-  artifactKey: Guid(4a7f0c1f43930478fa60f52f5ce9779e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Button/Button_SquareSolid02_Demo.Png using Guid(4a7f0c1f43930478fa60f52f5ce9779e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '59958576006c022f1ebe565acccb17ff') in 0.021591 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.942628 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Frame/CardFrame01_Demo_Bg_Purple.png
-  artifactKey: Guid(76f86a77f5c4a4144bef6774a295229c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Frame/CardFrame01_Demo_Bg_Purple.png using Guid(76f86a77f5c4a4144bef6774a295229c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '52d2e182be2846f1c5fe51e83afa82ed') in 0.020040 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.137256 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Frame/CardFrame01_Demo_Slider_Fill_Green.png
-  artifactKey: Guid(0ddf51d2f300d48feba45c4cab4baec7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Frame/CardFrame01_Demo_Slider_Fill_Green.png using Guid(0ddf51d2f300d48feba45c4cab4baec7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9e3ec3199bd3724b1943c1896d4f7418') in 0.033080 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 27.055250 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Frame/CardFrame01_White_Slider2.png
-  artifactKey: Guid(3a0984d1bf2e34cae8541d280f67991f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Frame/CardFrame01_White_Slider2.png using Guid(3a0984d1bf2e34cae8541d280f67991f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f8858d3b6af8f8f23c51f149f9e6c493') in 0.016578 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000022 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Demo/Demo_Image/Character_Shadow.png
-  artifactKey: Guid(65889a1e50557420ca33281189bd9a1a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Demo/Demo_Image/Character_Shadow.png using Guid(65889a1e50557420ca33281189bd9a1a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ae80707e6692ff45aa66a8c37a900a75') in 0.017124 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.150438 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Frame/HorizontalFrame01_Demo.png
-  artifactKey: Guid(1d1ee4347050041dba7c71cf76595430) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Frame/HorizontalFrame01_Demo.png using Guid(1d1ee4347050041dba7c71cf76595430) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '917cda8f512aaf9cf86e0f83e7e37c08') in 0.016875 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000024 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Demo/Demo_Icon/Icon_Boots01_White.png
-  artifactKey: Guid(140398e933b9d400489aad46fc2f82ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Demo/Demo_Icon/Icon_Boots01_White.png using Guid(140398e933b9d400489aad46fc2f82ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c9f9e04551fdb5b808393e17edc1c5e2') in 0.015728 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000025 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Demo/Demo_Icon/Icon_Add02.png
-  artifactKey: Guid(ffeafc38fb0654eb78d14da1ee37e496) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Demo/Demo_Icon/Icon_Add02.png using Guid(ffeafc38fb0654eb78d14da1ee37e496) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd3734bb65bddef97004bb79a163c20d8') in 0.015963 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000020 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Demo/Demo_Icon/Icon_Boots01_Purple.png
-  artifactKey: Guid(3446491189e534bc8a8bb6da0bc9a54d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Demo/Demo_Icon/Icon_Boots01_Purple.png using Guid(3446491189e534bc8a8bb6da0bc9a54d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f8fe670f2ed537c79f4c5d4f8516b270') in 0.014986 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000025 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Demo/Demo_Icon/Icon_Body.png
-  artifactKey: Guid(6b3d80100f82a44bb8968db0ec8c98e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Demo/Demo_Icon/Icon_Body.png using Guid(6b3d80100f82a44bb8968db0ec8c98e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '787ac5de0fdd106f0c7a0d802ffef663') in 0.015968 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000027 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Demo/Demo_Icon/Icon_Fire01.png
-  artifactKey: Guid(110a613c97ae3473ba6a34f0d531ca80) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Demo/Demo_Icon/Icon_Fire01.png using Guid(110a613c97ae3473ba6a34f0d531ca80) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a86605978aa1a5b4b6d4461fa0b6018f') in 0.016688 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000032 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Demo/Demo_Icon/Icon_Check.png
-  artifactKey: Guid(67d74fe0bc2ff4f04bb9d4f9e1d63c02) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Demo/Demo_Icon/Icon_Check.png using Guid(67d74fe0bc2ff4f04bb9d4f9e1d63c02) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8e0b996aed8c4a8a6ca1e236b7c939a7') in 0.015134 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000037 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Demo/Demo_Icon/Icon_Boots02.Png
-  artifactKey: Guid(7652c06b66a3b4d58a35b5c5aa8f8456) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Demo/Demo_Icon/Icon_Boots02.Png using Guid(7652c06b66a3b4d58a35b5c5aa8f8456) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1f157f997453dfc6d06aaadc657cb1f0') in 0.015287 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.007695 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Demo/Demo_Icon/Icon_Home.png
-  artifactKey: Guid(b20473ecf58974c5abcf4763251e3acf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Demo/Demo_Icon/Icon_Home.png using Guid(b20473ecf58974c5abcf4763251e3acf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c00783aa68560aa13e9f102594ebb892') in 0.017617 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Demo/Demo_Icon/Icon_Letter.Png
-  artifactKey: Guid(355d449de8eb44ef9a741f67e92f2bce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Demo/Demo_Icon/Icon_Letter.Png using Guid(355d449de8eb44ef9a741f67e92f2bce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f193144b52115e48387903a67e6a238a') in 0.018600 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000017 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Demo/Demo_Icon/Icon_Shield02.png
-  artifactKey: Guid(143cc06ce061a49f3b2e8c92aa771554) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Demo/Demo_Icon/Icon_Shield02.png using Guid(143cc06ce061a49f3b2e8c92aa771554) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ffab7dba823508bdb0743e79188feb72') in 0.018254 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000051 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Demo/Demo_Icon/Icon_Megaphone.Png
-  artifactKey: Guid(f716a410fcb5442929d71bca97d0237f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Demo/Demo_Icon/Icon_Megaphone.Png using Guid(f716a410fcb5442929d71bca97d0237f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '627e5a7209381a46df44c960a75f6546') in 0.017003 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.189549 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Frame/ItemFrame01_Demo_d02.png
-  artifactKey: Guid(8fc41f0e038ee4aa7be0eafa9ea25489) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Frame/ItemFrame01_Demo_d02.png using Guid(8fc41f0e038ee4aa7be0eafa9ea25489) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2508237c0314aeda4d238cf10a9a0ce1') in 0.030556 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000035 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Frame/ItemFrame04_White_TextBg.png
-  artifactKey: Guid(8751c05e8d78a44f49818efec1e222a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Frame/ItemFrame04_White_TextBg.png using Guid(8751c05e8d78a44f49818efec1e222a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3f2588306e625c98cfe1a72a2d3dfc9b') in 0.017903 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Frame/ItemFrame01_White1.png
-  artifactKey: Guid(5d01289bff75947c0a3f8524fef82aed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Frame/ItemFrame01_White1.png using Guid(5d01289bff75947c0a3f8524fef82aed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '862335f2b0ad2ae809482da9e3a04231') in 0.016445 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000028 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Frame/ItemFrame04_Demo_d.png
-  artifactKey: Guid(1b6d0f2f7a2c54cb481a3880267ec052) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Frame/ItemFrame04_Demo_d.png using Guid(1b6d0f2f7a2c54cb481a3880267ec052) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '32f0e76981176eca65903ee539df15d2') in 0.014825 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000024 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Frame/ItemFrame03_White1.png
-  artifactKey: Guid(39cba7c40821a4122891c4dd82645d59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Frame/ItemFrame03_White1.png using Guid(39cba7c40821a4122891c4dd82645d59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8d6685cdf10734faf15d649af9fda170') in 0.017058 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000020 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Frame/ItemFrame04_White_n.png
-  artifactKey: Guid(7781f253818ed4e148586e9802f0b526) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Frame/ItemFrame04_White_n.png using Guid(7781f253818ed4e148586e9802f0b526) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be44979e320132e91e83616730e6aacd') in 0.014687 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.264037 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(Original)/Itemicon_Bag02.Png
-  artifactKey: Guid(331a65e3224d546d1808ca2922092956) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(Original)/Itemicon_Bag02.Png using Guid(331a65e3224d546d1808ca2922092956) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd6882e15a3b9f260af2b7fa91b62b2f2') in 0.019780 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000027 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(x2)/256/ItemIcon_Book02_Teal.Png
-  artifactKey: Guid(2dd03bd4961504dc782c77e181c832cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(x2)/256/ItemIcon_Book02_Teal.Png using Guid(2dd03bd4961504dc782c77e181c832cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8823f9c3a50d1d5d5fa68984375ddf96') in 0.032025 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(x2)/128/ItemIcon_Book02_Teal.png
-  artifactKey: Guid(8c2abd32fc11f43efbe8a90681fe0a99) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(x2)/128/ItemIcon_Book02_Teal.png using Guid(8c2abd32fc11f43efbe8a90681fe0a99) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8b2f6d95d0186c3ca57a0b8b95a82fdf') in 0.014621 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000032 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(Original)/Itemicon_Book02_Brown.Png
-  artifactKey: Guid(b0f83ae0bcd8c4cde8f0433b62ec10c4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(Original)/Itemicon_Book02_Brown.Png using Guid(b0f83ae0bcd8c4cde8f0433b62ec10c4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ffbdc04e540fb597de54d87c90407042') in 0.015422 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000026 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(Original)/Itemicon_Book02_Teal.Png
-  artifactKey: Guid(ee4b69da7f7c548a98633c8739886283) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(Original)/Itemicon_Book02_Teal.Png using Guid(ee4b69da7f7c548a98633c8739886283) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8d4aee621dcbbe77381f036efda8fa3a') in 0.018624 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(Original)/Itemicon_Book01_Red.Png
-  artifactKey: Guid(0c90aaaef701c431bbec9f1163f9f1c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(Original)/Itemicon_Book01_Red.Png using Guid(0c90aaaef701c431bbec9f1163f9f1c2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '307cd1582f2053c913e35d7f05cda0f8') in 0.019949 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000024 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(x2)/128/ItemIcon_Book02_Brown.png
-  artifactKey: Guid(02ccc4c84031146c39123462a80613d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(x2)/128/ItemIcon_Book02_Brown.png using Guid(02ccc4c84031146c39123462a80613d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7d1ce5dc2f3a78b8e2f1bd8b28b06f07') in 0.013830 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.061181 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(Original)/Itemicon_Gem_Pentagon_Red.Png
-  artifactKey: Guid(89bfccdb1e78040ae8aaca59d00f20c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(Original)/Itemicon_Gem_Pentagon_Red.Png using Guid(89bfccdb1e78040ae8aaca59d00f20c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee0fe07f4470bf52da67fc5889a077a1') in 0.028206 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000017 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(x2)/256/ItemIcon_Gem_Triangle_Red.Png
-  artifactKey: Guid(2dcfc01b5b800426bacf64f66c0d09ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(x2)/256/ItemIcon_Gem_Triangle_Red.Png using Guid(2dcfc01b5b800426bacf64f66c0d09ad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bf8ba790bee622db5a4fa7e061797656') in 0.015034 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(x2)/128/ItemIcon_Gem_Triangle_Red.png
-  artifactKey: Guid(f665fc410903c458ab335a0f40b9c39c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(x2)/128/ItemIcon_Gem_Triangle_Red.png using Guid(f665fc410903c458ab335a0f40b9c39c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '39e014b1f9ebf419e03c342de75c1d82') in 0.014128 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(x2)/512/ItemIcon_Gem_Triangle_Purple.png
-  artifactKey: Guid(da71a9e4e636545f29e79ff89d32c785) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(x2)/512/ItemIcon_Gem_Triangle_Purple.png using Guid(da71a9e4e636545f29e79ff89d32c785) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '817a47ca32e931a848b5970d8a1f9701') in 0.028892 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000029 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(Original)/Itemicon_Gem_Triangle_Blue.Png
-  artifactKey: Guid(1f3a5e99f5b1c44b08830e9f7e184478) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(Original)/Itemicon_Gem_Triangle_Blue.Png using Guid(1f3a5e99f5b1c44b08830e9f7e184478) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '298dc68f5a91cfdb3ddce8844a34be5e') in 0.018150 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(x2)/128/ItemIcon_Gem_Triangle_Blue.png
-  artifactKey: Guid(a9fd914a2ba4f42518183b9a60662a8d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(x2)/128/ItemIcon_Gem_Triangle_Blue.png using Guid(a9fd914a2ba4f42518183b9a60662a8d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0d919a25ebc6604426f9b0098783e775') in 0.014158 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.371838 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(Original)/Itemicon_Map.Png
-  artifactKey: Guid(5f73f6e0d83bc4184bc42ee2e606f157) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(Original)/Itemicon_Map.Png using Guid(5f73f6e0d83bc4184bc42ee2e606f157) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ab222e2dfa69726e303f4c819a369eb5') in 0.038983 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000034 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(Original)/Itemicon_Shop02.Png
-  artifactKey: Guid(1166bbcd4b9a5481da67502abf1d8b8c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(Original)/Itemicon_Shop02.Png using Guid(1166bbcd4b9a5481da67502abf1d8b8c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '99567a93291cb092152d837057e24da6') in 0.018624 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000022 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(x2)/512/ItemIcon_MemoPad.png
-  artifactKey: Guid(87021fd6fc7f7416e864f0e52cae467f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(x2)/512/ItemIcon_MemoPad.png using Guid(87021fd6fc7f7416e864f0e52cae467f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '709a9e6759666b65b458a2dff61cbf5a') in 0.024303 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(x2)/256/ItemIcon_Map.Png
-  artifactKey: Guid(b4e9852dbba4946e780b21fcd9e43947) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(x2)/256/ItemIcon_Map.Png using Guid(b4e9852dbba4946e780b21fcd9e43947) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f81a0de8d950741ac02ae5c698b3a56b') in 0.018629 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(x2)/128/ItemIcon_Scroll.png
-  artifactKey: Guid(f2abe4a3a323e4d78b9494a7b02d6067) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(x2)/128/ItemIcon_Scroll.png using Guid(f2abe4a3a323e4d78b9494a7b02d6067) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7ca7b033741f5c339792a1fc2f0c7d86') in 0.016000 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(x2)/128/ItemIcon_Medalstand.png
-  artifactKey: Guid(c10a90b2121734f4aa965e50486209d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(x2)/128/ItemIcon_Medalstand.png using Guid(c10a90b2121734f4aa965e50486209d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e915b1a3efdf8ccf24afe7ee914428bf') in 0.012707 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.336725 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(x2)/512/ItemIcon_Ticket_Yellow.png
-  artifactKey: Guid(6bbe44310535f43768ed03213b8e520d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(x2)/512/ItemIcon_Ticket_Yellow.png using Guid(6bbe44310535f43768ed03213b8e520d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1044958691b22298e19e5c8778ae84ea') in 0.025455 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(x2)/512/ItemIcon_Trophy.png
-  artifactKey: Guid(a87a242cbf1504161bd0fdf0c56d0ba3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(x2)/512/ItemIcon_Trophy.png using Guid(a87a242cbf1504161bd0fdf0c56d0ba3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd5d991dc95aeb7ffb90d4ed03448800') in 0.027020 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000036 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(x2)/512/ItemIcon_Weapon_Hammer.png
-  artifactKey: Guid(671e13c2a7e8a4415adcc42790d2be55) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(x2)/512/ItemIcon_Weapon_Hammer.png using Guid(671e13c2a7e8a4415adcc42790d2be55) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c32ccb003ffa5d8d3bdd458e01ffc3c') in 0.024725 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(x2)/256/ItemIcon_Weapon_Hammer.Png
-  artifactKey: Guid(bd0d19263e2a84efeb73d4ce5880c90e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(x2)/256/ItemIcon_Weapon_Hammer.Png using Guid(bd0d19263e2a84efeb73d4ce5880c90e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd65fc0013361f92e2f72c475a8291ecf') in 0.014959 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(x2)/256/ItemIcon_Weapon_Bow.Png
-  artifactKey: Guid(0083f191990ec4367ba7be96af15c132) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(x2)/256/ItemIcon_Weapon_Bow.Png using Guid(0083f191990ec4367ba7be96af15c132) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dc9fd848523761f18c372643e5bad59a') in 0.038239 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(x2)/256/ItemIcon_Trophy.Png
-  artifactKey: Guid(ec2cb1231d144460ea9217add7db73f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Icon_ItemIcons_(x2)/256/ItemIcon_Trophy.Png using Guid(ec2cb1231d144460ea9217add7db73f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd105ab3729a84a738d0ae385aa21b15b') in 0.017960 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.044025 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Label/Label_Ribbon01_Gray_Deco.png
-  artifactKey: Guid(321ba37caadd348509ad33ce195a9138) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Label/Label_Ribbon01_Gray_Deco.png using Guid(321ba37caadd348509ad33ce195a9138) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c1ef5ae944e8d55b2536bcd4f0aaa0d1') in 0.016716 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Label/Label_Ribbon01_Yellow.png
-  artifactKey: Guid(0d6bcce8a80284b63afb025a509a6d34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Label/Label_Ribbon01_Yellow.png using Guid(0d6bcce8a80284b63afb025a509a6d34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dff928c96ae1db547b5d2975a3c0e894') in 0.022560 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Label/Label_Ribbon01_Sky_Deco.png
-  artifactKey: Guid(67c6c8bf0d4204e9fb8f6240486783df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Label/Label_Ribbon01_Sky_Deco.png using Guid(67c6c8bf0d4204e9fb8f6240486783df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '64170c8526decb3305185db804667db1') in 0.017479 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Label/Label_Ribbon01_LightGreen.png
-  artifactKey: Guid(aae6551a421cb4bd5b9273d7dc157ce3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Label/Label_Ribbon01_LightGreen.png using Guid(aae6551a421cb4bd5b9273d7dc157ce3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '764b4df6e16c169660f2cc87adea618d') in 0.016107 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000020 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Label/Label_Ribbon01_Sky.png
-  artifactKey: Guid(3a0d3ab57c63c40418b86c7af01d2619) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Label/Label_Ribbon01_Sky.png using Guid(3a0d3ab57c63c40418b86c7af01d2619) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0f8c782b226aa834391b01175629cd6f') in 0.015858 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Label/Label_Ribbon01_LightGreen_Deco.png
-  artifactKey: Guid(f4e5b925695164d5caea465c4378b03c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Label/Label_Ribbon01_LightGreen_Deco.png using Guid(f4e5b925695164d5caea465c4378b03c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3dc07cde156be20f1502d3d2bbe4953e') in 0.015441 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.316435 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Slider/Slider_Basic01_Fill_Magenta.Png
-  artifactKey: Guid(6c972a3cf1d514adfbb95337a9e527f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Slider/Slider_Basic01_Fill_Magenta.Png using Guid(6c972a3cf1d514adfbb95337a9e527f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9cb067d131d8e52653741034c9e45d7f') in 0.016667 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000020 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Slider/Slider_Basic02_Demo_Bg.Png
-  artifactKey: Guid(70290c7a51e964754b5bce30aa6171aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Slider/Slider_Basic02_Demo_Bg.Png using Guid(70290c7a51e964754b5bce30aa6171aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7911f516f0883356225ddf817e06d28d') in 0.019778 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Slider/Slider_Basic01_Fill_Teal.Png
-  artifactKey: Guid(54436d6551c7b459daf0f919c7367de8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Slider/Slider_Basic01_Fill_Teal.Png using Guid(54436d6551c7b459daf0f919c7367de8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '25ed3460fa7bab4c4673b16406245aba') in 0.013590 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Slider/Slider_Diagonal48_Demo_Bg.Png
-  artifactKey: Guid(022151b6fdfd74d99899b4f5d6274fc4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Slider/Slider_Diagonal48_Demo_Bg.Png using Guid(022151b6fdfd74d99899b4f5d6274fc4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b1d5197322f382f4464146448dc1e4f8') in 0.016824 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Slider/Slider_Basic01_Fill_Pink.Png
-  artifactKey: Guid(dfae09b3d7ca64c7c80862c6b29a8bc4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Slider/Slider_Basic01_Fill_Pink.Png using Guid(dfae09b3d7ca64c7c80862c6b29a8bc4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4d875c86a95ddd5739c832b1d870fb5c') in 0.014286 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000029 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Slider/Slider_Basic01_Fill_Sky.Png
-  artifactKey: Guid(7f33d1ee01bbe40948e0e3c176b4fb80) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Slider/Slider_Basic01_Fill_Sky.Png using Guid(7f33d1ee01bbe40948e0e3c176b4fb80) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '11447a6fb969022ab2000e618ec8d9a3') in 0.016216 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000022 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Slider/Slider_Basic02_Demo_Fill_Blue.Png
-  artifactKey: Guid(95aada0c1007647b490f38a9f7e946d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Slider/Slider_Basic02_Demo_Fill_Blue.Png using Guid(95aada0c1007647b490f38a9f7e946d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2097f8cde4fd0a3457492c4878a01f89') in 0.014820 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Slider/Slider_Basic02_Demo_Fill_Red.Png
-  artifactKey: Guid(5af94f71e2b8f4a1d9cdf27942085649) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Slider/Slider_Basic02_Demo_Fill_Red.Png using Guid(5af94f71e2b8f4a1d9cdf27942085649) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '494743d2ad6f4406486568cf6ef97f56') in 0.012099 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.758403 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Slider/Slider_Diagonal48_White_Icon1.png
-  artifactKey: Guid(175426b84086246a08a90167d94d3edd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Slider/Slider_Diagonal48_White_Icon1.png using Guid(175426b84086246a08a90167d94d3edd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e3c1f533c81fa27a1e52517167d394fb') in 0.020955 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.641017 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Slider/Slider_Diagonal51_White_Fill.png
-  artifactKey: Guid(863ebad7290724e729405560db4b5bfa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Slider/Slider_Diagonal51_White_Fill.png using Guid(863ebad7290724e729405560db4b5bfa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0d217e1b757ce997b150f1a24b09c830') in 0.022438 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 14.188399 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Slider/Slider_Diagonal70_Demo_Icon02.png
-  artifactKey: Guid(33abe294e599e4e59a445c2f2457225f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Slider/Slider_Diagonal70_Demo_Icon02.png using Guid(33abe294e599e4e59a445c2f2457225f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2a9a3b450037b6e20fa027cde74219b2') in 0.024940 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000033 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Slider/Slider_Diagonal71_Demo_Icon.Png
-  artifactKey: Guid(0a69481c304284452906b703e34b1e93) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Slider/Slider_Diagonal71_Demo_Icon.Png using Guid(0a69481c304284452906b703e34b1e93) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f273e422e689be312e6466236b6c75e5') in 0.025608 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Slider/Slider_HandleType01_White_Handle.Png
-  artifactKey: Guid(19871898b3a2b4dce8c3a0bdbb0dd98a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Slider/Slider_HandleType01_White_Handle.Png using Guid(19871898b3a2b4dce8c3a0bdbb0dd98a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8357d035a222e5d29ec6fb97b56c1cf5') in 0.019892 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000039 seconds.
-  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Slider/Slider_Diagonal70_White_Icon01_2.png
-  artifactKey: Guid(65039883a42ab4146bbc7c2610975890) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/ResourcesData/Sprites/Components/Slider/Slider_Diagonal70_White_Icon01_2.png using Guid(65039883a42ab4146bbc7c2610975890) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8bf65f55bee8c92ecfe5af97076ae812') in 0.016125 seconds 
-Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
-AssetImportWorkerClient::OnTransportError - code=2 error=End of file
-AssetImportWorker is now disconnected from the server
-Process exiting
-Exiting without the bug reporter. Application will terminate with return code 0
+  Time since last request: 436234.698142 seconds.
+  path: Assets/Scenes/BattleScenes/BattleSceneTest.unity
+  artifactKey: Guid(3d38326acbdab6c4c99699c41e9e68fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/BattleScenes/BattleSceneTest.unity using Guid(3d38326acbdab6c4c99699c41e9e68fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1dddd8b508bff4d353ff6d96ae1ee287') in 0.008775 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004893 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.14 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.001 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1002ms)
+		BeginReloadAssembly (111ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (3ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (35ms)
+		EndReloadAssembly (813ms)
+			LoadAssemblies (75ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (224ms)
+			ReleaseScriptCaches (3ms)
+			RebuildScriptCaches (36ms)
+			SetupLoadedEditorAssemblies (432ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (11ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (65ms)
+				ProcessInitializeOnLoadAttributes (288ms)
+				ProcessInitializeOnLoadMethodAttributes (58ms)
+				AfterProcessingInitializeOnLoad (9ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
+Platform modules already initialized, skipping
+Shader 'SyntyStudios/VegitationShader': fallback shader 'wiiu' not found
+Shader 'SyntyStudios/TriplanarBasic': fallback shader 'wiiu' not found
+Refreshing native plugins compatible for Editor in 2.46 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5640 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 29 unused Assets / (380.8 KB). Loaded Objects now: 6288.
+Memory consumption went from 297.1 MB to 296.7 MB.
+Total: 3.012700 ms (FindLiveObjects: 0.326400 ms CreateObjectMapping: 0.176500 ms MarkObjects: 2.439300 ms  DeleteObjects: 0.069900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005953 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.93 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.955 seconds
+Domain Reload Profiling:
+	ReloadAssembly (956ms)
+		BeginReloadAssembly (112ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (37ms)
+		EndReloadAssembly (779ms)
+			LoadAssemblies (72ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (205ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (38ms)
+			SetupLoadedEditorAssemblies (415ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (11ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (65ms)
+				ProcessInitializeOnLoadAttributes (273ms)
+				ProcessInitializeOnLoadMethodAttributes (58ms)
+				AfterProcessingInitializeOnLoad (5ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
+Platform modules already initialized, skipping
+Shader 'SyntyStudios/VegitationShader': fallback shader 'wiiu' not found
+Shader 'SyntyStudios/TriplanarBasic': fallback shader 'wiiu' not found
+Refreshing native plugins compatible for Editor in 2.05 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5640 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 29 unused Assets / (380.8 KB). Loaded Objects now: 6303.
+Memory consumption went from 297.1 MB to 296.7 MB.
+Total: 2.812500 ms (FindLiveObjects: 0.275500 ms CreateObjectMapping: 0.185400 ms MarkObjects: 2.299700 ms  DeleteObjects: 0.051100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005280 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 2.14 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.017 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1018ms)
+		BeginReloadAssembly (103ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (3ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (34ms)
+		EndReloadAssembly (847ms)
+			LoadAssemblies (119ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (218ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (36ms)
+			SetupLoadedEditorAssemblies (423ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (15ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (75ms)
+				ProcessInitializeOnLoadAttributes (266ms)
+				ProcessInitializeOnLoadMethodAttributes (58ms)
+				AfterProcessingInitializeOnLoad (6ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
+Platform modules already initialized, skipping
+Shader 'SyntyStudios/VegitationShader': fallback shader 'wiiu' not found
+Shader 'SyntyStudios/TriplanarBasic': fallback shader 'wiiu' not found
+Refreshing native plugins compatible for Editor in 2.15 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5640 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 29 unused Assets / (380.8 KB). Loaded Objects now: 6318.
+Memory consumption went from 297.1 MB to 296.7 MB.
+Total: 3.007300 ms (FindLiveObjects: 0.270400 ms CreateObjectMapping: 0.171200 ms MarkObjects: 2.509800 ms  DeleteObjects: 0.055000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005849 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.05 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.923 seconds
+Domain Reload Profiling:
+	ReloadAssembly (924ms)
+		BeginReloadAssembly (101ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (3ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (31ms)
+		EndReloadAssembly (759ms)
+			LoadAssemblies (64ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (200ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (34ms)
+			SetupLoadedEditorAssemblies (416ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (14ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (75ms)
+				ProcessInitializeOnLoadAttributes (265ms)
+				ProcessInitializeOnLoadMethodAttributes (55ms)
+				AfterProcessingInitializeOnLoad (4ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
+Platform modules already initialized, skipping
+Shader 'SyntyStudios/VegitationShader': fallback shader 'wiiu' not found
+Shader 'SyntyStudios/TriplanarBasic': fallback shader 'wiiu' not found
+Refreshing native plugins compatible for Editor in 2.02 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5640 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 29 unused Assets / (380.9 KB). Loaded Objects now: 6333.
+Memory consumption went from 297.1 MB to 296.7 MB.
+Total: 2.851700 ms (FindLiveObjects: 0.302200 ms CreateObjectMapping: 0.200700 ms MarkObjects: 2.292100 ms  DeleteObjects: 0.056100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006755 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.95 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.964 seconds
+Domain Reload Profiling:
+	ReloadAssembly (965ms)
+		BeginReloadAssembly (113ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (3ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (33ms)
+		EndReloadAssembly (787ms)
+			LoadAssemblies (64ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (204ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (40ms)
+			SetupLoadedEditorAssemblies (433ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (11ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (75ms)
+				ProcessInitializeOnLoadAttributes (269ms)
+				ProcessInitializeOnLoadMethodAttributes (71ms)
+				AfterProcessingInitializeOnLoad (5ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
+Platform modules already initialized, skipping
+Shader 'SyntyStudios/VegitationShader': fallback shader 'wiiu' not found
+Shader 'SyntyStudios/TriplanarBasic': fallback shader 'wiiu' not found
+Refreshing native plugins compatible for Editor in 2.28 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5640 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 29 unused Assets / (380.8 KB). Loaded Objects now: 6348.
+Memory consumption went from 297.1 MB to 296.8 MB.
+Total: 3.010700 ms (FindLiveObjects: 0.313200 ms CreateObjectMapping: 0.198500 ms MarkObjects: 2.424100 ms  DeleteObjects: 0.074200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.019402 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.91 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.987 seconds
+Domain Reload Profiling:
+	ReloadAssembly (987ms)
+		BeginReloadAssembly (105ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (3ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (32ms)
+		EndReloadAssembly (812ms)
+			LoadAssemblies (110ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (203ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (36ms)
+			SetupLoadedEditorAssemblies (421ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (11ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (69ms)
+				ProcessInitializeOnLoadAttributes (269ms)
+				ProcessInitializeOnLoadMethodAttributes (64ms)
+				AfterProcessingInitializeOnLoad (6ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
+Platform modules already initialized, skipping
+Shader 'SyntyStudios/VegitationShader': fallback shader 'wiiu' not found
+Shader 'SyntyStudios/TriplanarBasic': fallback shader 'wiiu' not found
+Refreshing native plugins compatible for Editor in 1.96 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5640 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 29 unused Assets / (380.8 KB). Loaded Objects now: 6363.
+Memory consumption went from 297.2 MB to 296.8 MB.
+Total: 4.053900 ms (FindLiveObjects: 0.322400 ms CreateObjectMapping: 0.194500 ms MarkObjects: 3.473800 ms  DeleteObjects: 0.062100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.008598 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.97 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.951 seconds
+Domain Reload Profiling:
+	ReloadAssembly (952ms)
+		BeginReloadAssembly (103ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (30ms)
+		EndReloadAssembly (779ms)
+			LoadAssemblies (72ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (210ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (38ms)
+			SetupLoadedEditorAssemblies (416ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (16ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (69ms)
+				ProcessInitializeOnLoadAttributes (266ms)
+				ProcessInitializeOnLoadMethodAttributes (58ms)
+				AfterProcessingInitializeOnLoad (5ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
+Platform modules already initialized, skipping
+Shader 'SyntyStudios/VegitationShader': fallback shader 'wiiu' not found
+Shader 'SyntyStudios/TriplanarBasic': fallback shader 'wiiu' not found
+Refreshing native plugins compatible for Editor in 2.02 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5640 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 29 unused Assets / (380.7 KB). Loaded Objects now: 6378.
+Memory consumption went from 297.2 MB to 296.8 MB.
+Total: 43.187700 ms (FindLiveObjects: 0.290700 ms CreateObjectMapping: 0.202100 ms MarkObjects: 42.619400 ms  DeleteObjects: 0.074400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.018691 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.98 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.938 seconds
+Domain Reload Profiling:
+	ReloadAssembly (939ms)
+		BeginReloadAssembly (106ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (32ms)
+		EndReloadAssembly (765ms)
+			LoadAssemblies (71ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (205ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (35ms)
+			SetupLoadedEditorAssemblies (414ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (12ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (66ms)
+				ProcessInitializeOnLoadAttributes (273ms)
+				ProcessInitializeOnLoadMethodAttributes (55ms)
+				AfterProcessingInitializeOnLoad (6ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
+Platform modules already initialized, skipping
+Shader 'SyntyStudios/VegitationShader': fallback shader 'wiiu' not found
+Shader 'SyntyStudios/TriplanarBasic': fallback shader 'wiiu' not found
+Refreshing native plugins compatible for Editor in 2.29 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5640 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 29 unused Assets / (380.8 KB). Loaded Objects now: 6393.
+Memory consumption went from 297.2 MB to 296.8 MB.
+Total: 3.966800 ms (FindLiveObjects: 0.358100 ms CreateObjectMapping: 0.219600 ms MarkObjects: 3.330600 ms  DeleteObjects: 0.057600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005541 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.92 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.977 seconds
+Domain Reload Profiling:
+	ReloadAssembly (977ms)
+		BeginReloadAssembly (103ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (3ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (30ms)
+		EndReloadAssembly (804ms)
+			LoadAssemblies (85ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (224ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (36ms)
+			SetupLoadedEditorAssemblies (418ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (10ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (77ms)
+				ProcessInitializeOnLoadAttributes (261ms)
+				ProcessInitializeOnLoadMethodAttributes (62ms)
+				AfterProcessingInitializeOnLoad (6ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
+Platform modules already initialized, skipping
+Shader 'SyntyStudios/VegitationShader': fallback shader 'wiiu' not found
+Shader 'SyntyStudios/TriplanarBasic': fallback shader 'wiiu' not found
+Refreshing native plugins compatible for Editor in 2.53 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5640 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 29 unused Assets / (381.8 KB). Loaded Objects now: 6408.
+Memory consumption went from 297.2 MB to 296.9 MB.
+Total: 17.497100 ms (FindLiveObjects: 0.298600 ms CreateObjectMapping: 0.189900 ms MarkObjects: 16.935500 ms  DeleteObjects: 0.071200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005531 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.92 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.951 seconds
+Domain Reload Profiling:
+	ReloadAssembly (952ms)
+		BeginReloadAssembly (99ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (3ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (29ms)
+		EndReloadAssembly (785ms)
+			LoadAssemblies (81ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (211ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (39ms)
+			SetupLoadedEditorAssemblies (401ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (11ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (70ms)
+				ProcessInitializeOnLoadAttributes (260ms)
+				ProcessInitializeOnLoadMethodAttributes (53ms)
+				AfterProcessingInitializeOnLoad (5ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
+Platform modules already initialized, skipping
+Shader 'SyntyStudios/VegitationShader': fallback shader 'wiiu' not found
+Shader 'SyntyStudios/TriplanarBasic': fallback shader 'wiiu' not found
+Refreshing native plugins compatible for Editor in 1.94 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5640 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 29 unused Assets / (380.8 KB). Loaded Objects now: 6423.
+Memory consumption went from 297.2 MB to 296.9 MB.
+Total: 4.004300 ms (FindLiveObjects: 0.392100 ms CreateObjectMapping: 0.291500 ms MarkObjects: 3.249500 ms  DeleteObjects: 0.069900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006929 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.02 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.942 seconds
+Domain Reload Profiling:
+	ReloadAssembly (943ms)
+		BeginReloadAssembly (109ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (36ms)
+		EndReloadAssembly (767ms)
+			LoadAssemblies (65ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (203ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (37ms)
+			SetupLoadedEditorAssemblies (416ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (12ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (74ms)
+				ProcessInitializeOnLoadAttributes (266ms)
+				ProcessInitializeOnLoadMethodAttributes (57ms)
+				AfterProcessingInitializeOnLoad (6ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
+Platform modules already initialized, skipping
+Shader 'SyntyStudios/VegitationShader': fallback shader 'wiiu' not found
+Shader 'SyntyStudios/TriplanarBasic': fallback shader 'wiiu' not found
+Refreshing native plugins compatible for Editor in 2.00 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5640 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 29 unused Assets / (380.9 KB). Loaded Objects now: 6438.
+Memory consumption went from 297.3 MB to 296.9 MB.
+Total: 17.208800 ms (FindLiveObjects: 0.269200 ms CreateObjectMapping: 0.168400 ms MarkObjects: 16.698900 ms  DeleteObjects: 0.071300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005450 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.93 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.013 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1013ms)
+		BeginReloadAssembly (116ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (33ms)
+		EndReloadAssembly (826ms)
+			LoadAssemblies (85ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (220ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (39ms)
+			SetupLoadedEditorAssemblies (435ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (12ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (67ms)
+				ProcessInitializeOnLoadAttributes (285ms)
+				ProcessInitializeOnLoadMethodAttributes (64ms)
+				AfterProcessingInitializeOnLoad (5ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
+Platform modules already initialized, skipping
+Shader 'SyntyStudios/VegitationShader': fallback shader 'wiiu' not found
+Shader 'SyntyStudios/TriplanarBasic': fallback shader 'wiiu' not found
+Refreshing native plugins compatible for Editor in 2.03 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5640 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 29 unused Assets / (381.9 KB). Loaded Objects now: 6453.
+Memory consumption went from 297.3 MB to 296.9 MB.
+Total: 2.772700 ms (FindLiveObjects: 0.287200 ms CreateObjectMapping: 0.175900 ms MarkObjects: 2.252800 ms  DeleteObjects: 0.055900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.008032 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.98 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.963 seconds
+Domain Reload Profiling:
+	ReloadAssembly (963ms)
+		BeginReloadAssembly (103ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (30ms)
+		EndReloadAssembly (794ms)
+			LoadAssemblies (63ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (214ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (49ms)
+			SetupLoadedEditorAssemblies (424ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (12ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (68ms)
+				ProcessInitializeOnLoadAttributes (275ms)
+				ProcessInitializeOnLoadMethodAttributes (62ms)
+				AfterProcessingInitializeOnLoad (6ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
+Platform modules already initialized, skipping
+Shader 'SyntyStudios/VegitationShader': fallback shader 'wiiu' not found
+Shader 'SyntyStudios/TriplanarBasic': fallback shader 'wiiu' not found
+Refreshing native plugins compatible for Editor in 1.91 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5640 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 29 unused Assets / (380.9 KB). Loaded Objects now: 6468.
+Memory consumption went from 297.3 MB to 296.9 MB.
+Total: 3.716000 ms (FindLiveObjects: 0.310500 ms CreateObjectMapping: 0.196900 ms MarkObjects: 3.152900 ms  DeleteObjects: 0.055000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005657 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.30 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.024 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1025ms)
+		BeginReloadAssembly (107ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (3ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (36ms)
+		EndReloadAssembly (848ms)
+			LoadAssemblies (78ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (224ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (41ms)
+			SetupLoadedEditorAssemblies (450ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (12ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (75ms)
+				ProcessInitializeOnLoadAttributes (286ms)
+				ProcessInitializeOnLoadMethodAttributes (67ms)
+				AfterProcessingInitializeOnLoad (8ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
+Platform modules already initialized, skipping
+Shader 'SyntyStudios/VegitationShader': fallback shader 'wiiu' not found
+Shader 'SyntyStudios/TriplanarBasic': fallback shader 'wiiu' not found
+Refreshing native plugins compatible for Editor in 2.14 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5640 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 29 unused Assets / (380.8 KB). Loaded Objects now: 6483.
+Memory consumption went from 297.3 MB to 296.9 MB.
+Total: 4.058000 ms (FindLiveObjects: 0.311800 ms CreateObjectMapping: 0.194300 ms MarkObjects: 3.489400 ms  DeleteObjects: 0.061700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005549 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.92 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.943 seconds
+Domain Reload Profiling:
+	ReloadAssembly (943ms)
+		BeginReloadAssembly (115ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (3ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (35ms)
+		EndReloadAssembly (761ms)
+			LoadAssemblies (72ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (206ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (36ms)
+			SetupLoadedEditorAssemblies (410ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (11ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (69ms)
+				ProcessInitializeOnLoadAttributes (265ms)
+				ProcessInitializeOnLoadMethodAttributes (58ms)
+				AfterProcessingInitializeOnLoad (5ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
+Platform modules already initialized, skipping
+Shader 'SyntyStudios/VegitationShader': fallback shader 'wiiu' not found
+Shader 'SyntyStudios/TriplanarBasic': fallback shader 'wiiu' not found
+Refreshing native plugins compatible for Editor in 2.31 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5640 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 29 unused Assets / (380.8 KB). Loaded Objects now: 6498.
+Memory consumption went from 297.3 MB to 297.0 MB.
+Total: 3.116400 ms (FindLiveObjects: 0.321800 ms CreateObjectMapping: 0.222600 ms MarkObjects: 2.514100 ms  DeleteObjects: 0.057200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.017702 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.94 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.006 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1007ms)
+		BeginReloadAssembly (112ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (34ms)
+		EndReloadAssembly (818ms)
+			LoadAssemblies (71ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (235ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (40ms)
+			SetupLoadedEditorAssemblies (432ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (12ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (68ms)
+				ProcessInitializeOnLoadAttributes (278ms)
+				ProcessInitializeOnLoadMethodAttributes (65ms)
+				AfterProcessingInitializeOnLoad (6ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
+Platform modules already initialized, skipping
+Shader 'SyntyStudios/VegitationShader': fallback shader 'wiiu' not found
+Shader 'SyntyStudios/TriplanarBasic': fallback shader 'wiiu' not found
+Refreshing native plugins compatible for Editor in 2.01 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5640 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 29 unused Assets / (380.9 KB). Loaded Objects now: 6513.
+Memory consumption went from 297.3 MB to 297.0 MB.
+Total: 2.837200 ms (FindLiveObjects: 0.278400 ms CreateObjectMapping: 0.173900 ms MarkObjects: 2.331700 ms  DeleteObjects: 0.052600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.016548 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.94 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.055 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1056ms)
+		BeginReloadAssembly (118ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (46ms)
+		EndReloadAssembly (870ms)
+			LoadAssemblies (140ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (219ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (33ms)
+			SetupLoadedEditorAssemblies (432ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (11ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (66ms)
+				ProcessInitializeOnLoadAttributes (264ms)
+				ProcessInitializeOnLoadMethodAttributes (85ms)
+				AfterProcessingInitializeOnLoad (5ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
+Platform modules already initialized, skipping
+Shader 'SyntyStudios/VegitationShader': fallback shader 'wiiu' not found
+Shader 'SyntyStudios/TriplanarBasic': fallback shader 'wiiu' not found
+Refreshing native plugins compatible for Editor in 2.21 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5640 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 29 unused Assets / (380.8 KB). Loaded Objects now: 6528.
+Memory consumption went from 297.4 MB to 297.0 MB.
+Total: 3.290800 ms (FindLiveObjects: 0.360800 ms CreateObjectMapping: 0.195400 ms MarkObjects: 2.676100 ms  DeleteObjects: 0.057800 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005821 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.98 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.970 seconds
+Domain Reload Profiling:
+	ReloadAssembly (971ms)
+		BeginReloadAssembly (104ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (3ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (32ms)
+		EndReloadAssembly (799ms)
+			LoadAssemblies (64ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (212ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (37ms)
+			SetupLoadedEditorAssemblies (434ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (13ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (79ms)
+				ProcessInitializeOnLoadAttributes (269ms)
+				ProcessInitializeOnLoadMethodAttributes (66ms)
+				AfterProcessingInitializeOnLoad (5ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
+Platform modules already initialized, skipping
+Shader 'SyntyStudios/VegitationShader': fallback shader 'wiiu' not found
+Shader 'SyntyStudios/TriplanarBasic': fallback shader 'wiiu' not found
+Refreshing native plugins compatible for Editor in 2.59 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5640 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 29 unused Assets / (380.9 KB). Loaded Objects now: 6543.
+Memory consumption went from 297.4 MB to 297.0 MB.
+Total: 3.257300 ms (FindLiveObjects: 0.281700 ms CreateObjectMapping: 0.176200 ms MarkObjects: 2.739300 ms  DeleteObjects: 0.059600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.015587 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.90 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.992 seconds
+Domain Reload Profiling:
+	ReloadAssembly (992ms)
+		BeginReloadAssembly (104ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (32ms)
+		EndReloadAssembly (824ms)
+			LoadAssemblies (64ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (211ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (41ms)
+			SetupLoadedEditorAssemblies (440ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (11ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (85ms)
+				ProcessInitializeOnLoadAttributes (275ms)
+				ProcessInitializeOnLoadMethodAttributes (60ms)
+				AfterProcessingInitializeOnLoad (6ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (26ms)
+Platform modules already initialized, skipping
+Shader 'SyntyStudios/VegitationShader': fallback shader 'wiiu' not found
+Shader 'SyntyStudios/TriplanarBasic': fallback shader 'wiiu' not found
+Refreshing native plugins compatible for Editor in 2.06 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5640 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 29 unused Assets / (382.0 KB). Loaded Objects now: 6558.
+Memory consumption went from 297.4 MB to 297.1 MB.
+Total: 3.145200 ms (FindLiveObjects: 0.317300 ms CreateObjectMapping: 0.182300 ms MarkObjects: 2.588500 ms  DeleteObjects: 0.056300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006045 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.99 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.016 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1017ms)
+		BeginReloadAssembly (100ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (3ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (29ms)
+		EndReloadAssembly (848ms)
+			LoadAssemblies (57ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (206ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (48ms)
+			SetupLoadedEditorAssemblies (478ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (14ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (89ms)
+				ProcessInitializeOnLoadAttributes (284ms)
+				ProcessInitializeOnLoadMethodAttributes (81ms)
+				AfterProcessingInitializeOnLoad (8ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (9ms)
+Platform modules already initialized, skipping
+Shader 'SyntyStudios/VegitationShader': fallback shader 'wiiu' not found
+Shader 'SyntyStudios/TriplanarBasic': fallback shader 'wiiu' not found
+Refreshing native plugins compatible for Editor in 1.97 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5640 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 29 unused Assets / (380.8 KB). Loaded Objects now: 6573.
+Memory consumption went from 297.4 MB to 297.1 MB.
+Total: 2.932700 ms (FindLiveObjects: 0.384900 ms CreateObjectMapping: 0.207300 ms MarkObjects: 2.281400 ms  DeleteObjects: 0.058200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 6109.078869 seconds.
+  path: Assets/Layer Lab/GUI Kit - Casual Fantasy/Prefabs/Prefabs_Component_Frames/BasicFrame_CircleOutline01_Demo_Gray.prefab
+  artifactKey: Guid(edefb69cc41ab40e38814870054b48af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Layer Lab/GUI Kit - Casual Fantasy/Prefabs/Prefabs_Component_Frames/BasicFrame_CircleOutline01_Demo_Gray.prefab using Guid(edefb69cc41ab40e38814870054b48af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '83900cc9a0c216ad0d2578a349ef50b9') in 0.164044 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.017489 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.44 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.014 seconds
+Domain Reload Profiling:
+	ReloadAssembly (3016ms)
+		BeginReloadAssembly (370ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (20ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (151ms)
+		EndReloadAssembly (2428ms)
+			LoadAssemblies (205ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (640ms)
+			ReleaseScriptCaches (3ms)
+			RebuildScriptCaches (80ms)
+			SetupLoadedEditorAssemblies (1404ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (26ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (164ms)
+				ProcessInitializeOnLoadAttributes (931ms)
+				ProcessInitializeOnLoadMethodAttributes (266ms)
+				AfterProcessingInitializeOnLoad (14ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (19ms)
+Platform modules already initialized, skipping
+Shader 'SyntyStudios/VegitationShader': fallback shader 'wiiu' not found
+Shader 'SyntyStudios/TriplanarBasic': fallback shader 'wiiu' not found
+Refreshing native plugins compatible for Editor in 4.96 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5640 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 29 unused Assets / (380.9 KB). Loaded Objects now: 6588.
+Memory consumption went from 297.5 MB to 297.1 MB.
+Total: 35.550600 ms (FindLiveObjects: 0.652900 ms CreateObjectMapping: 0.375000 ms MarkObjects: 34.317000 ms  DeleteObjects: 0.203000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.017013 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 2.43 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  4.686 seconds
+Domain Reload Profiling:
+	ReloadAssembly (4691ms)
+		BeginReloadAssembly (442ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (13ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (103ms)
+		EndReloadAssembly (4027ms)
+			LoadAssemblies (282ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (1098ms)
+			ReleaseScriptCaches (7ms)
+			RebuildScriptCaches (208ms)
+			SetupLoadedEditorAssemblies (2191ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (50ms)
+				SetLoadedEditorAssemblies (2ms)
+				RefreshPlugins (3ms)
+				BeforeProcessingInitializeOnLoad (389ms)
+				ProcessInitializeOnLoadAttributes (1407ms)
+				ProcessInitializeOnLoadMethodAttributes (295ms)
+				AfterProcessingInitializeOnLoad (45ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (21ms)
+Platform modules already initialized, skipping
+Shader 'SyntyStudios/VegitationShader': fallback shader 'wiiu' not found
+Shader 'SyntyStudios/TriplanarBasic': fallback shader 'wiiu' not found
+Refreshing native plugins compatible for Editor in 8.69 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5640 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 29 unused Assets / (380.7 KB). Loaded Objects now: 6603.
+Memory consumption went from 297.5 MB to 297.1 MB.
+Total: 15.470300 ms (FindLiveObjects: 1.408100 ms CreateObjectMapping: 0.636100 ms MarkObjects: 13.192400 ms  DeleteObjects: 0.229500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.018737 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.69 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  4.242 seconds
+Domain Reload Profiling:
+	ReloadAssembly (4244ms)
+		BeginReloadAssembly (395ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (12ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (159ms)
+		EndReloadAssembly (3600ms)
+			LoadAssemblies (217ms)
+			RebuildTransferFunctionScriptingTraits (1ms)
+			SetupTypeCache (957ms)
+			ReleaseScriptCaches (9ms)
+			RebuildScriptCaches (157ms)
+			SetupLoadedEditorAssemblies (1901ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (64ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (278ms)
+				ProcessInitializeOnLoadAttributes (1251ms)
+				ProcessInitializeOnLoadMethodAttributes (279ms)
+				AfterProcessingInitializeOnLoad (24ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (39ms)
+Platform modules already initialized, skipping
+Shader 'SyntyStudios/VegitationShader': fallback shader 'wiiu' not found
+Shader 'SyntyStudios/TriplanarBasic': fallback shader 'wiiu' not found
+Refreshing native plugins compatible for Editor in 14.97 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5640 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 29 unused Assets / (380.9 KB). Loaded Objects now: 6618.
+Memory consumption went from 297.5 MB to 297.2 MB.
+Total: 13.989800 ms (FindLiveObjects: 1.223400 ms CreateObjectMapping: 0.788300 ms MarkObjects: 11.759300 ms  DeleteObjects: 0.215100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.025543 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 2.48 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  4.043 seconds
+Domain Reload Profiling:
+	ReloadAssembly (4046ms)
+		BeginReloadAssembly (290ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (12ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (88ms)
+		EndReloadAssembly (3510ms)
+			LoadAssemblies (214ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (882ms)
+			ReleaseScriptCaches (5ms)
+			RebuildScriptCaches (197ms)
+			SetupLoadedEditorAssemblies (1942ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (46ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (3ms)
+				BeforeProcessingInitializeOnLoad (301ms)
+				ProcessInitializeOnLoadAttributes (1292ms)
+				ProcessInitializeOnLoadMethodAttributes (277ms)
+				AfterProcessingInitializeOnLoad (21ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (25ms)
+Platform modules already initialized, skipping
+Shader 'SyntyStudios/VegitationShader': fallback shader 'wiiu' not found
+Shader 'SyntyStudios/TriplanarBasic': fallback shader 'wiiu' not found
+Refreshing native plugins compatible for Editor in 22.81 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5640 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 29 unused Assets / (381.9 KB). Loaded Objects now: 6633.
+Memory consumption went from 297.6 MB to 297.2 MB.
+Total: 15.123700 ms (FindLiveObjects: 0.966500 ms CreateObjectMapping: 0.566400 ms MarkObjects: 13.331400 ms  DeleteObjects: 0.255000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.017828 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 2.65 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  4.540 seconds
+Domain Reload Profiling:
+	ReloadAssembly (4543ms)
+		BeginReloadAssembly (318ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (10ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (90ms)
+		EndReloadAssembly (4005ms)
+			LoadAssemblies (210ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (963ms)
+			ReleaseScriptCaches (5ms)
+			RebuildScriptCaches (238ms)
+			SetupLoadedEditorAssemblies (2220ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (53ms)
+				SetLoadedEditorAssemblies (2ms)
+				RefreshPlugins (3ms)
+				BeforeProcessingInitializeOnLoad (355ms)
+				ProcessInitializeOnLoadAttributes (1456ms)
+				ProcessInitializeOnLoadMethodAttributes (325ms)
+				AfterProcessingInitializeOnLoad (24ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (34ms)
+Platform modules already initialized, skipping
+Shader 'SyntyStudios/VegitationShader': fallback shader 'wiiu' not found
+Shader 'SyntyStudios/TriplanarBasic': fallback shader 'wiiu' not found
+Refreshing native plugins compatible for Editor in 12.78 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5640 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 29 unused Assets / (380.9 KB). Loaded Objects now: 6648.
+Memory consumption went from 297.6 MB to 297.2 MB.
+Total: 10.942100 ms (FindLiveObjects: 0.874400 ms CreateObjectMapping: 0.496600 ms MarkObjects: 9.382200 ms  DeleteObjects: 0.184900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 

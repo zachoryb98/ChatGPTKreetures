@@ -160,6 +160,7 @@ public class BattleSystem : MonoBehaviour
 	{
 		state = BattleState.PartyScreen;
 		partyScreen.SetPartyData(playerParty.kreetures);
+		partyScreen.ShowPartyScreen();
 		partyScreen.gameObject.SetActive(true);
 	}
 
@@ -184,7 +185,7 @@ public class BattleSystem : MonoBehaviour
 	{
 		state = BattleState.Busy;
 		yield return dialogBox.TypeDialog($"Choose a move you want to forget");
-		moveSelectionUI.gameObject.SetActive(true);
+		StartCoroutine(moveSelectionUI.ShowMoveSelectionUI());
 		moveSelectionUI.SetMoveData(kreeture.Attacks.Select(x => x.Base).ToList(), newMove);
 		moveToLearn = newMove;
 
@@ -499,7 +500,7 @@ public class BattleSystem : MonoBehaviour
 		{
 			Action<int> onMoveSelected = (moveIndex) =>
 			{
-				moveSelectionUI.gameObject.SetActive(false);
+				StartCoroutine(moveSelectionUI.HideMoveSelectionUI());
 				if (moveIndex == KreetureBase.MaxNumOfMoves)
 				{
 					// Don't learn the new move

@@ -79,7 +79,7 @@ public class BattleDialogBox : MonoBehaviour
 
 	public void EnableChoiceBox(bool enabled)
 	{
-		choiceBox.SetActive(enabled);
+		StartCoroutine(ShowChoiceBox(enabled));
 	}
 
 	public void EnableMoveSelector(bool enabled)
@@ -175,5 +175,19 @@ public class BattleDialogBox : MonoBehaviour
 
 		moveSelector.SetActive(false);
 		moveDetails.SetActive(false);
+	}
+
+	public IEnumerator ShowChoiceBox(bool enabled)
+	{
+		if (enabled)
+		{
+			choiceBox.SetActive(enabled);
+			yield return choiceBox.GetComponent<RectTransform>().DOAnchorPos(new Vector2(-10, 5), .25f);
+		}
+		else
+		{
+			choiceBox.SetActive(enabled);
+			yield return choiceBox.GetComponent<RectTransform>().DOAnchorPos(new Vector2(450, 5), .25f);
+		}
 	}
 }

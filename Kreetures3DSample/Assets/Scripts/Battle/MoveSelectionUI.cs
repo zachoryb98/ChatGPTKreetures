@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class MoveSelectionUI : MonoBehaviour
 {
@@ -65,5 +66,17 @@ public class MoveSelectionUI : MonoBehaviour
             else
                 moveTexts[i].color = Color.white;
         }
+    }
+
+    public IEnumerator ShowMoveSelectionUI()
+	{
+        this.gameObject.SetActive(true);
+        yield return this.GetComponent<RectTransform>().DOAnchorPos(new Vector2(220, -40), .25f);
+    }
+
+    public IEnumerator HideMoveSelectionUI()
+	{
+        yield return this.GetComponent<RectTransform>().DOAnchorPos(new Vector2(300, -40), .25f);
+        this.gameObject.SetActive(false);
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class PartyScreen : MonoBehaviour
 {
@@ -48,5 +49,17 @@ public class PartyScreen : MonoBehaviour
     public void SetMessageText(string message)
     {
         messageText.text = message;
+    }
+
+    public IEnumerator ShowPartyScreen()
+	{
+        this.gameObject.SetActive(true);
+        yield return this.GetComponent<RectTransform>().DOAnchorPos(new Vector2(0, 0), .25f);
+    }
+
+    public IEnumerator HidePartyScreen()
+    { 
+        yield return this.GetComponent<RectTransform>().DOAnchorPos(new Vector2(0, -100), .25f);
+        this.gameObject.SetActive(false);
     }
 }
