@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.VFX;
 
 public class BattleUnit : MonoBehaviour
 {	
 	[SerializeField] bool isPlayerUnit;
 	[SerializeField] BattleHud hud;
+	public VisualEffect levelUpVFX;
 
 	public bool IsPlayerUnit
 	{
@@ -27,12 +29,14 @@ public class BattleUnit : MonoBehaviour
 	public Kreeture Kreeture { get; set; }
 	GameObject kreetureModel;
 
+	
+
 	public void Setup(Kreeture kreeture)
 	{
 		Kreeture = kreeture;
 
 		kreetureModel = Kreeture.Base.Model;
-
+		
 		hud.gameObject.SetActive(true);
 
 		// Ensure the model is not null
@@ -42,7 +46,7 @@ public class BattleUnit : MonoBehaviour
 			{
 				KreetureGameObject = Instantiate(Kreeture.Base.Model, playerSpawnPosition.position, Quaternion.identity); ;
 
-				//BattleManager.Instance.SetKreetureGameObject(KreetureGameObject);
+				//BattleManager.Instance.SetKreetureGameObject(KreetureGameObject);				
 			}
 			else
 			{				
@@ -50,6 +54,9 @@ public class BattleUnit : MonoBehaviour
 
 				//BattleManager.Instance.SetEnemyKreetureGameObject(EnemyKreetureGameObject);
 			}
+
+			levelUpVFX = KreetureGameObject.transform.Find("vfxLevelUp").GetComponent<VisualEffect>();
+			levelUpVFX.gameObject.SetActive(false);
 
 			hud.SetData(kreeture);
 
@@ -71,6 +78,14 @@ public class BattleUnit : MonoBehaviour
 	{
 		Animator animator = KreetureGameObject.GetComponent<Animator>();
 		animator.SetTrigger("SetAttackTrigger");
+	}
+
+	public void PlayLevelUpAnimation()
+	{
+		Animator animator = KreetureGameObject.GetComponent<Animator>();
+		levelUpVFX.gameObject.SetActive(true);
+		levelUpVFX.Play();
+		animator.SetTrigger("SetLevelUpTrigger");
 	}
 
 	public void PlayHitAnimation()

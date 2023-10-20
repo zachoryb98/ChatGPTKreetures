@@ -5319,6 +5319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerUnit: 1
   hud: {fileID: 1722759768}
+  levelUp: {fileID: 5159364904860325656, guid: bb0033ab9632cf54ea484d97a0125a95, type: 3}
   KreetureGameObject: {fileID: 0}
   playerSpawnPosition: {fileID: 596032368}
   enemySpawnPosition: {fileID: 1985971447}
@@ -8370,10 +8371,10 @@ RectTransform:
   m_Father: {fileID: 1375302072}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 243.5, y: -37}
+  m_SizeDelta: {x: 487, y: 74}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1042601731
 MonoBehaviour:
@@ -16646,6 +16647,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayerUnit: 0
   hud: {fileID: 952983389}
+  levelUp: {fileID: 0}
   KreetureGameObject: {fileID: 0}
   playerSpawnPosition: {fileID: 596032368}
   enemySpawnPosition: {fileID: 1985971447}

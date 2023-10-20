@@ -15,7 +15,7 @@ C:/Users/zbehr/Repos/ChatGPTKreetures/Kreetures3DSample
 -logFile
 Logs/AssetImportWorker15.log
 -srvPort
-53978
+54154
 Successfully changed project path to: C:/Users/zbehr/Repos/ChatGPTKreetures/Kreetures3DSample
 C:/Users/zbehr/Repos/ChatGPTKreetures/Kreetures3DSample
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,7 +47,7 @@ C:/Users/zbehr/Repos/ChatGPTKreetures/Kreetures3DSample
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 125.60 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 131.22 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.7f1 (24e8595d6d43)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/Resources/UnitySubsystems
@@ -65,97 +65,97 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56612
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56628
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.7f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
-Registered in 0.004902 seconds.
+Registered in 0.007219 seconds.
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 94.05 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 121.77 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.524 seconds
+- Completed reload, in  0.599 seconds
 Domain Reload Profiling:
-	ReloadAssembly (525ms)
-		BeginReloadAssembly (53ms)
+	ReloadAssembly (599ms)
+		BeginReloadAssembly (69ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (391ms)
-			LoadAssemblies (51ms)
+		EndReloadAssembly (438ms)
+			LoadAssemblies (67ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (73ms)
+			SetupTypeCache (85ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (26ms)
-			SetupLoadedEditorAssemblies (252ms)
+			RebuildScriptCaches (27ms)
+			SetupLoadedEditorAssemblies (279ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (9ms)
+				InitializePlatformSupportModulesInManaged (11ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (94ms)
+				RefreshPlugins (122ms)
 				BeforeProcessingInitializeOnLoad (1ms)
-				ProcessInitializeOnLoadAttributes (110ms)
-				ProcessInitializeOnLoadMethodAttributes (37ms)
+				ProcessInitializeOnLoadAttributes (111ms)
+				ProcessInitializeOnLoadMethodAttributes (34ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.006436 seconds.
+Registered in 0.005797 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
 Native extension for WebGL target not found
-Refreshing native plugins compatible for Editor in 97.03 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 110.39 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.264 seconds
+- Completed reload, in  1.249 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1264ms)
-		BeginReloadAssembly (81ms)
+	ReloadAssembly (1250ms)
+		BeginReloadAssembly (83ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (4ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (15ms)
-		EndReloadAssembly (1096ms)
-			LoadAssemblies (79ms)
+		EndReloadAssembly (1075ms)
+			LoadAssemblies (74ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (330ms)
+			SetupTypeCache (262ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (52ms)
-			SetupLoadedEditorAssemblies (593ms)
+			RebuildScriptCaches (76ms)
+			SetupLoadedEditorAssemblies (619ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (5ms)
+				InitializePlatformSupportModulesInManaged (6ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (97ms)
-				BeforeProcessingInitializeOnLoad (86ms)
-				ProcessInitializeOnLoadAttributes (326ms)
-				ProcessInitializeOnLoadMethodAttributes (71ms)
-				AfterProcessingInitializeOnLoad (7ms)
+				RefreshPlugins (111ms)
+				BeforeProcessingInitializeOnLoad (101ms)
+				ProcessInitializeOnLoadAttributes (329ms)
+				ProcessInitializeOnLoadMethodAttributes (67ms)
+				AfterProcessingInitializeOnLoad (5ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (4ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Shader 'SyntyStudios/VegitationShader': fallback shader 'wiiu' not found
 Shader 'SyntyStudios/TriplanarBasic': fallback shader 'wiiu' not found
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
-Refreshing native plugins compatible for Editor in 1.60 ms, found 3 plugins.
+Shader 'SyntyStudios/VegitationShader': fallback shader 'wiiu' not found
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Refreshing native plugins compatible for Editor in 1.01 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 5808 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 50 unused Assets / (421.7 KB). Loaded Objects now: 6273.
-Memory consumption went from 303.8 MB to 303.4 MB.
-Total: 5.610100 ms (FindLiveObjects: 0.474600 ms CreateObjectMapping: 0.349900 ms MarkObjects: 4.504500 ms  DeleteObjects: 0.279600 ms)
+Unloading 6379 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 51 unused Assets / (1.2 MB). Loaded Objects now: 6844.
+Memory consumption went from 323.7 MB to 322.5 MB.
+Total: 3.500500 ms (FindLiveObjects: 0.400700 ms CreateObjectMapping: 0.215700 ms MarkObjects: 2.587700 ms  DeleteObjects: 0.295100 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -169,37 +169,547 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 386741.062033 seconds.
-  path: Assets/PolygonStarter/Prefabs/SM_PolygonPrototype_Prop_Crate_03.prefab
-  artifactKey: Guid(5527826a6315a224d850675a730c4f62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PolygonStarter/Prefabs/SM_PolygonPrototype_Prop_Crate_03.prefab using Guid(5527826a6315a224d850675a730c4f62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fa24f2a4d71d1c877e82bc1e066dd673') in 0.313339 seconds 
+  Time since last request: 76935.275265 seconds.
+  path: Assets/Monsters Ultimate Pack 02 Cute Series/Shell Cute Series/FBX/Shell.FBX
+  artifactKey: Guid(600f58dca42f8f44f8fc2458a0fb193b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Monsters Ultimate Pack 02 Cute Series/Shell Cute Series/FBX/Shell.FBX using Guid(600f58dca42f8f44f8fc2458a0fb193b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd8943a13f6cefe191acc674ff172138b') in 0.266653 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 12.896337 seconds.
-  path: Assets/PolygonStarter/Prefabs/Characters/SM_Bean_Cop_01.prefab
-  artifactKey: Guid(f10c394033f254647873f3d28a75a062) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PolygonStarter/Prefabs/Characters/SM_Bean_Cop_01.prefab using Guid(f10c394033f254647873f3d28a75a062) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '68f1ff6ea011ada2d7329f101f127fb5') in 0.030302 seconds 
+  Time since last request: 1614.379154 seconds.
+  path: Assets/Effects/Glow.shadergraph
+  artifactKey: Guid(42b0ef907d9e6e84883d96ccf495d2cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/Glow.shadergraph using Guid(42b0ef907d9e6e84883d96ccf495d2cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '81bbfd5e4e5bf11ad33e63a04e299d1a') in 0.004566 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000029 seconds.
-  path: Assets/PolygonStarter/Prefabs/Characters/SM_Character_Male_01.prefab
-  artifactKey: Guid(f11fc98cf1e8d5547a9b2ec85cc9c664) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PolygonStarter/Prefabs/Characters/SM_Character_Male_01.prefab using Guid(f11fc98cf1e8d5547a9b2ec85cc9c664) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '180c106e21abea27644ddd3011c62137') in 0.032388 seconds 
+  Time since last request: 31.717259 seconds.
+  path: Assets/Effects/Glow.shadergraph
+  artifactKey: Guid(42b0ef907d9e6e84883d96ccf495d2cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/Glow.shadergraph using Guid(42b0ef907d9e6e84883d96ccf495d2cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'edc485f015d94a26abd68e35927e1ad8') in 0.002773 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.007343 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.13 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.071 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1072ms)
+		BeginReloadAssembly (128ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (7ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (42ms)
+		EndReloadAssembly (871ms)
+			LoadAssemblies (77ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (228ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (53ms)
+			SetupLoadedEditorAssemblies (414ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (11ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (73ms)
+				ProcessInitializeOnLoadAttributes (264ms)
+				ProcessInitializeOnLoadMethodAttributes (59ms)
+				AfterProcessingInitializeOnLoad (5ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (12ms)
+Platform modules already initialized, skipping
+Shader 'SyntyStudios/TriplanarBasic': fallback shader 'wiiu' not found
+Shader 'SyntyStudios/VegitationShader': fallback shader 'wiiu' not found
+Refreshing native plugins compatible for Editor in 2.41 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 6207 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 30 unused Assets / (1.1 MB). Loaded Objects now: 6918.
+Memory consumption went from 336.2 MB to 335.0 MB.
+Total: 3.534400 ms (FindLiveObjects: 0.427500 ms CreateObjectMapping: 0.263000 ms MarkObjects: 2.701800 ms  DeleteObjects: 0.139700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 17.445868 seconds.
-  path: Assets/PolygonStarter/Materials/Plane/PolygonStarter_Mat_Plane_01.mat
-  artifactKey: Guid(940d4c7d3d8f0ff4aab297e184fe9ffd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PolygonStarter/Materials/Plane/PolygonStarter_Mat_Plane_01.mat using Guid(940d4c7d3d8f0ff4aab297e184fe9ffd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7ee37919ce13225738b24f0c2c8bfd52') in 0.067810 seconds 
+  Time since last request: 1145.362287 seconds.
+  path: Assets/Monsters Ultimate Pack 02 Cute Series/Shell Cute Series/Prefabs/Shell.prefab
+  artifactKey: Guid(59a51997eb082e449b7eff675857e1ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Monsters Ultimate Pack 02 Cute Series/Shell Cute Series/Prefabs/Shell.prefab using Guid(59a51997eb082e449b7eff675857e1ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8abd69fff5d299aa67b0c0be824134c6') in 1.296965 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005636 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.23 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.075 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1075ms)
+		BeginReloadAssembly (118ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (42ms)
+		EndReloadAssembly (888ms)
+			LoadAssemblies (68ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (247ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (64ms)
+			SetupLoadedEditorAssemblies (438ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (15ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (81ms)
+				ProcessInitializeOnLoadAttributes (269ms)
+				ProcessInitializeOnLoadMethodAttributes (67ms)
+				AfterProcessingInitializeOnLoad (5ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (9ms)
+Platform modules already initialized, skipping
+Shader 'SyntyStudios/TriplanarBasic': fallback shader 'wiiu' not found
+Shader 'SyntyStudios/VegitationShader': fallback shader 'wiiu' not found
+Refreshing native plugins compatible for Editor in 2.47 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 6207 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 31 unused Assets / (1.1 MB). Loaded Objects now: 6977.
+Memory consumption went from 336.3 MB to 335.2 MB.
+Total: 3.023700 ms (FindLiveObjects: 0.322300 ms CreateObjectMapping: 0.197000 ms MarkObjects: 2.352800 ms  DeleteObjects: 0.150700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 32.472169 seconds.
-  path: Assets/PolygonStarter/Prefabs/Characters/SM_Character_Male_01.prefab
-  artifactKey: Guid(f11fc98cf1e8d5547a9b2ec85cc9c664) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PolygonStarter/Prefabs/Characters/SM_Character_Male_01.prefab using Guid(f11fc98cf1e8d5547a9b2ec85cc9c664) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3cb129dcee8482228dde85531f571bcd') in 0.019072 seconds 
+  Time since last request: 498.840265 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a643602f21b73675c4d4e8dc498d6bf7') in 0.272427 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.007018 seconds.
-  path: Assets/PolygonStarter/Prefabs/Characters/SM_Bean_Cop_01.prefab
-  artifactKey: Guid(f10c394033f254647873f3d28a75a062) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/PolygonStarter/Prefabs/Characters/SM_Bean_Cop_01.prefab using Guid(f10c394033f254647873f3d28a75a062) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eaad7cef88d52154f2d4a7367ec9625f') in 0.051727 seconds 
+  Time since last request: 27.843687 seconds.
+  path: Assets/Monsters Ultimate Pack 02 Cute Series/Shell Cute Series/Prefabs/Shell.prefab
+  artifactKey: Guid(59a51997eb082e449b7eff675857e1ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Monsters Ultimate Pack 02 Cute Series/Shell Cute Series/Prefabs/Shell.prefab using Guid(59a51997eb082e449b7eff675857e1ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ad698e2ec0586cd7d8816d82df9f31b6') in 0.074248 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.100989 seconds.
+  path: Assets/Monsters Ultimate Pack 02 Cute Series/Shell Cute Series/FBX/Shell.FBX
+  artifactKey: Guid(600f58dca42f8f44f8fc2458a0fb193b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Monsters Ultimate Pack 02 Cute Series/Shell Cute Series/FBX/Shell.FBX using Guid(600f58dca42f8f44f8fc2458a0fb193b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bd2ddd1c5a78012948de9c35864c2c35') in 0.079742 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 36.240251 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6cba59a073cb20b5922fed6d98721599') in 1.293551 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 11.667233 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e5bc32fd666d0ede8511f44fd7a7e47d') in 0.455697 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 11.408836 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '274b98b1c39cb2030e9f6691c754931e') in 0.954542 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 8.760254 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '31eee16717fcbd5098ba0a31dfa2d85a') in 0.230354 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 34.326444 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3a29aa0d9e094bc327dbcf48e61e3e06') in 0.251910 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.122625 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1c0b78c5491c5ef30da4ed7543dbd858') in 0.249136 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 48.394517 seconds.
+  path: Assets/Monsters Ultimate Pack 02 Cute Series/Shell Cute Series/Prefabs/Shell.prefab
+  artifactKey: Guid(59a51997eb082e449b7eff675857e1ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Monsters Ultimate Pack 02 Cute Series/Shell Cute Series/Prefabs/Shell.prefab using Guid(59a51997eb082e449b7eff675857e1ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fce68bdddb09f2392a95fdc5296c0be2') in 0.058054 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 32.218947 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '359f0148f087f5e8bfbc1e64141d6042') in 0.046399 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.111957 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c863096cd473770f9793df201c55f931') in 0.029166 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 71.111628 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b4ebcfdc01153f2ea678108e7955c1ee') in 0.118003 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 15.014860 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e363d4baefd2816b89999962e7570a33') in 0.048474 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 7.563942 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dbae42e8b2e7a4ebfe299b2e9c4df0b4') in 0.019266 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 71.975599 seconds.
+  path: Assets/Effects/Glow.shadergraph
+  artifactKey: Guid(42b0ef907d9e6e84883d96ccf495d2cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/Glow.shadergraph using Guid(42b0ef907d9e6e84883d96ccf495d2cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b6a1ba729298ab364348443159e8ef63') in 0.004186 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.735994 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '80341ad33bb1787c69222d2bda4dea3c') in 0.047308 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 77.268164 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'df3d4ac985841b73999fee076e11d290') in 0.235750 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 41.955780 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '68f890298e7a62d026f64f3f49311e6c') in 0.019548 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 10.205544 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c7b1a3de6ec8c91fd53cf2da0f06f08d') in 0.030315 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 38.890781 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd7113e6cfed54d1f8e04a8df83211297') in 0.145764 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.246889 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '582d4eff54cffbcd6b42dc2b3e823b6f') in 0.125831 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 57.993738 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0fe5afb4a1560880f904f4282c72d68a') in 0.044897 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 29.507310 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e1e378871ea820f5e56fd3e16e51e7a2') in 0.218469 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.232585 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '154f0c658fb974399f7f43e2d8f91e27') in 0.110772 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 58.163689 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '82b7ed1358abbe68f86e6b6a5b11468c') in 0.020802 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.853796 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a5ad1b238d999b4ecdbab226441386be') in 0.019271 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 48.279783 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '70e9a31ee33478b5d08c38a6106aa145') in 0.020023 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 6.402670 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '944c33daf422beaa9b1645c3879a362f') in 0.026689 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 66.804913 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '484d5b693c486443cc65a41b0bf38b0d') in 0.025039 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 27.657965 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1624039997de28e30446b819ce3bc491') in 0.106467 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 63.000890 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7a29031b567c7bf5f12802eb9236b844') in 0.104431 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 39.859497 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '10377f9086f6d1ce7aad93d6d64f95ec') in 0.133302 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 35.484636 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '510020373ab77f9716ef9e38c2e0d396') in 0.150377 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.942613 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c94bbe107fb144e9a0f89715ae692d36') in 0.024320 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 73.157220 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2a733b6b2b4964d3073b56d75a80fad0') in 0.054786 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.980031 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '96332834a1aadb7d3c7749ced654d24b') in 0.019706 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 30.026876 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f8a9dcc289f506ac09facc26807ed29d') in 0.050525 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 57.188010 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '965fa8cc4c1f8a3567a074530b31e322') in 0.048160 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 42.500862 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5e59ccf1a49e987dfbffceb117fe9479') in 0.047250 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 66.112242 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3a09b6203d0d8ae4caadaf95e7355a1a') in 0.024828 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 9.348134 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fa586baa9dde163f6fa3d3d81c61f970') in 0.096373 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 27.910375 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7a257433d4013f8e91ac1170af63c445') in 0.031442 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 16.936371 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ce37a8317d100198e8464c7388aca03b') in 0.050206 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 32.139403 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'beb6f40a1413dcd1a5e585ad40e75334') in 0.026250 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 20.080716 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '729ace17f36ea3bce8ff177fe19f85e8') in 0.082807 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 27.931986 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1f5fa5f07488a1f3d6eaee0043c09135') in 0.050768 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 197.962263 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '92cea4dc1164f842d0f26889adfc4acc') in 0.103019 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 20.723167 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff6922fd4eb0b5d0e5eb9891c15ec6c4') in 0.064412 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 28.994493 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '56aba6f20eeca0b9ddbfb924e883f3e9') in 0.034446 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 97.031982 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '564717a06d6b020232cc4324c7113bc6') in 0.056478 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 23.408749 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '83d69b2a52964f36004f39bf0be390bb') in 0.164080 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 23.579160 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cb224907c21b85327cc6d31435899691') in 0.062787 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 26.218227 seconds.
+  path: Assets/Monsters Ultimate Pack 02 Cute Series/Shell Cute Series/Prefabs/Shell.prefab
+  artifactKey: Guid(59a51997eb082e449b7eff675857e1ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Monsters Ultimate Pack 02 Cute Series/Shell Cute Series/Prefabs/Shell.prefab using Guid(59a51997eb082e449b7eff675857e1ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2476141257bf4d02b682c8d9099ac036') in 0.327389 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.017993 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\zbehr\Repos\ChatGPTKreetures\Kreetures3DSample\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 2.26 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  5.826 seconds
+Domain Reload Profiling:
+	ReloadAssembly (5830ms)
+		BeginReloadAssembly (913ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (63ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (327ms)
+		EndReloadAssembly (4402ms)
+			LoadAssemblies (503ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (1378ms)
+			ReleaseScriptCaches (6ms)
+			RebuildScriptCaches (341ms)
+			SetupLoadedEditorAssemblies (1964ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (40ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (255ms)
+				ProcessInitializeOnLoadAttributes (1289ms)
+				ProcessInitializeOnLoadMethodAttributes (345ms)
+				AfterProcessingInitializeOnLoad (30ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (36ms)
+Platform modules already initialized, skipping
+Shader 'SyntyStudios/TriplanarBasic': fallback shader 'wiiu' not found
+Shader 'SyntyStudios/VegitationShader': fallback shader 'wiiu' not found
+Refreshing native plugins compatible for Editor in 14.19 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 6208 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 31 unused Assets / (1.1 MB). Loaded Objects now: 7072.
+Memory consumption went from 337.3 MB to 336.2 MB.
+Total: 24.367300 ms (FindLiveObjects: 1.730500 ms CreateObjectMapping: 2.213000 ms MarkObjects: 19.986000 ms  DeleteObjects: 0.432100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 180.920554 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7819a72bfefad7026790c075af8d4f0f') in 0.903747 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 6.943248 seconds.
+  path: Assets/Effects/vfxLevelUp.vfx
+  artifactKey: Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Effects/vfxLevelUp.vfx using Guid(94bdf838816240f4ab8b5ddbd0354c92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0f92d39b01a36949b5763e452f0024cd') in 0.067220 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 65.612986 seconds.
+  path: Assets/Monsters Ultimate Pack 02 Cute Series/Shell Cute Series/Prefabs/Shell.prefab
+  artifactKey: Guid(59a51997eb082e449b7eff675857e1ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Monsters Ultimate Pack 02 Cute Series/Shell Cute Series/Prefabs/Shell.prefab using Guid(59a51997eb082e449b7eff675857e1ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7bccc87f8e0920bdcb540a8f124d6da1') in 3.701593 seconds 

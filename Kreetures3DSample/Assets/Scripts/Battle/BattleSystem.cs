@@ -410,6 +410,7 @@ public class BattleSystem : MonoBehaviour
 			while (playerUnit.Kreeture.CheckForLevelUp())
 			{
 				playerUnit.Hud.SetLevel();
+				playerUnit.PlayLevelUpAnimation();
 				yield return dialogBox.TypeDialog($"{playerUnit.Kreeture.Base.Name} grew to level {playerUnit.Kreeture.Level}");
 
 				// Try to learn a new Move

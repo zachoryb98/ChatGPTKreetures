@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 [CreateAssetMenu(fileName = "New Kreeture", menuName = "Kreeture/Create New Kreeture")]
 public class KreetureBase : ScriptableObject

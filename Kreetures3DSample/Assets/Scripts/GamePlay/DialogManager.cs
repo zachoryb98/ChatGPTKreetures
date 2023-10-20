@@ -19,8 +19,17 @@ public class DialogManager : MonoBehaviour
 
 	public static DialogManager Instance { get; private set; }
 	private void Awake()
-	{		
-		Instance = this;		
+	{
+		if (Instance == null)
+		{
+			Instance = this;
+			DontDestroyOnLoad(gameObject); // Keep the GameManager object when changing scenes
+		}
+		else
+		{
+			Destroy(gameObject); // Destroy any duplicate GameManager instances
+		}
+		
 		UIControls = new PlayerInput();
 	}
 
