@@ -534,8 +534,6 @@ MonoBehaviour:
   kreetures:
   - _base: {fileID: 11400000, guid: c1cfe2f5894234d41b219792dce22f35, type: 2}
     level: 2
-  - _base: {fileID: 11400000, guid: c1cfe2f5894234d41b219792dce22f35, type: 2}
-    level: 2
 --- !u!114 &162860511
 MonoBehaviour:
   m_ObjectHideFlags: 0

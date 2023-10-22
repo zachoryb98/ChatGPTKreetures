@@ -56,6 +56,11 @@ public class TrainerController : MonoBehaviour, Interactable
         encounterManager.GetComponent<Collider>().enabled = false;
     }
 
+    public bool GetHasTrainerLost()
+	{
+        return HasTrainerLost;
+	}
+
     public IEnumerator TriggerTrainerBattle()
     {
         GameManager.Instance.state = GameState.Dialog;

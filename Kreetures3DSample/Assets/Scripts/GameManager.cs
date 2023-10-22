@@ -46,6 +46,8 @@ public class GameManager : MonoBehaviour
 	public void SetTrainerLoss()
 	{
 		trainerController.BattleLost();
+		SetIsTrainerBattle(false);
+		playerController.SetContinueDialog(false);
 	}
 
 	public Kreeture GetWildKreeture()
@@ -70,8 +72,11 @@ public class GameManager : MonoBehaviour
 			playerController.DisableUIControls();
 			if (enterTrainerBattle)
 			{
-				PersistentObjectManager.Instance.RegisterObject(trainerController.gameObject);
-				TransitionToTrainerBattle(trainerController.getSceneToLoad());
+				if(trainerController != null)
+				{
+					PersistentObjectManager.Instance.RegisterObject(trainerController.gameObject);
+					TransitionToTrainerBattle(trainerController.getSceneToLoad());
+				}
 			}
 		};
 	}

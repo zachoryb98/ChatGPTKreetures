@@ -53,18 +53,24 @@ public class PersistentObjectManager : MonoBehaviour
 	}
 
 	public static void CheckIfTrainerHasPassedThroughScene(TrainerController trainer)
-	{		
-		foreach(var obj in Instance.persistentObjects)
+	{
+		// Create a copy of the persistentObjects list
+		List<GameObject> objectsCopy = new List<GameObject>(Instance.persistentObjects);
+
+		foreach (var obj in objectsCopy)
 		{
 			TrainerController _trainer = obj.GetComponent<TrainerController>();
-			if(_trainer != null)
+			if (_trainer != null && trainer.trainerID == _trainer.trainerID)
 			{
-				if(trainer.trainerID == _trainer.trainerID)
-				{
-					Destroy(trainer.gameObject);
-					UnregisterObject(trainer.gameObject);
-				}
+				trainer.gameObject.transform.position = obj.transform.position;
+				trainer.gameObject.transform.rotation = obj.transform.rotation;
+
+				// Modify the original collection
+				Instance.persistentObjects.Remove(obj);
+				Destroy(obj);
+
+				trainer.BattleLost();
 			}
-		}		
+		}
 	}
 }
