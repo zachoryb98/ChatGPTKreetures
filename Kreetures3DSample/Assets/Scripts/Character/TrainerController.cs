@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
 
-public class TrainerController : MonoBehaviour, Interactable
+public class TrainerController : MonoBehaviour, Interactable, ISavable
 {
     public string trainerID;
     public Transform trainerSpawnPosition;
@@ -135,7 +135,22 @@ public class TrainerController : MonoBehaviour, Interactable
         }
     }
 
-    public string Name
+	public object CaptureState()
+	{
+        return HasTrainerLost;
+	}
+
+	public void RestoreState(object state)
+	{
+        HasTrainerLost = (bool)state;
+
+		if (HasTrainerLost)
+		{
+            encounterManager.GetComponent<Collider>().enabled = false;
+        }
+	}
+
+	public string Name
     {
         get => name;
     }

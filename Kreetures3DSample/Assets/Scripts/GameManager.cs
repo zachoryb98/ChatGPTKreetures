@@ -43,6 +43,23 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
+	private void Update()
+	{
+		if(state == GameState.FreeRoam)
+		{
+
+			if (Input.GetKeyDown(KeyCode.S))
+			{
+				SavingSystem.i.Save("saveSlot1");
+			}
+
+			if (Input.GetKeyDown(KeyCode.L))
+			{
+				SavingSystem.i.Load("saveSlot1");
+			}
+		}
+	}
+
 	public void SetTrainerLoss()
 	{
 		trainerController.BattleLost();
@@ -72,7 +89,7 @@ public class GameManager : MonoBehaviour
 			playerController.DisableUIControls();
 			if (enterTrainerBattle)
 			{
-				if(trainerController != null)
+				if (trainerController != null)
 				{
 					PersistentObjectManager.Instance.RegisterObject(trainerController.gameObject);
 					TransitionToTrainerBattle(trainerController.getSceneToLoad());
@@ -84,13 +101,13 @@ public class GameManager : MonoBehaviour
 	public void TransitionToBattle(string sceneToLoad)
 	{
 		playerController.gameObject.SetActive(false);
-		enterTrainerBattle = false;		
+		enterTrainerBattle = false;
 		OpenBattleScene(sceneToLoad);
 	}
 
 	public void TransitionToTrainerBattle(string _sceneToLoad)
 	{
-		playerController.gameObject.SetActive(false);		
+		playerController.gameObject.SetActive(false);
 		OpenBattleScene(_sceneToLoad);
 	}
 

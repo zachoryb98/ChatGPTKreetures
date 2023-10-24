@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, ISavable
 {
     private PlayerInput playerControls;
     public float moveSpeed = 5.0f;
@@ -138,5 +138,17 @@ public class PlayerController : MonoBehaviour
     {
         // Update the player's position
         transform.position = position;
-    }    
+    }
+
+	public object CaptureState()
+	{
+        float[] position = new float[] { transform.position.x, transform.position.y, transform.position.z };
+        return position;
+	}
+
+	public void RestoreState(object state)
+	{
+        var position = (float[])state;
+        transform.position = new Vector3(position[0], position[1], position[2]);
+	}
 }
