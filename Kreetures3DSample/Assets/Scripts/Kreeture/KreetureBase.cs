@@ -152,7 +152,7 @@ public enum KreetureType
     Ethereal,
     Beast,
     Umbral,                            
-    Ironclad,
+    Forged,
     Arcane
 }
 

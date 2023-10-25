@@ -35,6 +35,10 @@ public class GameManager : MonoBehaviour
 		if (Instance == null)
 		{
 			Instance = this;
+			KreetureDB.Init();
+			ConditionsDB.Init();
+			AttackDB.Init();
+
 			DontDestroyOnLoad(gameObject); // Keep the GameManager object when changing scenes
 		}
 		else

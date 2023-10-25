@@ -71,6 +71,41 @@ public class Kreeture
 		VolatileStatus = null;
 	}
 
+	public Kreeture(KreetureSaveData saveData)
+	{
+		_base = KreetureDB.GetKreetureByName(saveData.name);
+		HP = saveData.hp;
+		level = saveData.level;
+		Exp = saveData.exp;
+
+		if (saveData.statusId != null)
+			Status = ConditionsDB.Conditions[saveData.statusId.Value];
+		else
+			Status = null;
+
+		Attacks = saveData.attacks.Select(s => new Attack(s)).ToList();
+
+		CalculateStats();
+		StatusChanges = new Queue<string>();
+		ResetStatBoost();		
+		VolatileStatus = null;
+	}
+
+	public KreetureSaveData GetSaveData()
+	{
+		var saveData = new KreetureSaveData()
+		{
+			name = Base.Name,
+			hp = HP,
+			level = Level,
+			exp = Exp,
+			statusId = Status?.Id,
+			attacks = Attacks.Select(a => a.GetSaveData()).ToList()
+		};
+
+		return saveData;
+	}
+
 	void CalculateStats()
 	{
 		Stats = new Dictionary<Stat, int>();
@@ -294,4 +329,15 @@ public class DamageDetails
 	public bool Fainted { get; set; }
 	public float Critical { get; set; }
 	public float TypeEffectiveness { get; set; }
+}
+
+[System.Serializable]
+public class KreetureSaveData
+{
+	public string name;
+	public int hp;
+	public int level;
+	public int exp;
+	public ConditionID? statusId;
+	public List<AttackSaveData> attacks;
 }

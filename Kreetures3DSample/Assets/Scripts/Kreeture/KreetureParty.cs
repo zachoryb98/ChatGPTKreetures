@@ -13,6 +13,10 @@ public class KreetureParty : MonoBehaviour
 		{
             return kreetures;
 		}
+		set
+		{
+            kreetures = value;
+		}
 	}
 
     private void Start()
