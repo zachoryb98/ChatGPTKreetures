@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -22,6 +23,8 @@ public class GameManager : MonoBehaviour
 	private bool enterTrainerBattle = false;
 
 	private string previousSceneName;
+	//public SceneDetails CurrentScene { get; private set; }
+	//public SceneDetails PrevScene { get; private set; }
 
 	public bool playerDefeated = false;
 
@@ -29,6 +32,7 @@ public class GameManager : MonoBehaviour
 	private Quaternion playerRotation = new Quaternion();
 
 	public GameState state;
+	List<SavableEntity> savableEntities;
 
 	private void Awake()
 	{
@@ -105,7 +109,7 @@ public class GameManager : MonoBehaviour
 	public void TransitionToBattle(string sceneToLoad)
 	{
 		playerController.gameObject.SetActive(false);
-		enterTrainerBattle = false;
+		enterTrainerBattle = false;		
 		OpenBattleScene(sceneToLoad);
 	}
 
@@ -224,7 +228,34 @@ public class GameManager : MonoBehaviour
 	{
 		Instance.SetPreviousScene(SceneManager.GetActiveScene().name);
 
+		SaveOnDemand();
+
 		SceneManager.LoadScene(sceneToLoad);
+	}
+
+	public void SaveOnDemand()
+	{
+		savableEntities = GetSavableEntitiesInScene();
+		SavingSystem.i.CaptureEntityStates(savableEntities);
+	}
+
+	List<SavableEntity> GetSavableEntitiesInScene()
+	{
+		//CURRENTLY ONLY WORKS FOR TRAINERS
+		var trainerControllers = FindObjectsOfType<TrainerController>();
+
+		List<SavableEntity> savableEntities = trainerControllers
+			.Select(trainer => trainer.GetComponent<SavableEntity>())
+			.Where(savableEntity => savableEntity != null)
+			.ToList();
+
+		return savableEntities;
+	}
+
+	public void RestoreSavableEntities()
+	{
+		savableEntities = GetSavableEntitiesInScene();
+		SavingSystem.i.RestoreEntityStates(savableEntities);
 	}
 }
 

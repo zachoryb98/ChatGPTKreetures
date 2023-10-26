@@ -892,6 +892,8 @@ public class BattleSystem : MonoBehaviour
 	{
 		string previousSceneName = GameManager.Instance.GetPreviousScene();
 
+		var currScene = SceneManager.GetSceneByName(gameObject.name);		
+
 		SceneManager.LoadScene(previousSceneName);
 	}
 }

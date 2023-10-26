@@ -66,11 +66,13 @@ public class PersistentObjectManager : MonoBehaviour
 				trainer.gameObject.transform.rotation = obj.transform.rotation;
 
 				// Modify the original collection
+				SavingSystem.i.LogGameState();
 				Instance.persistentObjects.Remove(obj);
 				Destroy(obj);
 
 				trainer.BattleLost();
 			}
 		}
+		GameManager.Instance.RestoreSavableEntities();
 	}
 }

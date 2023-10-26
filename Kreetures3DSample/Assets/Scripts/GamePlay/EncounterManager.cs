@@ -7,7 +7,7 @@ public class EncounterManager : MonoBehaviour
     public float encounterProbability = 0.2f;
     public List<Kreeture> wildKreetures;    
 
-    [SerializeField] private string sceneToLoad = "TestScene";
+    [SerializeField] private string sceneToLoad = "TestScene";    
 
     private bool hasReturnedFromBattle; // Flag to indicate if the player has returned from battle
 

@@ -432,6 +432,7 @@
 "Assets/Scripts/Saving/ISavable.cs"
 "Assets/Scripts/Saving/SavableEntity.cs"
 "Assets/Scripts/Saving/SavingSystem.cs"
+"Assets/Scripts/SceneManagement/SceneDetails.cs"
 -langversion:9.0
 
 /deterministic

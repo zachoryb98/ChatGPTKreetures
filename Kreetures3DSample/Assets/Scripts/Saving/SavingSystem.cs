@@ -11,10 +11,26 @@ public class SavingSystem : MonoBehaviour
     public static SavingSystem i { get; private set; }
     private void Awake()
     {
-        i = this;
+        if (i == null)
+        {
+            i = this;            
+            DontDestroyOnLoad(gameObject); // Keep the GameManager object when changing scenes
+        }
+        else
+        {
+            Destroy(gameObject); // Destroy any duplicate GameManager instances
+        }
     }
 
-    Dictionary<string, object> gameState = new Dictionary<string, object>();
+    public Dictionary<string, object> gameState = new Dictionary<string, object>();
+
+    public void LogGameState()
+	{
+        foreach(var key in gameState)
+		{
+            Debug.Log(key.Value.ToString());
+		}
+	}
 
     public void CaptureEntityStates(List<SavableEntity> savableEntities)
     {

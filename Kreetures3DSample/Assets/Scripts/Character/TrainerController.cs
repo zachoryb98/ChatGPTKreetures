@@ -54,6 +54,8 @@ public class TrainerController : MonoBehaviour, Interactable, ISavable
 	{
         HasTrainerLost = true;
         encounterManager.GetComponent<Collider>().enabled = false;
+
+        GameManager.Instance.SaveOnDemand();
     }
 
     public bool GetHasTrainerLost()
