@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum GameState { FreeRoam, Battle, Dialog, Wait }
+public enum GameState { FreeRoam, Battle, Dialog, Menu, Cutscene, Paused }
 
 public class GameManager : MonoBehaviour
 {
@@ -23,8 +23,8 @@ public class GameManager : MonoBehaviour
 	private bool enterTrainerBattle = false;
 
 	private string previousSceneName;
-	//public SceneDetails CurrentScene { get; private set; }
-	//public SceneDetails PrevScene { get; private set; }
+
+	MenuController menuController;
 
 	public bool playerDefeated = false;
 
@@ -43,6 +43,8 @@ public class GameManager : MonoBehaviour
 			ConditionsDB.Init();
 			AttackDB.Init();
 
+			menuController = FindObjectOfType<MenuController>();
+
 			DontDestroyOnLoad(gameObject); // Keep the GameManager object when changing scenes
 		}
 		else
@@ -55,16 +57,22 @@ public class GameManager : MonoBehaviour
 	{
 		if(state == GameState.FreeRoam)
 		{
-
-			if (Input.GetKeyDown(KeyCode.S))
-			{
-				SavingSystem.i.Save("saveSlot1");
-			}
-
 			if (Input.GetKeyDown(KeyCode.L))
 			{
 				SavingSystem.i.Load("saveSlot1");
 			}
+
+			//Maybe move this to player controller? 
+			if (Input.GetKeyDown(KeyCode.Escape))
+			{
+				menuController.OpenMenu();
+				state = GameState.Menu;
+			}
+		}
+
+		if(state == GameState.Menu)
+		{
+			menuController.HandleUpdate();
 		}
 	}
 
@@ -104,6 +112,13 @@ public class GameManager : MonoBehaviour
 				}
 			}
 		};
+
+		menuController.onBack += () =>
+		{
+			state = GameState.FreeRoam;
+		};
+
+		menuController.onMenuSelected += OnMenuSelected;
 	}
 
 	public void TransitionToBattle(string sceneToLoad)
@@ -111,12 +126,14 @@ public class GameManager : MonoBehaviour
 		playerController.gameObject.SetActive(false);
 		enterTrainerBattle = false;		
 		OpenBattleScene(sceneToLoad);
+		state = GameState.Battle;
 	}
 
 	public void TransitionToTrainerBattle(string _sceneToLoad)
 	{
 		playerController.gameObject.SetActive(false);
 		OpenBattleScene(_sceneToLoad);
+		state = GameState.Battle;
 	}
 
 	public TrainerController GetTrainer()
@@ -256,6 +273,40 @@ public class GameManager : MonoBehaviour
 	{
 		savableEntities = GetSavableEntitiesInScene();
 		SavingSystem.i.RestoreEntityStates(savableEntities);
+	}
+
+
+	void OnMenuSelected(int selectedItem)
+	{
+		if (selectedItem == 0)
+		{
+			// Database
+		}
+		else if (selectedItem == 1)
+		{
+			// kreetures
+		}
+		else if (selectedItem == 2)
+		{
+			// inventory
+		}
+		else if (selectedItem == 3)
+		{
+			// Quests
+			//SavingSystem.i.Load("saveSlot1");
+		}
+		else if (selectedItem == 4)
+		{
+			// Save
+			SavingSystem.i.Save("saveSlot1");
+		}
+		else if (selectedItem == 5)
+		{
+			// Quit
+			//SavingSystem.i.Save("saveSlot1");
+		}
+
+		state = GameState.FreeRoam;
 	}
 }
 

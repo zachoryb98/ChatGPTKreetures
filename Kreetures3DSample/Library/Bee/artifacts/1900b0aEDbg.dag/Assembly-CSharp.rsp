@@ -418,6 +418,7 @@
 "Assets/Scripts/GamePlay/Dialog.cs"
 "Assets/Scripts/GamePlay/DialogManager.cs"
 "Assets/Scripts/GamePlay/EncounterManager.cs"
+"Assets/Scripts/GamePlay/GlobalSettings.cs"
 "Assets/Scripts/GamePlay/Healer.cs"
 "Assets/Scripts/GamePlay/Interactable.cs"
 "Assets/Scripts/GamePlay/MapArea.cs"
@@ -433,6 +434,7 @@
 "Assets/Scripts/Saving/SavableEntity.cs"
 "Assets/Scripts/Saving/SavingSystem.cs"
 "Assets/Scripts/SceneManagement/SceneDetails.cs"
+"Assets/Scripts/UI/MenuController.cs"
 -langversion:9.0
 
 /deterministic

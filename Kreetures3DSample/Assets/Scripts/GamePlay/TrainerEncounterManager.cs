@@ -17,7 +17,7 @@ public class TrainerEncounterManager : MonoBehaviour
 	{
 		if (other.CompareTag("Player"))
 		{
-			GameManager.Instance.state = GameState.Wait;
+			GameManager.Instance.state = GameState.Paused;
 			GameManager.Instance.playerController.DisablePlayerControls();
 			GameManager.Instance.trainerController = trainer;
 			GameManager.Instance.SetEnemyTeam(kreetures);

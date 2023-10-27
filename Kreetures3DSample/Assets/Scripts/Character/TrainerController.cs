@@ -118,7 +118,7 @@ public class TrainerController : MonoBehaviour, Interactable, ISavable
 		if (!HasTrainerLost)
 		{
             moveToPlayer = false;
-            GameManager.Instance.state = GameState.Wait;
+            GameManager.Instance.state = GameState.Paused;
             GameManager.Instance.playerController.DisablePlayerControls();
             GameManager.Instance.trainerController = this;
             GameManager.Instance.SetEnemyTeam(encounterManager.kreetures);

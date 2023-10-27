@@ -9,7 +9,6 @@ public class BattleDialogBox : MonoBehaviour
 {
 	Transform startPos;
 	[SerializeField] int lettersPerSecond;
-	[SerializeField] Color highlightedColor;
 
 	[SerializeField] TextMeshProUGUI dialogText;
 	[SerializeField] GameObject actionSelector;
@@ -25,6 +24,13 @@ public class BattleDialogBox : MonoBehaviour
 
 	[SerializeField] TextMeshProUGUI yesText;
 	[SerializeField] TextMeshProUGUI noText;
+
+	Color highlightedColor;
+
+	private void Start()
+	{
+		highlightedColor = GlobalSettings.i.HighlightedColor;
+	}
 
 	private void Awake()
 	{

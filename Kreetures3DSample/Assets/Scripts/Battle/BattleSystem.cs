@@ -892,7 +892,9 @@ public class BattleSystem : MonoBehaviour
 	{
 		string previousSceneName = GameManager.Instance.GetPreviousScene();
 
-		var currScene = SceneManager.GetSceneByName(gameObject.name);		
+		var currScene = SceneManager.GetSceneByName(gameObject.name);
+
+		GameManager.Instance.state = GameState.FreeRoam;
 
 		SceneManager.LoadScene(previousSceneName);
 	}
