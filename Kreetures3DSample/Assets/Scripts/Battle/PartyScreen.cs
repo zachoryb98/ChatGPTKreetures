@@ -12,6 +12,9 @@ public class PartyScreen : MonoBehaviour
     PartyMemberUI[] memberSlots;
     List<Kreeture> kreetures;
 
+    //Party screen can be valled from different states like ActionSelection, runningTurn, and AboutToUse
+    public BattleState? CalledFrom { get; set; }
+
     public void Init()
     {
         memberSlots = GetComponentsInChildren<PartyMemberUI>(true);
